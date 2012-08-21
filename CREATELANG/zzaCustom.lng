@@ -1,0 +1,160 @@
+[CUSTOM]
+TEXT1=Item cannot be a quest taker
+TEXT2=Error: Quest (%d) not found
+TEXT3=The error has accured while loading the Quest:
+TEXT4=Error: QuestGiver is not set
+TEXT5=Error: QuestGiver is not set correctly
+TEXT6=Error: QuestTaker is not set
+TEXT7=Error: QuestTaker is not set correctly
+TEXT8=Warning: There is no one component assigned to field `%s`. It will assigned to default value if it has one.
+TEXT9=Are you sure to execute this script?
+TEXT10=Script executed successfully.
+TEXT11=QuestSort
+TEXT12=Zone
+TEXT13=Type
+TEXT14=Faction
+TEXT15=FactionTemplate
+TEXT16=Skill
+TEXT17=Creature location
+TEXT18=Gameobject location
+TEXT19=Item Loot
+TEXT20=Nothing to check.
+TEXT21=List of found quests is empty. Nothing to check.
+TEXT22=Terminating check. Please wait.
+TEXT23=Terminated
+TEXT24=quest = %d
+TEXT25=Fatal Error: Wrong quest id (%d)
+TEXT26=Fatal Error: Quest with entry = %d not found
+TEXT27=Warning: There more than one quest giver:
+TEXT28=Error: quest giver is creature with entry = %d, but (`npcflag` & 2) <> 2
+TEXT29=Warning: There more than one location for quest giver (id=%d) in table `creature`
+TEXT30=Error: Location for quest giver (id=%d) not found in table `creature`
+TEXT31=Error: quest giver is creature with entry = %d, but there is no one record in `creature_template` with entry = %0:d
+TEXT32=Warning: There more than one location for quest giver (id=%d) in table `gameobject`
+TEXT33=Error: Location for quest giver (id=%d) not found in table `gameobject`
+TEXT34=Warning: quest giver is item (id=%d), but there is no one loot in tables *_loot_template and npc_vendor. May be it is not error, just item need to be rewarded or gived from other quest.
+TEXT35=Warning: There more than one quest taker:
+TEXT36=Error: quest taker is creature with entry = %d, but (`npcflag` & 2) <> 2
+TEXT37=Warning: There more than one location for quest taker (id=%d) in table `creature`
+TEXT38=Error: Location for quest taker (id=%d) not found in table `creature`
+TEXT39=Error: quest taker is creature with entry = %d, but there is no one record in `creature_template` with entry = %0:d
+TEXT40=Warning: There more than one location for quest taker (id=%d) in table `gameobject`
+TEXT41=Error: Location for quest taker (id=%d) not found in table `gameobject`
+TEXT42=Error: quest taker is gameobject with entry = %d, but there is no one record in `gameobject_template` with entry = %0:d
+TEXT43=Error: quest giver not found
+TEXT44=Error: quest taker not found
+TEXT45=Warning: There is more than one different type quest giver (quest giver count=%d)
+TEXT46=Warning: There is more than one different type quest taker (quest taker count=%d)
+TEXT47=Error: PrevQuestId=%d, but quest with this id is not exists
+TEXT48=Error: NextQuestId=%d, but quest with this id is not exists
+TEXT49=Error: Type = %d, but Type with this id is not exists
+TEXT50=Error: %s = %d, but Faction with this id is not exists
+TEXT51=Error: ZoneOrSort = %d, but ZoneId with this id is not exists
+TEXT52=Error: ZoneOrSort = %d, but QuestSort with this id is not exists
+TEXT53=Error: MinLevel (%d) > QuestLevel (%d)
+TEXT54=Warning: QuestFlags is set to EXPLORATION but there is no one record in table `areatrigger_involvedrelation` for quest
+TEXT55=Warning: QuestFlags is set to SPEAK_TO but NextQuestId = 0
+TEXT56=Error: QuestFlags is set to DELIVER but ReqItemId1.-4. = 0
+TEXT57=Error: QuestFlags is set to KILL_OR_CAST but ReqCreatureOrGOId1.-4. = 0
+TEXT58=Warning: LimitTime = %d seconds, but QuestFlags is not set to TIMED
+TEXT59=Warning: ReqItemId <> 0, but QuestFlags is not set to DELIVER
+TEXT60=Warning: ReqCreatureOrGOId <> 0, but QuestFlags is not set to KILL_OR_CAST
+TEXT61=Warning: NextQuestId <> 0, but QuestFlags is not set to SPEAK_TO
+TEXT62=Error: %s = %d, but item with this id is not exists
+TEXT63=Warning: %s = %d, but there is no one loot in tables *_loot_template and npc_vendor. May be it is not error, just item need to be created or rewarded from other quest.
+TEXT64=Error: %s = %d. Loot for this item is gameobject_loot_template.entry = %d, but gameobject with this id not found in `gameobject` table
+TEXT65=Error: %s = %d. Loot for this item is creature_loot_template.entry = %d, but creature with this id not found in `creature` table
+TEXT66=Error: ReqSourceRef%d > 4
+TEXT67=Error: ReqSourceId%d=0, but ReqSourceRef%0:d=%1:d
+TEXT68=Error: ReqItemId%1:d=0, but ReqSourceRef%0:d=%1:d
+TEXT69=Error: ReqCreatureOrGOId%d = %d, but creature with this id is not exists
+TEXT70=Error: ReqCreatureOrGOId%d = %d, Location for creature not exists
+TEXT71=Error: ReqCreatureOrGOId%d = %d, but gameobject with this id is not exists
+TEXT72=Error: ReqCreatureOrGOId%d = %d, Location for gameobject not exists
+TEXT73=Check complete: %d errors, %d warnings
+TEXT74=Check quest (%d) : %d%%
+TEXT75=Check quest colmpete
+TEXT76=Error: quest giver is gameobject with entry = %d, but there is no one record in `gameobject_template` with entry = %0:d
+TEXT77=<< Details
+TEXT78=Details >>
+TEXT79=Quests found: %d
+TEXT80=Creatures found: %d
+TEXT81=Error: Creature (entry = %d) not found
+TEXT82=The error has accured while loading the Creature_Template:
+TEXT83=Rank
+TEXT84=Family
+TEXT85=Creature Type
+TEXT86=The error has accured while loading Creature:
+TEXT87=GameObjects found: %d
+TEXT88=Error: Gameobject (entry = %d) not found
+TEXT89=The error has accured while loading the Gameobject_Template:
+TEXT90=The error has accured while loading GameObject:
+TEXT91=The error has accured while loading creature_loot_template:
+TEXT92=The error has accured while loading gameobject_loot_template:
+TEXT93=GameObject Type
+TEXT94=Always = 0 or Unknown
+TEXT95=State
+TEXT96=LockID ( ID from Lock.dbc )
+TEXT97=flags
+TEXT98=ID gameobject ( Spawned GO type 6 )
+TEXT99=State Battleground
+TEXT100=QuestLoot ID
+TEXT101=LootID
+TEXT102=Time
+TEXT103=MinLoot
+TEXT104=MaxLoot
+TEXT105=QuestID ( Quest complete )
+TEXT106=Distance
+TEXT107=Spell ID
+TEXT108=Time/Distance
+TEXT109=Chain Effect
+TEXT110=Time/Distance for Chain Effect
+TEXT111=areatrigger_template.id
+TEXT112=Distance/ State
+TEXT113=ID SpellFocusObject.dbc
+TEXT114=Page ID
+TEXT115=ID from PageTextMaterial.dbc
+TEXT116=Items found: %d
+TEXT117=Error: Item (entry = %d) not found
+TEXT118=The error has accured while loading the Item_Template:
+TEXT119=Quality
+TEXT120=InventoryType
+TEXT121=RequiredReputationRank
+TEXT122=StatType
+TEXT123=DmgType
+TEXT124=Bonding
+TEXT125=Language
+TEXT126=PageMaterial
+TEXT127=Material
+TEXT128=Sheath
+TEXT129=BagFamily
+TEXT130=Class
+TEXT131=SubClass
+TEXT132=ItemSet
+TEXT133=Map
+TEXT134=Search filter is empty. This task returns all entries from table.$B$BAre you sure to continue?
+TEXT135=Script Command
+TEXT136=Characters found: %d
+TEXT137=New version of Quice (%s) is available. You want to download it?
+TEXT138=You have got the latest version.
+TEXT139=The error has accured while loading Creature Addon:
+TEXT140=Are you sure to uninstall Quice?
+TEXT141=Trainer Type
+TEXT142=Race
+TEXT143=Class
+TEXT144=The error has accured while loading NPC gossip:
+TEXT145=The error has accured while loading NPC Text:
+TEXT146=~OBSOLETE
+TEXT147=Emote
+TEXT148=ItemPetFood
+TEXT149=The error has accured while loading Creature Template Addon:
+TEXT150=GemProperties
+TEXT151=SpellItemEnchantment
+TEXT152=ItemExtendedCost
+TEXT153=Error: Character (guid = %d) not found
+TEXT154=The error has accured while loading the Character:
+TEXT155=AreaTrigger
+TEXT156=LootCondition
+TEXT157=The error has accured while loading Creature EventAI:
+TEXT158=Please specify a source type!
+

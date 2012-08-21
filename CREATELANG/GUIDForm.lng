@@ -1,0 +1,9 @@
+[GETGUID]
+Caption=Get GUID for gameobject
+tsSearch=Search
+edID=ID
+edName=Name
+btSearch=Search
+btOK=OK
+btCancel=Cancel
+

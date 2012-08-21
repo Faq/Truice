@@ -1,0 +1,29 @@
+0;Non equipable
+1;Head
+2;Neck
+3;Shoulder
+4;Body (Shirt)
+5;Chest
+6;Waist (Belt)
+7;Legs (Pants)
+8;Feet (Boots)
+9;Wrists (Bracers)
+10;Hands (Gloves)
+11;Finger (Ring)
+12;Trinket
+13;WEAPON One Hand
+14;WEAPON Off Hand/SHIELD
+15;Ranged (Bows)
+16;Cloak (Back)
+17;2HWEAPON Two-Hand
+18;Bag (incl. Quivers)
+19;Tabard
+20;Robe
+21;Main Hand
+22;Off Hand (Misc Items)
+23;Holdable (Tome)
+24;Ammunition
+25;Thrown
+26;Ranged Right (Gun)
+27;Quiver
+28;Relic

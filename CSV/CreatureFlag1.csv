@@ -1,0 +1,32 @@
+0;TAMEABLE (by any hunter)
+1;GHOST (also visible to dead players)
+2;UNK3 ("BOSS" flag for tooltips)
+3;UNK4
+4;UNK5 (controls something in client tooltip related to creature faction)
+5;UNK6 (may be sound related)
+6;UNK7 (may be related to attackable / not attackable creatures with spells, used together with lua_IsHelpfulSpell/lua_IsHarmfulSpell)
+7;DEAD_INTERACT (has something to do with unit interaction / quest status requests)
+8;HERBALISM
+9;MINING
+10;UNK11 (it used by client)
+11;MOUNTED_COMBAT (related to possibility to cast spells while mounted)
+12;AID_PLAYERS (can aid player in range)
+13;UNK14 (checked from calls in Lua_PetHasActionBar)
+14;UNK15 (Lua_UnitGUID, client does guid_low &= 0xFF000000 if this flag is set)
+15;ENGINEERLOOT
+16;EXOTIC (hunter exotic pet)
+17;UNK18 (related to CreatureDisplayInfo and scaling in some way)
+18;UNK19 (Related to vehicle/siege weapons?)
+19;UNK20 (may be has something to do with missiles)
+20;UNK21 (used by client, may be related to rendering)
+21;UNK22 (disable animation?)
+22;UNK23 (probably controls some creature visual)
+23;SQUIRE (Related to banner/backpack of creature/companion, used in CanInteract function by client)
+24;UNK25 (pet sounds related?)
+25;UNK26 (probably controls some creature visual)
+26;UNK27 (creature has no type, or forces creature to be considered as in party, may be related to creature assistance)
+27;UNK28 (used in Lua_ForceGossip)
+28;UNK29 (no idea, but it used by client)
+29;UNK30
+30;UNK31
+31;QUEST_BOSS (Lua_UnitIsQuestBoss)

@@ -1,0 +1,16 @@
+[CREATUREORGO]
+Caption=Creature or GO
+tsSearch=Search
+edID=ID
+edName=Name
+btSearch=Search
+rgCreatureOrGO=Creature or GO?
+btOK=OK
+btCancel=Cancel
+btBrowseSite=BrowseSite
+btEditCreatureOrGO=Edit
+pmwowhead=wowhead
+pmthottbot=thottbot
+pmallakhazam=allakhazam
+pmwowdb=wowdb
+

@@ -1,0 +1,32 @@
+0;Soulbound
+1;Conjured
+2;Lootable (can be opened)
+3;Heroic
+4;Deprecated Item
+5;INDESTRUCTIBLE (Totem)
+6;Activatable with right-click
+7;NO_EQUIP_COOLDOWN
+8;Allow trading when soulbound
+9;Wrapped
+10;Gifts
+11;PARTY_LOOT (can be looted by all)
+12;Refundable
+13;CHARTER (Arena or Guild)
+14;UNK5 (PvP reward item?)
+15;UNK6 (PvP reward item?)
+16;UNK7
+17;UNK8
+18;PROSPECTABLE
+19;UNIQUE_EQUIPPED
+20;UNK9
+21;USEABLE_IN_ARENA
+22;Throwable (for tooltip)
+23;USABLE_WHEN_SHAPESHIFTED (Special Use)
+24;UNK10
+25;SMART_LOOT
+26;NOT_USEABLE_IN_ARENA
+27;BIND_TO_ACCOUNT (needs Refundable & Quality=7)
+28;TRIGGERED_CAST (For enchant scrolls)
+29;Millable
+30;UNK11
+31;Bind on Pickup tradeable

@@ -1,0 +1,8 @@
+0;LOOTABLE
+1;TRACK_UNIT (POI)
+2;TAPPED (Lua_UnitIsTapped)
+3;TAPPED_BY_PLAYER (Lua_UnitIsTappedByPlayer for Vehicle's) 
+4;SPECIALINFO
+5;DEAD (visual)
+6;REFER_A_FRIEND
+7;TAPPED_BY_ALL_THREAT_LIST (Lua_UnitIsTappedByAllThreatList)

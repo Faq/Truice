@@ -1,0 +1,613 @@
+2;+8 Strength
+3;+8 Agility
+4;+8 Stamina
+5;+8 mana every 5 sec.
+21;+7 Spell Power
+22;+6 Strength
+23;+7 Spell Power
+24;+6 Agility
+25;+6 Intellect
+26;+6 Critical Strike Rating
+27;+6 Hit Rating
+28;+6 Defense Rating
+29;+9 Stamina
+30;+6 Spirit
+31;+8 Spell Penetration
+32;+3 Mana every 5 seconds
+41;+4 Agility per different colored gem
+42;+12 Strength if 4 blue gems equipped
+61;+4 Spell Power and +3 Intellect
+62;+3 Defense Rating and +4 Stamina
+63;+3 Intellect and +2 Mana every 5 Sec
+64;+4 Spell Power and +4 Stamina
+65;+4 Spell Power and +2 Mana every 5 seconds
+66;+3 Agility and +4 Stamina
+67;+3 Strength and +4 Stamina
+81;+8 Strength
+82;+8 Agility
+83;+9 Spell Power
+84;+9 Spell Power
+85;+16 Attack Power
+86;+8 Dodge Rating
+87;+12 Stamina
+88;+8 Spirit
+89;+4 Mana every 5 seconds
+101;+8 Intellect
+102;+8 Critical Strike Rating
+121;+8 Critical Strike Rating
+122;+8 Defense Rating
+123;+4 Strength and +6 Stamina
+124;+4 Agility and +6 Stamina
+125;+5 Spell Power and +6 Stamina
+126;+5 Spell Power and +2 Mana every 5 seconds
+127;+5 Spell Power and +4 Intellect
+128;+4 Defense Rating and +6 Stamina
+129;+4 Intellect and +2 Mana every 5 seconds
+141;+3 Critical Strike Rating and +3 Strength
+142;+4 Critical Strike Rating and +4 Strength
+143;+8 Parry Rating
+144;+3 Hit Rating and +3 Agility
+145;+4 Hit Rating and +4 Agility
+146;+3 Critical Strike Rating and +4 Stamina
+147;+4 Critical Strike Rating and +6 Stamina
+148;+8 Resilience Rating
+149;+3 Critical Strike Rating and +4 Spell Power
+150;+4 Critical Strike Rating and +5 Spell Power
+151;+3 Critical Strike Rating and +4 Spell Penetration
+152;+4 Critical Strike Rating and +5 Spell Penetration
+153;+8 Hit Rating
+154;+10 Spell Penetration
+161;+14 Critical Strike Rating and 1% Spell Reflect
+162;Chance to Increase Spell Cast Speed
+163;+24 Attack Power and Minor Run Speed Increase
+164;+12 Critical Strike Rating and Reduces Snare/Root Duration by 10%
+165;+18 Stamina and Stun Duration Reduced by 15%
+166;+14 Spell Power and 2% Reduced Threat
+167;+12 Defense Rating and Chance to Restore Health on hit
+168;+3 Melee Damage and Chance to Stun Target
+169;+12 Intellect and Chance to restore mana on spellcast
+182;+10 Resilience Rating
+201;+7 Strength
+202;+8 Spell Power
+203;+3 Stamina, +4 Crit Rating
+204;+3 Stamina and +4 Critical Strike Rating
+205;+3 Stamina and +4 Critical Strike Rating
+222;gem test enchantment
+241;+10 Strength
+242;+12 Spell Power
+243;+10 Critical Strike Rating
+244;+10 Critical Strike Rating
+261;+5 Strength, +5 Crit Rating
+262;+5 Critical Strike Rating and +6 Spell Power
+281;+3 Stamina and +4 Critical Strike Rating
+282;+7 Strength
+283;+3 Stamina and +4 Critical Strike Rating
+284;+8 Spell Power
+301;+6 Critical Strike Rating
+321;+14 Attack Power
+322;+14 Attack Power
+323;+20 Attack Power
+324;+10 Attack Power, +5 Critical Strike Rating
+341;+3 Resist All
+342;+4 Resist All
+361;+20 Attack Power
+362;+10 Critical Strike Rating
+381;+4 Strength
+382;+4 Agility
+383;+5 Spell Power
+384;+5 Spell Power
+385;+8 Attack Power
+386;+6 Stamina
+387;+4 Spirit
+388;+2 Mana every 5 seconds
+389;+4 Intellect
+390;+4 Critical Strike Rating
+391;+4 Hit Rating
+392;+4 Critical Strike Rating
+393;+4 Defense Rating
+401;+20 Attack Power and Minor Run Speed Increase
+402;+12 Spell Power and Minor Run Speed Increase
+421;+12 Attack Power
+441;+5 Strength and +6 Stamina 
+442;+6 Spell Power and +4 Intellect
+443;+6 Stamina and +5 Critical Strike Rating
+444;+5 Agility and +6 Stamina
+445;+5 Critical Strike Rating and +2 mana per 5 sec.
+446;+6 Spell Power and +4 Intellect 
+447;+6 Spell Power and +6 Stamina
+448;+10 Attack Power and +4 Hit Rating
+449;+5 Defense Rating and +4 Dodge Rating
+450;+6 Spell Power and +6 Stamina
+451;+5 Agility and +4 Hit Rating
+452;+5 Parry Rating and +4 Defense Rating
+453;+5 Strength and +4 Hit Rating
+454;+5 Critical Strike Rating and +2 mana per 5 sec
+455;+5 Critical Strike Rating and 2 mana per 5 sec.
+456;+5 Dodge Rating and +6 Stamina
+457;+5 Hit Rating and +6 Spell Power
+458;+6 Critical Strike Rating and +5 Dodge Rating
+459;+5 Parry Rating and +6 Stamina
+460;+8 Strength
+461;+5 Spirit and +5 Spell Power
+462;+6 Spell Power and +5 Spell Penetration
+463;+10 Attack Power and +6 Stamina
+464;+5 Dodge Rating and +4 Hit Rating
+465;+6 Spell Power and +4 Resilience Rating
+466;+8 Attack Power and +5 Critical Strike Rating
+467;+5 Intellect and +6 Stamina
+468;+5 Strength and +4 Critical Strike Rating
+469;+4 Agility and +5 Defense Rating
+470;+4 Intellect and +5 Spirit
+471;+5 Strength and +4 Defense Rating
+472;+4 Critical Strike Rating and +6 Spell Power
+473;+5 Intellect and 2 mana per 5 sec.
+474;+6 Stamina and +5 Defense Rating
+475;+8 Attack Power and +5 Resilience Rating
+476;+6 Stamina and +5 Resilience Rating
+477;+6 Spell Power and +4 Critical Strike Rating
+478;+5 Defense Rating and 2 mana per 5 sec.
+479;+8 Strength
+480;+6 Spell Power and +4 Spirit
+481;+5 Dodge Rating and +4 Resilience Rating
+482;+6 Stamina and +5 Critical Strike Rating
+483;+6 Spell Power and 2 mana per 5 sec.
+484;+5 Strength and +4 Resilience Rating
+485;+5 Hit Rating and +6 Stamina
+486;+5 Hit Rating and 2 mana per 5 sec.
+487;+5 Parry Rating and +4 Resilience Rating
+488;+5 Critical Strike Rating and +5 Spell Penetration
+501;+6 Spell Power and +6 Stamina
+502;+6 Spell Power and +6 Stamina
+503;+10 Attack Power and +6 Stamina
+521;+6 Hit Rating
+522;+8 Hit Rating
+523;+6 Attack Power and +4 Stamina
+524;+8 Attack Power and +6 Stamina
+525;+6 Attack Power & +1 Mana per 5 Seconds
+526;+8 Attack Power and +2 Mana every 5 seconds
+527;+3 Hit Rating and +4 Spell Power
+528;+4 Hit Rating and +5 Spell Power
+529;+4 Critical Strike Rating and +8 Attack Power
+530;+3 Critical Strike Rating and +6 Attack Power
+541;+10 Strength
+542;+10 Agility
+543;+12 Spell Power
+544;+12 Spell Power
+545;+20 Attack Power
+546;+10 Dodge Rating
+547;+10 Parry Rating
+548;+15 Stamina
+549;+10 Spirit
+550;+5 Mana every 5 seconds
+551;+13 Spell Penetration
+552;+10 Intellect
+553;+10 Critical Strike Rating
+554;+10 Hit Rating
+555;+10 Critical Strike Rating
+556;+10 Defense Rating
+557;+10 Resilience Rating
+558;+10 Hit Rating
+559;+5 Strength and +7 Stamina
+560;+5 Agility and +7 Stamina
+561;+10 Attack Power and +7 Stamina
+562;+10 Attack Power and +3 Mana every 5 Seconds
+563;+6 Spell Power and +7 Stamina
+564;+6 Spell Power and +3 Mana every 5 seconds
+565;+5 Critical Strike Rating and +5 Strength
+566;+5 Critical Strike Rating and +6 Spell Power
+567;+6 Spell Power and +5 Intellect
+568;+5 Hit Rating and +5 Agility
+569;+5 Hit Rating and +6 Spell Power
+570;+5 Critical Strike Rating and +10 Attack Power
+571;+5 Defense Rating and +7 Stamina
+572;+5 Critical Strike Rating and +6 Spell Penetration
+573;+5 Intellect and +3 Mana every 5 seconds
+574;+5 Critical Strike Rating and +7 Stamina
+581;+12 Agility and 3% Increased Critical Damage
+582;Chance to Increase Melee/Ranged Attack Speed 
+601;+8 Attack Power and +6 Stamina
+602;+4 Intellect and +6 Stamina
+603;+5 Spell Power and +4 Spirit
+604;+8 Attack Power and +4 Critical Strike Rating
+605;+5 Spell Power and +4 Intellect
+606;+4 Stamina and +4 Critical Strike Rating
+607;+24 Attack Power and 5% Stun Resistance
+608;+14 Spell Power and 5% Stun Resistance
+621;+20 Attack Power
+641;+4 Spell Power and +3 Spirit
+642;+5 Spell Power and +4 Spirit
+681;+8 Agility
+701;+12 Strength
+702;+24 Attack Power
+703;+12 Agility
+704;+14 Spell Power
+705;+14 Spell Power
+706;+18 Stamina
+707;+6 Mana every 5 seconds
+708;+12 Spirit
+709;+12 Resilience Rating
+710;+12 Intellect
+711;+12 Critical Strike Rating
+712;+12 Hit Rating
+713;+12 Hit Rating
+714;+12 Critical Strike Rating
+715;+12 Defense Rating
+741;+4 Resilience Rating and +6 Stamina
+761;+5 Resist All
+781;+4 All Stats
+801;+12 Critical Strike Rating and 3% Increased Critical Damage
+821;+15 Stamina
+841;+150 Armor, -10% Speed
+861;+15 Stamina
+901;+8 Haste Rating
+902;+4 Haste Rating and +5 Spell Power
+903;+4 Haste Rating and +6 Stamina
+921;+20 Attack Power
+922;+12 Spell Power
+923;+12 Spell Power
+941;+12 Defense Rating and +5% Shield Block Value
+942;+14 Spell Power and +2% Intellect
+961;+4 Dodge Rating and +6 Stamina
+981;+5 Resilience Rating and +7 Stamina
+982;+5 Haste Rating and +7 Stamina
+983;+5 Haste Rating and +6 Spell Power
+984;+10 Haste Rating
+1001;+68 Attack Power
+1002;+51 Stamina
+1021;+21 Stamina
+1041;+6 Spell Power and +5 Spirit
+1061;+150 Armor
+1081;+10 Critical Strike Rating
+1101;QA Test Blank Purple Gem Enchant
+1121;Northrend Flight
+1122;+20 Attack Power
+1123;+10 Critical Strike Rating
+1124;+10 Attack Power and +5 Critical Strike Rating
+1125;+6 Spell Power and +5 Critical Strike Rating
+1126;+12 Spell Power
+1127;+10 Critical Strike Rating
+1141;+12 Strength
+1144;+12 Agility
+1145;+24 Attack Power
+1146;+12 Dodge Rating
+1147;+12 Parry Rating
+1148;+12 Armor Penetration Rating
+1149;+12 Expertise Rating
+1150;+14 Spell Power
+1151;+12 Intellect
+1152;+12 Critical Strike Rating
+1153;+12 Hit Rating
+1154;+12 Defense Rating
+1155;+12 Resilience Rating
+1156;+12 Haste Rating
+1157;+18 Stamina
+1158;+12 Spirit
+1159;+6 Mana every 5 seconds
+1160;+15 Spell Penetration
+1161;+6 Armor Penetration Rating and +9 Stamina
+1162;+6 Strength and +9 Stamina
+1163;+6 Agility and +9 Stamina
+1164;+7 Spell Power and +9 Stamina
+1165;+12 Attack Power and +9 Stamina
+1166;+6 Dodge Rating and +9 Stamina
+1167;+6 Parry Rating and +9 Stamina
+1168;+6 Expertise Rating and +9 Stamina
+1169;+7 Spell Power and +6 Spirit
+1170;+6 Agility and +3 Mana every 5 seconds
+1171;+7 Spell Power and +3 Mana every 5 seconds
+1172;+12 Attack Power and +3 Mana every 5 seconds
+1173;+7 Spell Power and +8 Spell Penetration
+1174;+7 Spell Power and +6 Intellect
+1175;+6 Strength and +6 Critical Strike Rating
+1176;+6 Strength and +6 Hit Rating
+1177;+6 Strength and +6 Defense Rating
+1178;+6 Strength and +6 Resilience Rating
+1179;+6 Strength and +6 Haste Rating
+1180;+6 Agility and +6 Critical Strike Rating
+1181;+6 Agility and +6 Hit Rating
+1182;+6 Agility and +6 Resilience Rating
+1183;+6 Agility and +6 Haste Rating
+1184;+7 Spell Power and +6 Critical Strike Rating
+1185;+7 Spell Power and +6 Hit Rating
+1186;+7 Spell Power and +6 Resilience Rating
+1187;+7 Spell Power and +6 Haste Rating
+1188;+12 Attack Power and +6 Critical Strike Rating
+1189;+12 Attack Power and +6 Hit Rating
+1190;+12 Attack Power and +6 Resilience Rating
+1191;+12 Attack Power and +6 Haste Rating
+1192;+6 Dodge Rating and +6 Defense Rating
+1193;+6 Parry Rating and +6 Defense Rating
+1194;+6 Expertise Rating and +6 Hit Rating
+1195;+6 Expertise Rating and +6 Defense Rating
+1196;+6 Intellect and +9 Stamina
+1197;+6 Critical Strike Rating and +9 Stamina
+1198;+6 Hit Rating and +9 Stamina
+1199;+6 Defense Rating and +9 Stamina 
+1200;+6 Resilience Rating and +9 Stamina
+1201;+6 Haste Rating and +9 Stamina
+1202;+6 Intellect and +6 Spirit
+1203;+6 Critical Strike Rating and +6 Spirit
+1204;+6 Hit Rating and +6 Spirit
+1205;+6 Resilience Rating and +6 Spirit
+1206;+6 Haste Rating and +6 Spirit
+1207;+6 Intellect and +3 Mana every 5 seconds
+1208;+6 Critical Strike Rating and +3 Mana every 5 seconds
+1209;+6 Hit Rating and +3 Mana every 5 seconds
+1210;+6 Resilience Rating and +3 Mana every 5 seconds
+1211;+6 Haste Rating and +3 Mana every 5 seconds
+1212;+6 Critical Strike Rating and +8 Spell Penetration
+1213;+6 Hit Rating and +8 Spell Penetration
+1214;+6 Haste Rating and +8 Spell Penetration
+1215;+16 Strength
+1216;+16 Agility
+1217;+19 Spell Power
+1218;+32 Attack Power
+1219;+16 Dodge Rating
+1220;+16 Parry Rating
+1221;+16 Armor Penetration Rating
+1222;+16 Expertise Rating
+1223;+24 Stamina
+1224;+16 Spirit
+1225;+8 Mana every 5 seconds
+1226;+20 Spell Penetration
+1227;+16 Intellect
+1228;+16 Critical Strike Rating
+1229;+16 Hit Rating
+1230;+16 Defense Rating
+1231;+16 Resilience Rating
+1232;+16 Haste Rating
+1233;+8 Strength and +12 Stamina
+1234;+8 Agility and +12 Stamina
+1235;+8 Agility and +4 Mana every 5 seconds
+1236;+9 Spell Power and +12 Stamina
+1237;+9 Spell Power and +8 Spirit
+1238;+9 Spell Power and +4 Mana every 5 seconds
+1239;+9 Spell Power and +10 Spell Penetration
+1240;+16 Attack Power and +12 Stamina
+1241;+16 Attack Power and +4 Mana every 5 seconds
+1242;+8 Dodge Rating and +12 Stamina
+1243;+8 Parry Rating and +12 Stamina
+1244;+8 Armor Penetration Rating and +12 Stamina
+1245;+8 Expertise Rating and +12 Stamina
+1246;+8 Strength and +8 Critical Strike Rating
+1247;+8 Strength and +8 Hit Rating
+1248;+8 Strength and +8 Defense Rating
+1249;+8 Strength and +8 Resilience Rating
+1250;+8 Strength and +8 Haste Rating
+1251;+8 Agility and +8 Critical Strike Rating
+1252;+8 Agility and +8 Hit Rating
+1253;+8 Agility and +8 Resilience Rating
+1254;+8 Agility and +8 Haste Rating
+1255;+9 Spell Power and +8 Intellect
+1256;+9 Spell Power and +8 Critical Strike Rating
+1257;+9 Spell Power and +8 Hit Rating
+1258;+9 Spell Power and +8 Resilience Rating
+1259;+9 Spell Power and +8 Haste Rating
+1260;+16 Attack Power and +8 Critical Strike Rating
+1261;+16 Attack Power and +8 Hit Rating
+1262;+16 Attack Power and +8 Resilience Rating
+1263;+16 Attack Power and +8 Haste Rating
+1264;+8 Dodge Rating and +8 Defense Rating
+1265;+8 Parry Rating and +8 Defense Rating
+1266;+8 Expertise Rating and +8 Hit Rating
+1267;+8 Expertise Rating and +8 Defense Rating
+1268;+8 Intellect and +12 Stamina
+1269;+8 Critical Strike Rating and +12 Stamina
+1270;+8 Hit Rating and +12 Stamina
+1271;+8 Defense Rating and +12 Stamina
+1272;+8 Resilience Rating and +12 Stamina
+1273;+8 Haste Rating and +12 Stamina
+1274;+8 Intellect and +8 Spirit
+1275;+8 Intellect and +4 Mana every 5 seconds
+1276;+8 Critical Strike Rating and +8 Spirit
+1277;+8 Critical Strike Rating and +4 Mana every 5 seconds
+1278;+8 Critical Strike Rating and +10 Spell Penetration
+1279;+8 Hit Rating and +8 Spirit
+1280;+8 Hit Rating and +4 Mana every 5 seconds
+1281;+8 Hit Rating and +10 Spell Penetration
+1282;+8 Resilience Rating and +8 Spirit
+1283;+8 Resilience Rating and +4 Mana every 5 seconds
+1284;+8 Haste Rating and +8 Spirit
+1285;+8 Haste Rating and +4 Mana every 5 seconds
+1286;+8 Haste Rating and +10 Spell Penetration
+1287;+20 Strength
+1288;+20 Agility
+1289;+23 Spell Power
+1290;+40 Attack Power
+1291;+20 Dodge Rating
+1292;+20 Parry Rating
+1293;+20 Armor Penetration Rating
+1294;+20 Expertise Rating
+1295;+30 Stamina
+1296;+20 Spirit
+1297;+10 Mana every 5 seconds
+1298;+25 Spell Penetration
+1299;+20 Intellect
+1300;+20 Critical Strike Rating
+1301;+20 Hit Rating
+1302;+20 Defense Rating
+1303;+20 Resilience Rating
+1304;+20 Haste Rating
+1305;+10 Strength and +15 Stamina
+1306;+10 Agility and +15 Stamina
+1307;+10 Agility and +5 Mana every 5 seconds
+1308;+12 Spell Power and +15 Stamina
+1309;+12 Spell Power and +10 Spirit
+1310;+12 Spell Power and +5 Mana every 5 seconds
+1311;+12 Spell Power and +13 Spell Penetration
+1312;+20 Attack Power and +15 Stamina
+1313;+20 Attack Power and +5 Mana every 5 seconds
+1314;+10 Dodge Rating and +15 Stamina
+1315;+10 Parry Rating and +15 Stamina
+1316;+10 Armor Penetration Rating and +15 Stamina
+1317;+10 Expertise Rating and +15 Stamina
+1318;+10 Strength and +10 Critical Strike Rating
+1319;+10 Strength and +10 Hit Rating
+1320;+10 Strength and +10 Defense Rating
+1321;+10 Strength and +10 Resilience Rating
+1322;+10 Strength and +10 Haste Rating
+1323;+10 Agility and +10 Critical Strike Rating
+1324;+10 Agility and +10 Hit Rating
+1325;+10 Agility and +10 Resilience Rating
+1326;+10 Agility and +10 Haste Rating
+1327;+12 Spell Power and +10 Intellect
+1328;+12 Spell Power and +10 Critical Strike Rating
+1329;+12 Spell Power and +10 Hit Rating
+1330;+12 Spell Power and +10 Resilience Rating
+1331;+12 Spell Power and +10 Haste Rating
+1332;+20 Attack Power and +10 Critical Strike Rating
+1333;+20 Attack Power and +10 Hit Rating
+1334;+20 Attack Power and +10 Resilience Rating
+1335;+20 Attack Power and +10 Haste Rating
+1336;+10 Dodge Rating and +10 Defense Rating
+1337;+10 Parry Rating and +10 Defense Rating
+1338;+10 Expertise Rating and +10 Hit Rating
+1339;+10 Expertise Rating and +10 Defense Rating
+1340;+10 Intellect and +15 Stamina
+1341;+10 Critical Strike Rating and +15 Stamina
+1342;+10 Hit Rating and +15 Stamina
+1343;+10 Defense Rating and +15 Stamina
+1344;+10 Resilience Rating and +15 Stamina
+1345;+10 Haste Rating and +15 Stamina
+1346;+10 Intellect and +10 Spirit
+1347;+10 Critical Strike Rating and +10 Spirit
+1348;+10 Hit Rating and +10 Spirit
+1349;+10 Resilience Rating and +10 Spirit
+1350;+10 Haste Rating and +10 Spirit
+1351;+10 Intellect and +5 Mana every 5 seconds
+1352;+10 Critical Strike Rating and +5 Mana every 5 seconds
+1353;+10 Hit Rating and +5 Mana every 5 seconds
+1354;+10 Resilience Rating and +5 Mana every 5 seconds
+1355;+10 Haste Rating and +5 Mana every 5 seconds
+1356;+10 Critical Strike Rating and +13 Spell Penetration
+1357;+10 Hit Rating and +13 Spell Penetration
+1358;+10 Haste Rating and +13 Spell Penetration
+1361;Test +4 Intellect and +2 Mana every 5 seconds
+1381;+21 Critical Strike Rating and 3% Increased Critical Damage
+1382;+25 Critical Strike Rating and 1% Spell Reflect
+1383;+25 Spell Power and +2% Intellect
+1401;+21 Critical Strike Rating and Reduces Snare/Root Duration by 10%
+1402;+42 Attack Power and Minor Run Speed Increase
+1421;+25 Spell Power and Minor Run Speed Increase
+1422;+11 Mana every 5 seconds and 3% Increased Critical Healing Effect
+1423;+32 Stamina and Reduce Spell Damage Taken by 2%
+1424;+25 Spell Power and Silence Duration Reduced by 10%
+1425;+21 Critical Strike Rating and Fear Duration Reduced by 10%
+1426;+32 Stamina and 2% Increased Armor Value from Items
+1427;+42 Attack Power and Stun Duration Reduced by 10%
+1428;+25 Spell Power and Stun Duration Reduced by 10%
+1429;+42 Attack Power and Sometimes Heal on Your Crits
+1430;+21 Critical Strike Rating and +2% Mana
+1431;+25 Spell Power and 2% Reduced Threat
+1432;+21 Defense Rating and +5% Shield Block Value
+1433;+32 Stamina and Stun Duration Reduced by 10%
+1434;+21 Agility and 3% Increased Critical Damage
+1435;Chance to Increase Melee/Ranged Attack Speed 
+1436;+21 Intellect and Chance to restore mana on spellcast
+1437;+14 Attack Power and +7 Critical Strike Rating
+1438;+14 Strength
+1439;+28 Attack Power
+1440;+14 Agility
+1441;+14 Parry Rating
+1442;+14 Armor Penetration Rating
+1443;+14 Expertise Rating
+1444;+16 Spell Power
+1445;+14 Dodge Rating
+1446;+7 Mana every 5 seconds
+1447;+21 Stamina
+1448;+14 Spirit
+1449;+18 Spell Penetration
+1450;+14 Intellect
+1451;+14 Resilience Rating
+1452;+14 Haste Rating
+1453;+14 Hit Rating
+1454;+14 Critical Strike Rating
+1455;+14 Defense Rating
+1456;+14 Attack Power and +11 Stamina
+1457;+7 Parry Rating and +11 Stamina
+1458;+8 Spell Power and +11 Stamina
+1459;+7 Expertise Rating and +11 Stamina
+1460;+14 Attack Power and +4 Mana every 5 seconds
+1461;+8 Spell Power and +9 Spell Penetration
+1462;+7 Armor Penetration Rating and +11 Stamina
+1463;+8 Spell Power and +7 Spirit
+1464;+7 Dodge Rating and +11 Stamina
+1465;+8 Spell Power and +4 Mana every 5 seconds
+1466;+7 Agility and +11 Stamina
+1467;+7 Strength and +11 Stamina
+1468;+7 Agility and +4 Mana every 5 seconds
+1469;+7 Intellect and +4 Mana every 5 seconds
+1470;+7 Defense Rating and +11 Stamina 
+1471;+7 Haste Rating and +4 Mana every 5 seconds
+1472;+7 Haste Rating and +11 Stamina
+1473;+7 Haste Rating and +7 Spirit
+1474;+7 Critical Strike Rating and +11 Stamina
+1475;+7 Hit Rating and +4 Mana every 5 seconds
+1476;+7 Critical Strike Rating and +7 Spirit
+1477;+7 Resilience Rating and +4 Mana every 5 seconds
+1478;+7 Critical Strike Rating and +9 Spell Penetration
+1479;+7 Intellect and +7 Spirit
+1480;+7 Haste Rating and +9 Spell Penetration
+1481;+7 Hit Rating and +7 Spirit
+1482;+7 Resilience Rating and +11 Stamina
+1483;+7 Critical Strike Rating and +4 Mana every 5 seconds
+1484;+7 Hit Rating and +9 Spell Penetration
+1485;+7 Intellect and +11 Stamina
+1486;+7 Resilience Rating and +7 Spirit
+1487;+7 Hit Rating and +11 Stamina
+1488;+7 Expertise Rating and +7 Hit Rating
+1489;+7 Strength and +7 Defense Rating
+1490;+7 Agility and +7 Critical Strike Rating
+1491;+7 Agility and +7 Haste Rating
+1492;+8 Spell Power and +7 Resilience Rating
+1493;+14 Attack Power and +7 Resilience Rating
+1494;+7 Strength and +7 Hit Rating
+1495;+7 Strength and +7 Haste Rating
+1496;+7 Parry Rating and +7 Defense Rating
+1497;+7 Agility and +7 Hit Rating
+1498;+7 Strength and +7 Critical Strike Rating
+1499;+7 Agility and +7 Resilience Rating
+1500;+8 Spell Power and +7 Intellect
+1501;+8 Spell Power and +7 Critical Strike Rating
+1502;+14 Attack Power and +7 Hit Rating
+1503;+8 Spell Power and +7 Haste Rating
+1504;+7 Expertise Rating and +7 Defense Rating
+1505;+7 Strength and +7 Resilience Rating
+1506;+7 Dodge Rating and +7 Defense Rating
+1507;+14 Attack Power and +7 Haste Rating
+1508;+8 Spell Power and +7 Hit Rating
+1510;+34 Strength
+1511;+34 Agility
+1512;+39 Spell Power
+1513;+34 Spirit
+1514;+17 Mana every 5 seconds
+1515;+34 Intellect
+1516;+34 Critical Strike Rating
+1517;+34 Haste Rating
+1518;+34 Dodge Rating
+1519;+34 Parry Rating
+1520;+34 Armor Penetration Rating
+1521;+34 Expertise Rating
+1522;+43 Spell Penetration
+1523;+34 Hit Rating
+1524;+34 Defense Rating
+1525;+34 Resilience Rating
+1529;+4 to All Stats
+1530;+6 to All Stats
+1549;+20 Resilience Rating
+1550;+34 Attack Power and Minor Run Speed Increase
+1551;+20 Spell Power and Minor Run Speed Increase
+1552;+17 Critical Strike Rating and Reduces Snare/Root Duration by 10%
+1553;+17 Critical Strike Rating and Fear Duration Reduced by 10%
+1554;+20 Spell Power and Silence Duration Reduced by 10%
+1555;+34 Attack Power and Stun Duration Reduced by 10%
+1556;+26 Stamina and Stun Duration Reduced by 10%
+1557;+20 Spell Power and Stun Duration Reduced by 10%
+1569;+20 Strength
+1589;+20 Agility
+1590;+30 Stamina
+1591;+20 Spirit
+1592;+20 Intellect
+1593;+23 Spell Power
+1609;+20 Hit Rating
+1629;+10 All Stats

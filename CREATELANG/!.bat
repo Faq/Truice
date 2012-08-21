@@ -1,0 +1,1 @@
+copy *.lng Default.lng

@@ -1,0 +1,5 @@
+Truice DB Structure last checked against revision
+8ea8dd4f3d0f73599aad6441925b8ab555939877 (11/17/11) 
+[2011_11_13_12_world_creature_loot_template.sql]
+
+BETA: 015e4596165fa435bb966bbc9ad55157508bb265 (11/27/11) [2011_11_27_00_world_spell_script.sql]

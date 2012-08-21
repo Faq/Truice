@@ -1,0 +1,9 @@
+0;IN_USE (Disables interaction while being animated)
+1;LOCKED (Requires a key, spell, or event to be opened)
+2;INTERACT_COND (Untargetable, condition to interact)
+3;TRANSPORT (Object can transport - boat, elevator, car)
+4;NOT_SELECTABLE (Not even in GM-mode)
+5;NODESPAWN (Typically for doors, they just change state)
+6;TRIGGERED (Triggered by spell or other events)
+9;DAMAGED
+10;DESTROYED

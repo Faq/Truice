@@ -1,0 +1,17 @@
+[WHOQUEST]
+Caption=Quester 
+tsSearch=Search
+edWhoID=ID
+edWhoName=Name
+btSearch=Search
+rgTypeOfWho=Quester type
+Label1=   At this page you can choose a Quester. Set quester type, enter ID or Name of quester and press "Search". Select found quester in list and press "OK" button.
+btOK=OK
+btCancel=Cancel
+btBrowseSite=BrowseSite
+btEdit=Edit
+pmwowhead=wowhead
+pmthottbot=thottbot
+pmallakhazam=allakhazam
+pmwowdb=wowdb
+

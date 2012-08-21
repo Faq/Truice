@@ -1,0 +1,18 @@
+[CONNECT]
+gbAdvanced=Advanced Options
+lbCharSet=Charset
+cbUnicode=Unicode
+btConnect=Connect
+btCancel=Cancel
+btDetails=Details >>
+btClear=Clear
+gbConnect=Connect to MySQL Server
+lbUsername=Username
+lbPassword=Password
+lbServer=Server
+lbPort=Port
+lbmDatabase=world
+lbcDatabase=characters
+lbrDatabase=auth
+cbSavePassword=Store Password
+

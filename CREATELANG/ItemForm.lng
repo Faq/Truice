@@ -1,0 +1,15 @@
+[ITEM]
+Caption=Item
+btOK=OK
+btCancel=Cancel
+btBrowseSite=BrowseSite
+btLoot=View Loot
+tsSearch=Search
+edItemID=Item ID
+edItemName=Name
+btSearch=Search
+pmwowhead=wowhead
+pmthottbot=thottbot
+pmallakhazam=allakhazam
+pmwowdb=wowdb
+

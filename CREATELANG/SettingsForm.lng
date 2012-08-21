@@ -1,0 +1,29 @@
+[SETTINGS]
+Caption=Settings
+tsColumns=Columns
+Label1=At this page you can change the set of columns that appears at list in Search Quest tab
+edFieldName=FieldName
+^edFieldName=Set field name from quest_template table
+edWidth=Width
+^edWidth=Width of column in pixels
+tsSite=Site
+Label2=At this page you can change the site. It will be used for browse items, NPC, objects and quests.
+rgSite=Site
+tsLanguage=Language
+lbLanguage=Language
+Label3=At this page you can choose the Language File
+tsInternet=Internet
+cbAutomaticCheckForUpdates=Automatic Check For Updates
+Button1=Check For Updates Now
+edProxyServer=ProxyServer
+edUsername=User
+edPassword=Password
+edProxyPort=Port
+tsPreferences=Preferences
+rgSQLStyle=SQL Syntax Style
+tsDBC=DBC
+lbDBCDir=Path to DBC directory:
+lbDBCLocale=DBC Locale:
+btOK=OK
+btCancel=Cancel
+
