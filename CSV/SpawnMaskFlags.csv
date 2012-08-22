@@ -1,4 +1,6 @@
-0;10-man-normal (maps without heroic mode)
-1;25-man-normal (heroics pre 3.2)
-2;10-man heroic
-3;25-man-heroic
+0;Normal spawn
+1;10-man-normal (maps without heroic mode)
+2;25-man-normal (or heroics pre 3.2)
+4;10-man heroic
+8;25-man-heroic
+15;spawned in all versions of maps

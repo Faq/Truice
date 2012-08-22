@@ -26,7 +26,7 @@ object MainForm: TMainForm
     Top = 0
     Width = 888
     Height = 701
-    ActivePage = tsGameObject
+    ActivePage = tsQuest
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -24949,22 +24949,6 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 30
             Text = '0'
-          end
-          object lbcyOutdated: TLinkLabel
-            Left = 237
-            Top = -3
-            Width = 398
-            Height = 24
-            Caption = 'OUTDATED!! Use Event Horizon to edit SmartAI scripts'
-            Color = clRed
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -16
-            Font.Name = 'Microsoft Sans Serif'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            TabOrder = 31
           end
         end
         object tsSmartAIScript: TTabSheet

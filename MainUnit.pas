@@ -1632,7 +1632,6 @@ type
     lbRequiredSkillId: TLabel;
     edqtRequiredClasses: TJvComboEdit;
     lbRequiredClasses: TLabel;
-    lbcyOutdated: TLinkLabel;
     edgbGUID: TEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
