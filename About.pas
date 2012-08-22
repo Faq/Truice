@@ -52,6 +52,7 @@ type
     JvPoweredByJVCL1: TJvPoweredByJVCL;
     lbprojectwebsite: TLabel;
     Label2: TLabel;
+    Label1: TLabel;
     procedure FormShow(Sender: TObject);
     procedure LinkSiteClick(Sender: TObject);
     procedure PayPalClick(Sender: TObject);

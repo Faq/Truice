@@ -201,7 +201,6 @@ object MainForm: TMainForm
               Anchors = [akTop, akRight]
               Caption = 'Search'
               Default = True
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -246,7 +245,6 @@ object MainForm: TMainForm
                 37354B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
                 4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B}
               Margin = 4
-              ParentDoubleBuffered = False
               TabOrder = 6
               OnClick = btSearchClick
             end
@@ -257,8 +255,6 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Clear'
-              DoubleBuffered = True
-              ParentDoubleBuffered = False
               TabOrder = 7
               OnClick = btClearClick
             end
@@ -441,7 +437,6 @@ object MainForm: TMainForm
                 Caption = 'Details'
                 Width = 300
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -457,8 +452,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitLeft = 1
-            ExplicitTop = 103
           end
           object Panel2: TPanel
             Left = 0
@@ -476,7 +469,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Edit Quest'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -531,7 +523,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 1
               OnClick = btEditQuestClick
             end
@@ -541,7 +532,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'New Quest'
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -586,7 +576,6 @@ object MainForm: TMainForm
                 2C143F426020202020202020202020243409280A1C2020202020202020202020
                 1943303220202020202020202020202020202020202020202020}
               Margin = 3
-              ParentDoubleBuffered = False
               TabOrder = 0
               OnClick = btNewQuestClick
             end
@@ -596,7 +585,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Delete Quest'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -651,7 +639,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 2
               OnClick = btDeleteQuestClick
             end
@@ -661,7 +648,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Browse Site'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -716,7 +702,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 3
               OnClick = btBrowseSiteClick
             end
@@ -726,7 +711,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Check Quest'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -781,7 +765,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 4
               OnClick = btCheckQuestClick
             end
@@ -792,7 +775,6 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Check All Quests'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -847,7 +829,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 5
               OnClick = btCheckAllClick
             end
@@ -866,7 +847,6 @@ object MainForm: TMainForm
               Top = 10
               Width = 17
               Height = 25
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 32010000424D3201000000000000360000002800000009000000090000000100
@@ -879,7 +859,6 @@ object MainForm: TMainForm
                 FF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
-              ParentDoubleBuffered = False
               PopupMenu = pmBrowseSite
               TabOrder = 7
               OnClick = btBrowsePopupClick
@@ -1973,7 +1952,7 @@ object MainForm: TMainForm
           ParentShowHint = False
           ShowHint = True
           object gbRequirementsEnd: TGroupBox
-            Left = 8
+            Left = 9
             Top = 8
             Width = 441
             Height = 349
@@ -1982,16 +1961,16 @@ object MainForm: TMainForm
             object lbReqItemId1: TLabel
               Left = 8
               Top = 13
-              Width = 55
+              Width = 61
               Height = 13
-              Caption = 'ReqItemId..'
+              Caption = 'ReqItemId1..'
             end
             object lbRequiredSourceItemId1: TLabel
               Left = 192
               Top = 13
-              Width = 112
+              Width = 98
               Height = 13
-              Caption = 'RequiredSourceItemId..'
+              Caption = 'RequiredSourceId1..'
             end
             object lbRequiredNpcOrGo4: TLabel
               Left = 6
@@ -2069,9 +2048,9 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount1'
-              EditLabel.Width = 74
+              EditLabel.Width = 80
               EditLabel.Height = 13
-              EditLabel.Caption = 'ReqItemCount..'
+              EditLabel.Caption = 'ReqItemCount1..'
               TabOrder = 1
             end
             object edqtRequiredItemCount2: TLabeledEdit
@@ -2080,9 +2059,9 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount2'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
-              EditLabel.Caption = 'edqtRequiredItemCount2'
+              EditLabel.Width = 74
+              EditLabel.Height = 10
+              EditLabel.Caption = 'ReqItemCount2'
               TabOrder = 3
             end
             object edqtRequiredItemCount3: TLabeledEdit
@@ -2091,9 +2070,9 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount3'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
-              EditLabel.Caption = 'edqtRequiredItemCount3'
+              EditLabel.Width = 74
+              EditLabel.Height = 8
+              EditLabel.Caption = 'ReqItemCount3'
               TabOrder = 5
             end
             object edqtRequiredItemCount4: TLabeledEdit
@@ -2102,9 +2081,9 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount4'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
-              EditLabel.Caption = 'edqtRequiredItemCount4'
+              EditLabel.Width = 74
+              EditLabel.Height = 10
+              EditLabel.Caption = 'ReqItemCount4'
               TabOrder = 7
             end
             object edqtRequiredNpcOrGoCount4: TLabeledEdit
@@ -2165,9 +2144,9 @@ object MainForm: TMainForm
               Width = 111
               Height = 21
               Hint = 'Count of Source Items'
-              EditLabel.Width = 88
+              EditLabel.Width = 94
               EditLabel.Height = 13
-              EditLabel.Caption = 'ReqSourceCount..'
+              EditLabel.Caption = 'ReqSourceCount1..'
               TabOrder = 9
             end
             object edqtRequiredSourceItemCount2: TLabeledEdit
@@ -2176,9 +2155,9 @@ object MainForm: TMainForm
               Width = 111
               Height = 21
               Hint = 'Count of Source Items'
-              EditLabel.Width = 152
-              EditLabel.Height = 13
-              EditLabel.Caption = 'edqtRequiredSourceItemCount2'
+              EditLabel.Width = 108
+              EditLabel.Height = 10
+              EditLabel.Caption = 'ReqSourceItemCount2'
               TabOrder = 11
             end
             object edqtRequiredSourceItemCount3: TLabeledEdit
@@ -2187,9 +2166,9 @@ object MainForm: TMainForm
               Width = 111
               Height = 21
               Hint = 'Count of Source Items'
-              EditLabel.Width = 152
-              EditLabel.Height = 13
-              EditLabel.Caption = 'edqtRequiredSourceItemCount3'
+              EditLabel.Width = 108
+              EditLabel.Height = 10
+              EditLabel.Caption = 'ReqSourceItemCount3'
               TabOrder = 13
             end
             object edqtRequiredSourceItemCount4: TLabeledEdit
@@ -2198,9 +2177,9 @@ object MainForm: TMainForm
               Width = 111
               Height = 21
               Hint = 'Count of Source Items'
-              EditLabel.Width = 152
-              EditLabel.Height = 13
-              EditLabel.Caption = 'edqtRequiredSourceItemCount4'
+              EditLabel.Width = 108
+              EditLabel.Height = 10
+              EditLabel.Caption = 'ReqSourceItemCount4'
               TabOrder = 15
             end
             object edqtRequiredItemId1: TJvComboEdit
@@ -2974,9 +2953,9 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount5'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
-              EditLabel.Caption = 'edqtRequiredItemCount5'
+              EditLabel.Width = 74
+              EditLabel.Height = 9
+              EditLabel.Caption = 'ReqItemCount5'
               TabOrder = 31
             end
             object edqtRequiredItemCount6: TLabeledEdit
@@ -2985,9 +2964,9 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount6'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
-              EditLabel.Caption = 'edqtRequiredItemCount6'
+              EditLabel.Width = 74
+              EditLabel.Height = 10
+              EditLabel.Caption = 'ReqItemCount6'
               TabOrder = 32
             end
             object edqtRequiredItemId6: TJvComboEdit
@@ -5155,7 +5134,6 @@ object MainForm: TMainForm
                 Caption = 'Description'
                 Width = 80
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -5171,8 +5149,9 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
-            ExplicitWidth = 863
           end
           object lvqtGiverLocation: TJvListView
             Left = 8
@@ -5217,7 +5196,6 @@ object MainForm: TMainForm
               item
                 Width = 70
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -5236,8 +5214,19 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
               end>
-            ExplicitWidth = 863
           end
         end
         object tsQuestTaker: TTabSheet
@@ -5404,7 +5393,6 @@ object MainForm: TMainForm
                 Caption = 'Description'
                 Width = 180
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -5423,7 +5411,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object lvqtTakerLocation: TJvListView
             Left = 8
@@ -5456,7 +5443,6 @@ object MainForm: TMainForm
               item
                 Width = 160
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -5480,7 +5466,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
         end
         object tsStartScript: TTabSheet
@@ -5712,7 +5697,6 @@ object MainForm: TMainForm
               item
                 Width = 60
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -5742,7 +5726,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edsscommand: TJvComboEdit
             Left = 192
@@ -6125,7 +6108,6 @@ object MainForm: TMainForm
               item
                 Width = 60
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -6155,7 +6137,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edescommand: TJvComboEdit
             Left = 192
@@ -6586,7 +6567,6 @@ object MainForm: TMainForm
               Anchors = [akTop, akRight]
               Caption = 'Search'
               Default = True
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -6631,7 +6611,6 @@ object MainForm: TMainForm
                 37354B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
                 4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B}
               Margin = 4
-              ParentDoubleBuffered = False
               TabOrder = 4
               OnClick = btSearchCreatureClick
             end
@@ -6642,8 +6621,6 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Clear'
-              DoubleBuffered = True
-              ParentDoubleBuffered = False
               TabOrder = 5
               OnClick = btClearSearchCreatureClick
             end
@@ -6797,7 +6774,6 @@ object MainForm: TMainForm
                 Caption = 'subname_loc*'
                 Width = 112
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -6822,9 +6798,9 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
-            ExplicitTop = 103
-            ExplicitHeight = 435
           end
           object Panel5: TPanel
             Left = 0
@@ -6839,7 +6815,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Edit Creature'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -6894,7 +6869,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 1
               OnClick = btEditCreatureClick
             end
@@ -6904,7 +6878,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'New Creature'
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -6949,7 +6922,6 @@ object MainForm: TMainForm
                 2C143F426020202020202020202020243409280A1C2020202020202020202020
                 1943303220202020202020202020202020202020202020202020}
               Margin = 3
-              ParentDoubleBuffered = False
               TabOrder = 0
               OnClick = btNewCreatureClick
             end
@@ -6959,7 +6931,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Del Creature'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -7014,7 +6985,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 2
               OnClick = btDeleteCreatureClick
             end
@@ -7024,7 +6994,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Browse Site'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -7079,7 +7048,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 3
               OnClick = btBrowseCreatureClick
             end
@@ -7098,7 +7066,6 @@ object MainForm: TMainForm
               Top = 10
               Width = 17
               Height = 25
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 32010000424D3201000000000000360000002800000009000000090000000100
@@ -7111,7 +7078,6 @@ object MainForm: TMainForm
                 FF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
-              ParentDoubleBuffered = False
               PopupMenu = pmBrowseSite
               TabOrder = 5
               OnClick = btBrowsePopupClick
@@ -9286,7 +9252,6 @@ object MainForm: TMainForm
               item
                 Width = 100
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -9295,6 +9260,8 @@ object MainForm: TMainForm
             OnSelectItem = lvclCreatureLocationSelectItem
             ColumnsOrder = '0=60,1=60,2=70,3=100,4=100,5=100,6=100'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -9761,7 +9728,6 @@ object MainForm: TMainForm
                 Caption = 'modelid_other_gender'
                 Width = 120
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -9780,7 +9746,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 859
           end
           object Panel24: TPanel
             Left = 0
@@ -9801,7 +9766,6 @@ object MainForm: TMainForm
               Anchors = [akTop, akRight]
               Caption = 'Search'
               Default = True
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -9846,7 +9810,6 @@ object MainForm: TMainForm
                 37354B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
                 4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B}
               Margin = 4
-              ParentDoubleBuffered = False
               TabOrder = 1
               OnClick = btCreatureModelSearchClick
             end
@@ -10331,7 +10294,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -10745,7 +10707,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -10775,7 +10736,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edcpentry: TLabeledEdit
             Left = 8
@@ -11159,7 +11119,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -11559,7 +11518,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -11583,7 +11541,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edcventry: TLabeledEdit
             Left = 8
@@ -11945,7 +11902,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -12643,7 +12599,6 @@ object MainForm: TMainForm
               item
                 Width = 48
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -12689,7 +12644,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object btShowCreatureMovementScript: TButton
             Left = 16
@@ -13130,7 +13084,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -13151,7 +13104,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
             object tsCreatureEnds: TTabSheet
@@ -13188,7 +13140,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -13209,7 +13160,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
             object tsCreatureObjectiveOf: TTabSheet
@@ -13246,7 +13196,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -13266,7 +13215,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
           end
@@ -13715,7 +13663,6 @@ object MainForm: TMainForm
               item
                 Width = 36
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -14613,7 +14560,6 @@ object MainForm: TMainForm
               Anchors = [akTop, akRight]
               Caption = 'Search'
               Default = True
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -14658,7 +14604,6 @@ object MainForm: TMainForm
                 37354B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
                 4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B}
               Margin = 4
-              ParentDoubleBuffered = False
               TabOrder = 4
               OnClick = btSearchGOClick
             end
@@ -14669,8 +14614,6 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Clear'
-              DoubleBuffered = True
-              ParentDoubleBuffered = False
               TabOrder = 5
               OnClick = btClearSearchGOClick
             end
@@ -14820,7 +14763,6 @@ object MainForm: TMainForm
                 AutoSize = True
                 Caption = 'castbarcaption_loc*'
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -14844,8 +14786,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 880
-            ExplicitHeight = 460
           end
           object Panel7: TPanel
             Left = 0
@@ -14860,7 +14800,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Edit GO'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -14915,7 +14854,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 1
               OnClick = btEditGOClick
             end
@@ -14925,7 +14863,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'New GO'
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -14970,7 +14907,6 @@ object MainForm: TMainForm
                 2C143F426020202020202020202020243409280A1C2020202020202020202020
                 1943303220202020202020202020202020202020202020202020}
               Margin = 3
-              ParentDoubleBuffered = False
               TabOrder = 0
               OnClick = btNewGOClick
             end
@@ -14980,7 +14916,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Delete GO'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -15035,7 +14970,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 2
               OnClick = btDeleteGOClick
             end
@@ -15045,7 +14979,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Browse Site'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -15100,7 +15033,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 3
               OnClick = btBrowseGOClick
             end
@@ -15119,7 +15051,6 @@ object MainForm: TMainForm
               Top = 10
               Width = 17
               Height = 25
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 32010000424D3201000000000000360000002800000009000000090000000100
@@ -15132,7 +15063,6 @@ object MainForm: TMainForm
                 FF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
-              ParentDoubleBuffered = False
               PopupMenu = pmBrowseSite
               TabOrder = 5
               OnClick = btBrowsePopupClick
@@ -15829,7 +15759,6 @@ object MainForm: TMainForm
               item
                 Width = 100
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -15852,7 +15781,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edglguid: TLabeledEdit
             Left = 8
@@ -16335,7 +16263,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -16365,7 +16292,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edgoentry: TLabeledEdit
             Left = 9
@@ -16740,7 +16666,6 @@ object MainForm: TMainForm
               item
                 Width = 60
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -16770,7 +16695,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edgbo: TLabeledEdit
             Left = 680
@@ -16984,7 +16908,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -17004,7 +16927,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
             object tsGOEnds: TTabSheet
@@ -17041,7 +16963,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -17061,7 +16982,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
             object tsGOObjectiveOf: TTabSheet
@@ -17098,7 +17018,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -17118,7 +17037,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
           end
@@ -17324,7 +17242,6 @@ object MainForm: TMainForm
               Anchors = [akTop, akRight]
               Caption = 'Search'
               Default = True
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -17369,7 +17286,6 @@ object MainForm: TMainForm
                 37354B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
                 4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B}
               Margin = 4
-              ParentDoubleBuffered = False
               TabOrder = 7
               OnClick = btSearchItemClick
             end
@@ -17380,8 +17296,6 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Clear'
-              DoubleBuffered = True
-              ParentDoubleBuffered = False
               TabOrder = 8
               OnClick = btClearSearchItemClick
             end
@@ -17673,7 +17587,6 @@ object MainForm: TMainForm
             Font.Height = -11
             Font.Name = 'MS Sans Serif'
             Font.Style = []
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -17703,8 +17616,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 880
-            ExplicitHeight = 460
           end
           object Panel11: TPanel
             Left = 0
@@ -17719,7 +17630,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Edit Item'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -17774,7 +17684,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 1
               OnClick = btEditItemClick
             end
@@ -17784,7 +17693,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'New Item'
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -17829,7 +17737,6 @@ object MainForm: TMainForm
                 2C143F426020202020202020202020243409280A1C2020202020202020202020
                 1943303220202020202020202020202020202020202020202020}
               Margin = 3
-              ParentDoubleBuffered = False
               TabOrder = 0
               OnClick = btNewItemClick
             end
@@ -17839,7 +17746,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Delete Item'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -17894,7 +17800,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 2
               OnClick = btDeleteItemClick
             end
@@ -17904,7 +17809,6 @@ object MainForm: TMainForm
               Width = 97
               Height = 25
               Caption = 'Browse Site'
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 36060000424D3606000000000000360000002800000020000000100000000100
@@ -17959,7 +17863,6 @@ object MainForm: TMainForm
                 C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
               Margin = 3
               NumGlyphs = 2
-              ParentDoubleBuffered = False
               TabOrder = 3
               OnClick = btBrowseItemClick
             end
@@ -17978,7 +17881,6 @@ object MainForm: TMainForm
               Top = 10
               Width = 17
               Height = 25
-              DoubleBuffered = True
               Enabled = False
               Glyph.Data = {
                 32010000424D3201000000000000360000002800000009000000090000000100
@@ -17991,7 +17893,6 @@ object MainForm: TMainForm
                 FF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
-              ParentDoubleBuffered = False
               PopupMenu = pmBrowseSite
               TabOrder = 5
               OnClick = btBrowsePopupClick
@@ -21390,7 +21291,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -21420,7 +21320,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edilentry: TLabeledEdit
             Left = 8
@@ -21811,7 +21710,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -21841,7 +21739,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edidentry: TLabeledEdit
             Left = 8
@@ -22232,7 +22129,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -22262,7 +22158,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edipentry: TLabeledEdit
             Left = 8
@@ -22644,7 +22539,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -22674,7 +22568,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edimitem: TJvComboEdit
             Left = 96
@@ -23062,7 +22955,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -23092,7 +22984,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object ediritem: TJvComboEdit
             Left = 96
@@ -23493,7 +23384,6 @@ object MainForm: TMainForm
               item
                 Width = 90
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -23509,7 +23399,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edieentry: TLabeledEdit
             Left = 8
@@ -23595,7 +23484,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -23678,7 +23566,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -23698,7 +23585,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
             object tsItemObjectiveOf: TTabSheet
@@ -23735,7 +23621,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -23755,7 +23640,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
             object tsItemSourceFor: TTabSheet
@@ -23792,7 +23676,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -23812,7 +23695,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
             object tsItemProvidedFor: TTabSheet
@@ -23849,7 +23731,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -23869,7 +23750,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
             object tsItemRewardFrom: TTabSheet
@@ -23906,7 +23786,6 @@ object MainForm: TMainForm
                     Caption = 'category'
                     Width = 80
                   end>
-                Groups = <>
                 HideSelection = False
                 ReadOnly = True
                 RowSelect = True
@@ -23926,7 +23805,6 @@ object MainForm: TMainForm
                   end
                   item
                   end>
-                ExplicitWidth = 872
               end
             end
           end
@@ -24468,7 +24346,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -25283,7 +25160,6 @@ object MainForm: TMainForm
               item
                 Width = 200
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -25313,7 +25189,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 861
           end
           object edotChanceOrQuestChance: TLabeledEdit
             Left = 9
@@ -25554,7 +25429,6 @@ object MainForm: TMainForm
                 Caption = 'Next_Page'
                 Width = 80
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -25569,8 +25443,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 880
-            ExplicitHeight = 319
           end
           object GroupBox1: TGroupBox
             Left = 0
@@ -25589,8 +25461,6 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Clear'
-              DoubleBuffered = True
-              ParentDoubleBuffered = False
               TabOrder = 4
               OnClick = btClearClick
             end
@@ -25602,7 +25472,6 @@ object MainForm: TMainForm
               Anchors = [akTop, akRight]
               Caption = 'Search'
               Default = True
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -25647,7 +25516,6 @@ object MainForm: TMainForm
                 37354B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
                 4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B}
               Margin = 4
-              ParentDoubleBuffered = False
               TabOrder = 3
               OnClick = btSearchPageTextClick
             end
@@ -25871,8 +25739,6 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Clear'
-              DoubleBuffered = True
-              ParentDoubleBuffered = False
               TabOrder = 0
               OnClick = btClearClick
             end
@@ -25884,7 +25750,6 @@ object MainForm: TMainForm
               Anchors = [akTop, akRight]
               Caption = 'Search'
               Default = True
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -25929,7 +25794,6 @@ object MainForm: TMainForm
                 37354B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
                 4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B}
               Margin = 4
-              ParentDoubleBuffered = False
               TabOrder = 1
               OnClick = btSearchGameEventClick
             end
@@ -26369,7 +26233,6 @@ object MainForm: TMainForm
                   Width = 160
                 end>
               Enabled = False
-              Groups = <>
               HideSelection = False
               ReadOnly = True
               RowSelect = True
@@ -26413,7 +26276,6 @@ object MainForm: TMainForm
                   Width = 160
                 end>
               Enabled = False
-              Groups = <>
               HideSelection = False
               ReadOnly = True
               RowSelect = True
@@ -26567,7 +26429,6 @@ object MainForm: TMainForm
                 item
                   Caption = 'world_event'
                 end>
-              Groups = <>
               HideSelection = False
               ReadOnly = True
               RowSelect = True
@@ -26593,7 +26454,6 @@ object MainForm: TMainForm
                 end
                 item
                 end>
-              ExplicitHeight = 177
             end
             object Panel18: TPanel
               Left = 1
@@ -26993,7 +26853,6 @@ object MainForm: TMainForm
               Anchors = [akTop, akRight]
               Caption = 'Search'
               Default = True
-              DoubleBuffered = True
               Glyph.Data = {
                 36050000424D3605000000000000360400002800000010000000100000000100
                 080000000000000100000000000000000000000100000000000000000000FFFF
@@ -27038,7 +26897,6 @@ object MainForm: TMainForm
                 37354B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
                 4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B}
               Margin = 4
-              ParentDoubleBuffered = False
               TabOrder = 2
               OnClick = btCharSearchClick
             end
@@ -27049,8 +26907,6 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Clear'
-              DoubleBuffered = True
-              ParentDoubleBuffered = False
               TabOrder = 3
               OnClick = btCharClearClick
             end
@@ -27100,7 +26956,6 @@ object MainForm: TMainForm
                 Caption = 'gmstate'
                 Width = 60
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -27121,8 +26976,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitTop = 106
-            ExplicitHeight = 495
           end
           object StatusBarChar: TStatusBar
             Left = 0
@@ -28264,7 +28117,6 @@ object MainForm: TMainForm
               item
                 Width = 250
               end>
-            Groups = <>
             HideSelection = False
             ReadOnly = True
             RowSelect = True
@@ -28284,7 +28136,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 863
           end
           object edhiguid: TLabeledEdit
             Left = 8
@@ -28421,8 +28272,6 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Execute'
-              DoubleBuffered = True
-              ParentDoubleBuffered = False
               TabOrder = 0
               OnClick = btSQLOpenClick
             end
@@ -28478,9 +28327,9 @@ object MainForm: TMainForm
   end
   object MyTrinityConnection: TZConnection
     BeforeConnect = MyTrinityConnectionBeforeConnect
-    Protocol = 'mysql-5'
     Port = 3306
     Database = 'world'
+    Protocol = 'mysql-5'
     Left = 632
     Top = 8
   end

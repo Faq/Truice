@@ -15,8 +15,8 @@ uses
 const
   REV = '015e4596165fa435bb966bbc9ad55157508bb265';
   VERSION_1   = '1'; //*10000
-  VERSION_2   = '2'; //*100
-  VERSION_3   = '54';
+  VERSION_2   = '3'; //*100
+  VERSION_3   = '0';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
 
   SCRIPT_TAB_NO_QUEST       =   8;
@@ -5038,7 +5038,8 @@ end;
 
 procedure TMainForm.GetInhabitType(Sender: TObject);
 begin
-  GetValueFromSimpleList(Sender, 0, 'CreatureInhabitType', false);
+  //GetValueFromSimpleList(Sender, 0, 'CreatureInhabitType', false);
+  GetSomeFlags(Sender, 'CreatureInhabitType');
 end;
 
 procedure TMainForm.GetMovementType(Sender: TObject);
@@ -10745,6 +10746,69 @@ begin
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
+    67:  //SMART_EVENT_IS_BEHIND_TARGET
+        begin
+            lbcyevent_param1.Caption := 'cooldownMin';
+            lbcyevent_param2.Caption := 'CooldownMax';
+            lbcyevent_param3.Caption := '';
+            lbcyevent_param4.Caption := '';
+            lbcyevent_type.Hint := '';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
+    68:  //SMART_EVENT_GAME_EVENT_START
+        begin
+            lbcyevent_param1.Caption := 'game_event.Entry';
+            lbcyevent_param2.Caption := '';
+            lbcyevent_param3.Caption := '';
+            lbcyevent_param4.Caption := '';
+            lbcyevent_type.Hint := '';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
+    69:  //SMART_EVENT_GAME_EVENT_END
+        begin
+            lbcyevent_param1.Caption := 'game_event.Entry';
+            lbcyevent_param2.Caption := '';
+            lbcyevent_param3.Caption := '';
+            lbcyevent_param4.Caption := '';
+            lbcyevent_type.Hint := '';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
+    70:  //SMART_EVENT_GO_STATE_CHANGED
+        begin
+            lbcyevent_param1.Caption := 'go state';
+            lbcyevent_param2.Caption := '';
+            lbcyevent_param3.Caption := '';
+            lbcyevent_param4.Caption := '';
+            lbcyevent_type.Hint := ' 	State (0 - Active, 1 - Ready, 2 - Active alternative) ';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
+    71:  //SMART_EVENT_GO_EVENT_INFORM
+        begin
+            lbcyevent_param1.Caption := 'eventId';
+            lbcyevent_param2.Caption := '';
+            lbcyevent_param3.Caption := '';
+            lbcyevent_param4.Caption := '';
+            lbcyevent_type.Hint := '';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
+    72:  //SMART_EVENT_ACTION_DONE
+        begin
+            lbcyevent_param1.Caption := 'eventId (SharedDefines.EventId)';
+            lbcyevent_param2.Caption := '';
+            lbcyevent_param3.Caption := '';
+            lbcyevent_param4.Caption := '';
+            lbcyevent_type.Hint := ' id=1001 spellclick, id=1002 fall on ground, id=1003 charge ';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
+    73:  //SMART_EVENT_ON_SPELLCLICK
+        begin
+            lbcyevent_param1.Caption := 'clicker (unit)';
+            lbcyevent_param2.Caption := '';
+            lbcyevent_param3.Caption := '';
+            lbcyevent_param4.Caption := '';
+            lbcyevent_type.Hint := '';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
     end;
     SAI_Event := t;
 end;
@@ -11787,7 +11851,7 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     89:  //SMART_ACTION_RANDOM_MOVE
         begin
-            lbcyaction_param1.Caption := 'maxDist';
+            lbcyaction_param1.Caption := 'maxDist(in yards)';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -11798,8 +11862,8 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     90:  //SMART_ACTION_SET_UNIT_FIELD_BYTES_1
         begin
-            lbcyaction_param1.Caption := 'Value';
-            lbcyaction_param2.Caption := '';
+            lbcyaction_param1.Caption := 'bytes';
+            lbcyaction_param2.Caption := 'target';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
@@ -11809,13 +11873,112 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     91:  //SMART_ACTION_REMOVE_UNIT_FIELD_BYTES_1
         begin
-            lbcyaction_param1.Caption := 'Value';
+            lbcyaction_param1.Caption := 'bytes';
+            lbcyaction_param2.Caption := 'target';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    92:  //SMART_ACTION_INTERRUPT_SPELL
+        begin
+            lbcyaction_param1.Caption := 'With delay (0/1)';
+            lbcyaction_param2.Caption := 'SpellId';
+            lbcyaction_param3.Caption := 'Instant (0/1)';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := ' 	This action allows you to interrupt the current spell being cast. If you do not set the spellId, the core will find the current spell depending on the withDelay and the withInstant values. ';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    93:  //SMART_ACTION_SEND_GO_CUSTOM_ANIM
+        begin
+            lbcyaction_param1.Caption := 'anim id';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'animprogress (0-255)';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    94:  //SMART_ACTION_SET_DYNAMIC_FLAG
+        begin
+            lbcyaction_param1.Caption := 'dynamicflag';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
             lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    95:  //SMART_ACTION_ADD_DYNAMIC_FLAG
+        begin
+            lbcyaction_param1.Caption := 'dynamicflag';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    96:  //SMART_ACTION_REMOVE_DYNAMIC_FLAG
+        begin
+            lbcyaction_param1.Caption := 'dynamicflag';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    97:  //SMART_ACTION_JUMP_TO_POS
+        begin
+            lbcyaction_param1.Caption := 'speedXY';
+            lbcyaction_param2.Caption := 'speedZ';
+            lbcyaction_param3.Caption := 'targetX';
+            lbcyaction_param4.Caption := 'targetY';
+            lbcyaction_param5.Caption := 'targetZ';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    98:  //SMART_ACTION_SEND_GOSSIP_MENU
+        begin
+            lbcyaction_param1.Caption := 'Gossip_menu_option.menuId';
+            lbcyaction_param2.Caption := 'Gossip_menu_option.npc_text_id';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'Can be used together with SMART_EVENT_GOSSIP_HELLO to set custom gossip.';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    99:  //SMART_ACTION_GO_SET_LOOT_STATE
+        begin
+            lbcyaction_param1.Caption := 'state';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'LootState (0 - Not ready, 1 - Ready, 2 - Activated, 3 - Just deactivated)';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    100:  //SMART_ACTION_SEND_TARGET_TO_TARGET
+        begin
+            lbcyaction_param1.Caption := 'id';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'Send targets previously stored with SMART_ACTION_STORE_TARGET, to another npc/go, the other npc/go can then access them as if it was its own stored list ';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     end;

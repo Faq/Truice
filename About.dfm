@@ -1974,7 +1974,7 @@ object AboutBox: TAboutBox
         Top = 10
         Width = 69
         Height = 13
-        Caption = 'Version: 1.0'
+        Caption = 'Version: 3.0'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -11
@@ -1986,7 +1986,7 @@ object AboutBox: TAboutBox
       end
       object lblAutorName: TLabel
         Left = 292
-        Top = 160
+        Top = 139
         Width = 106
         Height = 15
         AutoSize = False
@@ -2036,11 +2036,27 @@ object AboutBox: TAboutBox
       end
       object Label2: TLabel
         Left = 292
-        Top = 176
+        Top = 160
         Width = 106
         Height = 15
         AutoSize = False
         Caption = #169' Ishigure, 2010'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        Transparent = True
+        WordWrap = True
+      end
+      object Label1: TLabel
+        Left = 292
+        Top = 181
+        Width = 106
+        Height = 15
+        AutoSize = False
+        Caption = #169' Faq, 2012'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGray
         Font.Height = -11
