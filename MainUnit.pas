@@ -11137,7 +11137,7 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-			lbcyaction_param1.Hint := 'If you want the fleeing NPC to say '%s attempts to run away in fear!' on flee, use 1 on param1. 0 for no message.';
+			lbcyaction_param1.Hint := 'If you want the fleeing NPC to say [%s attempts to run away in fear!] on flee, use 1 on param1. 0 for no message.';
             edcyaction_param1.Hint := lbcyaction_param1.Hint;
             lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
@@ -11262,7 +11262,7 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     36:  //SMART_ACTION_UPDATE_TEMPLATE
         begin
-            lbcyaction_param1.Caption := 'Creature_template.entry;
+            lbcyaction_param1.Caption := 'Creature_template.entry';
             lbcyaction_param2.Caption := 'Team';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -11837,24 +11837,24 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     87:  //SMART_ACTION_CALL_RANDOM_TIMED_ACTIONLIST
         begin
-            lbcyaction_param1.Caption := 'Script9 ids 1-9';
-            lbcyaction_param2.Caption := '';
-            lbcyaction_param3.Caption := '';
-            lbcyaction_param4.Caption := '';
-            lbcyaction_param5.Caption := '';
-            lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := '';
+            lbcyaction_param1.Caption := 'EntryOrGuid 1';
+            lbcyaction_param2.Caption := 'EntryOrGuid 2';
+            lbcyaction_param3.Caption := 'EntryOrGuid 3';
+            lbcyaction_param4.Caption := 'EntryOrGuid 4';
+            lbcyaction_param5.Caption := 'EntryOrGuid 5';
+            lbcyaction_param6.Caption := 'EntryOrGuid 6';
+            lbcyaction_type.Hint := 'Will select one entry from the ones provided. 0 is ignored';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     88:  //SMART_ACTION_CALL_RANDOM_RANGE_TIMED_ACTIONLIST
         begin
-            lbcyaction_param1.Caption := 'Script9 entry of script1';
-            lbcyaction_param2.Caption := 'entry of script2';
+            lbcyaction_param1.Caption := 'EntryOrGuid 1';
+            lbcyaction_param2.Caption := 'EntryOrGuid 2';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := '';
+            lbcyaction_type.Hint := 'Will select one entry from the ones provided. 0 is ignored';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     89:  //SMART_ACTION_RANDOM_MOVE
@@ -11870,8 +11870,8 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     90:  //SMART_ACTION_SET_UNIT_FIELD_BYTES_1
         begin
-            lbcyaction_param1.Caption := 'bytes';
-            lbcyaction_param2.Caption := 'target';
+            lbcyaction_param1.Caption := 'value';
+            lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
@@ -11881,8 +11881,8 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     91:  //SMART_ACTION_REMOVE_UNIT_FIELD_BYTES_1
         begin
-            lbcyaction_param1.Caption := 'bytes';
-            lbcyaction_param2.Caption := 'target';
+            lbcyaction_param1.Caption := 'value';
+            lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
