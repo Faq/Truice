@@ -23,4 +23,6 @@
 22;Stable Master
 23;Guild Banker
 24;Spellclick
-25;PLAYER_VEHICLE
+25;PLAYER_VEHICLE (players with mounts that have vehicle data should have it set)
+26;Mailbox (GUARD)
+27;OutdoorPVP?
