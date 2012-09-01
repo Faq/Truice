@@ -19,13 +19,13 @@ const
   VERSION_3   = '0';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
 
-  SCRIPT_TAB_NO_QUEST       =   8;
-  SCRIPT_TAB_NO_CREATURE    =  17;
-  SCRIPT_TAB_NO_GAMEOBJECT  =   7;
-  SCRIPT_TAB_NO_ITEM        =  10;
-  SCRIPT_TAB_NO_SMARTAI		=	1;
-  SCRIPT_TAB_NO_OTHER       =   3;
-  SCRIPT_TAB_NO_CHARACTER   =   3;
+  SCRIPT_TAB_NO_QUEST		= 8;
+  SCRIPT_TAB_NO_CREATURE	= 17;
+  SCRIPT_TAB_NO_GAMEOBJECT	= 7;
+  SCRIPT_TAB_NO_ITEM		= 10;
+  SCRIPT_TAB_NO_SMARTAI		= 1;
+  SCRIPT_TAB_NO_OTHER		= 3;
+  SCRIPT_TAB_NO_CHARACTER	= 3;
 
   WM_FREEQL = WM_USER + 1;
 
@@ -80,7 +80,7 @@ type
     property OnMouseWheelUp;
   end;
 
-  TMainForm = class(TForm)
+    TMainForm = class(TForm)
     MainMenu: TMainMenu;
     MyTrinityConnection: TZConnection;
     MyLootQuery: TZQuery;
@@ -1245,7 +1245,7 @@ type
     editspelltrigger_1: TJvComboEdit;
     edctunit_flags: TJvComboEdit;
     lbctunit_flags: TLabel;
-	edctunit_flags2: TJvComboEdit;
+    edctunit_flags2: TJvComboEdit;
     lbctunit_flags2: TLabel;
     edcttype_flags: TJvComboEdit;
     lbcttype_flags: TLabel;
@@ -1579,11 +1579,11 @@ type
     edgtAIName: TLabeledEdit;
     edclnpcflag: TJvComboEdit;
     edclunit_flags: TJvComboEdit;
-	edclunit_flags2: TJvComboEdit;
+    edclunit_flags2: TJvComboEdit;
     edcldynamicflags: TJvComboEdit;
     lbclnpcflag: TLabel;
     lbclunit_flags: TLabel;
-	lbclunit_flags2: TLabel;
+    lbclunit_flags2: TLabel;
     lbcldynamicflags: TLabel;
     edptWDBVerified: TLabeledEdit;
     edgeworld_event: TLabeledEdit;
@@ -1979,7 +1979,7 @@ type
       Url: string);
     procedure GetSpellTrigger(Sender: TObject);
     procedure GetUnitFlags(Sender: TObject);
-	procedure GetUnitFlags2(Sender: TObject);
+    procedure GetUnitFlags2(Sender: TObject);
     procedure GetCreatureFlag1(Sender: TObject);
     procedure GetCreatureDynamicFlags(Sender: TObject);
     procedure GetGOFlags(Sender: TObject);
