@@ -23,7 +23,7 @@ const
   SCRIPT_TAB_NO_CREATURE    =  17;
   SCRIPT_TAB_NO_GAMEOBJECT  =   7;
   SCRIPT_TAB_NO_ITEM        =  10;
-  SCRIPT_TAB_NO_SMARTAI			=   1;
+  SCRIPT_TAB_NO_SMARTAI		=	1;
   SCRIPT_TAB_NO_OTHER       =   3;
   SCRIPT_TAB_NO_CHARACTER   =   3;
 
@@ -1245,6 +1245,8 @@ type
     editspelltrigger_1: TJvComboEdit;
     edctunit_flags: TJvComboEdit;
     lbctunit_flags: TLabel;
+	edctunit_flags2: TJvComboEdit;
+    lbctunit_flags2: TLabel;
     edcttype_flags: TJvComboEdit;
     lbcttype_flags: TLabel;
     edctdynamicflags: TJvComboEdit;
@@ -1577,9 +1579,11 @@ type
     edgtAIName: TLabeledEdit;
     edclnpcflag: TJvComboEdit;
     edclunit_flags: TJvComboEdit;
+	edclunit_flags2: TJvComboEdit;
     edcldynamicflags: TJvComboEdit;
     lbclnpcflag: TLabel;
     lbclunit_flags: TLabel;
+	lbclunit_flags2: TLabel;
     lbcldynamicflags: TLabel;
     edptWDBVerified: TLabeledEdit;
     edgeworld_event: TLabeledEdit;
@@ -1975,6 +1979,7 @@ type
       Url: string);
     procedure GetSpellTrigger(Sender: TObject);
     procedure GetUnitFlags(Sender: TObject);
+	procedure GetUnitFlags2(Sender: TObject);
     procedure GetCreatureFlag1(Sender: TObject);
     procedure GetCreatureDynamicFlags(Sender: TObject);
     procedure GetGOFlags(Sender: TObject);
@@ -5076,6 +5081,11 @@ begin
   GetSomeFlags(Sender, 'CreatureFlags');
 end;
 
+procedure TMainForm.GetUnitFlags2(Sender: TObject);
+begin
+  GetSomeFlags(Sender, 'CreatureUnitFlags2');
+end;
+
 function TMainForm.GetValueFromDBC(Name: string; id: Cardinal; idx_str: integer = 1): WideString;
 var
   i: integer;
@@ -5141,8 +5151,8 @@ begin
         with lvQuickList.Columns.Add do
           Width := 25;
         with lvQuickList.Columns.Add do
-          Width := 315;
-        lvQuickList.Width := 350;
+          Width := 129; //menu selection
+        lvQuickList.Width := 164;
         SetList(lvQuickList, Name, Sort);
         edit := TJvComboEdit(sender);
         QLPrepare;
@@ -8016,7 +8026,7 @@ begin
   begin
     for i := 0 to lvList.Items.Count - 2 do
     begin
-      Values := Values + Format('( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+''''+'%s'+''''+'),'#13#10,[
+      Values := Values + Format('( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+'),'#13#10,[
         lvList.Items[i].Caption,
         lvList.Items[i].SubItems[0],
         lvList.Items[i].SubItems[1],
@@ -8043,7 +8053,7 @@ begin
       ]);
     end;
     i := lvList.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+''''+'%s'+''''+');',[
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+');',[
       lvList.Items[i].Caption,
       lvList.Items[i].SubItems[0],
       lvList.Items[i].SubItems[1],
@@ -8090,7 +8100,7 @@ begin
   begin
     for i := 0 to lvList.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+''''+'%s'+''''+'),'#13#10,[
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+'),'#13#10,[
         lvList.Items[i].Caption,
         lvList.Items[i].SubItems[0],
         lvList.Items[i].SubItems[1],
@@ -8122,7 +8132,7 @@ begin
       ]);
     end;
     i := lvList.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+''''+'%s'+''''+');',[
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+');',[
       lvList.Items[i].Caption,
       lvList.Items[i].SubItems[0],
       lvList.Items[i].SubItems[1],
@@ -8246,7 +8256,7 @@ begin
     SubItems.Add(edcvitem.Text);
     SubItems.Add(edcvmaxcount.Text);
     SubItems.Add(edcvincrtime.Text);
-    SubItems.Add(edcvExtendedCost.Text);    
+    SubItems.Add(edcvExtendedCost.Text);
   end;
 end;
 

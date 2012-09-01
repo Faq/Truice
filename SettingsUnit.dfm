@@ -26,10 +26,6 @@ object SettingsForm: TSettingsForm
     TabOrder = 0
     object tsColumns: TTabSheet
       Caption = 'Columns'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -390,10 +386,6 @@ object SettingsForm: TSettingsForm
     object tsSite: TTabSheet
       Caption = 'Site'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel4: TPanel
         Left = 0
         Top = 0
@@ -450,10 +442,6 @@ object SettingsForm: TSettingsForm
     object tsLanguage: TTabSheet
       Caption = 'Language'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel6: TPanel
         Left = 0
         Top = 65
@@ -596,10 +584,6 @@ object SettingsForm: TSettingsForm
     object tsPreferences: TTabSheet
       Caption = 'Preferences'
       ImageIndex = 4
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object rgSQLStyle: TRadioGroup
         Left = 3
         Top = 3
@@ -616,10 +600,6 @@ object SettingsForm: TSettingsForm
     object tsDBC: TTabSheet
       Caption = 'DBC'
       ImageIndex = 5
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object lbDBCDir: TLabel
         Left = 3
         Top = 13

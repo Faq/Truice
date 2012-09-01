@@ -10,7 +10,7 @@ and precompiled binarys under http://code.google.com/p/truice/downloads/list
 
 To compile use Delphi XE2 and next additional components:
 
-ZeosDBO 7.0.0-alpha (SVN rev1553)
+ZeosDBO 7.0.0-alpha (SVN rev1682)
 http://zeos.firmos.at/portal.php
 
 JEDI VCL 3.45 rev13269; JCL 2.4.0.4198 rev3766
