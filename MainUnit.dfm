@@ -13147,7 +13147,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -13203,7 +13203,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -13259,7 +13259,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -16971,7 +16971,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -17026,7 +17026,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -17081,7 +17081,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -23629,7 +23629,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -23684,7 +23684,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -23739,7 +23739,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -23794,7 +23794,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item
@@ -23849,7 +23849,7 @@ object MainForm: TMainForm
                 Align = alClient
                 Columns = <
                   item
-                    Caption = 'entry'
+                    Caption = 'Id'
                     Width = 80
                   end
                   item

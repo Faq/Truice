@@ -2232,9 +2232,9 @@ type
 
     procedure LoadCreaturesAndGOForGameEvent(entry: string);
     function FullScript(TableName, KeyName, KeyValue: string): string;
-    procedure LoadCreatureInvolvedIn(Entry: string);
-    procedure LoadGOInvolvedIn(Entry: string);
-    procedure LoadItemInvolvedIn(Entry: string);
+    procedure LoadCreatureInvolvedIn(Id: string);
+    procedure LoadGOInvolvedIn(Id: string);
+    procedure LoadItemInvolvedIn(Id: string);
     function GetValueFromDBC(Name: string; id: Cardinal; idx_str: integer = 1): WideString;
     function GetZoneOrSortAcronym(ZoneOrSort: integer): string;
     function ScriptSQLScript(lvList: TJvListView; tn, id: string): string;
@@ -4631,15 +4631,15 @@ begin
   end;
 end;
 
-procedure TMainForm.LoadCreatureInvolvedIn(Entry: string);
+procedure TMainForm.LoadCreatureInvolvedIn(Id: string);
 var
   a, b, temp: string;
 begin
-  if trim(entry)='' then Exit;
+  if trim(id)='' then Exit;
   // STARTS
   MyTempQuery.SQL.Text := Format('Select qt.* from creature_questrelation ci' +
                                  ' INNER JOIN quest_template qt ON ci.quest = qt.Id' +
-                                 ' where ci.id = %s', [Entry]);
+                                 ' where ci.id = %s', [Id]);
   MyTempQuery.Open;
   lvCreatureStarts.Items.BeginUpdate;
   lvCreatureStarts.Items.Clear;
@@ -4648,7 +4648,7 @@ begin
     with lvCreatureStarts.Items.Add do
     begin
       Caption := MyTempQuery.FieldByName('Id').AsString;
-      SubItems.Add(MyTempQuery.FieldByName('title').AsString);
+      SubItems.Add(MyTempQuery.FieldByName('Title').AsString);
       SubItems.Add(MyTempQuery.FieldByName('Level').AsString);
       SubItems.Add(GetRaceAcronym(MyTempQuery.FieldByName('RequiredRaces').AsInteger));
 
@@ -4670,7 +4670,7 @@ begin
   // ENDS
   MyTempQuery.SQL.Text := Format('Select qt.* from creature_involvedrelation ci' +
                                  ' INNER JOIN quest_template qt ON ci.quest = qt.Id' +
-                                 ' where ci.id = %s',[Entry]);
+                                 ' where ci.id = %s',[Id]);
   MyTempQuery.Open;
   lvCreatureEnds.Items.BeginUpdate;
   lvCreatureEnds.Items.Clear;
@@ -4679,7 +4679,7 @@ begin
     with lvCreatureEnds.Items.Add do
     begin
       Caption := MyTempQuery.FieldByName('Id').AsString;
-      SubItems.Add(MyTempQuery.FieldByName('title').AsString);
+      SubItems.Add(MyTempQuery.FieldByName('Title').AsString);
       SubItems.Add(MyTempQuery.FieldByName('Level').AsString);
       SubItems.Add(GetRaceAcronym(MyTempQuery.FieldByName('RequiredRaces').AsInteger));
 
@@ -4702,7 +4702,7 @@ begin
   MyTempQuery.SQL.Text := Format('Select * from quest_template ' +
                                  ' where RequiredNpcOrGo1 = %0:s OR' +
                                  ' RequiredNpcOrGo2 = %0:s OR RequiredNpcOrGo3 = %0:s OR' +
-                                 ' RequiredNpcOrGo4 = %0:s ',[Entry]);
+                                 ' RequiredNpcOrGo4 = %0:s ',[Id]);
   MyTempQuery.Open;
   lvCreatureObjectiveOf.Items.BeginUpdate;
   lvCreatureObjectiveOf.Items.Clear;
@@ -4711,7 +4711,7 @@ begin
     with lvCreatureObjectiveOf.Items.Add do
     begin
       Caption := MyTempQuery.FieldByName('Id').AsString;
-      SubItems.Add(MyTempQuery.FieldByName('title').AsString);
+      SubItems.Add(MyTempQuery.FieldByName('Title').AsString);
       SubItems.Add(MyTempQuery.FieldByName('Level').AsString);
       SubItems.Add(GetRaceAcronym(MyTempQuery.FieldByName('RequiredRaces').AsInteger));
 
@@ -4735,16 +4735,16 @@ begin
   tsCreatureObjectiveOf.TabVisible := lvCreatureObjectiveOf.Items.Count <> 0;
 end;
 
-procedure TMainForm.LoadGOInvolvedIn(Entry: string);
+procedure TMainForm.LoadGOInvolvedIn(Id: string);
 var
   a, b, temp: string;
 begin
-  if trim(entry)='' then Exit;
+  if trim(id)='' then Exit;
 
   // STARTS
   MyTempQuery.SQL.Text := Format('Select qt.* from gameobject_questrelation ci' +
                                  ' INNER JOIN quest_template qt ON ci.quest = qt.Id' +
-                                 ' where ci.id = %s',[Entry]);
+                                 ' where ci.id = %s',[Id]);
   MyTempQuery.Open;
   lvGameObjectStarts.Items.BeginUpdate;
   lvGameObjectStarts.Items.Clear;
@@ -4753,7 +4753,7 @@ begin
     with lvGameObjectStarts.Items.Add do
     begin
       Caption := MyTempQuery.FieldByName('Id').AsString;
-      SubItems.Add(MyTempQuery.FieldByName('title').AsString);
+      SubItems.Add(MyTempQuery.FieldByName('Title').AsString);
       SubItems.Add(MyTempQuery.FieldByName('Level').AsString);
       SubItems.Add(GetRaceAcronym(MyTempQuery.FieldByName('RequiredRaces').AsInteger));
 
@@ -4775,7 +4775,7 @@ begin
   // ENDS
   MyTempQuery.SQL.Text := Format('Select qt.* from gameobject_involvedrelation ci' +
                                  ' INNER JOIN quest_template qt ON ci.quest = qt.Id' +
-                                 ' where ci.id = %s',[Entry]);
+                                 ' where ci.id = %s',[Id]);
   MyTempQuery.Open;
   lvGameObjectEnds.Items.BeginUpdate;
   lvGameObjectEnds.Items.Clear;
@@ -4784,7 +4784,7 @@ begin
     with lvGameObjectEnds.Items.Add do
     begin
       Caption := MyTempQuery.FieldByName('Id').AsString;
-      SubItems.Add(MyTempQuery.FieldByName('title').AsString);
+      SubItems.Add(MyTempQuery.FieldByName('Title').AsString);
       SubItems.Add(MyTempQuery.FieldByName('Level').AsString);
       SubItems.Add(GetRaceAcronym(MyTempQuery.FieldByName('RequiredRaces').AsInteger));
 
@@ -4807,7 +4807,7 @@ begin
   MyTempQuery.SQL.Text := Format('Select * from quest_template ' +
                                  ' where RequiredNpcOrGo1 = -%0:s OR' +
                                  ' RequiredNpcOrGo2 = -%0:s OR RequiredNpcOrGo3 = -%0:s OR' +
-                                 ' RequiredNpcOrGo4 = -%0:s ',[Entry]);
+                                 ' RequiredNpcOrGo4 = -%0:s ',[Id]);
   MyTempQuery.Open;
   lvGameObjectObjectiveOf.Items.BeginUpdate;
   lvGameObjectObjectiveOf.Items.Clear;
@@ -4816,7 +4816,7 @@ begin
     with lvGameObjectObjectiveOf.Items.Add do
     begin
       Caption := MyTempQuery.FieldByName('Id').AsString;
-      SubItems.Add(MyTempQuery.FieldByName('title').AsString);
+      SubItems.Add(MyTempQuery.FieldByName('Title').AsString);
       SubItems.Add(MyTempQuery.FieldByName('Level').AsString);
       SubItems.Add(GetRaceAcronym(MyTempQuery.FieldByName('RequiredRaces').AsInteger));
 
@@ -4840,15 +4840,15 @@ begin
   tsGOObjectiveOf.TabVisible := lvGameObjectObjectiveOf.Items.Count <> 0;
 end;
 
-procedure TMainForm.LoadItemInvolvedIn(Entry: string);
+procedure TMainForm.LoadItemInvolvedIn(Id: string);
 var
   a, b, temp: string;
 begin
-  if trim(entry)='' then Exit;
+  if trim(id)='' then Exit;
   // STARTS
   MyTempQuery.SQL.Text := Format('Select qt.* from item_template it' +
                                  ' INNER JOIN quest_template qt ON it.startquest = qt.Id' +
-                                 ' where it.entry = %s',[Entry]);
+                                 ' where it.entry = %s',[Id]);
   MyTempQuery.Open;
   lvItemStarts.Items.BeginUpdate;
   lvItemStarts.Items.Clear;
@@ -4880,7 +4880,7 @@ begin
   MyTempQuery.SQL.Text := Format('Select * from quest_template ' +
                                  ' where RequiredItemId1 = %0:s OR' +
                                  ' RequiredItemId2 = %0:s OR RequiredItemId3 = %0:s OR' +
-                                 ' RequiredItemId4 = %0:s ',[Entry]);
+                                 ' RequiredItemId4 = %0:s ',[Id]);
   MyTempQuery.Open;
   lvItemObjectiveOf.Items.BeginUpdate;
   lvItemObjectiveOf.Items.Clear;
@@ -4912,7 +4912,7 @@ begin
   MyTempQuery.SQL.Text := Format('Select * from quest_template ' +
                                  ' where RequiredSourceItemId1 = %0:s OR' +
                                  ' RequiredSourceItemId2 = %0:s OR RequiredSourceItemId3 = %0:s OR' +
-                                 ' RequiredSourceItemId4 = %0:s ',[Entry]);
+                                 ' RequiredSourceItemId4 = %0:s ',[Id]);
   MyTempQuery.Open;
   lvItemSourceFor.Items.BeginUpdate;
   lvItemSourceFor.Items.Clear;
@@ -4921,7 +4921,7 @@ begin
     with lvItemSourceFor.Items.Add do
     begin
       Caption := MyTempQuery.FieldByName('Id').AsString;
-      SubItems.Add(MyTempQuery.FieldByName('title').AsString);
+      SubItems.Add(MyTempQuery.FieldByName('Title').AsString);
       SubItems.Add(MyTempQuery.FieldByName('Level').AsString);
       SubItems.Add(GetRaceAcronym(MyTempQuery.FieldByName('RequiredRaces').AsInteger));
 
@@ -4942,7 +4942,7 @@ begin
 
   // Provided for
   MyTempQuery.SQL.Text := Format('Select * from quest_template ' +
-                                 ' where SourceItemId = %s ',[Entry]);
+                                 ' where SourceItemId = %s ',[Id]);
   MyTempQuery.Open;
   lvItemProvidedFor.Items.BeginUpdate;
   lvItemProvidedFor.Items.Clear;
@@ -4951,7 +4951,7 @@ begin
     with lvItemProvidedFor.Items.Add do
     begin
       Caption := MyTempQuery.FieldByName('Id').AsString;
-      SubItems.Add(MyTempQuery.FieldByName('title').AsString);
+      SubItems.Add(MyTempQuery.FieldByName('Title').AsString);
       SubItems.Add(MyTempQuery.FieldByName('Level').AsString);
       SubItems.Add(GetRaceAcronym(MyTempQuery.FieldByName('RequiredRaces').AsInteger));
 
@@ -4977,7 +4977,7 @@ begin
                                  ' RewardChoiceItemId4 = %0:s OR RewardChoiceItemId5 = %0:s OR' +
                                  ' RewardItemId2 = %0:s OR RewardItemId3 = %0:s OR' +
                                  ' RewardItemId4 = %0:s OR RewardItemId1 = %0:s OR' +
-                                 ' RewardChoiceItemId6 = %0:s ',[Entry]);
+                                 ' RewardChoiceItemId6 = %0:s ',[Id]);
   MyTempQuery.Open;
   lvItemRewardFrom.Items.BeginUpdate;
   lvItemRewardFrom.Items.Clear;
@@ -4986,7 +4986,7 @@ begin
     with lvItemRewardFrom.Items.Add do
     begin
       Caption := MyTempQuery.FieldByName('Id').AsString;
-      SubItems.Add(MyTempQuery.FieldByName('title').AsString);
+      SubItems.Add(MyTempQuery.FieldByName('Title').AsString);
       SubItems.Add(MyTempQuery.FieldByName('Level').AsString);
       SubItems.Add(GetRaceAcronym(MyTempQuery.FieldByName('RequiredRaces').AsInteger));
 
