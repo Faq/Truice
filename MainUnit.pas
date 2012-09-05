@@ -11344,13 +11344,13 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     42:  //SMART_ACTION_SET_INVINCIBILITY_HP_LEVEL
         begin
-            lbcyaction_param1.Caption := 'MinHpValue(+pct,-flat)';
-            lbcyaction_param2.Caption := '';
+            lbcyaction_param1.Caption := 'flat hp value';
+            lbcyaction_param2.Caption := 'percent hp value';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := '';
+            lbcyaction_type.Hint := 'Only one of these params should be used(in case you set values in both,the script will chose percent)';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     43:  //SMART_ACTION_MOUNT_TO_ENTRY_OR_MODEL
