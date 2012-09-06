@@ -52,6 +52,16 @@ object UnitFlagsForm: TUnitFlagsForm
     TabOrder = 1
     OnClick = btOKClick
   end
+  object btCheckAll: TButton
+    Left = 8
+    Top = 241
+    Width = 75
+    Height = 25
+    Anchors = [akRight, akBottom]
+    Caption = 'CheckAll'
+    TabOrder = 3
+    OnClick = btCheckAllClick
+  end
   object clbMain: TCheckListBox
     Left = 8
     Top = 8

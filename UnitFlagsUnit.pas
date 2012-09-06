@@ -11,9 +11,11 @@ type
     Bevel: TBevel;
     btCancel: TButton;
     btOK: TButton;
+    btCheckAll: TButton;
     clbMain: TCheckListBox;
     procedure FormCreate(Sender: TObject);
     procedure btOKClick(Sender: TObject);
+    procedure btCheckAllClick(Sender: TObject);
   private
     FFlags: int64;
     { Private declarations }
@@ -32,16 +34,24 @@ uses MyDataModule, Functions;
 
 { TUnitFlagsForm }
 
+procedure TUnitFlagsForm.btCheckAllClick(Sender: TObject);
+var
+    i: integer;
+begin
+    FFlags := StrToInt64Def(Text,0);
+    for i := 0 to clbMain.Items.Count - 1 do
+    begin
+        clbMain.Checked[i] := true;
+    end;
+end;
+
 procedure TUnitFlagsForm.btOKClick(Sender: TObject);
 var
   i: integer;
-  skip: boolean;
 begin
-  skip := false;
   FFlags := 0;
   for i := 0 to clbMain.Items.Count - 1 do
-    if clbMain.Checked[i] then FFlags := FFlags or (1 shl i) else skip := true;
-  if not skip then fflags := -1;  
+    if clbMain.Checked[i] then FFlags := FFlags or (1 shl i); 
 end;
 
 procedure TUnitFlagsForm.FormCreate(Sender: TObject);

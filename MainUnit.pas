@@ -5043,7 +5043,6 @@ end;
 
 procedure TMainForm.GetInhabitType(Sender: TObject);
 begin
-  //GetValueFromSimpleList(Sender, 0, 'CreatureInhabitType', false);
   GetSomeFlags(Sender, 'CreatureInhabitType');
 end;
 
