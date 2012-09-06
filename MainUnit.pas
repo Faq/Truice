@@ -13,10 +13,10 @@ uses
   ZAbstractConnection;
 
 const
-  REV = '015e4596165fa435bb966bbc9ad55157508bb265';
+  REV = '9f09713b3e286ba94948c15d64b76b2aed16f8cd';
   VERSION_1   = '1'; //*10000
   VERSION_2   = '3'; //*100
-  VERSION_3   = '0';
+  VERSION_3   = '1';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
 
   SCRIPT_TAB_NO_QUEST       = 8;
