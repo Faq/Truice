@@ -11995,7 +11995,18 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := 'Send targets previously stored with SMART_ACTION_STORE_TARGET, to another npc/go, the other npc/go can then access them as if it was its own stored list ';
+            lbcyaction_type.Hint := 'Send targets previously stored with SMART_ACTION_STORE_TARGET, to another npc/go, the other npc/go can then access them as if it was its own stored list';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    101:  //SMART_ACTION_SET_HOME_POS
+        begin
+            lbcyaction_param1.Caption := '';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'Useful for those npc that move and need to stay in that position on evade. Or those who reset because they're too far away frome home pos. Can be used with SMART_TARGET_SELF (sets home pos to actual position) or with SMART_TARGET_POSITION (sets home pos to a specified one)';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     end;
