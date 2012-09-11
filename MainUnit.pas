@@ -3871,7 +3871,7 @@ begin
       begin
         if MessageDlg(Format(dmMain.Text[137],[CreateVer(LastVer)]), mtConfirmation, mbYesNoCancel, 0, mbYes) = mrYes then
         begin
-          BrowseURL1.URL := 'http://code.google.com/p/truice/';
+          BrowseURL1.URL := 'http://github.com/Faq/Truice/downloads';
           BrowseURL1.Execute;
         end;
       end
@@ -13838,7 +13838,7 @@ begin
    end;
    JvHttpUrlGrabber.ProxyUserName := dmMain.ProxyUser;
    JvHttpUrlGrabber.ProxyPassword := dmMain.ProxyPass;
-   JvHttpUrlGrabber.URL := 'http://truice.googlecode.com/hg/version.txt';
+   JvHttpUrlGrabber.URL := 'http://github.com/Faq/Truice/blob/master/version.txt';
    try
     IsFirst := true;
     JvHttpUrlGrabber.Start;
