@@ -2006,7 +2006,7 @@ object AboutBox: TAboutBox
         Width = 160
         Height = 13
         Cursor = crHandPoint
-        Caption = 'http://code.google.com/p/truice/'
+        Caption = 'http://github.com/Faq/Truice'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -11
