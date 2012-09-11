@@ -24,6 +24,7 @@ const
   SCRIPT_TAB_NO_GAMEOBJECT  = 7;
   SCRIPT_TAB_NO_ITEM        = 10;
   SCRIPT_TAB_NO_SMARTAI     = 1;
+  SCRIPT_TAB_NO_CONDITIONS  = 1;
   SCRIPT_TAB_NO_OTHER       = 3;
   SCRIPT_TAB_NO_CHARACTER   = 3;
 
@@ -1299,6 +1300,8 @@ type
     lbcnaction3_type: TLabel;
     edcncomment: TLabeledEdit;
     linkEventAIInfo: TLabel;
+    linkSmartAIInfo: TLabel;
+    linkConditionInfo: TLabel;
     edctmechanic_immune_mask: TJvComboEdit;
     lbctmechanic_immune_mask: TLabel;
     ZSQLProcessor: TZSQLProcessor;
@@ -1499,18 +1502,31 @@ type
     edcvslot: TLabeledEdit;
     tsSmartAI: TTabSheet;
     lvcySmartAI: TJvListView;
+    tsConditions: TTabSheet;
+    lvcConditions: TJvListView;
     btcyFullScript: TButton;
     edcysource_type: TJvComboEdit;
+    edcSourceTypeOrReferenceId: TJvComboEdit;
     edcyid: TJvComboEdit;
     edcylink: TJvComboEdit;
     edcyevent_type: TJvComboEdit;
+    edcSourceId: TJvComboEdit;
+    edcElseGroup: TJvComboEdit;
+    edcConditionTypeOrReference: TJvComboEdit;
     edcyevent_phase_mask: TJvComboEdit;
     edcyevent_chance: TJvComboEdit;
     edcyevent_flags: TJvComboEdit;
+    edcNegativeCondition: TJvComboEdit;
+    edcErrorTextId: TJvComboEdit;
+    edcScriptName: TJvComboEdit;
     edcyevent_param1: TJvComboEdit;
     edcyevent_param2: TJvComboEdit;
     edcyevent_param3: TJvComboEdit;
     edcyevent_param4: TJvComboEdit;
+    edcConditionTarget: TJvComboEdit;
+    edcConditionValue1: TJvComboEdit;
+    edcConditionValue2: TJvComboEdit;
+    edcConditionValue3: TJvComboEdit;
     edcyaction_type: TJvComboEdit;
     edcyaction_param1: TJvComboEdit;
     edcyaction_param2: TJvComboEdit;
@@ -1526,21 +1542,38 @@ type
     edcytarget_z: TJvComboEdit;
     edcytarget_o: TJvComboEdit;
     edcycomment: TJvComboEdit;
+    edcComment: TJvComboEdit;
     btSmartAIAdd: TSpeedButton;
     btSmartAIDel: TSpeedButton;
     btSmartAIUpd: TSpeedButton;
+    btConditionsAdd: TSpeedButton;
+    btConditionsDel: TSpeedButton;
+    btConditionsUpd: TSpeedButton;
     edcyentryorguid: TJvComboEdit;
+    edcSourceGroup: TJvComboEdit;
+    edcSourceEntry: TJvComboEdit;
     lbcysource_type: TLabel;
+    lbcSourceTypeOrReferenceId: TLabel;
     lbcyid: TLabel;
+    lbcSourceId: TLabel;
     lbcylink: TLabel;
+    lbcElseGroup: TLabel;
     lbcyevent_phase_mask: TLabel;
     lbcyevent_chance: TLabel;
     lbcyevent_flags: TLabel;
+    lbcNegativeCondition: TLabel;
+    lbcErrorTextId: TLabel;
+    lbcScriptName: TLabel;
     lbcyevent_type: TLabel;
+    lbcConditionTypeOrReference: TLabel;
     lbcyevent_param1: TLabel;
+    lbcConditionTarget: TLabel;
     lbcyevent_param2: TLabel;
     lbcyevent_param3: TLabel;
     lbcyevent_param4: TLabel;
+    lbcConditionValue1: TLabel;
+    lbcConditionValue2: TLabel;
+    lbcConditionValue3: TLabel;
     lbcyaction_type: TLabel;
     lbcyaction_param1: TLabel;
     lbcyaction_param2: TLabel;
@@ -1557,17 +1590,29 @@ type
     lbcytarget_z: TLabel;
     lbcytarget_o: TLabel;
     lbcycomment: TLabel;
+    lbcComment: TLabel;
     SmartAI: TTabSheet;
     PageControl9: TPageControl;
+    Conditions: TTabSheet;
+    PageControl10: TPageControl;
     Panel25: TPanel;
+    Panel26: TPanel;
     tsCreatureSmartAI: TTabSheet;
     lbcyentryorguid: TLabel;
+    lbcsourcegroup: TLabel;
+    lbcSourceEntry: TLabel;
     tsSmartAIScript: TTabSheet;
+    tsConditionsScript: TTabSheet;
     btCopyToClipboardSmartAI: TButton;
     btExecuteSmartAIScript: TButton;
     mecyScript: TMemo;
+    mecScript: TMemo;
+    btCopyToClipboardConditions: TButton;
+    btExecuteConditionsScript: TButton;
     mecyLog: TMemo;
+    mecLog: TMemo;
     btcyLoad: TButton;
+    btcLoad: TButton;
     edcytarget_y: TJvComboEdit;
     Shape1: TShape;
     Label9: TLabel;
@@ -1679,8 +1724,10 @@ type
     procedure edctEntryButtonClick(Sender: TObject);
     procedure btExecuteEventAIScriptClick(Sender: TObject);
     procedure btExecuteSmartAIScriptClick(Sender: TObject);
+    procedure btExecuteConditionsScriptClick(Sender: TObject);
     procedure btCopyToClipboardCreatureClick(Sender: TObject);
     procedure btCopyToClipboardSmartAIClick(Sender: TObject);
+    procedure btCopyToClipboardConditionsClick(Sender: TObject);
     procedure tsCreatureScriptShow(Sender: TObject);
     procedure edctnpcflagButtonClick(Sender: TObject);
     procedure edctrankButtonClick(Sender: TObject);
@@ -1987,21 +2034,28 @@ type
     procedure GetInhabitType(Sender: TObject);
     procedure lvcnEventAISelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvcySmartAISelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvcConditionsSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure Button1Click(Sender: TObject);
     procedure GetEventType(Sender: TObject);
     procedure GetActionType(Sender: TObject);
     procedure GetSAIEventType(Sender: TObject);
+    procedure GetConditionTypeOrReference(Sender: TObject);
     procedure GetSAIActionType(Sender: TObject);
     procedure GetSAISummonType(Sender: TObject);
     procedure GetSAIReactState(Sender: TObject);
     procedure GetSAISourceType(Sender: TObject);
+    procedure GetSourceTypeOrReferenceId(Sender: TObject);
     procedure GetSAITargetType(Sender: TObject);
     procedure GetSAIEventFlags(Sender: TObject);
     procedure GetSAICastFlags(Sender: TObject);
     procedure edcyevent_typeChange(Sender: TObject);
+    procedure edcConditionTypeOrReferenceChange(Sender: TObject);
+    procedure edcSourceTypeOrReferenceIdChange(Sender: TObject);
     procedure edcyaction_typeChange(Sender: TObject);
     procedure edcytarget_typeChange(Sender: TObject);
     procedure linkEventAIInfoClick(Sender: TObject);
+    procedure linkSmartAIInfoClick(Sender: TObject);
+    procedure linkConditionInfoClick(Sender: TObject);
     procedure GetMechanicImmuneMask(Sender: TObject);
     procedure lvSearchItemCustomDrawSubItem(Sender: TCustomListView; Item: TListItem;
       SubItem: Integer; State: TCustomDrawState; var DefaultDraw: Boolean);
@@ -2018,12 +2072,17 @@ type
     procedure btEventAIUpdClick(Sender: TObject);
     procedure btSmartAIAddClick(Sender: TObject);
     procedure btSmartAIUpdClick(Sender: TObject);
+    procedure btConditionsAddClick(Sender: TObject);
+    procedure btConditionsUpdClick(Sender: TObject);
     procedure lvcnEventAIChange(Sender: TObject; Item: TListItem;
       Change: TItemChange);
     procedure lvcySmartAIChange(Sender: TObject; Item: TListItem;
       Change: TItemChange);
+    procedure lvcConditionsChange(Sender: TObject; Item: TListItem;
+      Change: TItemChange);
     procedure btEventAIDelClick(Sender: TObject);
     procedure btSmartAIDelClick(Sender: TObject);
+    procedure btConditionsDelClick(Sender: TObject);
     procedure btlqShowFullLocalesScriptClick(Sender: TObject);
     procedure lvitMillingLootSelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);
@@ -2047,10 +2106,16 @@ type
     procedure edirentryButtonClick(Sender: TObject);
     procedure GetSpawnMask(Sender: TObject);
     procedure btcyFullScriptClick(Sender: TObject);
+    procedure btcFullScriptClick(Sender: TObject);
     procedure btcyLoadClick(Sender: TObject);
+    procedure btcLoadClick(Sender: TObject);
     procedure btctGoToSmartAIClick(Sender: TObject);
     procedure btgtGotoSmartAIClick(Sender: TObject);
     procedure edcyevent_typeKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edcConditionTypeOrReferenceKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edcSourceTypeOrReferenceIdKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure edcyaction_typeKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -2194,6 +2259,17 @@ type
     procedure SetSAIAction(t: integer);
     procedure SetSAITarget(t: integer);
 
+    {Conditions}
+    procedure ShowFullConditionsScript(TableName: string; lvList: TJvListView; Memo: TMemo; SourceTypeOrReferenceId: string; SourceGroup: string; SourceEntry: string);
+    procedure SetConditionsEditFields(pfx: string; lvList: TJvListView);
+    procedure ConditionsAdd(pfx: string; lvList: TJvListView);
+    procedure ConditionsUpd(pfx: string; lvList: TJvListView);
+    procedure ConditionsDel(lvList: TJvListView);
+    procedure LoadConditions(SourceTypeOrReferenceId: integer; SourceGroup: integer; SourceEntry: integer);
+    procedure ClearConditionsFields();
+    procedure SetConditionTypeOrReference(t: integer);
+    procedure SetSourceTypeOrReferenceId(t: integer);
+
     {other}
     function MakeUpdate(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
     function MakeUpdateLocales(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
@@ -2280,7 +2356,7 @@ end;
 
 var
   MainForm: TMainForm;
-  SAI_Event, SAI_Action, SAI_Target: Integer;
+  SAI_Event, SAI_Action, SAI_Target, Condition_TypeOrReference, Source_TypeOrReferenceId: Integer;
 
 implementation
 
@@ -3471,6 +3547,25 @@ begin
   end;
 end;
 
+procedure TMainForm.ClearConditionsFields();
+var
+  i: integer;
+  s: string;
+begin
+  s := 'c';
+  for i := 0 to ComponentCount - 1 do
+  begin
+    if s<>'' then
+    begin
+        if (((Components[i] is TLabeledEdit) or (Components[i] is TJvComboEdit) or (Components[i] is TMemo)) and
+           ((Pos('ed'+s,Components[i].Name)=1) or (Pos('me'+s,Components[i].Name)=1))) and (Pos('ed'+s+'SourceTypeOrReferenceId',Components[i].Name)<>1) and (Pos('ed'+s+'SourceGroup',Components[i].Name)<>1) then
+           TCustomEdit(Components[i]).Clear;
+        if (Components[i] is TJvListView) and ((Pos('lv'+s,Components[i].Name)=1)) then
+          TCustomListView(Components[i]).Clear;
+    end;
+  end;
+end;
+
 procedure TMainForm.SetDefaultFields(Where: TType);
 var
   i: integer;
@@ -4280,6 +4375,18 @@ begin
       '`target_z` as `tz`, `target_o` as `to`, `comment` as `cmt` FROM `smart_scripts` WHERE `entryorguid`=%d AND `source_type`=%d',[entryorguid, sourcetype]), lvcySmartAI);
 end;
 
+procedure TMainForm.LoadConditions(SourceTypeOrReferenceId: integer; SourceGroup: integer; SourceEntry: integer);
+begin
+    if SourceGroup and SourceEntry<1 then exit;
+
+    ShowHourGlassCursor;
+    ClearConditionsFields();
+
+    LoadQueryToListView(Format('SELECT `SourceTypeOrReferenceId` as `StorId`,  `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`,  '+
+      '`ConditionTypeOrReference` as `CTOR`, `ConditionTarget` as `ct`,  `ConditionValue1` as `cv1`, `ConditionValue2` as `cv2`,  `ConditionValue3` as `cv3`, '+
+      '`NegativeCondition` as `NegativeC`, `ErrorTextId`,  `ScriptName`,  `Comment` FROM `conditions` WHERE `SourceTypeOrReferenceId`=%d AND `SourceGroup`=%d AND `SourceEntry`=%d',[SourceTypeOrReferenceId, SourceGroup, SourceEntry]), lvcConditions);
+end;
+
 procedure TMainForm.LoadCreature(Entry: integer);
 var
   i: integer;
@@ -4435,6 +4542,23 @@ begin
   LoadSmartAI(id, sourcetype);
 end;
 
+procedure TMainForm.btcLoadClick(Sender: TObject);
+var
+  SourceTypeOrReferenceId, SourceGroup, SourceEntry: integer;
+begin
+  SourceTypeOrReferenceId := abs(StrToIntDef(edcSourceTypeOrReferenceId.Text,0));
+  SourceGroup := abs(StrToIntDef(edcSourceGroup.Text,0));
+  SourceEntry := abs(StrToIntDef(edcSourceEntry.Text,0));
+  if SourceGroup and SourceEntry = 0 then Exit;
+  if (SourceTypeOrReferenceId = 0) and (edcSourceTypeOrReferenceId.Text = '') then
+  begin
+    ShowMessage(dmMain.Text[158]);
+    Exit;
+  end;
+
+  LoadConditions(SourceTypeOrReferenceId, SourceGroup, SourceEntry);
+end;
+
 procedure TMainForm.edctequipment_idDblClick(Sender: TObject);
 begin
 PageControl3.ActivePageIndex := 4;
@@ -4454,6 +4578,21 @@ end;
 procedure TMainForm.btSmartAIUpdClick(Sender: TObject);
 begin
 	SmartAIUpd('edcy',lvcySmartAI);
+end;
+
+procedure TMainForm.btConditionsAddClick(Sender: TObject);
+begin
+	ConditionsAdd('edc', lvcConditions);
+end;
+
+procedure TMainForm.btConditionsDelClick(Sender: TObject);
+begin
+	ConditionsDel(lvcConditions);
+end;
+
+procedure TMainForm.btConditionsUpdClick(Sender: TObject);
+begin
+	ConditionsUpd('edc',lvcConditions);
 end;
 
 procedure TMainForm.btEventAIAddClick(Sender: TObject);
@@ -4483,6 +4622,12 @@ begin
     ExecuteScript(mecyScript.Text, mecyLog);
 end;
 
+procedure TMainForm.btExecuteConditionsScriptClick(Sender: TObject);
+begin
+  if MessageDlg(dmMain.Text[9], mtConfirmation, mbYesNoCancel, -1)=mrYes then
+    ExecuteScript(mecScript.Text, mecLog);
+end;
+
 procedure TMainForm.btCopyToClipboardCreatureClick(Sender: TObject);
 begin
   mectScript.SelectAll;
@@ -4497,6 +4642,14 @@ begin
   mecyScript.CopyToClipboard;
   mecyScript.SelStart := 0;
   mecyScript.SelLength := 0;
+end;
+
+procedure TMainForm.btCopyToClipboardConditionsClick(Sender: TObject);
+begin
+  mecScript.SelectAll;
+  mecScript.CopyToClipboard;
+  mecScript.SelStart := 0;
+  mecScript.SelLength := 0;
 end;
 
 procedure TMainForm.tsButtonScriptShow(Sender: TObject);
@@ -5133,7 +5286,7 @@ begin
   try
     SetList(F.lvList, Name, Sort);
     i := F.lvList.Items.Count;
-    if (i>0) and (i<=15) and (Name<>'SAI_SourceType') and (Name<>'ChrClasses') then
+    if (i>0) and (i<=15) and (Name<>'SAI_SourceType') and (Name<>'ChrClasses') and (Name<>'Cond_SourceTypeOrReferenceId') then
     begin
       if not Assigned(lvQuickList) then
       begin
@@ -5717,6 +5870,12 @@ begin
   SetSAIEvent(StrToIntDef(edcyevent_type.Text,0));
 end;
 
+procedure TMainForm.GetConditionTypeOrReference(Sender: TObject);
+begin
+  GetValueFromSimpleList(Sender, 0, 'Cond_ConditionTypeOrReference', false);
+  SetConditionTypeOrReference(StrToIntDef(edcConditionTypeOrReference.Text,0));
+end;
+
 procedure TMainForm.GetSAIActionType(Sender: TObject);
 begin
   GetValueFromSimpleList(Sender, 0, 'SAI_ActionType', false);
@@ -5736,6 +5895,12 @@ end;
 procedure TMainForm.GetSAISourceType(Sender: TObject);
 begin
   GetValueFromSimpleList(Sender, 0, 'SAI_SourceType', false);
+end;
+
+procedure TMainForm.GetSourceTypeOrReferenceId(Sender: TObject);
+begin
+  GetValueFromSimpleList(Sender, 0, 'Cond_SourceTypeOrReferenceId', false);
+  SetSourceTypeOrReferenceId(StrToIntDef(edcSourceTypeOrReferenceId.Text,0));
 end;
 
 procedure TMainForm.GetSAITargetType(Sender: TObject);
@@ -5838,6 +6003,19 @@ procedure TMainForm.lvcySmartAIChange(Sender: TObject; Item: TListItem;
 begin
  btSmartAIUpd.Enabled := Assigned(TJvListView(Sender).Selected);
  btSmartAIDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvcConditionsSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+   SetConditionsEditFields('edc', lvcConditions);
+end;
+
+procedure TMainForm.lvcConditionsChange(Sender: TObject; Item: TListItem;
+  Change: TItemChange);
+begin
+ btConditionsUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+ btConditionsDel.Enabled := Assigned(TJvListView(Sender).Selected);
 end;
 
 procedure TMainForm.LoadCreatureLocation(GUID: integer);
@@ -7550,6 +7728,11 @@ begin
   LootDel(lvList);
 end;
 
+procedure TMainForm.ConditionsDel(lvList: TJvListView);
+begin
+  LootDel(lvList);
+end;
+
 procedure TMainForm.MvmntUpd(pfx: string; lvList: TJvListView);
 begin
   if Assigned(lvList.Selected) then
@@ -7644,6 +7827,30 @@ begin
       SubItems[24] := TCustomEdit(FindComponent(pfx + 'target_z')).Text;
       SubItems[25] := TCustomEdit(FindComponent(pfx + 'target_o')).Text;
       SubItems[26] := TCustomEdit(FindComponent(pfx + 'comment')).Text;
+    end;
+  end;
+end;
+
+procedure TMainForm.ConditionsUpd(pfx: string; lvList: TJvListView);
+begin
+  if Assigned(lvList.Selected) then
+  begin
+    with lvList.Selected do
+    begin
+      Caption := TCustomEdit(FindComponent(pfx + 'SourceTypeOrReferenceId')).Text;
+      SubItems[0] := TCustomEdit(FindComponent(pfx + 'SourceGroup')).Text;
+      SubItems[1] := TCustomEdit(FindComponent(pfx + 'SourceEntry')).Text;
+      SubItems[2] := TCustomEdit(FindComponent(pfx + 'SourceId')).Text;
+      SubItems[3] := TCustomEdit(FindComponent(pfx + 'ElseGroup')).Text;
+      SubItems[4] := TCustomEdit(FindComponent(pfx + 'ConditionTypeOrReference')).Text;
+      SubItems[5] := TCustomEdit(FindComponent(pfx + 'ConditionTarget')).Text;
+      SubItems[6] := TCustomEdit(FindComponent(pfx + 'ConditionValue1')).Text;
+      SubItems[7] := TCustomEdit(FindComponent(pfx + 'ConditionValue2')).Text;
+      SubItems[8] := TCustomEdit(FindComponent(pfx + 'ConditionValue3')).Text;
+      SubItems[9] := TCustomEdit(FindComponent(pfx + 'NegativeCondition')).Text;
+      SubItems[10] := TCustomEdit(FindComponent(pfx + 'ErrorTextId')).Text;
+      SubItems[11] := TCustomEdit(FindComponent(pfx + 'ScriptName')).Text;
+      SubItems[12] := TCustomEdit(FindComponent(pfx + 'Comment')).Text;
     end;
   end;
 end;
@@ -7782,6 +7989,27 @@ begin
   end;
 end;
 
+procedure TMainForm.ConditionsAdd(pfx: string; lvList: TJvListView);
+begin
+  with lvList.Items.Add do
+  begin
+    Caption := TCustomEdit(FindComponent(pfx + 'SourceTypeOrReferenceId')).Text;
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'SourceGroup')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'SourceEntry')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'SourceId')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'ElseGroup')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'ConditionTypeOrReference')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'ConditionTarget')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'ConditionValue1')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'ConditionValue2')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'ConditionValue3')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'NegativeCondition')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'ErrorTextId')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'ScriptName')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'Comment')).Text);
+  end;
+end;
+
 procedure TMainForm.LootUpd(pfx: string; lvList: TJvListView);
 begin
   if Assigned(lvList.Selected) then
@@ -7917,6 +8145,30 @@ begin
       TCustomEdit(FindComponent(pfx + 'target_z')).Text := SubItems[24];
       TCustomEdit(FindComponent(pfx + 'target_o')).Text := SubItems[25];
       TCustomEdit(FindComponent(pfx + 'comment')).Text := SubItems[26];
+    end;
+  end;
+end;
+
+procedure TMainForm.SetConditionsEditFields(pfx: string; lvList: TJvListView);
+begin
+  if Assigned(lvList.Selected) then
+  begin
+    with lvList.Selected do
+    begin
+      TCustomEdit(FindComponent(pfx + 'SourceTypeOrReferenceId')).Text := Caption;
+      TCustomEdit(FindComponent(pfx + 'SourceGroup')).Text := SubItems[0];
+      TCustomEdit(FindComponent(pfx + 'SourceEntry')).Text := SubItems[1];
+      TCustomEdit(FindComponent(pfx + 'SourceId')).Text := SubItems[2];
+      TCustomEdit(FindComponent(pfx + 'ElseGroup')).Text := SubItems[3];
+      TCustomEdit(FindComponent(pfx + 'ConditionTypeOrReference')).Text := SubItems[4];
+      TCustomEdit(FindComponent(pfx + 'ConditionTarget')).Text := SubItems[5];
+      TCustomEdit(FindComponent(pfx + 'ConditionValue1')).Text := SubItems[6];
+      TCustomEdit(FindComponent(pfx + 'ConditionValue2')).Text := SubItems[7];
+      TCustomEdit(FindComponent(pfx + 'ConditionValue3')).Text := SubItems[8];
+      TCustomEdit(FindComponent(pfx + 'NegativeCondition')).Text := SubItems[9];
+      TCustomEdit(FindComponent(pfx + 'ErrorTextId')).Text := SubItems[10];
+      TCustomEdit(FindComponent(pfx + 'ScriptName')).Text := SubItems[11];
+      TCustomEdit(FindComponent(pfx + 'Comment')).Text := SubItems[12];
     end;
   end;
 end;
@@ -8175,6 +8427,64 @@ begin
     Memo.Text := Format('DELETE FROM `%s` WHERE (`entryorguid`=%s AND `source_type`=%s);', [TableName, entry, sourcetype]);
 end;
 
+procedure TMainForm.ShowFullConditionsScript(TableName: string; lvList: TJvListView;
+  Memo: TMemo; SourceTypeOrReferenceId: string; SourceGroup: string; SourceEntry: string);
+var
+  i: integer;
+  Values: string;
+begin
+  Memo.Clear;
+  Values := '';
+  if lvList.Items.Count<>0 then
+  begin
+    for i := 0 to lvList.Items.Count - 2 do
+    begin
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+', '+'"'+'%s'+'"'+'),'#13#10,[
+        lvList.Items[i].Caption,
+        lvList.Items[i].SubItems[0],
+        lvList.Items[i].SubItems[1],
+        lvList.Items[i].SubItems[2],
+        lvList.Items[i].SubItems[3],
+        lvList.Items[i].SubItems[4],
+        lvList.Items[i].SubItems[5],
+        lvList.Items[i].SubItems[6],
+        lvList.Items[i].SubItems[7],
+        lvList.Items[i].SubItems[8],
+        lvList.Items[i].SubItems[9],
+        lvList.Items[i].SubItems[10],
+        lvList.Items[i].SubItems[11],
+        lvList.Items[i].SubItems[12]
+      ]);
+    end;
+    i := lvList.Items.Count - 1;
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+', '+'"'+'%s'+'"'+');',[
+      lvList.Items[i].Caption,
+      lvList.Items[i].SubItems[0],
+      lvList.Items[i].SubItems[1],
+      lvList.Items[i].SubItems[2],
+      lvList.Items[i].SubItems[3],
+      lvList.Items[i].SubItems[4],
+      lvList.Items[i].SubItems[5],
+      lvList.Items[i].SubItems[6],
+      lvList.Items[i].SubItems[7],
+      lvList.Items[i].SubItems[8],
+      lvList.Items[i].SubItems[9],
+      lvList.Items[i].SubItems[10],
+      lvList.Items[i].SubItems[11],
+      lvList.Items[i].SubItems[12]
+    ]);
+  end;
+  if values<>'' then
+  begin
+      Memo.Text := Format('DELETE FROM `%0:s` WHERE (`SourceTypeOrReferenceId`=%1:s AND `SourceGroup`=%2:s AND `SourceEntry`=%3:s);'#13#10+
+        'INSERT INTO `%0:s` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, '+
+				'`ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorTextId`, '+
+				'`ScriptName`, `Comment`) VALUES '#13#10'%4:s',[TableName, SourceTypeOrReferenceId, SourceGroup, SourceEntry, Values]);
+  end
+  else
+    Memo.Text := Format('DELETE FROM `%s` WHERE (`SourceTypeOrReferenceId`=%s AND `SourceGroup`=%s AND `SourceEntry`=%s);', [TableName, SourceTypeOrReferenceId, SourceGroup, SourceEntry]);
+end;
+
 procedure TMainForm.btPickpocketLootAddClick(Sender: TObject);
 begin
   LootAdd('edcp', lvcoPickpocketLoot);
@@ -8293,6 +8603,12 @@ procedure TMainForm.btcyFullScriptClick(Sender: TObject);
 begin
   PageControl9.ActivePageIndex := SCRIPT_TAB_NO_SMARTAI;
   ShowFullSmartAIScript('smart_scripts', lvcySmartAI, mecyScript, edcyentryorguid.Text, edcysource_type.Text);
+end;
+
+procedure TMainForm.btcFullScriptClick(Sender: TObject);
+begin
+  PageControl10.ActivePageIndex := SCRIPT_TAB_NO_CONDITIONS;
+  ShowFullConditionsScript('conditions', lvcConditions, mecScript, edcSourceTypeOrReferenceId.Text, edcSourceGroup.Text, edcSourceEntry.Text);
 end;
 
 procedure TMainForm.btFullScriptReferenceLootClick(Sender: TObject);
@@ -9237,10 +9553,32 @@ begin
   SetSAIEvent(StrToIntDef(edcyevent_type.Text,0));
 end;
 
+procedure TMainForm.edcConditionTypeOrReferenceChange(Sender: TObject);
+begin
+  SetConditionTypeOrReference(StrToIntDef(edcConditionTypeOrReference.Text,0));
+end;
+
+procedure TMainForm.edcSourceTypeOrReferenceIdChange(Sender: TObject);
+begin
+  SetSourceTypeOrReferenceId(StrToIntDef(edcSourceTypeOrReferenceId.Text,0));
+end;
+
 procedure TMainForm.edcyevent_typeKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
     edcyevent_typeChange(Sender);
+end;
+
+procedure TMainForm.edcConditionTypeOrReferenceKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+    edcConditionTypeOrReferenceChange(Sender);
+end;
+
+procedure TMainForm.edcSourceTypeOrReferenceIdKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+    edcSourceTypeOrReferenceIdChange(Sender);
 end;
 
 procedure TMainForm.edcyaction_typeChange(Sender: TObject);
@@ -9273,6 +9611,18 @@ end;
 procedure TMainForm.linkEventAIInfoClick(Sender: TObject);
 begin
   BrowseURL1.URL := 'http://www.trinitycore.org/w/Creature_ai_scripts_tc2';
+  BrowseURL1.Execute;
+end;
+
+procedure TMainForm.linkSmartAIInfoClick(Sender: TObject);
+begin
+  BrowseURL1.URL := 'http://www.trinitycore.org/w/Creature_ai_scripts_tc2';
+  BrowseURL1.Execute;
+end;
+
+procedure TMainForm.linkConditionInfoClick(Sender: TObject);
+begin
+  BrowseURL1.URL := 'http://www.trinitycore.info/Conditions_tc2';
   BrowseURL1.Execute;
 end;
 
@@ -9861,6 +10211,10 @@ begin
         SetSAIAction(StrToIntDef(edcyaction_type.Text,0));
     if SAI_Target <> StrToIntDef(edcytarget_type.Text,0) then
         SetSAITarget(StrToIntDef(edcytarget_type.Text,0));
+    if Condition_TypeOrReference <> StrToIntDef(edcConditionTypeOrReference.Text,0) then
+        SetConditionTypeOrReference(StrToIntDef(edcConditionTypeOrReference.Text,0));
+    if Source_TypeOrReferenceId <> StrToIntDef(edcSourceTypeOrReferenceId.Text,0) then
+        SetSourceTypeOrReferenceId(StrToIntDef(edcSourceTypeOrReferenceId.Text,0));
 end;
 
 procedure TMainForm.btSQLOpenClick(Sender: TObject);
@@ -10820,6 +11174,486 @@ begin
         end;
     end;
     SAI_Event := t;
+end;
+
+procedure TMainForm.SetSourceTypeOrReferenceId(t: integer);
+begin
+    case t of
+    0:  //SOURCE_TYPE_NONE
+        begin
+        	lbcSourceGroup.Caption := '';
+            lbcSourceEntry.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := 'Only used in Reference Templates!';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    1:  //SOURCE_TYPE_CREATURE_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    2:  //OURCE_TYPE_DISENCHANT_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    3:  //SOURCE_TYPE_FISHING_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    4:  //SOURCE_TYPE_GAMEOBJECT_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    5:  //SOURCE_TYPE_ITEM_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    6:  //SOURCE_TYPE_MAIL_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    7:  //SOURCE_TYPE_MILLING_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    8:  //SOURCE_TYPE_PICKPOCKETING_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    9:  //SOURCE_TYPE_PROSPECTING_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    10: //SOURCE_TYPE_REFERENCE_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    11: //SOURCE_TYPE_SKINNING_LOOT_TEMPLATE
+    	begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    12: //SOURCE_TYPE_SPELL_LOOT_TEMPLATE
+        begin
+            lbcSourceGroup.Caption := 'loot entry';
+            lbcSourceEntry.Caption := 'item id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    13: //SOURCE_TYPE_SPELL_IMPLICIT_TARGET
+        begin
+            lbcSourceGroup.Caption := 'mask of effects';
+            lbcSourceEntry.Caption := 'spell id';
+            lbcConditionTarget.Caption := '0 or 1';
+            lbcSourceGroup.Hint := 'mask of effects to be affected by condition (1 - EFFECT_0, 2 - EFFECT_1, 4 - EFFECT_2)';
+            edcSourceGroup.Hint := lbcSourceGroup.Hint;
+            lbcConditionTarget.Hint := '0 - Potential target of the spell; 1 - Caster of the spell';
+            edcConditionTarget.Hint := lbcConditionTarget.Hint;
+        end;
+    14: //SOURCE_TYPE_GOSSIP_MENU
+        begin
+            lbcSourceGroup.Caption := 'gossip_menu.entry';
+            lbcSourceEntry.Caption := 'gossip_menu.text_id';
+            lbcConditionTarget.Caption := '0 or 1';
+            lbcConditionTarget.Hint := '0 - Player for which gossip text is shown; 1 - WorldObject providing gossip';
+            edcConditionTarget.Hint := lbcConditionTarget.Hint;
+        end;
+    15: //SOURCE_TYPE_GOSSIP_MENU_OPTION
+        begin
+            lbcSourceGroup.Caption := 'gossip_menu_option.menu_id';
+            lbcSourceEntry.Caption := 'gossip_menu_option.id';
+            lbcConditionTarget.Caption := '0 or 1';
+            lbcConditionTarget.Hint := '0 - Player for which gossip text is shown; 1 - WorldObject providing gossip';
+            edcConditionTarget.Hint := lbcConditionTarget.Hint;
+        end;
+    16: //SOURCE_TYPE_CREATURE_TEMPLATE_VEHICLE
+        begin
+            lbcSourceGroup.Caption := '';
+            lbcSourceEntry.Caption := 'creature_template.entry';
+            lbcConditionTarget.Caption := '0 or 1';
+            lbcConditionTarget.Hint := '0 - Player riding a vehicle; 1 - Vehicle creature';
+            edcConditionTarget.Hint := lbcConditionTarget.Hint;
+            lbcSourceEntry.Hint := 'Note: creature entry must be a vehicle. Example: If this is used with CONDITION_AREA, the player will be dismounted of the vehicle if the player leaves that area.';
+            edcSourceEntry.Hint := lbcSourceEntry.Hint;
+        end;
+    17: //SOURCE_TYPE_SPELL
+        begin
+            lbcSourceGroup.Caption := '';
+            lbcSourceEntry.Caption := 'spell id';
+            lbcNegativeCondition.Caption := 'trinity_string.Entry';
+            lbcNegativeCondition.Font.Color := clRed;
+            lbcNegativeCondition.Font.Style := [fsbold];
+            lbcConditionTarget.Caption := '0 or 1';
+            lbcConditionTarget.Hint := '0 - Caster of the spell; 1 - Explicit target of the spell (only for spells which take object selected by caster into account)';
+            edcConditionTarget.Hint := lbcConditionTarget.Hint;
+        end;
+    18: //SOURCE_TYPE_SPELL_CLICK_EVENT
+        begin
+            lbcSourceGroup.Caption := 'npc_spellclick_spells.npc_entry';
+            lbcSourceEntry.Caption := 'npc_spellclick_spells.spell_id';
+            lbcConditionTarget.Caption := '0 or 1';
+            lbcConditionTarget.Hint := '0 - Clicker; 1 - Spellclick target (clickee)';
+            edcConditionTarget.Hint := lbcConditionTarget.Hint;
+        end;
+    19: //SOURCE_TYPE_QUEST_ACCEPT
+    	begin
+            lbcSourceGroup.Caption := '?';
+            lbcSourceEntry.Caption := 'quest_id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    20: //SOURCE_TYPE_QUEST_SHOW_MARK
+    	begin
+            lbcSourceGroup.Caption := '?';
+            lbcSourceEntry.Caption := 'quest_id';
+            lbcConditionTarget.Caption := '';
+            lbcSourceTypeOrReferenceId.Hint := '';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    21: //SOURCE_TYPE_VEHICLE_SPELL
+        begin
+            lbcSourceGroup.Caption := 'creature_template.entry';
+            lbcSourceEntry.Caption := 'spell id';
+            lbcConditionTarget.Caption := '0 or 1';
+            lbcConditionTarget.Hint := '0 - Player for which spell bar is shown; 1 - Vehicle creature';
+            edcConditionTarget.Hint := lbcConditionTarget.Hint;
+            lbcSourceTypeOrReferenceId.Hint := 'Note: it will show or hide spells in vehicle spell bar.';
+            edcSourceTypeOrReferenceId.Hint := lbcSourceTypeOrReferenceId.Hint;
+        end;
+    22: //SOURCE_TYPE_SMART_EVENT
+        begin
+            lbcSourceGroup.Caption := 'smart_scripts.id + 1';
+            lbcSourceEntry.Caption := 'smart_scripts.entryorguid';
+            lbcSourceId.Caption := 'source_type';
+            lbcSourceId.Font.Color := clRed;
+            lbcSourceId.Font.Style := [fsbold];
+            lbcConditionTarget.Caption := '0 or 1';
+            lbcConditionTarget.Hint := '0 - Invoker; 1 - Object';
+            edcConditionTarget.Hint := lbcConditionTarget.Hint;
+        end;
+    end;
+    Source_TypeOrReferenceId := t;
+end;
+
+procedure TMainForm.SetConditionTypeOrReference(t: integer);
+begin
+    case t of
+    0:  //CONDITION_NONE
+        begin
+            lbcConditionValue1.Caption := '';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+            lbcConditionTypeOrReference.Hint := 'never used';
+            edcConditionTypeOrReference.Hint := lbcConditionTypeOrReference.Hint;
+        end;
+    1:  //CONDITION_AURA
+        begin
+            lbcConditionValue1.Caption := 'spell';
+            lbcConditionValue2.Caption := 'effect index (0-2)';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue3.Hint := 'always 0';
+            edcConditionValue3.Hint := lbcConditionValue3.Hint;
+            lbcNegativeCondition.Caption := 'Negative Condition';
+            lbcNegativeCondition.Hint := 'If set to 1, the condition will be "inverted".with NegativeCondition will be true when the player does NOT have the aura';
+            edcNegativeCondition.Hint := lbcNegativeCondition.Hint;
+        end;
+    2:  //CONDITION_ITEM
+        begin
+            lbcConditionValue1.Caption := 'item entry';
+            lbcConditionValue2.Caption := 'item count';
+            lbcConditionValue3.Caption := 'in bank?';
+            lbcConditionValue3.Hint := 'true=1';
+            edcConditionValue3.Hint := lbcConditionValue3.Hint;
+        end;
+    3:  //CONDITION_ITEM_EQUIPPED
+        begin
+            lbcConditionValue1.Caption := 'item entry';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    4:  //CONDITION_ZONEID
+        begin
+            lbcConditionValue1.Caption := 'item entry';
+            lbcConditionValue2.Caption := 'zone ID';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := 'zone ID where this condition will be true';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+        end;
+    5:  //CONDITION_REPUTATION_RANK
+        begin
+            lbcConditionValue1.Caption := 'faction template ID';
+            lbcConditionValue2.Caption := 'rank';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue2.Hint := '(Hated - 1, Hostile - 2, Unfriendly - 4, Neutral - 8, Friendly - 16, Honored - 32, Revered - 64, Exalted - 128)Flags can be added together for all ranks the condition should be true in.';
+            edcConditionValue2.Hint := lbcConditionValue2.Hint;
+        end;
+    6:  //CONDITION_TEAM
+        begin
+            lbcConditionValue1.Caption := 'team id';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := '469 - Alliance, 67 - Horde';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+        end;
+    7:  //CONDITION_SKILL
+        begin
+            lbcConditionValue1.Caption := 'skill required';
+            lbcConditionValue2.Caption := 'skill value';
+            lbcConditionValue3.Caption := '';
+        end;
+    8:  //CONDITION_ITEM_EQUIPPED
+        begin
+            lbcConditionValue1.Caption := 'quest_template id';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    9:  //CONDITION_QUESTTAKEN
+        begin
+            lbcConditionValue1.Caption := 'quest_template id';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    10:  //CONDITION_DRUNKENSTATE
+        begin
+            lbcConditionValue1.Caption := 'drunken state';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := '0 - sober, 1 - tipsy, 2 - drunk, 3 - smashed';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+        end;
+    11:  //CONDITION_WORLD_STATE
+        begin
+            lbcConditionValue1.Caption := 'world state index';
+            lbcConditionValue2.Caption := 'world state value';
+            lbcConditionValue3.Caption := '';
+        end;
+    12:  //CONDITION_ACTIVE_EVENT
+        begin
+            lbcConditionValue1.Caption := 'game_event eventEntry';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    13:  //CONDITION_INSTANCE_DATA
+        begin
+            lbcConditionValue1.Caption := 'entry';
+            lbcConditionValue2.Caption := 'data';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := 'see corresponding script source files for more info';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+            lbcConditionValue2.Hint := 'see corresponding script source files for more info';
+            edcConditionValue2.Hint := lbcConditionValue2.Hint;
+        end;
+    14:  //CONDITION_QUEST_NONE
+        begin
+            lbcConditionValue1.Caption := 'quest_template id';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    15:  //CONDITION_CLASS
+        begin
+            lbcConditionValue1.Caption := 'class ID';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := 'Add flags together for all classes condition should be true for. See ChrClasses.dbc';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+        end;
+    16:  //CONDITION_RACE
+        begin
+            lbcConditionValue1.Caption := 'race';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := 'race the player must be. Add flags together for all races condition should be true for. See ChrRaces.dbc';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+        end;
+    17:  //CONDITION_ACHIEVEMENT
+        begin
+            lbcConditionValue1.Caption := 'achievement id';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    18:  //CONDITION_TITLE
+        begin
+            lbcConditionValue1.Caption := 'title id';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    22:  //CONDITION_MAPID
+        begin
+            lbcConditionValue1.Caption := 'map entry';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    23:  //CONDITION_AREAID
+        begin
+            lbcConditionValue1.Caption := 'area id';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    25:  //CONDITION_SPELL
+        begin
+            lbcConditionValue1.Caption := 'spell';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    26:  //CONDITION_PHASEMASK
+        begin
+            lbcConditionValue1.Caption := 'phasemask value';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+        end;
+    27:  //CONDITION_LEVEL
+        begin
+            lbcConditionValue1.Caption := 'player level';
+            lbcConditionValue2.Caption := 'Optional';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue2.Hint := '0 = Level must be equal; 1 = Level must be higher; 2 = Level must be lesser; 3 = Level must be equal or higher; 4 = Level must be equal or lower';
+            edcConditionValue2.Hint := lbcConditionValue2.Hint;
+        end;
+    28:  //CONDITION_QUEST_COMPLETE
+        begin
+            lbcConditionValue1.Caption := 'quest id';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := 'Only if player has all quest objectives complete, but not yet rewarded.';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+        end;
+    29:  //CONDITION_NEAR_CREATURE
+        begin
+            lbcConditionValue1.Caption := 'entry';
+            lbcConditionValue2.Caption := 'Distance (yd)';
+            lbcConditionValue3.Caption := '';
+        end;
+    30:  //CONDITION_NEAR_GAMEOBJECT
+        begin
+            lbcConditionValue1.Caption := 'gameobject entry';
+            lbcConditionValue2.Caption := 'Distance (yd)';
+            lbcConditionValue3.Caption := '';
+        end;
+    31:  //CONDITION_OBJECT_ENTRY
+        begin
+            lbcConditionValue1.Caption := 'typeID';
+            lbcConditionValue2.Caption := 'entry';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := 'available object types: 3 - TYPEID_UNIT; 4 - TYPEID_PLAYER; 5 - TYPEID_GAMEOBJECT; 7 - TYPEID_CORPSE (player corpse, after released spirit)';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+            lbcConditionValue2.Hint := '0 - any object of given type; gob entry for TypeID = TYPEID_GAMEOBJECT; Creature entry for TypeID = TYPEID_UNIT';
+            edcConditionValue2.Hint := lbcConditionValue2.Hint;
+        end;
+    32:  //CONDITION_TYPE_MASK
+        begin
+            lbcConditionValue1.Caption := 'TypeMask';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := 'bitmask of following object types: 0x0008 - TYPEMASK_UNIT; 0x0010 - TYPEMASK_PLAYER; 0x0020 - TYPEMASK_GAMEOBJECT; 0x0080 - TYPEMASK_CORPSE (player corpse, after released spirit)';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+        end;
+    33:  //CONDITION_RELATION_TO
+        begin
+            lbcConditionValue1.Caption := 'target';
+            lbcConditionValue2.Caption := 'RelationType';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := 'target to which relation is checked - one of ConditionTargets available in current SourceType';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+            lbcConditionValue2.Hint := 'RelationType - defines relation of current ConditionTarget to target specified in ConditionValue1. 0-SELF, 1-IN_PARTY, 2-IN_RAID_OR_PARTY,' +
+            '3 - RELATION_OWNED_BY (ConditionTarget is owned by ConditionValue1), 4 - RELATION_PASSENGER_OF (ConditionTarget is passenger of ConditionValue1)';
+            edcConditionValue2.Hint := lbcConditionValue2.Hint;
+        end;
+    34:  //CONDITION_REACTION_TO
+        begin
+            lbcConditionValue1.Caption := 'target';
+            lbcConditionValue2.Caption := 'rankMask';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := 'target to which reaction is checked - one of ConditionTargets available in current SourceType.';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+            lbcConditionValue2.Hint := 'defines reactions of current ConditionTarget to target specified in ConditionValue1 which are allowed. This is a bitmask, flags for reactions are.'+ 
+            '1-hated, 2-hostile, 4-unfriendly 8-neutral, 16-friendly, 32-honored, 64-revered, 128-exalted';
+            edcConditionValue2.Hint := lbcConditionValue2.Hint;
+        end;
+    35:  //CONDITION_DISTANCE_TO
+        begin
+            lbcConditionValue1.Caption := 'target';
+            lbcConditionValue2.Caption := 'distance';
+            lbcConditionValue3.Caption := 'ComparisionType';
+            lbcConditionValue1.Hint := 'target to which distance is checked - one of ConditionTargets available in current SourceType';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+            lbcConditionValue2.Hint := 'distance - defines distance between current ConditionTarget and target specified in ConditionValue1';
+            edcConditionValue2.Hint := lbcConditionValue2.Hint;
+            lbcConditionValue3.Hint := '0 = distance must be equal to ConditionValue2; 1 = distance must be higher than ConditionValue2; 2 = distance must be lesser than ConditionValue2;'+
+            '3 = distance must be equal or higher than ConditionValue2; 4 = distance must be equal or lower than ConditionValue2';
+            edcConditionValue3.Hint := lbcConditionValue3.Hint;
+        end;
+    36:  //CONDITION_ALIVE
+        begin
+            lbcConditionValue1.Caption := '';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+            lbcNegativeCondition.Caption := '0 or 1';
+            lbcNegativeCondition.Font.Color := clRed;
+            lbcNegativeCondition.Font.Style := [fsbold];
+            lbcNegativeCondition.Hint := '0-If target needs to be ALIVE; 1-If target needs to be DEAD; A creature corpse and a creature that looksdead are two different things. One is actually dead and the other is just using an emote to appear dead.';
+            edcNegativeCondition.Hint := lbcNegativeCondition.Hint;
+        end;
+    37:  //CONDITION_HP_VAL
+        begin
+            lbcConditionValue1.Caption := 'HP';
+            lbcConditionValue2.Caption := 'ComparisionType';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue2.Hint := 'ComparisionType: 0 = HP must be equal; 1 = HP must be higher; 2 = HP must be lesser; 3 = HP must be equal or higher; 4 = HP must be equal or lower';
+            edcConditionValue2.Hint := lbcConditionValue2.Hint;
+        end;
+    38:  //CONDITION_HP_PCT
+        begin
+            lbcConditionValue1.Caption := 'Percentage of max HP';
+            lbcConditionValue2.Caption := 'ComparisionType';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue2.Hint := 'ComparisionType: 0 = Percentage of max HP must be equal; 1 = Percentage of max HP must be higher; 2 = Percentage of max HP must be lesser; 3 = Percentage of max HP must be equal or higher; 4 = Percentage of max HP must be equal or lower';
+            edcConditionValue2.Hint := lbcConditionValue2.Hint;
+        end;
+    end;
+    Condition_TypeOrReference := t;
 end;
 
 procedure TMainForm.SetSAIAction(t: integer);
@@ -12006,7 +12840,7 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := 'Useful for those npc that move and need to stay in that position on evade. Or those who reset because they're too far away frome home pos. Can be used with SMART_TARGET_SELF (sets home pos to actual position) or with SMART_TARGET_POSITION (sets home pos to a specified one)';
+            lbcyaction_type.Hint := 'Useful for those npc that move and need to stay in that position on evade. Used with SMART_TARGET_SELF (sets home pos to actual position) or with SMART_TARGET_POSITION (sets home pos to a specified one)';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     end;
