@@ -1682,6 +1682,8 @@ type
     edqtRequiredClasses: TJvComboEdit;
     lbRequiredClasses: TLabel;
     edgbGUID: TEdit;
+    editflagsCustom: TJvComboEdit;
+    lbitflagsCustom: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -1993,6 +1995,7 @@ type
     procedure tsProspectingLootShow(Sender: TObject);
     procedure tsEnchantmentShow(Sender: TObject);
     procedure editFoodTypeButtonClick(Sender: TObject);
+    procedure editflagsCustomButtonClick(Sender: TObject);
     procedure tsCreatureTemplateAddonShow(Sender: TObject);
     procedure editGemPropertiesButtonClick(Sender: TObject);
     procedure editsocketBonusButtonClick(Sender: TObject);
@@ -9749,6 +9752,11 @@ begin
   GetValueFromSimpleList(Sender, 148, 'ItemPetFood', false);
 end;
 
+procedure TMainForm.editflagsCustomButtonClick(Sender: TObject);
+begin
+  GetValueFromSimpleList(Sender, 0, 'ItemFlagsCustom', false);
+end;
+
 procedure TMainForm.editGemPropertiesButtonClick(Sender: TObject);
 begin
   GetValueFromSimpleList(Sender, 150, 'GemProperties', true);
@@ -13768,7 +13776,7 @@ begin
     lvSearchChar.Items.EndUpdate;
     MyQuery.Close;
   end;
-end;    
+end;
 
 procedure TMainForm.btCharClearClick(Sender: TObject);
 begin
