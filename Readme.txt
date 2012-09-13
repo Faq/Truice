@@ -13,8 +13,13 @@ To compile use Delphi XE2 and next additional components:
 ZeosDBO 7.0.0-alpha (SVN rev1682)
 http://zeos.firmos.at/portal.php
 
-JEDI VCL 3.45 rev13269; JCL 2.4.0.4198 rev3766
-http://jvcl.sourceforge.net/
+JEDI VCL 3.48 rev13435
+http://jvcl.delphi-jedi.org/
+svn: https://jvcl.sourceforge.net/svnroot/jvcl
+
+JCL 2.4.0.4572 rev3870
+http://sourceforge.net/projects/jcl/
+svn: https://jcl.sourceforge.net/svnroot/jcl
 
 TMS Unicode Component Pack 1.7.6.0 trial (Delphi XE2 support)
 http://www.tmssoftware.com/go.asp?tmsuni
