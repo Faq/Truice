@@ -13669,7 +13669,7 @@ object MainForm: TMainForm
             Top = 355
             Width = 169
             Height = 25
-            Caption = 'Show Event AI Script'
+            Caption = 'Show EventAI Script'
             TabOrder = 21
             OnClick = btScriptCreatureClick
           end
@@ -24569,6 +24569,15 @@ object MainForm: TMainForm
             TabOrder = 1
             OnClick = btcyFullScriptClick
           end
+          object Button3: TButton
+            Left = 539
+            Top = 575
+            Width = 169
+            Height = 25
+            Caption = 'Show SmartAI Script'
+            TabOrder = 31
+            OnClick = btcyScriptSmartAIClick
+          end
           object edcysource_type: TJvComboEdit
             Left = 744
             Top = 436
@@ -24976,6 +24985,7 @@ object MainForm: TMainForm
         object tsSmartAIScript: TTabSheet
           Caption = 'Script'
           ImageIndex = 1
+          OnShow = tsSmartAIScriptShow
           DesignSize = (
             873
             620)
@@ -25446,6 +25456,15 @@ object MainForm: TMainForm
             TabOrder = 1
             OnClick = btcFullScriptClick
           end
+          object Button4: TButton
+            Left = 539
+            Top = 575
+            Width = 169
+            Height = 25
+            Caption = 'Show Conditions Script'
+            TabOrder = 17
+            OnClick = btcScriptConditionsClick
+          end
           object edcSourceTypeOrReferenceId: TJvComboEdit
             Left = 736
             Top = 366
@@ -25640,6 +25659,7 @@ object MainForm: TMainForm
         object tsConditionsScript: TTabSheet
           Caption = 'Script'
           ImageIndex = 1
+          OnShow = tsConditionsScriptShow
           DesignSize = (
             873
             620)

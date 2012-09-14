@@ -30,41 +30,42 @@ const
 
   WM_FREEQL = WM_USER + 1;
 
-  PFX_QUEST_TEMPLATE              = 'qt';
-  PFX_CREATURE_TEMPLATE           = 'ct';
-  PFX_CREATURE_ONKILL_REPUTATION  = 'ck';
-  PFX_CREATURE                    = 'cl';
-  PFX_CREATURE_ADDON              = 'ca';
-  PFX_CREATURE_TEMPLATE_ADDON     = 'cd';
-  PFX_CREATURE_EQUIP_TEMPLATE     = 'ce';
-  PFX_CREATURE_MODEL_INFO         = 'ci';
-  PFX_CREATURE_MOVEMENT           = 'cm';
-  PFX_CREATURE_LOOT_TEMPLATE      = 'co';
-  PFX_CREATURE_EVENTAI            = 'cn';
-  PFX_CREATURE_SMARTAI            = 'cy';
-  PFX_PICKPOCKETING_LOOT_TEMPLATE = 'cp';
-  PFX_SKINNING_LOOT_TEMPLATE      = 'cs';
-  PFX_NPC_VENDOR                  = 'cv';
-  PFX_NPC_TRAINER                 = 'cr';
-  PFX_GAMEOBJECT_TEMPLATE         = 'gt';
-  PFX_GAME_EVENT                  = 'ge';
-  PFX_GAMEOBJECT                  = 'gl';
-  PFX_GAMEOBJECT_LOOT_TEMPLATE    = 'go';
-  PFX_ITEM_TEMPLATE               = 'it';
-  PFX_ITEM_LOOT_TEMPLATE          = 'il';
-  PFX_ITEM_ENCHANTMENT_TEMPLATE   = 'ie';
-  PFX_DISENCHANT_LOOT_TEMPLATE    = 'id';
-  PFX_PROSPECTING_LOOT_TEMPLATE   = 'ip';
-  PFX_MILLING_LOOT_TEMPLATE       = 'im';
-  PFX_REFERENCE_LOOT_TEMPLATE     = 'ir';
-  PFX_PAGE_TEXT                   = 'pt';
-  PFX_FISHING_LOOT_TEMPLATE       = 'ot';
-  PFX_CHARACTER                   = 'ht';
-  PFX_CHARACTER_INVENTORY         = 'hi';
+  PFX_QUEST_TEMPLATE                = 'qt';
+  PFX_CREATURE_TEMPLATE             = 'ct';
+  PFX_CREATURE_ONKILL_REPUTATION    = 'ck';
+  PFX_CREATURE                      = 'cl';
+  PFX_CREATURE_ADDON                = 'ca';
+  PFX_CREATURE_TEMPLATE_ADDON       = 'cd';
+  PFX_CREATURE_EQUIP_TEMPLATE       = 'ce';
+  PFX_CREATURE_MODEL_INFO           = 'ci';
+  PFX_CREATURE_MOVEMENT             = 'cm';
+  PFX_CREATURE_LOOT_TEMPLATE        = 'co';
+  PFX_CREATURE_EVENTAI              = 'cn';
+  PFX_CREATURE_SMARTAI              = 'cy';
+  PFX_CONDITIONS                    = 'c';
+  PFX_PICKPOCKETING_LOOT_TEMPLATE   = 'cp';
+  PFX_SKINNING_LOOT_TEMPLATE        = 'cs';
+  PFX_NPC_VENDOR                    = 'cv';
+  PFX_NPC_TRAINER                   = 'cr';
+  PFX_GAMEOBJECT_TEMPLATE           = 'gt';
+  PFX_GAME_EVENT                    = 'ge';
+  PFX_GAMEOBJECT                    = 'gl';
+  PFX_GAMEOBJECT_LOOT_TEMPLATE      = 'go';
+  PFX_ITEM_TEMPLATE                 = 'it';
+  PFX_ITEM_LOOT_TEMPLATE            = 'il';
+  PFX_ITEM_ENCHANTMENT_TEMPLATE     = 'ie';
+  PFX_DISENCHANT_LOOT_TEMPLATE      = 'id';
+  PFX_PROSPECTING_LOOT_TEMPLATE     = 'ip';
+  PFX_MILLING_LOOT_TEMPLATE         = 'im';
+  PFX_REFERENCE_LOOT_TEMPLATE       = 'ir';
+  PFX_PAGE_TEXT                     = 'pt';
+  PFX_FISHING_LOOT_TEMPLATE         = 'ot';
+  PFX_CHARACTER                     = 'ht';
+  PFX_CHARACTER_INVENTORY           = 'hi';
   mob_eventai = 'EventAI';
   mob_smartai = 'SmartAI';
-  PFX_LOCALES_QUEST               = 'lq';
-  PFX_LOCALES_NPC_TEXT            = 'lx';
+  PFX_LOCALES_QUEST                 = 'lq';
+  PFX_LOCALES_NPC_TEXT              = 'lx';
 
 type
   TSyntaxStyle = (ssInsertDelete, ssReplace, ssUpdate);
@@ -1261,6 +1262,8 @@ type
     tsCreatureEventAI: TTabSheet;
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
     lvcnEventAI: TJvListView;
     edcnid: TLabeledEdit;
     edcncreature_id: TLabeledEdit;
@@ -1731,6 +1734,8 @@ type
     procedure btCopyToClipboardSmartAIClick(Sender: TObject);
     procedure btCopyToClipboardConditionsClick(Sender: TObject);
     procedure tsCreatureScriptShow(Sender: TObject);
+    procedure tsSmartAIScriptShow(Sender: TObject);
+    procedure tsConditionsScriptShow(Sender: TObject);
     procedure edctnpcflagButtonClick(Sender: TObject);
     procedure edctrankButtonClick(Sender: TObject);
     procedure edctfamilyButtonClick(Sender: TObject);
@@ -1740,6 +1745,8 @@ type
     procedure GetClass(Sender: TObject);
     procedure edcttypeButtonClick(Sender: TObject);
     procedure btScriptCreatureClick(Sender: TObject);
+    procedure btcyScriptSmartAIClick(Sender: TObject);
+    procedure btcScriptConditionsClick(Sender: TObject);
     procedure edgtentryButtonClick(Sender: TObject);
     procedure btBrowseGOClick(Sender: TObject);
     procedure btClearSearchGOClick(Sender: TObject);
@@ -2261,6 +2268,7 @@ type
     procedure SetSAIEvent(t: integer);
     procedure SetSAIAction(t: integer);
     procedure SetSAITarget(t: integer);
+    procedure CompleteCreatureSmartAIScript;
 
     {Conditions}
     procedure ShowFullConditionsScript(TableName: string; lvList: TJvListView; Memo: TMemo; SourceTypeOrReferenceId: string; SourceGroup: string; SourceEntry: string);
@@ -2272,6 +2280,7 @@ type
     procedure ClearConditionsFields();
     procedure SetConditionTypeOrReference(t: integer);
     procedure SetSourceTypeOrReferenceId(t: integer);
+    procedure CompleteConditionsScript;
 
     {other}
     function MakeUpdate(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
@@ -4755,6 +4764,16 @@ begin
   end;
 end;
 
+procedure TMainForm.tsSmartAIScriptShow(Sender: TObject);
+begin
+    CompleteCreatureSmartAIScript;
+end;
+
+procedure TMainForm.tsConditionsScriptShow(Sender: TObject);
+begin
+    CompleteConditionsScript;
+end;
+
 procedure TMainForm.tsCreatureTemplateAddonShow(Sender: TObject);
 begin
   if (edcdentry.Text='') then edcdentry.Text := edctEntry.Text;
@@ -6240,6 +6259,38 @@ begin
       'INSERT INTO `creature_ai_scripts` (%s) VALUES (%s);'#13#10,[id, Fields, Values]);
     ssReplace: mectScript.Text := Format('REPLACE INTO `creature_ai_scripts` (%s) VALUES (%s);'#13#10,[Fields, Values]);
     ssUpdate: mectScript.Text := MakeUpdate('creature_ai_scripts', PFX_CREATURE_EVENTAI, 'id', id);
+  end;
+end;
+
+procedure TMainForm.CompleteCreatureSmartAIScript;
+var
+  id, Fields, Values: string;
+begin
+  mecyLog.Clear;
+  id := edcyentryorguid.Text;
+  if id='' then exit;
+  SetFieldsAndValues(MyQuery, Fields, Values, 'smart_scripts', PFX_CREATURE_SMARTAI, mecyLog);
+  case SyntaxStyle of
+    ssInsertDelete: mecyScript.Text := Format('DELETE FROM `smart_scripts` WHERE (`id`=%s);'#13#10+
+      'INSERT INTO `smart_scripts` (%s) VALUES (%s);'#13#10,[id, Fields, Values]);
+    ssReplace: mecyScript.Text := Format('REPLACE INTO `smart_scripts` (%s) VALUES (%s);'#13#10,[Fields, Values]);
+    ssUpdate: mecyScript.Text := MakeUpdate('smart_scripts', PFX_CREATURE_SMARTAI, 'entryorguid', id);
+  end;
+end;
+
+procedure TMainForm.CompleteConditionsScript;
+var
+  id, Fields, Values: string;
+begin
+  mecLog.Clear;
+  id := edcSourceTypeOrReferenceId.Text;
+  if id='' then exit;
+  SetFieldsAndValues(MyQuery, Fields, Values, 'conditions', PFX_CONDITIONS, mecLog);
+  case SyntaxStyle of
+    ssInsertDelete: mecScript.Text := Format('DELETE FROM `conditions` WHERE (`id`=%s);'#13#10+
+      'INSERT INTO `conditions` (%s) VALUES (%s);'#13#10,[id, Fields, Values]);
+    ssReplace: mecScript.Text := Format('REPLACE INTO `conditions` (%s) VALUES (%s);'#13#10,[Fields, Values]);
+    ssUpdate: mecScript.Text := MakeUpdate('conditions', PFX_CONDITIONS, 'SourceTypeOrReferenceId', id);
   end;
 end;
 
@@ -8608,10 +8659,20 @@ begin
   ShowFullSmartAIScript('smart_scripts', lvcySmartAI, mecyScript, edcyentryorguid.Text, edcysource_type.Text);
 end;
 
+procedure TMainForm.btcyScriptSmartAIClick(Sender: TObject);
+begin
+  PageControl9.ActivePageIndex := SCRIPT_TAB_NO_SMARTAI;
+end;
+
 procedure TMainForm.btcFullScriptClick(Sender: TObject);
 begin
   PageControl10.ActivePageIndex := SCRIPT_TAB_NO_CONDITIONS;
   ShowFullConditionsScript('conditions', lvcConditions, mecScript, edcSourceTypeOrReferenceId.Text, edcSourceGroup.Text, edcSourceEntry.Text);
+end;
+
+procedure TMainForm.btcScriptConditionsClick(Sender: TObject);
+begin
+  PageControl10.ActivePageIndex := SCRIPT_TAB_NO_CONDITIONS;
 end;
 
 procedure TMainForm.btFullScriptReferenceLootClick(Sender: TObject);
