@@ -1,0 +1,22 @@
+1;INSTANCE_BIND(creature kill binds instance to killer and killer's group)
+2;CIVILIAN(creature does not aggro - ignore faction/reputation hostility)
+3;NO_PARRY(creature does not parry)
+4;NO_PARRY_HASTEN(creature does not counter-attack at parry)
+5;NO_BLOCK(creature does not block)
+6;NO_CRUSH(creature does not do crush-attacks)
+7;NO_XP_AT_KILL(creature kill does not give XP)
+8;TRIGGER(creature is trigger-NPC - invisible to players only)
+9;NO_TAUNT(creature is immune to taunt-auras and "attack me"-effects)
+10;UNK1
+11;UNK2
+12;UNK3
+13;UNK4
+14;UNK5
+15;WORLDEVENT(custom flag for world events - left room for merging)
+16;GUARD(creature is a guard - will ignore feign death and vanish)
+17;UNK6
+18;NO_CRIT(creature does not do critical strikes)
+19;NO_SKILLGAIN(creature won't increase weapon skills)
+20;TAUNT_DIMINISH(creature taunt is subject to diminishing returns)
+21;ALL_DIMINISH(Creature is subject to all diminishing returns)
+22;DUNGEON_BOSS(Creature is a dungeon boss. This flag is generically set by core during runtime. Setting this in database will give you startup error.)

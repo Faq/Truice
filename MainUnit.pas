@@ -1333,7 +1333,8 @@ type
     edctPetSpellDataId: TLabeledEdit;
     edqtRewardMailTemplateId: TLabeledEdit;
     edqtRewardMailDelay: TLabeledEdit;
-    edctflags_extra: TLabeledEdit;
+    edctflags_extra: TJvComboEdit;
+    lbctflags_extra: TLabel;
     edctdifficulty_entry_1: TJvComboEdit;
     lbctdifficulty_entry_1: TLabel;
     lbcnevent_param4: TLabel;
@@ -2036,6 +2037,7 @@ type
     procedure GetSpellTrigger(Sender: TObject);
     procedure GetUnitFlags(Sender: TObject);
     procedure GetUnitFlags2(Sender: TObject);
+    procedure GetFlagsExtra(Sender: TObject);
     procedure GetCreatureFlag1(Sender: TObject);
     procedure GetCreatureDynamicFlags(Sender: TObject);
     procedure GetGOFlags(Sender: TObject);
@@ -5257,6 +5259,11 @@ end;
 procedure TMainForm.GetUnitFlags2(Sender: TObject);
 begin
   GetSomeFlags(Sender, 'CreatureUnitFlags2');
+end;
+
+procedure TMainForm.GetFlagsExtra(Sender: TObject);
+begin
+  GetSomeFlags(Sender, 'CreatureFlagsExtra');
 end;
 
 function TMainForm.GetValueFromDBC(Name: string; id: Cardinal; idx_str: integer = 1): WideString;
