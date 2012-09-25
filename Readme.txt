@@ -17,14 +17,14 @@ JEDI VCL 3.48 rev13435
 http://jvcl.delphi-jedi.org/
 svn: https://jvcl.sourceforge.net/svnroot/jvcl
 
-JCL 2.4.0.4572 rev3870
+JCL 2.5.0.4572 rev3870
 http://sourceforge.net/projects/jcl/
 svn: https://jcl.sourceforge.net/svnroot/jcl
 
 TMS Unicode Component Pack 1.7.6.0 trial (Delphi XE2 support)
 http://www.tmssoftware.com/go.asp?tmsuni
 
-AlphaControls 2010 7.68
+AlphaControls 2010 7.69
 http://www.alphaskins.com/
 
 Original topic on TC forum:
