@@ -1417,6 +1417,7 @@ type
     edctquestItem3: TLabeledEdit;
     edctquestItem4: TLabeledEdit;
     edctmovementId: TLabeledEdit;
+    edctHoverHeight: TLabeledEdit;
     editHolidayId: TLabeledEdit;
     edgtunk1: TLabeledEdit;
     edctquestItem5: TLabeledEdit;

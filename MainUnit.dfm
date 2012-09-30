@@ -8650,7 +8650,7 @@ object MainForm: TMainForm
             Left = 712
             Top = 216
             Width = 137
-            Height = 232
+            Height = 273
             Caption = 'Behaviour'
             TabOrder = 6
             object lbctMovementType: TLabel
@@ -8668,10 +8668,11 @@ object MainForm: TMainForm
               Caption = 'InhabitType'
             end
             object lbctgossip_menu_id: TLabel
-              Left = 8
-              Top = 157
+              Left = 9
+              Top = 193
               Width = 76
               Height = 13
+              Hint = 'The gossip ID of this creature. This field is obtained from sniff (update fields). If you can not sniff this value, and need to make one up, it must be > 50000. This field is the link to gossip_menu.entry.'
               Caption = 'gossip_menu_id'
             end
             object edctAIName: TLabeledEdit
@@ -8687,7 +8688,7 @@ object MainForm: TMainForm
             end
             object edctScriptName: TLabeledEdit
               Left = 8
-              Top = 206
+              Top = 246
               Width = 121
               Height = 21
               Hint = 'Script'#39's name creature uses.'
@@ -8775,7 +8776,7 @@ object MainForm: TMainForm
               Top = 99
               Width = 121
               Height = 21
-              Hint = 'Script'#39's name creature uses.'
+              Hint = 'We have no idea what this field does. It is passed directly to the client.'
               EditLabel.Width = 79
               EditLabel.Height = 13
               EditLabel.Caption = 'edctmovementId'
@@ -8783,7 +8784,7 @@ object MainForm: TMainForm
             end
             object edctgossip_menu_id: TJvComboEdit
               Left = 8
-              Top = 170
+              Top = 208
               Width = 121
               Height = 21
               ButtonWidth = 22
@@ -8832,6 +8833,19 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 5
+            end
+            object edctHoverHeight: TLabeledEdit
+              Left = 8
+              Top = 173
+              Width = 121
+              Height = 21
+              Hint = 
+                'Distance above the ground that the creature will hover if it has' +
+                ' MOVEMENTFLAG_DISABLE_GRAVITY enabled. Value taken from sniffs. '
+              EditLabel.Width = 81
+              EditLabel.Height = 13
+              EditLabel.Caption = 'edctHoverHeight'
+              TabOrder = 6
             end
           end
           object gbTrainer: TGroupBox
