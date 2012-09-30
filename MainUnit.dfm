@@ -8672,7 +8672,11 @@ object MainForm: TMainForm
               Top = 193
               Width = 76
               Height = 13
-              Hint = 'The gossip ID of this creature. This field is obtained from sniff (update fields). If you can not sniff this value, and need to make one up, it must be > 50000. This field is the link to gossip_menu.entry.'
+              Hint = 
+                'The gossip ID of this creature. This field is obtained from snif' +
+                'f (update fields). If you can not sniff this value, and need to ' +
+                'make one up, it must be > 50000. This field is the link to gossi' +
+                'p_menu.entry.'
               Caption = 'gossip_menu_id'
             end
             object edctAIName: TLabeledEdit
@@ -8776,7 +8780,9 @@ object MainForm: TMainForm
               Top = 99
               Width = 121
               Height = 21
-              Hint = 'We have no idea what this field does. It is passed directly to the client.'
+              Hint = 
+                'We have no idea what this field does. It is passed directly to t' +
+                'he client.'
               EditLabel.Width = 79
               EditLabel.Height = 13
               EditLabel.Caption = 'edctmovementId'
