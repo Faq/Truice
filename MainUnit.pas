@@ -6596,9 +6596,9 @@ begin
   if ID<>'' then
   begin
     if pos('-', ID)=0 then
-      WhereStr := Format('WHERE (`entry` in (%s))',[ID])
+      WhereStr := Format('WHERE (`eventEntry` in (%s))',[ID])
     else
-      WhereStr := Format('WHERE (`entry` >= %s) AND (`entry` <= %s)',[MidStr(ID,1,pos('-',id)-1), MidStr(ID,pos('-',id)+1,length(id))]);
+      WhereStr := Format('WHERE (`eventEntry` >= %s) AND (`eventEntry` <= %s)',[MidStr(ID,1,pos('-',id)-1), MidStr(ID,pos('-',id)+1,length(id))]);
   end;
 
   if Name<>'%%' then
