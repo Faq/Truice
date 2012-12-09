@@ -302,7 +302,6 @@ type
     edqtPointOption: TLabeledEdit;
     edqtEmoteOnIncomplete: TJvComboEdit;
     edqtEmoteOnComplete: TJvComboEdit;
-    edqtCompleteScript: TLabeledEdit;
     edqtDetailsEmote1: TJvComboEdit;
     edqtDetailsEmote2: TJvComboEdit;
     edqtDetailsEmote3: TJvComboEdit;
@@ -857,10 +856,6 @@ type
     edipitem: TJvComboEdit;
     btScriptProsLoot: TButton;
     btFullScriptProsLoot: TButton;
-    edqtStartScript: TLabeledEdit;
-    tsStartScript: TTabSheet;
-    tsCompleteScript: TTabSheet;
-    lvqtStartScript: TJvListView;
     edsscommand: TJvComboEdit;
     edssid: TLabeledEdit;
     btssAdd: TSpeedButton;
@@ -900,8 +895,6 @@ type
     btieEnchUpd: TSpeedButton;
     btieEnchDel: TSpeedButton;
     edieench: TLabeledEdit;
-    lbqtStartScriptHint: TLabel;
-    lbqtCompleteScriptHint: TLabel;
     lbclCreatureLocationHint: TLabel;
     lbcoCreatureLootHint: TLabel;
     lbcoPickpocketLootHint: TLabel;
@@ -1912,17 +1905,6 @@ type
       Change: TItemChange);
     procedure lvitProsLootSelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);
-    procedure lvqtStartScriptChange(Sender: TObject; Item: TListItem;
-      Change: TItemChange);
-    procedure lvqtEndScriptChange(Sender: TObject; Item: TListItem;
-      Change: TItemChange);
-    procedure lvqtStartScriptSelectItem(Sender: TObject; Item: TListItem;
-      Selected: Boolean);
-    procedure lvqtEndScriptSelectItem(Sender: TObject; Item: TListItem;
-      Selected: Boolean);
-    procedure btssAddClick(Sender: TObject);
-    procedure btssUpdClick(Sender: TObject);
-    procedure btssDelClick(Sender: TObject);
     procedure btesAddClick(Sender: TObject);
     procedure btesUpdClick(Sender: TObject);
     procedure btesDelClick(Sender: TObject);
@@ -2160,8 +2142,6 @@ type
     procedure LoadQuestLocales(QuestID: integer);
     procedure LoadQuestGiverInfo(objtype: string; entry: string);
     procedure LoadQuestTakerInfo(objtype: string; entry: string);
-    procedure LoadQuestStartScript(id: integer);
-    procedure LoadQuestCompleteScript(id: integer);
     procedure SetScriptEditFields(pfx: string; lvList: TJvListView);
     procedure ClearFields(Where: TType);
     procedure SetDefaultFields(Where: TType);
@@ -2732,11 +2712,6 @@ begin
     edqtId.Text := IntToStr(QuestID);
     FillFields(MyQuery, PFX_QUEST_TEMPLATE);
     MyQuery.Close;
-
-    if edqtStartScript.Text<>'0' then
-      LoadQuestStartScript(StrToIntDef(edqtStartScript.Text,0));
-    if edqtCompleteScript.Text<>'0' then
-      LoadQuestCompleteScript(StrToIntDef(edqtCompleteScript.Text,0));
     
     MyQuery.SQL.Text := Format('SELECT * FROM `areatrigger_involvedrelation` WHERE `quest`=%d', [QuestID]);
     MyQuery.Open;
@@ -2904,7 +2879,7 @@ end;
 
 procedure TMainForm.CompleteScript;
 var
-  s1, s2, s3, s4, s5, s6, Script, quest,
+  s1, s2, s3, s4, Script, quest,
   Fields, Values: string;
   who, id: string;
   i: integer;
@@ -2961,10 +2936,6 @@ begin
           [s2, id, quest])
     end;
 
-
-  s5 := ScriptSQLScript(lvqtStartScript, 'quest_start_scripts', edqtStartScript.Text);
-  s6 := ScriptSQLScript(lvqtEndScript,   'quest_end_scripts',   edqtCompleteScript.Text);
-
   SetFieldsAndValues(Fields, Values, 'quest_template', PFX_QUEST_TEMPLATE, meqtLog);
 
   case SyntaxStyle of
@@ -2978,7 +2949,7 @@ begin
     s4 := Format('DELETE FROM `areatrigger_involvedrelation` WHERE `quest` = %1:s;'#13#10+
       'INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES (%0:s, %1:s);'#13#10,
       [edqtAreatrigger.Text, quest]);
-  Script := s1+s2+s5+s6+s3+s4;
+  Script := s1+s2+s3+s4;
   meqtScript.Text := Script;
 end;
 
@@ -13317,37 +13288,6 @@ begin
   lvQuickList.Selected := TTntListItem(lvQuickList.GetItemAt(x,y));
 end;
 
-procedure TMainForm.LoadQuestCompleteScript(id: integer);
-begin
-  LoadQueryToListView(Format('SELECT * FROM `quest_end_scripts` WHERE (`id`=%d)', [id]), lvqtEndScript);
-end;
-
-procedure TMainForm.LoadQuestStartScript(id: integer);
-begin
-  LoadQueryToListView(Format('SELECT * FROM `quest_start_scripts` WHERE (`id`=%d)', [id]), lvqtStartScript);
-end;
-
-procedure TMainForm.lvqtStartScriptChange(Sender: TObject; Item: TListItem;
-  Change: TItemChange);
-begin
-  btssUpd.Enabled := Assigned(TJvListView(Sender).Selected);
-  btssDel.Enabled := Assigned(TJvListView(Sender).Selected);
-end;
-
-procedure TMainForm.lvqtEndScriptChange(Sender: TObject; Item: TListItem;
-  Change: TItemChange);
-begin
-  btesUpd.Enabled := Assigned(TJvListView(Sender).Selected);
-  btesDel.Enabled := Assigned(TJvListView(Sender).Selected);
-end;
-
-procedure TMainForm.lvqtStartScriptSelectItem(Sender: TObject;
-  Item: TListItem; Selected: Boolean);
-begin
-  if Selected then
-    SetScriptEditFields('edss', lvqtStartScript);
-end;
-
 procedure TMainForm.lvqtTakerTemplateChange(Sender: TObject; Item: TListItem; Change: TItemChange);
 begin
   btDelQuestTaker.Enabled := Assigned(lvqtTakerTemplate.Selected);
@@ -13364,13 +13304,6 @@ procedure TMainForm.lvqtTakerTemplateSelectItem(Sender: TObject; Item: TListItem
 begin
   if Selected then
     LoadQuestTakerInfo(Item.Caption, Item.SubItems[0]);
-end;
-
-procedure TMainForm.lvqtEndScriptSelectItem(Sender: TObject;
-  Item: TListItem; Selected: Boolean);
-begin
-  if Selected then
-    SetScriptEditFields('edes', lvqtEndScript);
 end;
 
 procedure TMainForm.lvqtGiverTemplateChange(Sender: TObject; Item: TListItem; Change: TItemChange);
@@ -13453,22 +13386,6 @@ procedure TMainForm.ScriptDel(lvList: TJvListView);
 begin
   if Assigned(lvList.Selected) then
     lvList.DeleteSelected;
-end;           
-
-
-procedure TMainForm.btssAddClick(Sender: TObject);
-begin
-  ScriptAdd('edss', lvqtStartScript);
-end;
-
-procedure TMainForm.btssUpdClick(Sender: TObject);
-begin
-  ScriptUpd('edss', lvqtStartScript);
-end;
-
-procedure TMainForm.btssDelClick(Sender: TObject);
-begin
-  ScriptDel(lvqtStartScript);
 end;
 
 procedure TMainForm.btesAddClick(Sender: TObject);
