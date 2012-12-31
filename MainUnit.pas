@@ -11421,6 +11421,17 @@ begin
             lbcConditionTarget.Hint := '0 - Invoker; 1 - Object';
             edcConditionTarget.Hint := lbcConditionTarget.Hint;
         end;
+    23: //SOURCE_TYPE_NPC_VENDOR
+        begin
+            lbcSourceGroup.Caption := 'creature_template.entry';
+            lbcSourceEntry.Caption := 'npc_vendor.entry';
+            lbcSourceId.Caption := 'item_template.entry';
+            lbcSourceId.Font.Color := clRed;
+            lbcSourceId.Font.Style := [fsbold];
+            lbcConditionTarget.Caption := '0 or 1';
+            lbcConditionTarget.Hint := '0 - Invoker; 1 - Object';
+            edcConditionTarget.Hint := lbcConditionTarget.Hint;
+        end;
     end;
     Source_TypeOrReferenceId := t;
 end;
@@ -11523,15 +11534,17 @@ begin
             lbcConditionValue2.Caption := '';
             lbcConditionValue3.Caption := '';
         end;
-    13:  //CONDITION_INSTANCE_DATA
+    13:  //CONDITION_INSTANCE_INFO
         begin
             lbcConditionValue1.Caption := 'entry';
             lbcConditionValue2.Caption := 'data';
-            lbcConditionValue3.Caption := '';
+            lbcConditionValue3.Caption := 'instance info';
             lbcConditionValue1.Hint := 'see corresponding script source files for more info';
             edcConditionValue1.Hint := lbcConditionValue1.Hint;
             lbcConditionValue2.Hint := 'see corresponding script source files for more info';
             edcConditionValue2.Hint := lbcConditionValue2.Hint;
+            lbcConditionValue3.Hint := '0 - data, 1 - Data64, 2 - Boss state';
+            edcConditionValue3.Hint := lbcConditionValue3.Hint;
         end;
     14:  //CONDITION_QUEST_NONE
         begin
@@ -11566,6 +11579,20 @@ begin
             lbcConditionValue1.Caption := 'title id';
             lbcConditionValue2.Caption := '';
             lbcConditionValue3.Caption := '';
+        end;
+    19:  //CONDITION_SPAWNMASK
+        begin
+            lbcConditionValue1.Caption := 'spawnMask';
+            lbcConditionValue2.Caption := 'always 0';
+            lbcConditionValue3.Caption := 'always 0';
+        end;
+    20:  //CONDITION_GENDER
+        begin
+            lbcConditionValue1.Caption := 'gender';
+            lbcConditionValue2.Caption := '';
+            lbcConditionValue3.Caption := '';
+            lbcConditionValue1.Hint := '0: Male; 1: Female; 2: None';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
         end;
     22:  //CONDITION_MAPID
         begin
