@@ -29,5 +29,9 @@ http://www.alphaskins.com/
 
 Original topic on TC forum:
 http://www.trinitycore.org/f/topic/180-bin-truice-win32/
+http://www.trinitycore.org/f/topic/7639-bin-truice-win32/
+
+Truice Downlod:
+http://www.trinitycore.org/f/files/category/2-tools/
 
 Author: Faq
