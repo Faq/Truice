@@ -11594,6 +11594,14 @@ begin
             lbcConditionValue1.Hint := '0: Male; 1: Female; 2: None';
             edcConditionValue1.Hint := lbcConditionValue1.Hint;
         end;
+    21:  //CONDITION_UNIT_STATE
+        begin
+            lbcConditionValue1.Caption := 'UnitState';
+            lbcConditionValue2.Caption := '0';
+            lbcConditionValue3.Caption := '0';
+            lbcConditionValue1.Hint := 'enum UnitState in Unit.h';
+            edcConditionValue1.Hint := lbcConditionValue1.Hint;
+        end;
     22:  //CONDITION_MAPID
         begin
             lbcConditionValue1.Caption := 'map entry';
@@ -12215,13 +12223,15 @@ procedure TMainForm.SetSAIAction(t: integer);
     39:  //SMART_ACTION_CALL_FOR_HELP
         begin
             lbcyaction_param1.Caption := 'radius';
-            lbcyaction_param2.Caption := '';
+            lbcyaction_param2.Caption := 'say calls for help text';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
             lbcyaction_param1.Hint := 'Radius in yards that other creatures must be to acknowledge the cry for help';
             edcyaction_param1.Hint := lbcyaction_param1.Hint;
+            lbcyaction_param2.Hint := 'If you want the NPC to say %s calls for help! Use 1 on param2, 0 for no message.';
+            edcyaction_param2.Hint := lbcyaction_param2.Hint;
             lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
