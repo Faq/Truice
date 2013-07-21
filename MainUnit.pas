@@ -3191,7 +3191,7 @@ var
 loc: string;
 begin
   loc:= LoadLocales();
-  MyQuery.SQL.Text := Format('SELECT Title'+loc+', Details'+loc+', Objectives'+loc+', OfferRewardText'+loc+', RequestItemsText'+loc+', EndText'+loc+', CompletedText'+loc+', ObjectiveText1'+loc+', ObjectiveText2'+loc+', ObjectiveText3'+loc+', ObjectiveText4'+loc+' FROM locales_quest WHERE entry=%d', [QuestID]);
+  MyQuery.SQL.Text := Format('SELECT Title'+loc+', Details'+loc+', Objectives'+loc+', OfferRewardText'+loc+', RequestItemsText'+loc+', EndText'+loc+', CompletedText'+loc+', ObjectiveText1'+loc+', ObjectiveText2'+loc+', ObjectiveText3'+loc+', ObjectiveText4'+loc+' FROM locales_quest WHERE Id=%d', [QuestID]);
   MyQuery.Open;
   edlqTitle.EditLabel.Caption:= 'Title'+loc;
   l2Detail.Caption:= 'Detail'+loc;
