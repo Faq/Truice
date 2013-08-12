@@ -2348,10 +2348,10 @@ begin
   begin
     GetWhoAndKey(edQuestGiverSearch.Text, who, key);
     if who = 'creature' then
-      MyTempQuery.SQL.Text := Format('SELECT `quest` FROM `creature_questrelation` WHERE (`id`=%s)',[key])
+      MyTempQuery.SQL.Text := Format('SELECT `quest` FROM `creature_queststarter` WHERE (`id`=%s)',[key])
     else
     if who = 'gameobject' then
-      MyTempQuery.SQL.Text := Format('SELECT `quest` FROM `gameobject_questrelation` WHERE (`id`=%s)',[key])
+      MyTempQuery.SQL.Text := Format('SELECT `quest` FROM `gameobject_queststarter` WHERE (`id`=%s)',[key])
     else
     if who = 'item' then
       MyTempQuery.SQL.Text := Format('SELECT `startquest` FROM `item_template` WHERE (`entry`=%s)',[key]);
@@ -2376,10 +2376,10 @@ begin
   begin
     GetWhoAndKey(edQuestTakerSearch.Text, who, key);
     if who = 'creature' then
-      MyTempQuery.SQL.Text := Format('SELECT `quest` FROM `creature_involvedrelation` WHERE (`id`=%s)',[key])
+      MyTempQuery.SQL.Text := Format('SELECT `quest` FROM `creature_questender` WHERE (`id`=%s)',[key])
     else
     if who = 'gameobject' then
-      MyTempQuery.SQL.Text := Format('SELECT `quest` FROM `gameobject_involvedrelation` WHERE (`id`=%s)',[key]);
+      MyTempQuery.SQL.Text := Format('SELECT `quest` FROM `gameobject_questender` WHERE (`id`=%s)',[key]);
     if MyTempQuery.SQL.Text<>'' then
     begin
       MyTempQuery.Open;
@@ -2830,12 +2830,12 @@ begin
   if quest='' then exit;
   meqtLog.Clear;
 
-  s1 := Format('DELETE FROM `creature_questrelation` WHERE `quest` = %0:s;'#13#10+
-             'DELETE FROM `gameobject_questrelation` WHERE `quest` = %0:s;'#13#10+
+  s1 := Format('DELETE FROM `creature_queststarter` WHERE `quest` = %0:s;'#13#10+
+             'DELETE FROM `gameobject_queststarter` WHERE `quest` = %0:s;'#13#10+
              'UPDATE `item_template` SET `StartQuest`=0 WHERE `StartQuest` = %0:s;'#13#10,
               [quest]);
-  s2 := Format('DELETE FROM `creature_involvedrelation` WHERE `quest` = %0:s;'#13#10+
-             'DELETE FROM `gameobject_involvedrelation` WHERE `quest` = %0:s;'#13#10,
+  s2 := Format('DELETE FROM `creature_questender` WHERE `quest` = %0:s;'#13#10+
+             'DELETE FROM `gameobject_questender` WHERE `quest` = %0:s;'#13#10,
               [quest]);
 
   if lvqtGiverTemplate.Items.Count=0 then meqtLog.Lines.Add(dmMain.Text[4])   //'Error: QuestGiver is not set'
@@ -2846,12 +2846,12 @@ begin
       id := lvqtGiverTemplate.Items[i].SubItems[0];
 
       if who = 'creature' then
-        s1 := Format('%0:sINSERT INTO `creature_questrelation` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10+
+        s1 := Format('%0:sINSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10+
           'UPDATE `creature_template` SET `npcflag`=`npcflag`|2 WHERE `entry` = %1:s;'#13#10,
           [s1, id, quest])
       else
       if who = 'gameobject' then
-        s1 := Format('%0:sINSERT INTO `gameobject_questrelation` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10,
+        s1 := Format('%0:sINSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10,
           [s1, id, quest])
       else
       if who='item' then
@@ -2868,12 +2868,12 @@ begin
       id := lvqtTakerTemplate.Items[i].SubItems[0];
 
       if who = 'creature' then
-        s2 := Format('%0:sINSERT INTO `creature_involvedrelation` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10+
+        s2 := Format('%0:sINSERT INTO `creature_questender` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10+
           'UPDATE `creature_template` SET `npcflag`=`npcflag`|2 WHERE `entry`=%1:s;'#13#10,
           [s2, id, quest])
       else
       if who = 'gameobject' then
-        s2 := Format('%0:sINSERT INTO `gameobject_involvedrelation` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10,
+        s2 := Format('%0:sINSERT INTO `gameobject_questender` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10,
           [s2, id, quest])
     end;
 
@@ -3168,7 +3168,7 @@ end;
 procedure TMainForm.LoadQuestGivers(QuestID: integer);
 begin
   // search for quest starter
-   MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.npcflag FROM `creature_questrelation` q ' +
+   MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.npcflag FROM `creature_queststarter` q ' +
                            'INNER JOIN `creature_template` t ON t.entry = q.id '+
                            'WHERE q.quest = %d', [QuestID]);
   MyQuery.Open;
@@ -3188,7 +3188,7 @@ begin
   end;
   MyQuery.Close;
 
-  MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.`type` FROM `gameobject_questrelation` q ' +
+  MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.`type` FROM `gameobject_queststarter` q ' +
                            'INNER JOIN `gameobject_template` t ON t.entry = q.id '+
                            'WHERE q.quest = %d', [QuestID]);
   MyQuery.Open;
@@ -3249,7 +3249,7 @@ end;
 procedure TMainForm.LoadQuestTakers(QuestID: integer);
 begin
   // search for quest starter
-  MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.npcflag FROM `creature_involvedrelation` q ' +
+  MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.npcflag FROM `creature_questender` q ' +
                            'INNER JOIN `creature_template` t ON t.entry = q.id '+
                            'WHERE q.quest = %d', [QuestID]);
   MyQuery.Open;
@@ -3269,7 +3269,7 @@ begin
   end;
   MyQuery.Close;
 
-  MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.`type` FROM `gameobject_involvedrelation` q ' +
+  MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.`type` FROM `gameobject_questender` q ' +
                            'INNER JOIN `gameobject_template` t ON t.entry = q.id '+
                            'WHERE q.quest = %d', [QuestID]);
   MyQuery.Open;
@@ -3915,10 +3915,10 @@ begin
   PageControl2.ActivePageIndex := SCRIPT_TAB_NO_QUEST;
   meqtScript.Text := Format(
   'DELETE FROM `quest_template` WHERE (`Id`=%0:s);'#13#10+
-  'DELETE FROM `creature_questrelation` WHERE (`quest`=%0:s);'#13#10+
-  'DELETE FROM `gameobject_questrelation` WHERE (`quest`=%0:s);'#13#10+
-  'DELETE FROM `creature_involvedrelation` WHERE (`quest`=%0:s);'#13#10+
-  'DELETE FROM `gameobject_involvedrelation` WHERE (`quest`=%0:s);'#13#10+
+  'DELETE FROM `creature_queststarter` WHERE (`quest`=%0:s);'#13#10+
+  'DELETE FROM `gameobject_queststarter` WHERE (`quest`=%0:s);'#13#10+
+  'DELETE FROM `creature_questender` WHERE (`quest`=%0:s);'#13#10+
+  'DELETE FROM `gameobject_questender` WHERE (`quest`=%0:s);'#13#10+
   'DELETE FROM `areatrigger_involvedrelation` WHERE (`quest`=%0:s);'#13#10
    ,[lvQuest.Selected.Caption]);
 end;
@@ -4713,7 +4713,7 @@ var
 begin
   if trim(id)='' then Exit;
   // STARTS
-  MyTempQuery.SQL.Text := Format('Select qt.* from creature_questrelation ci' +
+  MyTempQuery.SQL.Text := Format('Select qt.* from creature_queststarter ci' +
                                  ' INNER JOIN quest_template qt ON ci.quest = qt.Id' +
                                  ' where ci.id = %s', [Id]);
   MyTempQuery.Open;
@@ -4744,7 +4744,7 @@ begin
   lvCreatureStarts.Items.EndUpdate;
 
   // ENDS
-  MyTempQuery.SQL.Text := Format('Select qt.* from creature_involvedrelation ci' +
+  MyTempQuery.SQL.Text := Format('Select qt.* from creature_questender ci' +
                                  ' INNER JOIN quest_template qt ON ci.quest = qt.Id' +
                                  ' where ci.id = %s',[Id]);
   MyTempQuery.Open;
@@ -4818,7 +4818,7 @@ begin
   if trim(id)='' then Exit;
 
   // STARTS
-  MyTempQuery.SQL.Text := Format('Select qt.* from gameobject_questrelation ci' +
+  MyTempQuery.SQL.Text := Format('Select qt.* from gameobject_queststarter ci' +
                                  ' INNER JOIN quest_template qt ON ci.quest = qt.Id' +
                                  ' where ci.id = %s',[Id]);
   MyTempQuery.Open;
@@ -4849,7 +4849,7 @@ begin
   lvGameObjectStarts.Items.EndUpdate;
 
   // ENDS
-  MyTempQuery.SQL.Text := Format('Select qt.* from gameobject_involvedrelation ci' +
+  MyTempQuery.SQL.Text := Format('Select qt.* from gameobject_questender ci' +
                                  ' INNER JOIN quest_template qt ON ci.quest = qt.Id' +
                                  ' where ci.id = %s',[Id]);
   MyTempQuery.Open;
@@ -11836,16 +11836,8 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
-    16:  //SMART_ACTION_SEND_CASTCREATUREORGO
+    16:  //SMART_ACTION_UNUSED_16
         begin
-            lbcyaction_param1.Caption := 'QuestID';
-            lbcyaction_param2.Caption := 'SpellId';
-            lbcyaction_param3.Caption := '';
-            lbcyaction_param4.Caption := '';
-            lbcyaction_param5.Caption := '';
-            lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := '';
-            edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     17:  //SMART_ACTION_SET_EMOTE_STATE
         begin
@@ -12829,6 +12821,94 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
             lbcyaction_type.Hint := '0 - disable, 1 - enable HP regeneration';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    103:  //SMART_ACTION_SET_ROOT
+        begin
+            lbcyaction_param1.Caption := '0 or 1';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '0 - disable, 1 - enable creature movement';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    104:  //SMART_ACTION_SET_GO_FLAG
+        begin
+            lbcyaction_param1.Caption := 'gameobject_template.flags';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'oldFlag = newFlag';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    105:  //SMART_ACTION_ADD_GO_FLAG
+        begin
+            lbcyaction_param1.Caption := 'gameobject_template.flags';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'oldFlag |= newFlag';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    106:  //SMART_ACTION_REMOVE_GO_FLAG
+        begin
+            lbcyaction_param1.Caption := 'gameobject_template.flags';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'oldFlag &= ~newFlag';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    107:  //SMART_ACTION_SUMMON_CREATURE_GROUP
+        begin
+            lbcyaction_param1.Caption := 'creature_summon_groups.groupId';
+            lbcyaction_param2.Caption := 'attack invoker (0/1)';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'Use creature_summon_groups table. SAI target has no effect, use 0.';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    108:  //SMART_ACTION_SET_POWER
+        begin
+            lbcyaction_param1.Caption := 'Power type';
+            lbcyaction_param2.Caption := 'New power';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    109:  //SMART_ACTION_ADD_POWER
+        begin
+            lbcyaction_param1.Caption := 'Power type';
+            lbcyaction_param2.Caption := 'Power to add';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    110:  //SMART_ACTION_REMOVE_POWER
+        begin
+            lbcyaction_param1.Caption := 'Power type';
+            lbcyaction_param2.Caption := 'Power to remove';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     end;
