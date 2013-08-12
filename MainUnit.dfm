@@ -7121,17 +7121,6 @@ object MainForm: TMainForm
               EditLabel.Caption = 'RegenHealth'
               TabOrder = 8
             end
-            object edctequipment_id: TLabeledEdit
-              Left = 391
-              Top = 182
-              Width = 90
-              Height = 21
-              EditLabel.Width = 63
-              EditLabel.Height = 13
-              EditLabel.Caption = 'equipment_id'
-              TabOrder = 19
-              OnDblClick = edctequipment_idDblClick
-            end
             object edctunit_flags: TJvComboEdit
               Left = 104
               Top = 182
@@ -7203,7 +7192,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 23
+              TabOrder = 22
               OnButtonClick = GetUnitFlags2
             end
             object edcttype_flags: TJvComboEdit
@@ -7288,7 +7277,7 @@ object MainForm: TMainForm
               EditLabel.Width = 66
               EditLabel.Height = 13
               EditLabel.Caption = 'dmg_multiplier'
-              TabOrder = 20
+              TabOrder = 19
             end
             object edctunit_class: TLabeledEdit
               Left = 105
@@ -7298,7 +7287,7 @@ object MainForm: TMainForm
               EditLabel.Width = 47
               EditLabel.Height = 13
               EditLabel.Caption = 'unit_class'
-              TabOrder = 21
+              TabOrder = 20
             end
             object edctWDBVerified: TLabeledEdit
               Left = 391
@@ -7308,8 +7297,7 @@ object MainForm: TMainForm
               EditLabel.Width = 61
               EditLabel.Height = 13
               EditLabel.Caption = 'WDBVerified'
-              TabOrder = 22
-              OnDblClick = edctequipment_idDblClick
+              TabOrder = 21
             end
           end
           object gbLoot: TGroupBox
@@ -8755,6 +8743,7 @@ object MainForm: TMainForm
             EditLabel.Height = 13
             EditLabel.Caption = 'edclequipment_id'
             TabOrder = 8
+            OnDblClick = edclequipment_idDblClick
           end
           object edclmodelid: TLabeledEdit
             Left = 729
@@ -9198,21 +9187,21 @@ object MainForm: TMainForm
             BevelOuter = bvNone
             TabOrder = 0
             object lbceitemEntry2: TLabel
-              Left = 211
+              Left = 304
               Top = 4
               Width = 49
               Height = 13
               Caption = 'itemEntry2'
             end
             object lbceitemEntry3: TLabel
-              Left = 327
+              Left = 415
               Top = 3
               Width = 49
               Height = 13
               Caption = 'itemEntry3'
             end
             object lbceitemEntry1: TLabel
-              Left = 95
+              Left = 188
               Top = 4
               Width = 49
               Height = 13
@@ -9220,7 +9209,7 @@ object MainForm: TMainForm
             end
             object edceentry: TLabeledEdit
               Left = 9
-              Top = 22
+              Top = 23
               Width = 73
               Height = 21
               Ctl3D = True
@@ -9232,7 +9221,7 @@ object MainForm: TMainForm
               OnChange = edSearchCreatureChange
             end
             object edceitemEntry1: TJvComboEdit
-              Left = 95
+              Left = 188
               Top = 23
               Width = 97
               Height = 21
@@ -9269,7 +9258,7 @@ object MainForm: TMainForm
               OnButtonClick = GetItem
             end
             object edceitemEntry2: TJvComboEdit
-              Left = 211
+              Left = 304
               Top = 23
               Width = 97
               Height = 21
@@ -9306,7 +9295,7 @@ object MainForm: TMainForm
               OnButtonClick = GetItem
             end
             object edceitemEntry3: TJvComboEdit
-              Left = 327
+              Left = 415
               Top = 23
               Width = 97
               Height = 21
@@ -9351,6 +9340,19 @@ object MainForm: TMainForm
             Caption = 'Show Creature Equipment Script'
             TabOrder = 1
             OnClick = btScriptCreatureClick
+          end
+          object edceid: TLabeledEdit
+            Left = 95
+            Top = 23
+            Width = 73
+            Height = 21
+            Ctl3D = True
+            EditLabel.Width = 9
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Id'
+            ParentCtl3D = False
+            TabOrder = 2
+            OnChange = edSearchCreatureChange
           end
         end
         object tsCreatureLoot: TTabSheet
@@ -13792,6 +13794,15 @@ object MainForm: TMainForm
     object tsGameObject: TTabSheet
       Caption = 'Game Object'
       ImageIndex = 3
+      object Panel8: TPanel
+        Left = 0
+        Top = 0
+        Width = 892
+        Height = 25
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+      end
       object PageControl4: TPageControl
         Left = 0
         Top = 25
@@ -13799,7 +13810,7 @@ object MainForm: TMainForm
         Height = 648
         ActivePage = tsGOLoot
         Align = alClient
-        TabOrder = 0
+        TabOrder = 1
         object tsSearchGO: TTabSheet
           Caption = 'Search'
           object Panel6: TPanel
@@ -15996,15 +16007,6 @@ object MainForm: TMainForm
             OnClick = btExecuteGOScriptClick
           end
         end
-      end
-      object Panel8: TPanel
-        Left = 0
-        Top = 0
-        Width = 892
-        Height = 25
-        Align = alTop
-        BevelOuter = bvNone
-        TabOrder = 1
       end
     end
     object tsItem: TTabSheet

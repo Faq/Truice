@@ -20,7 +20,7 @@ const
 
   SCRIPT_TAB_NO_QUEST       = 8;
   SCRIPT_TAB_NO_CREATURE    = 17;
-  SCRIPT_TAB_NO_GAMEOBJECT  = 7;
+  SCRIPT_TAB_NO_GAMEOBJECT  = 6;
   SCRIPT_TAB_NO_ITEM        = 10;
   SCRIPT_TAB_NO_SMARTAI     = 1;
   SCRIPT_TAB_NO_CONDITIONS  = 1;
@@ -856,35 +856,6 @@ type
     edipitem: TJvComboEdit;
     btScriptProsLoot: TButton;
     btFullScriptProsLoot: TButton;
-    edsscommand: TJvComboEdit;
-    edssid: TLabeledEdit;
-    btssAdd: TSpeedButton;
-    btssUpd: TSpeedButton;
-    btssDel: TSpeedButton;
-    edssdelay: TLabeledEdit;
-    lbsscommand: TLabel;
-    edssdatalong: TLabeledEdit;
-    edssdatalong2: TLabeledEdit;
-    edssdataint: TLabeledEdit;
-    edssx: TLabeledEdit;
-    edssy: TLabeledEdit;
-    edssz: TLabeledEdit;
-    edsso: TLabeledEdit;
-    lvqtEndScript: TJvListView;
-    edescommand: TJvComboEdit;
-    edesid: TLabeledEdit;
-    btesAdd: TSpeedButton;
-    btesUpd: TSpeedButton;
-    btesDel: TSpeedButton;
-    edesdelay: TLabeledEdit;
-    lbescommand: TLabel;
-    edesdatalong: TLabeledEdit;
-    edesdatalong2: TLabeledEdit;
-    edesdataint: TLabeledEdit;
-    edesx: TLabeledEdit;
-    edesy: TLabeledEdit;
-    edesz: TLabeledEdit;
-    edeso: TLabeledEdit;
     tsEnchantment: TTabSheet;
     lvitEnchantment: TJvListView;
     edieentry: TLabeledEdit;
@@ -1080,11 +1051,11 @@ type
     edctfaction_H: TJvComboEdit;
     lbctfaction_H: TLabel;
     edctRegenHealth: TLabeledEdit;
-    edctequipment_id: TLabeledEdit;
     tsCreatureModelInfo: TTabSheet;
     tsCreatureEquipTemplate: TTabSheet;
     Panel23: TPanel;
     edceentry: TLabeledEdit;
+    edceid: TLabeledEdit;
     btShowCreatureEquipmentScript: TButton;
     lvCreatureModelSearch: TJvListView;
     Panel24: TPanel;
@@ -1126,24 +1097,6 @@ type
     lbitGemProperties: TLabel;
     editsocketBonus: TJvComboEdit;
     lbitsocketBonus: TLabel;
-    tsButtonScript: TTabSheet;
-    lvgbButtonScript: TJvListView;
-    edgbo: TLabeledEdit;
-    edgbz: TLabeledEdit;
-    edgby: TLabeledEdit;
-    edgbx: TLabeledEdit;
-    edgbdataint: TLabeledEdit;
-    edgbdatalong2: TLabeledEdit;
-    edgbdatalong: TLabeledEdit;
-    edgbdelay: TLabeledEdit;
-    edgbid: TLabeledEdit;
-    edgbcommand: TJvComboEdit;
-    lbhintGOButtonScript: TLabel;
-    lbgbcommand: TLabel;
-    btgbDel: TSpeedButton;
-    btgbUpd: TSpeedButton;
-    btgbAdd: TSpeedButton;
-    btgbShowButtonScriptScript: TButton;
     btBrowseQuestPopup: TBitBtn;
     btBrowseCreaturePopup: TBitBtn;
     btBrowseGOPopup: TBitBtn;
@@ -1678,7 +1631,6 @@ type
     lbRequiredSkillId: TLabel;
     edqtRequiredClasses: TJvComboEdit;
     lbRequiredClasses: TLabel;
-    edgbGUID: TEdit;
     editflagsCustom: TJvComboEdit;
     lbitflagsCustom: TLabel;
     procedure FormActivate(Sender: TObject);
@@ -1905,9 +1857,6 @@ type
       Change: TItemChange);
     procedure lvitProsLootSelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);
-    procedure btesAddClick(Sender: TObject);
-    procedure btesUpdClick(Sender: TObject);
-    procedure btesDelClick(Sender: TObject);
     procedure GetCommand(Sender: TObject);
     procedure edsscommandChange(Sender: TObject);
     procedure edescommandChange(Sender: TObject);
@@ -1989,12 +1938,6 @@ type
     procedure tsCreatureTemplateAddonShow(Sender: TObject);
     procedure editGemPropertiesButtonClick(Sender: TObject);
     procedure editsocketBonusButtonClick(Sender: TObject);
-    procedure lvgbButtonScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
-    procedure lvgbButtonScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
-    procedure btgbAddClick(Sender: TObject);
-    procedure btgbUpdClick(Sender: TObject);
-    procedure btgbDelClick(Sender: TObject);
-    procedure tsButtonScriptShow(Sender: TObject);
     procedure btBrowsePopupClick(Sender: TObject);
     procedure edcvExtendedCostButtonClick(Sender: TObject);
     procedure lvSearchCharDblClick(Sender: TObject);
@@ -2087,7 +2030,7 @@ type
     procedure btMillingLootDelClick(Sender: TObject);
     procedure tsMillingLootShow(Sender: TObject);
     procedure btFullScriptMillingLootClick(Sender: TObject);
-    procedure edctequipment_idDblClick(Sender: TObject);
+    procedure edclequipment_idDblClick(Sender: TObject);
     procedure edflagsChange(Sender: TObject);
     procedure btReferenceLootAddClick(Sender: TObject);
     procedure btReferenceLootUpdClick(Sender: TObject);
@@ -2158,7 +2101,7 @@ type
     procedure LoadCreature(Entry: integer);
     procedure LoadCreatureTemplateAddon(entry: integer);
     procedure LoadCreatureAddon(GUID: integer);
-    procedure LoadCreatureEquip(ENTRY: integer);
+    procedure LoadCreatureEquip(entry: integer);
     procedure LoadCreatureMovement(GUID: integer);
     procedure LoadCreatureOnKillReputation(id: string);
     procedure LoadCreatureLocation(GUID: integer);
@@ -2305,6 +2248,7 @@ type
     procedure LoadItemInvolvedIn(Id: string);
     function GetValueFromDBC(Name: string; id: Cardinal; idx_str: integer = 1): WideString;
     function GetZoneOrSortAcronym(ZoneOrSort: integer): string;
+    function ScriptSQLScript(lvList: TJvListView; tn, id: string): string;
     procedure GetSomeFlags(Sender: TObject; What: string);
     function GetActionParamHint(ActionType, ParamNo: integer): string;
 
@@ -2829,6 +2773,48 @@ begin
     lvQuickList.OnClick := nil;
     lvQuickList.Free;
     lvQuickList := nil;
+  end;
+end;
+
+function TMainForm.ScriptSQLScript(lvList: TJvListView; tn: string; id: string ): string;
+var
+  i: integer;
+begin
+  Result := '';
+  if lvList.Items.Count>0 then
+  begin
+    for i := 0 to lvList.Items.Count - 2 do
+    begin
+      Result := Result + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s),'#13#10,[
+        lvList.Items[i].Caption,
+        lvList.Items[i].SubItems[0],
+        lvList.Items[i].SubItems[1],
+        lvList.Items[i].SubItems[2],
+        lvList.Items[i].SubItems[3],
+        QuotedStr(lvList.Items[i].SubItems[4]),
+        lvList.Items[i].SubItems[5],
+        lvList.Items[i].SubItems[6],
+        lvList.Items[i].SubItems[7],
+        lvList.Items[i].SubItems[8]
+      ]);
+    end;
+    i := lvList.Items.Count - 1;
+    Result := Result + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);',[
+      lvList.Items[i].Caption,
+      lvList.Items[i].SubItems[0],
+      lvList.Items[i].SubItems[1],
+      lvList.Items[i].SubItems[2],
+      lvList.Items[i].SubItems[3],
+      QuotedStr(lvList.Items[i].SubItems[4]),
+      lvList.Items[i].SubItems[5],
+      lvList.Items[i].SubItems[6],
+      lvList.Items[i].SubItems[7],
+      lvList.Items[i].SubItems[8]
+    ]);
+    Result := Format('DELETE FROM `%0:s` WHERE `id`=%1:s;'#13#10+
+      'INSERT INTO `%0:s` (`id`, `delay`, `command`, `datalong`, `datalong2`, '+
+        '`dataint`, `x`, `y`, `z`, `o`) VALUES '#13#10'%2:s'#13#10,
+      [tn, id, Result]);
   end;
 end;
 
@@ -4352,7 +4338,7 @@ begin
     //if MyQuery.FieldByName('AIName').AsString = mob_eventai then
     isEventAI := true; //else isEventAI := false;
 
-    if MyQuery.FieldByName('equipment_id').AsInteger <> 0 then isEquip:= true else isEquip:= false;
+    if MyQuery.FieldByName('entry').AsInteger <> 0 then isEquip:= true else isEquip:= false;
 
     MyQuery.Close;
 
@@ -4377,7 +4363,7 @@ begin
       [Entry]),lvcvNPCVendor);
     tsNPCVendor.TabVisible := isvendor;
 
-    if isEquip then LoadCreatureEquip(StrToIntDef(edctequipment_id.Text,0));
+    if isEquip then LoadCreatureEquip(StrToIntDef(edctentry.Text,0));
 
     if isEventAI then
       LoadQueryToListView(Format('SELECT   `id`,  `creature_id` as `cid`,  `event_type` as `et`,  '+
@@ -4494,10 +4480,10 @@ begin
   LoadConditions(SourceTypeOrReferenceId, SourceGroup, SourceEntry);
 end;
 
-procedure TMainForm.edctequipment_idDblClick(Sender: TObject);
+procedure TMainForm.edclequipment_idDblClick(Sender: TObject);
 begin
 PageControl3.ActivePageIndex := 4;
-LoadCreatureEquip(StrToIntDef(edctequipment_id.Text,0));
+LoadCreatureEquip(StrToIntDef(edctentry.Text,0));
 end;
 
 procedure TMainForm.btSmartAIAddClick(Sender: TObject);
@@ -4587,11 +4573,6 @@ begin
   mecScript.SelLength := 0;
 end;
 
-procedure TMainForm.tsButtonScriptShow(Sender: TObject);
-begin
-  if edgbid.Text = '' then edgbid.Text := edgtentry.Text;
-end;
-
 procedure TMainForm.tsCharacterScriptShow(Sender: TObject);
 begin
   case PageControl8.ActivePageIndex of
@@ -4618,19 +4599,14 @@ procedure TMainForm.tsCreatureEquipTemplateShow(Sender: TObject);
 var
   itemEntry: integer;
 begin
+  if (edceentry.Text='') then edceentry.Text := edctEntry.Text;
+  if (edceid.Text='') then edceid.Text := '0';
   if (edceitemEntry1.Text='') then edceitemEntry1.Text := '0';
   if (edceitemEntry2.Text='') then edceitemEntry2.Text := '0';
   if (edceitemEntry3.Text='') then edceitemEntry3.Text := '0';
 
   if Assigned(lvclCreatureLocation.Selected) and (StrToIntDef(edclequipment_id.Text,0)<>0) then
-    itemEntry := StrToIntDef(edclequipment_id.Text,0)
-  else
-    itemEntry := StrToIntDef(edctequipment_id.Text,0);
-  if itemEntry <> 0 then
-  begin
-    edceEntry.Text := IntToStr(itemEntry);
-
-  end;
+    itemEntry := StrToIntDef(edclequipment_id.Text,0);
 end;
 
 procedure TMainForm.tsCreatureModelInfoShow(Sender: TObject);
@@ -6082,10 +6058,10 @@ begin
   end;
 end;
 
-procedure TMainForm.LoadCreatureEquip(ENTRY: integer);
+procedure TMainForm.LoadCreatureEquip(entry: integer);
 begin
-  if ENTRY<1 then Exit;
-  MyQuery.SQL.Text := Format('SELECT * FROM `creature_equip_template` WHERE (`entry`=%d)',[ENTRY]);
+  if entry<1 then Exit;
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_equip_template` WHERE (`entry`=%d)',[entry]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_CREATURE_EQUIP_TEMPLATE);
@@ -6919,25 +6895,12 @@ begin
   PageControl4.ActivePageIndex := 1;
 end;
 
-procedure TMainForm.lvgbButtonScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
-begin
-  btgbUpd.Enabled := Assigned(TJvListView(Sender).Selected);
-  btgbDel.Enabled := Assigned(TJvListView(Sender).Selected);
-end;
-
-procedure TMainForm.lvgbButtonScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
-begin
-  if Selected then
-    SetScriptEditFields('edgb', lvgbButtonScript);
-end;
-
 procedure TMainForm.lvglGOLocationSelectItem(Sender: TObject;
   Item: TListItem; Selected: Boolean);
 begin
   if Selected then
   begin
     LoadGOLocation(StrToIntDef(Item.Caption,0));
-    edgbGUID.Text := Item.Caption;
   end;
 end;
 
@@ -9937,21 +9900,6 @@ begin
       SubItems[5] := edgeworld_event.Text;
     end;
   end;
-end;
-
-procedure TMainForm.btgbAddClick(Sender: TObject);
-begin
-  ScriptAdd('edgb', lvgbButtonScript);
-end;
-
-procedure TMainForm.btgbDelClick(Sender: TObject);
-begin
-  ScriptDel(lvgbButtonScript);
-end;
-
-procedure TMainForm.btgbUpdClick(Sender: TObject);
-begin
-  ScriptUpd('edgb', lvgbButtonScript);
 end;
 
 procedure TMainForm.btgeCreatureGuidAddClick(Sender: TObject);
@@ -13366,21 +13314,6 @@ procedure TMainForm.ScriptDel(lvList: TJvListView);
 begin
   if Assigned(lvList.Selected) then
     lvList.DeleteSelected;
-end;
-
-procedure TMainForm.btesAddClick(Sender: TObject);
-begin
-  ScriptAdd('edes', lvqtEndScript);
-end;
-
-procedure TMainForm.btesUpdClick(Sender: TObject);
-begin
-  ScriptUpd('edes', lvqtEndScript);
-end;
-
-procedure TMainForm.btesDelClick(Sender: TObject);
-begin
-  ScriptDel(lvqtEndScript);
 end;
 
 procedure TMainForm.GetCommand(Sender: TObject);
