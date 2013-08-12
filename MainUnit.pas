@@ -11707,7 +11707,7 @@ procedure TMainForm.SetSAIAction(t: integer);
     4:  //SMART_ACTION_SOUND
         begin
             lbcyaction_param1.Caption := 'SoundId';
-            lbcyaction_param2.Caption := 'TextRange';
+            lbcyaction_param2.Caption := 'onlySelf';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
@@ -12047,7 +12047,7 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     33:  //SMART_ACTION_CALL_KILLEDMONSTER
         begin
-            lbcyaction_param1.Caption := 'CreatureId';
+            lbcyaction_param1.Caption := 'creature_template.entry';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -12276,9 +12276,9 @@ procedure TMainForm.SetSAIAction(t: integer);
     53:  //SMART_ACTION_WP_START
         begin
             lbcyaction_param1.Caption := 'run(0)/walk(1)';
-            lbcyaction_param2.Caption := 'Waypoint_data.PathID';
+            lbcyaction_param2.Caption := 'waypoints.entry';
             lbcyaction_param3.Caption := 'canRepeat';
-            lbcyaction_param4.Caption := 'Quest_template.entry';
+            lbcyaction_param4.Caption := 'quest_template.id';
             lbcyaction_param5.Caption := 'despawntime';
             lbcyaction_param6.Caption := 'reactState';
             lbcyaction_type.Hint := '';
@@ -12298,7 +12298,7 @@ procedure TMainForm.SetSAIAction(t: integer);
     55:  //SMART_ACTION_WP_STOP
         begin
             lbcyaction_param1.Caption := 'despawnTime';
-            lbcyaction_param2.Caption := 'Quest_template.entry';
+            lbcyaction_param2.Caption := 'quest_template.id';
             lbcyaction_param3.Caption := 'fail (0/1)';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
@@ -12453,9 +12453,9 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     69:  //SMART_ACTION_MOVE_TO_POS
         begin
-            lbcyaction_param1.Caption := 'x';
-            lbcyaction_param2.Caption := 'y';
-            lbcyaction_param3.Caption := 'z';
+            lbcyaction_param1.Caption := 'PointId';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
@@ -13140,6 +13140,20 @@ procedure TMainForm.SetSAITarget(t: integer);
             lbcytarget_z.Caption := '';
             lbcytarget_o.Caption := '';
             lbcytarget_type.Hint := 'All units on creature''s threat list';
+            edcytarget_type.Hint := lbcytarget_type.Hint;
+        end;
+    25:  //SMART_TARGET_CLOSEST_ENEMY
+        begin
+            lbcytarget_param1.Caption := 'maxDist';
+            lbcytarget_param2.Caption := '';
+            lbcytarget_param3.Caption := '';
+            lbcytarget_x.Caption := '';
+            lbcytarget_y.Caption := '';
+            lbcytarget_z.Caption := '';
+            lbcytarget_o.Caption := '';
+            lbcytarget_param1.Hint := 'Any attackable target (creature or player) within maxDist';
+            edcytarget_param1.Hint := lbcytarget_param1.Hint;
+            lbcytarget_type.Hint := '';
             edcytarget_type.Hint := lbcytarget_type.Hint;
         end;
     end;
