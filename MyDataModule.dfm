@@ -13,6 +13,7 @@ object dmMain: TdmMain
     end
   end
   object MyQuery: TZQuery
+    Connection = MainForm.MyTrinityConnection
     Params = <>
     Left = 128
     Top = 144

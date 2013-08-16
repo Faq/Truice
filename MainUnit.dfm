@@ -27942,12 +27942,13 @@ object MainForm: TMainForm
     end
   end
   object MyTrinityConnection: TZConnection
-    UTF8StringsAsWideField = True
-    PreprepareSQL = False
-    BeforeConnect = MyTrinityConnectionBeforeConnect
+    ControlsCodePage = cGET_ACP
+    AutoEncodeStrings = True
+    HostName = 'localhost'
     Port = 3306
     Database = 'world'
-    Protocol = 'mysql-5'
+    User = 'root'
+    Protocol = 'mysql'
     Left = 632
     Top = 8
   end

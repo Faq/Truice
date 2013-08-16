@@ -143,7 +143,7 @@ begin
 
   // quest giver creature check
   MyQuery.Close;
-  MyQuery.SQL.Text:=Format('SELECT * FROM `creature_questrelation` WHERE `quest` = %d',[qid]);
+  MyQuery.SQL.Text:=Format('SELECT * FROM `creature_queststarter` WHERE `quest` = %d',[qid]);
   MyQuery.Open;
   if not MyQuery.Eof then
   begin
@@ -189,7 +189,7 @@ begin
 
   // quest giver gameobject check
   MyQuery.Close;
-  MyQuery.SQL.Text:=Format('SELECT * FROM `gameobject_questrelation` WHERE `quest` = %d',[qid]);
+  MyQuery.SQL.Text:=Format('SELECT * FROM `gameobject_queststarter` WHERE `quest` = %d',[qid]);
   MyQuery.Open;
   if not MyQuery.Eof then
   begin
@@ -330,7 +330,7 @@ begin
 
   // creature quest taker check
   MyQuery.Close;
-  MyQuery.SQL.Text:=Format('SELECT * FROM `creature_involvedrelation` WHERE `quest` = %d',[qid]);
+  MyQuery.SQL.Text:=Format('SELECT * FROM `creature_questender` WHERE `quest` = %d',[qid]);
   MyQuery.Open;
   if not MyQuery.Eof then
   begin
@@ -378,7 +378,7 @@ begin
 
   // quest taker gameobject check
   MyQuery.Close;
-  MyQuery.SQL.Text:=Format('SELECT * FROM `gameobject_involvedrelation` WHERE `quest` = %d',[qid]);
+  MyQuery.SQL.Text:=Format('SELECT * FROM `gameobject_questender` WHERE `quest` = %d',[qid]);
   MyQuery.Open;
   if not MyQuery.Eof then
   begin

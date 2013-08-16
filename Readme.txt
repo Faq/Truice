@@ -5,26 +5,29 @@ It is a fork of Quice, which was made for MaNGoS.
 
 You can edit Quests, Creatures, GameObjects, Items, Loot, Events, EventAI, SmartAI, Conditions and some minor things.
 
-It is written in Delphi using Embarcadero Delphi XE and the source is available under http://github.com/Faq/Truice
-and precompiled binarys under http://github.com/Faq/Truice/downloads
+It is written in Delphi using Embarcadero Delphi XE2 and the source is available under http://github.com/Faq/Truice
+and precompiled binarys under http://www.trinitycore.org/f/files/file/8-truice/
 
 To compile use Delphi XE2 and next additional components:
 
-ZeosDBO 7.0.0-alpha (SVN rev1789)
+ZeosDBO 7.2.0 (SVN rev2653)
 http://zeos.firmos.at/portal.php
+http://svn.code.sf.net/p/zeoslib/code-0
 
-JEDI VCL 3.48 rev13435
+JEDI Visual Component Library 3.48 2013-08-14
 http://jvcl.delphi-jedi.org/
-svn: https://jvcl.sourceforge.net/svnroot/jvcl
+http://jvcl.sourceforge.net/daily/ -daily packages
+http://github.com/project-jedi/jvcl
 
-JCL 2.5.0.4572 rev3870
+JEDI Code Library 2.5.0.4572
 http://sourceforge.net/projects/jcl/
-svn: https://jcl.sourceforge.net/svnroot/jcl
+http://jcl.sourceforge.net/daily/ -daily packages
+http://github.com/project-jedi/jcl
 
 TMS Unicode Component Pack 1.7.6.0 trial (Delphi XE2 support)
 http://www.tmssoftware.com/go.asp?tmsuni
 
-AlphaControls 2010 7.69
+AlphaControls 2013 v8.41
 http://www.alphaskins.com/
 
 Original topic on TC forum:

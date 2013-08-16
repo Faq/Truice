@@ -8,7 +8,6 @@ uses
 
 const
   DefaultLanguage = 'Default';
-  SoftwareCompany = 'Truice';
   ProgramName = 'Truice';
 
 type
@@ -209,7 +208,7 @@ begin
   Text[5]:='Error: QuestGiver is not set correctly';
   Text[6]:='Error: QuestTaker is not set';
   Text[7]:='Error: QuestTaker is not set correctly';
-  Text[8]:='Warning: There is no one component assigned to field `%s`. It will assigned to default value if it has one.';
+  Text[8]:='Warning: There is no one component assigned to field `%s`. It will be assigned to default value if it has one.';
   Text[9]:='Are you sure to execute this script?';
   Text[10]:='Script executed successfully.';
   Text[11]:='QuestSort';

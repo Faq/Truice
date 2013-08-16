@@ -15,10 +15,10 @@ uses
 const
   VERSION_1   = '1'; //*10000
   VERSION_2   = '3'; //*100
-  VERSION_3   = '7';
+  VERSION_3   = '8';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
 
-  SCRIPT_TAB_NO_QUEST       = 8;
+  SCRIPT_TAB_NO_QUEST       = 6;
   SCRIPT_TAB_NO_CREATURE    = 17;
   SCRIPT_TAB_NO_GAMEOBJECT  = 6;
   SCRIPT_TAB_NO_ITEM        = 10;
@@ -1737,7 +1737,6 @@ type
       Selected: Boolean);
     procedure lvcrNPCTrainerSelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);
-    procedure MyTrinityConnectionBeforeConnect(Sender: TObject);
     procedure btCreatureLootAddClick(Sender: TObject);
     procedure btCreatureLootUpdClick(Sender: TObject);
     procedure btCreatureLootDelClick(Sender: TObject);
@@ -2322,7 +2321,7 @@ procedure TMainForm.btSearchClick(Sender: TObject);
 begin
   SearchQuest();
   with lvQuest do
-    if Items.Count>0 then
+    if Items.Count > 0 then
     begin
       SetFocus;
       Selected := Items[0];
@@ -2568,7 +2567,7 @@ begin
   ItemColors[2] := $00FF1E;
   ItemColors[3] := $DD7000;
   ItemColors[4] := $EE35A3;
-  ItemColors[5] := $0080ff;
+  ItemColors[5] := $0080FF;
   ItemColors[6] := $80CCE5;
   ItemColors[7] := $80CCE5; //heirloom color according to wowhead CSS
   {translation stuff}
@@ -3796,13 +3795,13 @@ begin
       begin
         if MessageDlg(Format(dmMain.Text[137],[CreateVer(LastVer)]), mtConfirmation, mbYesNoCancel, 0, mbYes) = mrYes then
         begin
-          BrowseURL1.URL := 'http://github.com/Faq/Truice/downloads';
+          BrowseURL1.URL := 'http://www.trinitycore.org/f/files/file/8-truice';
           BrowseURL1.Execute;
         end;
       end
       else
       begin
-        if Globalflag then
+        if GlobalFlag then
           ShowMessage(dmMain.Text[138]);
       end;
     finally
@@ -4606,9 +4605,6 @@ begin
   if (edceitemEntry1.Text='') then edceitemEntry1.Text := '0';
   if (edceitemEntry2.Text='') then edceitemEntry2.Text := '0';
   if (edceitemEntry3.Text='') then edceitemEntry3.Text := '0';
-
-  if Assigned(lvclCreatureLocation.Selected) and (StrToIntDef(edclequipment_id.Text,0)<>0) then
-    itemEntry := StrToIntDef(edclequipment_id.Text,0);
 end;
 
 procedure TMainForm.tsCreatureModelInfoShow(Sender: TObject);
@@ -7795,20 +7791,6 @@ begin
   end;
 end;
 
-procedure TMainForm.MyTrinityConnectionBeforeConnect(Sender: TObject);
-begin
-  try
-//    MyTrinityConnection.Options.Charset := ReadFromRegistry(CurrentUser, '', 'Charset', tpString);
-  except
-//    MyTrinityConnection.Options.Charset := '';
-  end;
-  try
-//    MyTrinityConnection.Options.UseUnicode := ReadFromRegistry(CurrentUser, '', 'Unicode', tpBool);
-  except
-//    MyTrinityConnection.Options.UseUnicode := false;
-  end;
-end;
-
 procedure TMainForm.btCreatureLootAddClick(Sender: TObject);
 begin
   LootAdd('edco', lvcoCreatureLoot);
@@ -7823,7 +7805,7 @@ procedure TMainForm.btCreatureModelSearchClick(Sender: TObject);
 begin
   SearchCreatureModelInfo();
   with lvCreatureModelSearch do
-    if Items.Count>0 then
+    if Items.Count > 0 then
     begin
       SetFocus;
       Selected := Items[0];
@@ -9638,21 +9620,21 @@ end;
 
 procedure TMainForm.EditThis(objtype, entry: string);
 begin
-  if objtype='creature' then
+  if objtype = 'creature' then
   begin
     PageControl1.ActivePageIndex := 1;
     PageControl3.ActivePageIndex := 1;
     edctEntry.Text := entry;
     edctEntry.Button.Click;
   end;
-  if objtype='gameobject' then
+  if objtype = 'gameobject' then
   begin
     PageControl1.ActivePageIndex := 2;
     PageControl4.ActivePageIndex := 1;
     edgtEntry.Text := entry;
     edgtEntry.Button.Click;
   end;
-  if objtype='item' then
+  if objtype = 'item' then
   begin
     PageControl1.ActivePageIndex := 3;
     PageControl5.ActivePageIndex := 1;
@@ -9774,7 +9756,7 @@ begin
     end;
     MyTempQuery.Close;
   finally
-    list.SaveToFile(dmMain.ProgramDir+'CSV\useSpells.csv');
+    list.SaveToFile(dmMain.ProgramDir + 'CSV\useSpells.csv');
     list.Free;
     ShowMessage('Spell List Rebuilded Successfully');
   end;
@@ -9930,7 +9912,7 @@ end;
 
 procedure TMainForm.btgeGOGuidAddClick(Sender: TObject);
 begin
-  if Trim(edgeGOguid.Text)<>'' then
+  if Trim(edgeGOguid.Text) <> '' then
   begin
     with lvGameEventGO.Items.Add do
     begin
@@ -9957,8 +9939,8 @@ var
   id: string;
 begin
   id := edotZone.Text;
-  if id<>'' then
-  LoadQueryToListView(Format('SELECT flt.*, i.`name` FROM `fishing_loot_template`'+
+  if id <> '' then
+    LoadQueryToListView(Format('SELECT flt.*, i.`name` FROM `fishing_loot_template`' +
      ' flt LEFT OUTER JOIN `item_template` i ON i.`entry` = flt.`item`'+
      ' WHERE (flt.`entry`=%s)',[id]), lvotFishingLoot);
 end;
@@ -9982,7 +9964,7 @@ procedure TMainForm.edSearchItemSubclassButtonClick(Sender: TObject);
 begin
   GetValueFromSimpleList2(Sender, 131, 'ItemSubClass', false, edSearchItemClass.Text);
 end;
-     
+
 procedure TMainForm.edqtZoneOrSortChange(Sender: TObject);
 begin
   if StrToIntDef(edqtZoneOrSort.Text,0)>=0 then rbqtZoneID.Checked := true else
@@ -10001,7 +9983,7 @@ procedure TMainForm.btSearchPageTextClick(Sender: TObject);
 begin
   SearchPageText();
   with lvSearchPageText do
-    if Items.Count>0 then
+    if Items.Count > 0 then
     begin
       SetFocus;
       Selected := Items[0];
@@ -10021,7 +10003,7 @@ end;
 
 procedure TMainForm.btScriptPageTextClick(Sender: TObject);
 begin
-  PageControl6.ActivePageIndex := SCRIPT_TAB_NO_OTHER;  
+  PageControl6.ActivePageIndex := SCRIPT_TAB_NO_OTHER;
 end;
 
 procedure TMainForm.CompletePageTextScript;
@@ -10119,7 +10101,7 @@ var
   entry: string;
 begin
   entry := TCustomEdit(Sender).Text;
-  MyTempQuery.SQL.Text := Format('SELECT * FROM `page_text` WHERE `entry`=%s',[entry]);
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `page_text` WHERE `entry`=%s', [entry]);
   MyTempQuery.Open;
   if not MyTempQuery.Eof then
     FillFields(MyTempQuery, PFX_PAGE_TEXT);
@@ -10174,272 +10156,270 @@ procedure TMainForm.SetGOdataNames(t: integer);
 begin
   case t of
     0:
-      begin
-        edgtdata0.EditLabel.Caption := 'startOpen';
-        edgtdata1.EditLabel.Caption := 'open';
-        edgtdata2.EditLabel.Caption := 'autoClose';
-        edgtdata3.EditLabel.Caption := 'noDamageImmune';
-        edgtdata4.EditLabel.Caption := 'openTextID';
-        edgtdata5.EditLabel.Caption := 'closeTextID';
-      end;
-     1:
-      begin
-        edgtdata0.EditLabel.Caption := 'startOpen';
-        edgtdata1.EditLabel.Caption := 'open';
-        edgtdata2.EditLabel.Caption := 'autoClose';
-        edgtdata3.EditLabel.Caption := 'linkedTrap';
-        edgtdata4.EditLabel.Caption := 'noDamageImmune';
-        edgtdata5.EditLabel.Caption := 'large';
-        edgtdata6.EditLabel.Caption := 'openTextID';
-        edgtdata7.EditLabel.Caption := 'closeTextID';
-        edgtdata8.EditLabel.Caption := 'losOK';
-      end;
-     2:
-      begin
-        edgtdata0.EditLabel.Caption := 'open';
-        edgtdata1.EditLabel.Caption := 'questList';
-        edgtdata2.EditLabel.Caption := 'pageMaterial';
-        edgtdata3.EditLabel.Caption := 'gossipID';
-        edgtdata4.EditLabel.Caption := 'customAnim';
-        edgtdata5.EditLabel.Caption := 'noDamageImmune';
-        edgtdata6.EditLabel.Caption := 'openTextID';
-        edgtdata7.EditLabel.Caption := 'losOK';
-        edgtdata8.EditLabel.Caption := 'allowMounted';
-        edgtdata9.EditLabel.Caption := 'large';
-      end;
-     3:
-      begin
-        edgtdata0.EditLabel.Caption := 'open';
-        edgtdata1.EditLabel.Caption := 'chestLoot';
-        edgtdata2.EditLabel.Caption := 'chestRestockTime';
-        edgtdata3.EditLabel.Caption := 'consumable';
-        edgtdata4.EditLabel.Caption := 'minRestock';
-        edgtdata5.EditLabel.Caption := 'maxRestock';
-        edgtdata6.EditLabel.Caption := 'lootedEvent';
-        edgtdata7.EditLabel.Caption := 'linkedTrap';
-        edgtdata8.EditLabel.Caption := 'questID';
-        edgtdata9.EditLabel.Caption := 'level';
-        edgtdata10.EditLabel.Caption := 'losOK';
-        edgtdata11.EditLabel.Caption := 'leaveLoot';
-        edgtdata12.EditLabel.Caption := 'notInCombat';
-        edgtdata13.EditLabel.Caption := 'log loot';
-        edgtdata14.EditLabel.Caption := 'openTextID';
-        edgtdata15.EditLabel.Caption := 'use group loot rules';
-      end;
-     4:
-      begin
-      end;
-     5:
-      begin
-        edgtdata0.EditLabel.Caption := 'floatingTooltip';
-        edgtdata1.EditLabel.Caption := 'highlight';
-        edgtdata2.EditLabel.Caption := 'serverOnly';
-        edgtdata3.EditLabel.Caption := 'large';
-        edgtdata4.EditLabel.Caption := 'floatOnWater';
-        edgtdata5.EditLabel.Caption := 'questID';
-      end;
-     6:
-      begin
-        edgtdata0.EditLabel.Caption := 'open';
-        edgtdata1.EditLabel.Caption := 'level';
-        edgtdata2.EditLabel.Caption := 'radius';
-        edgtdata3.EditLabel.Caption := 'spell';
-        edgtdata4.EditLabel.Caption := 'charges';
-        edgtdata5.EditLabel.Caption := 'cooldown';
-        edgtdata6.EditLabel.Caption := 'autoClose';
-        edgtdata7.EditLabel.Caption := 'startDelay';
-        edgtdata8.EditLabel.Caption := 'serverOnly';
-        edgtdata9.EditLabel.Caption := 'stealthed';
-        edgtdata10.EditLabel.Caption := 'large';
-        edgtdata11.EditLabel.Caption := 'stealthAffected';
-        edgtdata12.EditLabel.Caption := 'openTextID';
-        edgtdata13.EditLabel.Caption := 'closeTextID';
-      end;
-     7:
-      begin
-        edgtdata0.EditLabel.Caption := 'chairslots';
-        edgtdata1.EditLabel.Caption := 'chairheight';
-      end;
-     8:
-      begin
-        edgtdata0.EditLabel.Caption := 'spellFocusType';
-        edgtdata1.EditLabel.Caption := 'radius';
-        edgtdata2.EditLabel.Caption := 'linkedTrap';
-        edgtdata3.EditLabel.Caption := 'serverOnly';
-      end;
-     9:
-      begin
-        edgtdata0.EditLabel.Caption := 'pageID';
-        edgtdata1.EditLabel.Caption := 'language';
-        edgtdata2.EditLabel.Caption := 'pageMaterial';
-        edgtdata3.EditLabel.Caption := 'allowMounted';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'startOpen';
+            edgtdata1.EditLabel.Caption := 'open';
+            edgtdata2.EditLabel.Caption := 'autoClose';
+            edgtdata3.EditLabel.Caption := 'noDamageImmune';
+            edgtdata4.EditLabel.Caption := 'openTextID';
+            edgtdata5.EditLabel.Caption := 'closeTextID';
+        end;
+    1:
+        begin
+            edgtdata0.EditLabel.Caption := 'startOpen';
+            edgtdata1.EditLabel.Caption := 'open';
+            edgtdata2.EditLabel.Caption := 'autoClose';
+            edgtdata3.EditLabel.Caption := 'linkedTrap';
+            edgtdata4.EditLabel.Caption := 'noDamageImmune';
+            edgtdata5.EditLabel.Caption := 'large';
+            edgtdata6.EditLabel.Caption := 'openTextID';
+            edgtdata7.EditLabel.Caption := 'closeTextID';
+            edgtdata8.EditLabel.Caption := 'losOK';
+        end;
+    2:
+        begin
+            edgtdata0.EditLabel.Caption := 'open';
+            edgtdata1.EditLabel.Caption := 'questList';
+            edgtdata2.EditLabel.Caption := 'pageMaterial';
+            edgtdata3.EditLabel.Caption := 'gossipID';
+            edgtdata4.EditLabel.Caption := 'customAnim';
+            edgtdata5.EditLabel.Caption := 'noDamageImmune';
+            edgtdata6.EditLabel.Caption := 'openTextID';
+            edgtdata7.EditLabel.Caption := 'losOK';
+            edgtdata8.EditLabel.Caption := 'allowMounted';
+            edgtdata9.EditLabel.Caption := 'large';
+        end;
+    3:
+        begin
+            edgtdata0.EditLabel.Caption := 'open';
+            edgtdata1.EditLabel.Caption := 'chestLoot';
+            edgtdata2.EditLabel.Caption := 'chestRestockTime';
+            edgtdata3.EditLabel.Caption := 'consumable';
+            edgtdata4.EditLabel.Caption := 'minRestock';
+            edgtdata5.EditLabel.Caption := 'maxRestock';
+            edgtdata6.EditLabel.Caption := 'lootedEvent';
+            edgtdata7.EditLabel.Caption := 'linkedTrap';
+            edgtdata8.EditLabel.Caption := 'questID';
+            edgtdata9.EditLabel.Caption := 'level';
+            edgtdata10.EditLabel.Caption := 'losOK';
+            edgtdata11.EditLabel.Caption := 'leaveLoot';
+            edgtdata12.EditLabel.Caption := 'notInCombat';
+            edgtdata13.EditLabel.Caption := 'log loot';
+            edgtdata14.EditLabel.Caption := 'openTextID';
+            edgtdata15.EditLabel.Caption := 'use group loot rules';
+        end;
+    4:
+        begin
+        end;
+    5:
+        begin
+            edgtdata0.EditLabel.Caption := 'floatingTooltip';
+            edgtdata1.EditLabel.Caption := 'highlight';
+            edgtdata2.EditLabel.Caption := 'serverOnly';
+            edgtdata3.EditLabel.Caption := 'large';
+            edgtdata4.EditLabel.Caption := 'floatOnWater';
+            edgtdata5.EditLabel.Caption := 'questID';
+        end;
+    6:
+        begin
+            edgtdata0.EditLabel.Caption := 'open';
+            edgtdata1.EditLabel.Caption := 'level';
+            edgtdata2.EditLabel.Caption := 'radius';
+            edgtdata3.EditLabel.Caption := 'spell';
+            edgtdata4.EditLabel.Caption := 'charges';
+            edgtdata5.EditLabel.Caption := 'cooldown';
+            edgtdata6.EditLabel.Caption := 'autoClose';
+            edgtdata7.EditLabel.Caption := 'startDelay';
+            edgtdata8.EditLabel.Caption := 'serverOnly';
+            edgtdata9.EditLabel.Caption := 'stealthed';
+            edgtdata10.EditLabel.Caption := 'large';
+            edgtdata11.EditLabel.Caption := 'stealthAffected';
+            edgtdata12.EditLabel.Caption := 'openTextID';
+            edgtdata13.EditLabel.Caption := 'closeTextID';
+        end;
+    7:
+        begin
+            edgtdata0.EditLabel.Caption := 'chairslots';
+            edgtdata1.EditLabel.Caption := 'chairheight';
+        end;
+    8:
+        begin
+            edgtdata0.EditLabel.Caption := 'spellFocusType';
+            edgtdata1.EditLabel.Caption := 'radius';
+            edgtdata2.EditLabel.Caption := 'linkedTrap';
+            edgtdata3.EditLabel.Caption := 'serverOnly';
+        end;
+    9:
+        begin
+            edgtdata0.EditLabel.Caption := 'pageID';
+            edgtdata1.EditLabel.Caption := 'language';
+            edgtdata2.EditLabel.Caption := 'pageMaterial';
+            edgtdata3.EditLabel.Caption := 'allowMounted';
+        end;
     10:
-     begin
-        edgtdata0.EditLabel.Caption := 'open';
-        edgtdata1.EditLabel.Caption := 'questID';
-        edgtdata2.EditLabel.Caption := 'eventID';
-        edgtdata3.EditLabel.Caption := 'autoClose';
-        edgtdata4.EditLabel.Caption := 'customAnim';
-        edgtdata5.EditLabel.Caption := 'consumable';
-        edgtdata6.EditLabel.Caption := 'cooldown';
-        edgtdata7.EditLabel.Caption := 'pageID';
-        edgtdata8.EditLabel.Caption := 'language';
-        edgtdata9.EditLabel.Caption := 'pageMaterial';
-        edgtdata10.EditLabel.Caption := 'spell';
-        edgtdata11.EditLabel.Caption := 'noDamageImmune';
-        edgtdata12.EditLabel.Caption := 'linkedTrap';
-        edgtdata13.EditLabel.Caption := 'large';
-        edgtdata14.EditLabel.Caption := 'openTextID';
-        edgtdata15.EditLabel.Caption := 'closeTextID';
-        edgtdata16.EditLabel.Caption := 'losOK';
-        edgtdata17.EditLabel.Caption := 'allowMounted';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'open';
+            edgtdata1.EditLabel.Caption := 'questID';
+            edgtdata2.EditLabel.Caption := 'eventID';
+            edgtdata3.EditLabel.Caption := 'autoClose';
+            edgtdata4.EditLabel.Caption := 'customAnim';
+            edgtdata5.EditLabel.Caption := 'consumable';
+            edgtdata6.EditLabel.Caption := 'cooldown';
+            edgtdata7.EditLabel.Caption := 'pageID';
+            edgtdata8.EditLabel.Caption := 'language';
+            edgtdata9.EditLabel.Caption := 'pageMaterial';
+            edgtdata10.EditLabel.Caption := 'spell';
+            edgtdata11.EditLabel.Caption := 'noDamageImmune';
+            edgtdata12.EditLabel.Caption := 'linkedTrap';
+            edgtdata13.EditLabel.Caption := 'large';
+            edgtdata14.EditLabel.Caption := 'openTextID';
+            edgtdata15.EditLabel.Caption := 'closeTextID';
+            edgtdata16.EditLabel.Caption := 'losOK';
+            edgtdata17.EditLabel.Caption := 'allowMounted';
+        end;
     11:
-     begin
-     end;
+        begin
+        end;
     12:
-     begin
-        edgtdata0.EditLabel.Caption := 'open';
-        edgtdata1.EditLabel.Caption := 'radius';
-        edgtdata2.EditLabel.Caption := 'damageMin';
-        edgtdata3.EditLabel.Caption := 'damageMax';
-        edgtdata4.EditLabel.Caption := 'damageSchool';
-        edgtdata5.EditLabel.Caption := 'autoClose';
-        edgtdata6.EditLabel.Caption := 'openTextID';
-        edgtdata7.EditLabel.Caption := 'closeTextID';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'open';
+            edgtdata1.EditLabel.Caption := 'radius';
+            edgtdata2.EditLabel.Caption := 'damageMin';
+            edgtdata3.EditLabel.Caption := 'damageMax';
+            edgtdata4.EditLabel.Caption := 'damageSchool';
+            edgtdata5.EditLabel.Caption := 'autoClose';
+            edgtdata6.EditLabel.Caption := 'openTextID';
+            edgtdata7.EditLabel.Caption := 'closeTextID';
+        end;
     13:
-     begin
-        edgtdata0.EditLabel.Caption := 'open';
-        edgtdata1.EditLabel.Caption := 'camera';
-        edgtdata2.EditLabel.Caption := 'eventID';
-        edgtdata3.EditLabel.Caption := 'openTextID';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'open';
+            edgtdata1.EditLabel.Caption := 'camera';
+            edgtdata2.EditLabel.Caption := 'eventID';
+            edgtdata3.EditLabel.Caption := 'openTextID';
+        end;
     14:
-     begin
-      end;
+        begin
+        end;
     15:
-     begin
-        edgtdata0.EditLabel.Caption := 'taxiPathID';
-        edgtdata1.EditLabel.Caption := 'moveSpeed';
-        edgtdata2.EditLabel.Caption := 'accelRate';
-        edgtdata3.EditLabel.Caption := 'startEventID';
-        edgtdata4.EditLabel.Caption := 'stopEventID';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'taxiPathID';
+            edgtdata1.EditLabel.Caption := 'moveSpeed';
+            edgtdata2.EditLabel.Caption := 'accelRate';
+            edgtdata3.EditLabel.Caption := 'startEventID';
+            edgtdata4.EditLabel.Caption := 'stopEventID';
+        end;
     16:
-     begin
-      end;
+        begin
+        end;
     17:
-     begin
-      end;
+        begin
+        end;
     18:
-     begin
-        edgtdata0.EditLabel.Caption := 'casters';
-        edgtdata1.EditLabel.Caption := 'spell';
-        edgtdata2.EditLabel.Caption := 'animSpell';
-        edgtdata3.EditLabel.Caption := 'ritualPersistent';
-        edgtdata4.EditLabel.Caption := 'casterTargetSpell';
-        edgtdata5.EditLabel.Caption := 'casterTargetSpellTargets';
-        edgtdata6.EditLabel.Caption := 'castersGrouped';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'casters';
+            edgtdata1.EditLabel.Caption := 'spell';
+            edgtdata2.EditLabel.Caption := 'animSpell';
+            edgtdata3.EditLabel.Caption := 'ritualPersistent';
+            edgtdata4.EditLabel.Caption := 'casterTargetSpell';
+            edgtdata5.EditLabel.Caption := 'casterTargetSpellTargets';
+            edgtdata6.EditLabel.Caption := 'castersGrouped';
+        end;
     19:
-     begin
-      end;
+        begin
+        end;
     20:
-     begin
-        edgtdata0.EditLabel.Caption := 'actionHouseID';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'actionHouseID';
+        end;
     21:
-     begin
-        edgtdata0.EditLabel.Caption := 'creatureID';
-        edgtdata1.EditLabel.Caption := 'charges';
-      end;
-
+        begin
+            edgtdata0.EditLabel.Caption := 'creatureID';
+            edgtdata1.EditLabel.Caption := 'charges';
+        end;
     22:
-     begin
-        edgtdata0.EditLabel.Caption := 'spell';
-        edgtdata1.EditLabel.Caption := 'charges';
-        edgtdata2.EditLabel.Caption := 'partyOnly';
-      end;
-
+        begin
+            edgtdata0.EditLabel.Caption := 'spell';
+            edgtdata1.EditLabel.Caption := 'charges';
+            edgtdata2.EditLabel.Caption := 'partyOnly';
+        end;
     23:
-     begin
-        edgtdata0.EditLabel.Caption := 'minLevel';
-        edgtdata1.EditLabel.Caption := 'maxLevel';
-        edgtdata2.EditLabel.Caption := 'areaID';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'minLevel';
+            edgtdata1.EditLabel.Caption := 'maxLevel';
+            edgtdata2.EditLabel.Caption := 'areaID';
+        end;
     24:
-     begin
-        edgtdata0.EditLabel.Caption := 'open';
-        edgtdata1.EditLabel.Caption := 'pickupSpell';
-        edgtdata2.EditLabel.Caption := 'radius';
-        edgtdata3.EditLabel.Caption := 'returnAura';
-        edgtdata4.EditLabel.Caption := 'returnSpell';
-        edgtdata5.EditLabel.Caption := 'noDamageImmune';
-        edgtdata6.EditLabel.Caption := 'openTextID';
-        edgtdata7.EditLabel.Caption := 'losOK';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'open';
+            edgtdata1.EditLabel.Caption := 'pickupSpell';
+            edgtdata2.EditLabel.Caption := 'radius';
+            edgtdata3.EditLabel.Caption := 'returnAura';
+            edgtdata4.EditLabel.Caption := 'returnSpell';
+            edgtdata5.EditLabel.Caption := 'noDamageImmune';
+            edgtdata6.EditLabel.Caption := 'openTextID';
+            edgtdata7.EditLabel.Caption := 'losOK';
+        end;
     25:
-     begin
-        edgtdata0.EditLabel.Caption := 'radius';
-        edgtdata1.EditLabel.Caption := 'chestLoot';
-        edgtdata2.EditLabel.Caption := 'minRestock';
-        edgtdata3.EditLabel.Caption := 'maxRestock';
-        edgtdata4.EditLabel.Caption := 'open';
-      end;
+        begin
+            edgtdata0.EditLabel.Caption := 'radius';
+            edgtdata1.EditLabel.Caption := 'chestLoot';
+            edgtdata2.EditLabel.Caption := 'minRestock';
+            edgtdata3.EditLabel.Caption := 'maxRestock';
+            edgtdata4.EditLabel.Caption := 'open';
+        end;
     26:
-     begin
-        edgtdata0.EditLabel.Caption := 'open';
-        edgtdata1.EditLabel.Caption := 'eventID';
-        edgtdata2.EditLabel.Caption := 'pickupSpell';
-        edgtdata3.EditLabel.Caption := 'noDamageImmune';
-        edgtdata4.EditLabel.Caption := 'openTextID';
-     end;
-     27:
-     begin
-        edgtdata0.EditLabel.Caption := 'gameType';
-     end;
-     28:
-     begin
-     end;
-     29:
-     begin
-        edgtdata0.EditLabel.Caption := 'radius';
-        edgtdata1.EditLabel.Caption := 'spell';
-        edgtdata2.EditLabel.Caption := 'worldState1';
-        edgtdata3.EditLabel.Caption := 'worldstate2';
-        edgtdata4.EditLabel.Caption := 'winEventID1';
-        edgtdata5.EditLabel.Caption := 'winEventID2';
-        edgtdata6.EditLabel.Caption := 'contestedEventID1';
-        edgtdata7.EditLabel.Caption := 'contestedEventID2';
-        edgtdata8.EditLabel.Caption := 'progressEventID1';
-        edgtdata9.EditLabel.Caption := 'progressEventID2';
-        edgtdata10.EditLabel.Caption := 'neutralEventID1';
-        edgtdata11.EditLabel.Caption := 'neutralEventID2';
-        edgtdata12.EditLabel.Caption := 'neutralPercent';
-        edgtdata13.EditLabel.Caption := 'worldstate3';
-        edgtdata14.EditLabel.Caption := 'minSuperiority';
-        edgtdata15.EditLabel.Caption := 'maxSuperiority';
-        edgtdata16.EditLabel.Caption := 'minTime';
-        edgtdata17.EditLabel.Caption := 'maxTime';
-        edgtdata18.EditLabel.Caption := 'large';
-        edgtdata19.EditLabel.Caption := 'highlight';
-     end;
-     30:
-     begin
-        edgtdata0.EditLabel.Caption := 'startOpen';
-        edgtdata1.EditLabel.Caption := 'radius';
-        edgtdata2.EditLabel.Caption := 'auraID1';
-        edgtdata3.EditLabel.Caption := 'conditionID1';
-        edgtdata4.EditLabel.Caption := 'auraID2';
-        edgtdata5.EditLabel.Caption := 'conditionID2';
-     end;
-     31:
-     begin
-        edgtdata0.EditLabel.Caption := 'mapID';
-        edgtdata1.EditLabel.Caption := 'difficulty';
-     end;
+        begin
+            edgtdata0.EditLabel.Caption := 'open';
+            edgtdata1.EditLabel.Caption := 'eventID';
+            edgtdata2.EditLabel.Caption := 'pickupSpell';
+            edgtdata3.EditLabel.Caption := 'noDamageImmune';
+            edgtdata4.EditLabel.Caption := 'openTextID';
+        end;
+    27:
+        begin
+            edgtdata0.EditLabel.Caption := 'gameType';
+        end;
+    28:
+        begin
+        end;
+    29:
+        begin
+            edgtdata0.EditLabel.Caption := 'radius';
+            edgtdata1.EditLabel.Caption := 'spell';
+            edgtdata2.EditLabel.Caption := 'worldState1';
+            edgtdata3.EditLabel.Caption := 'worldstate2';
+            edgtdata4.EditLabel.Caption := 'winEventID1';
+            edgtdata5.EditLabel.Caption := 'winEventID2';
+            edgtdata6.EditLabel.Caption := 'contestedEventID1';
+            edgtdata7.EditLabel.Caption := 'contestedEventID2';
+            edgtdata8.EditLabel.Caption := 'progressEventID1';
+            edgtdata9.EditLabel.Caption := 'progressEventID2';
+            edgtdata10.EditLabel.Caption := 'neutralEventID1';
+            edgtdata11.EditLabel.Caption := 'neutralEventID2';
+            edgtdata12.EditLabel.Caption := 'neutralPercent';
+            edgtdata13.EditLabel.Caption := 'worldstate3';
+            edgtdata14.EditLabel.Caption := 'minSuperiority';
+            edgtdata15.EditLabel.Caption := 'maxSuperiority';
+            edgtdata16.EditLabel.Caption := 'minTime';
+            edgtdata17.EditLabel.Caption := 'maxTime';
+            edgtdata18.EditLabel.Caption := 'large';
+            edgtdata19.EditLabel.Caption := 'highlight';
+        end;
+    30:
+        begin
+            edgtdata0.EditLabel.Caption := 'startOpen';
+            edgtdata1.EditLabel.Caption := 'radius';
+            edgtdata2.EditLabel.Caption := 'auraID1';
+            edgtdata3.EditLabel.Caption := 'conditionID1';
+            edgtdata4.EditLabel.Caption := 'auraID2';
+            edgtdata5.EditLabel.Caption := 'conditionID2';
+        end;
+    31:
+        begin
+            edgtdata0.EditLabel.Caption := 'mapID';
+            edgtdata1.EditLabel.Caption := 'difficulty';
+        end;
   end;
 end;
 
@@ -11109,6 +11089,15 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+            lbcyevent_type.Hint := '';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
+    74:  //SMART_EVENT_FRIENDLY_HEALTH_PCT
+        begin
+            lbcyevent_param1.Caption := 'minHpPct';
+            lbcyevent_param2.Caption := 'maxHpPct';
+            lbcyevent_param3.Caption := 'repeatMin';
+            lbcyevent_param4.Caption := 'repeatMax';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -12568,16 +12557,14 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     80:  //SMART_ACTION_CALL_TIMED_ACTIONLIST
         begin
-            lbcyaction_param1.Caption := 'ID';
-            lbcyaction_param2.Caption := 'Stop after combat (0/1)';
-            lbcyaction_param3.Caption := 'timer update type';
+            lbcyaction_param1.Caption := 'EntryOrGuid';
+            lbcyaction_param2.Caption := 'timer update type';
+            lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_param1.Hint := 'overwrites already running actionlist';
-            edcyaction_param1.Hint := lbcyaction_param1.Hint;
-            lbcyaction_param3.Hint := '0 = OOC; 1 = IC; 2 = ALWAYS';
-            edcyaction_param3.Hint := lbcyaction_param3.Hint;
+            lbcyaction_param2.Hint := '0 = OOC; 1 = IC; 2 = ALWAYS';
+            edcyaction_param2.Hint := lbcyaction_param2.Hint;
             lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
@@ -13232,6 +13219,20 @@ procedure TMainForm.SetSAITarget(t: integer);
             lbcytarget_z.Caption := '';
             lbcytarget_o.Caption := '';
             lbcytarget_param1.Hint := 'Any attackable target (creature or player) within maxDist';
+            edcytarget_param1.Hint := lbcytarget_param1.Hint;
+            lbcytarget_type.Hint := '';
+            edcytarget_type.Hint := lbcytarget_type.Hint;
+        end;
+    26:  //SMART_TARGET_CLOSEST_FRIENDLY
+        begin
+            lbcytarget_param1.Caption := 'maxDist';
+            lbcytarget_param2.Caption := '';
+            lbcytarget_param3.Caption := '';
+            lbcytarget_x.Caption := '';
+            lbcytarget_y.Caption := '';
+            lbcytarget_z.Caption := '';
+            lbcytarget_o.Caption := '';
+            lbcytarget_param1.Hint := 'Any friendly unit (creature, player or pet) within maxDist';
             edcytarget_param1.Hint := lbcytarget_param1.Hint;
             lbcytarget_type.Hint := '';
             edcytarget_type.Hint := lbcytarget_type.Hint;

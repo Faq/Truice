@@ -492,7 +492,6 @@ end;
 function TDBCFile.getUInt(field: Cardinal): Cardinal;
 begin
   assert(field < fieldCount);
-  //ShowMessage('Field: ' + IntToStr(field) + ' Data: ' + (offset + GetOffset(field)));
   CopyMemory(@Result, offset + GetOffset(field), sizeof(Result));
 end;
 
