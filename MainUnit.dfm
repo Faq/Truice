@@ -27942,7 +27942,7 @@ object MainForm: TMainForm
     end
   end
   object MyTrinityConnection: TZConnection
-    ControlsCodePage = cGET_ACP
+    ControlsCodePage = cCP_UTF16
     AutoEncodeStrings = True
     HostName = 'localhost'
     Port = 3306

@@ -4597,8 +4597,6 @@ begin
 end;
 
 procedure TMainForm.tsCreatureEquipTemplateShow(Sender: TObject);
-var
-  itemEntry: integer;
 begin
   if (edceentry.Text='') then edceentry.Text := edctEntry.Text;
   if (edceid.Text='') then edceid.Text := '0';

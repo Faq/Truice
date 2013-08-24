@@ -49,7 +49,7 @@ type
     function getUInt(field: Cardinal): Cardinal;
     function getUInt8(field: Cardinal): Byte;
     function getPChar(field: Cardinal): PAnsiChar;
-    function getString(field: Cardinal): WideString;
+    function getString(field: Cardinal): string;
   end;
 
 implementation
@@ -189,7 +189,7 @@ begin
   end;
 end;
 
-function TDBCFile.getString(field: Cardinal): WideString;
+function TDBCFile.getString(field: Cardinal): string;
 var
   s: PAnsiChar;
 begin

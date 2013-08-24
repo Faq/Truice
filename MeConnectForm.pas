@@ -28,7 +28,6 @@ type
     Image1: TImage;
     lbCharSet: TLabel;
     edCharSet: TEdit;
-    cbUnicode: TCheckBox;
     edcDatabase: TComboBox;
     lbcDatabase: TLabel;
     edrDatabase: TComboBox;
@@ -186,7 +185,6 @@ begin
   edUsername.Text:=ReadFromRegistry(CurrentUser, '', 'Username', tpString, '');
   edPort.Text:=ReadFromRegistry(CurrentUser, '', 'Port', tpString, '');
   edCharSet.Text:=ReadFromRegistry(CurrentUser, '', 'Charset', tpString, '');
-  cbUnicode.Checked:=ReadFromRegistry(CurrentUser, '', 'Unicode', tpBool, false);
 end;
 
 procedure TMeConnectForm.SaveSettings;
@@ -199,7 +197,6 @@ begin
   WriteToRegistry(CurrentUser, '', 'rDatabase', tpString, edrDatabase.Text);
   WriteToRegistry(CurrentUser, '', 'Port',      tpString, edPort.Text);
   WriteToRegistry(CurrentUser, '', 'Charset',   tpString, edCharSet.Text);
-  WriteToRegistry(CurrentUser, '', 'Unicode',   tpBool,   cbUnicode.Checked);
 
   WriteToRegistry(CurrentUser, 'servers\' + edServer.Text, 'SavePass',  tpBool,   cbSavePassword.Checked);
   WriteToRegistry(CurrentUser, 'servers\' + edServer.Text, 'Username',  tpString, edUsername.Text);
@@ -208,7 +205,6 @@ begin
   WriteToRegistry(CurrentUser, 'servers\' + edServer.Text, 'rDatabase', tpString, edrDatabase.Text);
   WriteToRegistry(CurrentUser, 'servers\' + edServer.Text, 'Port',      tpString, edPort.Text);
   WriteToRegistry(CurrentUser, 'servers\' + edServer.Text, 'Charset',   tpString, edCharSet.Text);
-  WriteToRegistry(CurrentUser, 'servers\' + edServer.Text, 'Unicode',   tpBool,   cbUnicode.Checked);
 end;
 
 procedure TMeConnectForm.btDetailsClick(Sender: TObject);
@@ -239,7 +235,6 @@ begin
   edcDatabase.Clear;
   edrDatabase.Clear;
   edCharSet.Clear;
-  cbUnicode.Checked:=false;
 end;
 
 procedure TMeConnectForm.FormCreate(Sender: TObject);
@@ -302,7 +297,6 @@ begin
   edrDatabase.Text:=ReadFromRegistry(CurrentUser, 'servers\' + edServer.Text, 'rDatabase',  tpString, '');
   edPort.Text:=ReadFromRegistry(CurrentUser, 'servers\' + edServer.Text, 'Port',      tpString, '');
   edCharSet.Text:=ReadFromRegistry(CurrentUser,'servers\' + edServer.Text, 'Charset', tpString, '');
-  cbUnicode.Checked:=ReadFromRegistry(CurrentUser, 'servers\' + edServer.Text, 'Unicode', tpBool, false);
 end;
 
 end.
