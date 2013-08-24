@@ -67,7 +67,6 @@ edSearchMask=Маска поиска
 gbAdvanced=Дополнительные опции
 lbNamedPipe=Named Pipe
 lbCharSet=Кодировка
-cbUnicode=Юникод
 btConnect=Соединить
 btCancel=Отмена
 btDetails=Подробно >>

@@ -67,7 +67,6 @@ edSearchMask=Suchmaske
 gbAdvanced=Erweiterte Optionen
 lbNamedPipe=Named Pipe
 lbCharSet=Charset
-cbUnicode=Unicode
 btConnect=Verbinden
 btCancel=Abbrechen
 btDetails=Details >>

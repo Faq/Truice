@@ -2025,7 +2025,7 @@ object AboutBox: TAboutBox
       object JvPoweredByJVCL1: TJvPoweredByJVCL
         Left = 19
         Top = 157
-        URL = 'http://homepages.borland.com/jedi/jvcl/PoweredByJVCL.htm'
+        URL = 'http://jvcl.delphi-jedi.org/'
       end
       object lbprojectwebsite: TLabel
         Left = 19

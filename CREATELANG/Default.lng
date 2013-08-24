@@ -75,7 +75,6 @@ edSearchMask=Search mask
 [CONNECT]
 gbAdvanced=Advanced Options
 lbCharSet=Charset
-cbUnicode=Unicode
 btConnect=Connect
 btCancel=Cancel
 btDetails=Details >>
