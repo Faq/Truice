@@ -72,7 +72,7 @@ object ListForm: TListForm
       OnChange = edSearchMaskChange
     end
   end
-  object lvList: TTntListView
+  object lvList: TListView
     Left = 0
     Top = 46
     Width = 393

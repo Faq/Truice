@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, JvExComCtrls, JvListView, TntComCtrls;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, JvExComCtrls, JvListView;
 
 type
   TListForm = class(TForm)
@@ -13,7 +13,7 @@ type
     btCancel: TButton;
     pnSearch: TPanel;
     edSearchMask: TLabeledEdit;
-    lvList: TTntListView;
+    lvList: TListView;
     procedure lvList2Change(Sender: TObject; Item: TListItem;
       Change: TItemChange);
     procedure edSearchMaskChange(Sender: TObject);

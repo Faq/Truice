@@ -24,9 +24,6 @@ http://sourceforge.net/projects/jcl/
 http://jcl.sourceforge.net/daily/ -daily packages
 http://github.com/project-jedi/jcl
 
-TMS Unicode Component Pack 1.7.6.0 trial (Delphi XE2 support)
-http://www.tmssoftware.com/go.asp?tmsuni
-
 AlphaControls 2013 v8.41
 http://www.alphaskins.com/
 

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, ComCtrls, DB, DBCFile,  MyDataModule,
-  Menus, Registry, ShellAPI, TnTComCtrls,
+  Menus, Registry, ShellAPI,
   CheckQuestThreadUnit, Buttons, About, xpman, ActnList, ExtActns, Mask, Grids, TextFieldEditorUnit,
   JvExComCtrls, JvListView, JvExMask, JvToolEdit, DBGrids, JvExDBGrids, JvDBGrid, JvComponentBase,
   JvUrlListGrabber, JvUrlGrabbers, JvExControls, JvLinkLabel, ZAbstractRODataset, ZAbstractDataset,
@@ -2066,7 +2066,7 @@ type
     Thread: TCheckQuestThread;
     ItemColors: array [0..7] of integer;
     edit : TJvComboEdit;
-    lvQuickList : TTntListView;
+    lvQuickList: TListView;
 
     procedure GetValueFromSimpleList(Sender: TObject; TextId: integer;
       Name: String; Sort: boolean);
@@ -5212,7 +5212,7 @@ begin
     begin
       if not Assigned(lvQuickList) then
       begin
-        lvQuickList := TTntListView.Create(Self);
+        lvQuickList := TListView.Create(Self);
         lvQuickList.Visible := false;
         lvQuickList.Parent := TJvComboEdit(Sender).parent.parent;
         lvQuickList.ViewStyle := TViewStyle(vsReport);
@@ -13308,7 +13308,7 @@ end;
 
 procedure TMainForm.lvQuickListMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
-  lvQuickList.Selected := TTntListItem(lvQuickList.GetItemAt(x,y));
+  lvQuickList.Selected := TListItem(lvQuickList.GetItemAt(x,y));
 end;
 
 procedure TMainForm.lvqtTakerTemplateChange(Sender: TObject; Item: TListItem; Change: TItemChange);

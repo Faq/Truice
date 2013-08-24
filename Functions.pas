@@ -2,7 +2,7 @@ unit Functions;
 
 interface
 
-uses Windows, Classes, StrUtils, SysUtils, ComCtrls, DBCFile, TntComCtrls, Registry, Messages, Controls, JvExComCtrls, JvListView, WideStrings;
+uses Windows, Classes, StrUtils, SysUtils, ComCtrls, DBCFile, Registry, Messages, Controls, JvExComCtrls, JvListView, WideStrings;
 
 type
    TParameter = (tpInteger, tpFloat, tpString, tpDate, tpTime, tpDateTime,
@@ -13,18 +13,18 @@ type
 
 procedure GetWhoAndKey(Text: string; var Who: string; var Key: string); forward;
 
-procedure LoadListFromFile(List: TTntListView; Fname: string); forward; overload;
-procedure LoadListFromFile(List: TTntListView; Fname: string; id1: string); forward; overload;
+procedure LoadListFromFile(List: TListView; Fname: string); forward; overload;
+procedure LoadListFromFile(List: TListView; Fname: string; id1: string); forward; overload;
 
-function LoadListFromDBCFile(List: TTntListView; Name: string ): boolean; forward; overload;
-function LoadListFromDBCFile(List: TTntListView; FName: string ; idx_str: Cardinal ): boolean; forward; overload;
+function LoadListFromDBCFile(List: TListView; Name: string ): boolean; forward; overload;
+function LoadListFromDBCFile(List: TListView; FName: string ; idx_str: Cardinal ): boolean; forward; overload;
 
-procedure SetList(List: TTntListView; Name: string; Sorted: boolean = false ); forward; overload;
-procedure SetList(List: TTntListView; Name: string; id1: string ; Sorted: boolean = false); forward; overload;
+procedure SetList(List: TListView; Name: string; Sorted: boolean = false ); forward; overload;
+procedure SetList(List: TListView; Name: string; id1: string ; Sorted: boolean = false); forward; overload;
 
 procedure LoadSimpleIDListFromDBCFile(List: TWideStringList; Name: string); forward; export;
 procedure LoadStringListFromFile(List: TStrings; csvname: string); forward; export;
-procedure Sort(List: TTntListView; Column: integer); forward; export;
+procedure Sort(List: TListView; Column: integer); forward; export;
 
 procedure WriteToRegistry(Root: TRootKey; Part, Param: string; TypeOfParam: TParameter; Value: OleVariant); forward; overload;
 function ReadFromRegistry(Root: TRootKey; Part, Param: string; TypeOfParam: TParameter; const DefaultValue: OleVariant): OleVariant; forward; overload;
@@ -85,7 +85,7 @@ begin
   if ParamSort < 0 then Result := -Result;  
 end;
 
-function LoadListFromDBCFile(List: TTntListView; Name: string ): boolean;
+function LoadListFromDBCFile(List: TListView; Name: string ): boolean;
 var
   FileName : TFileName;
   str : integer;
@@ -187,7 +187,7 @@ begin
   end;
 end;
 
-function LoadListFromDBCFile(List: TTntListView; Fname: string; idx_str: Cardinal ): boolean;
+function LoadListFromDBCFile(List: TListView; Fname: string; idx_str: Cardinal ): boolean;
 var
   i: integer;
   Dbc : TDBCFile;
@@ -298,7 +298,7 @@ begin
   Key:=s2;
 end;
 
-procedure SetList(List: TTntListView; Name: string; Sorted: boolean );
+procedure SetList(List: TListView; Name: string; Sorted: boolean );
 var
   FileName: TFileName;
 begin
@@ -321,13 +321,13 @@ begin
     if Sorted then Sort(List, 1);
 end;
 
-procedure SetList(List: TTntListView; Name: string; id1: string; Sorted: boolean = false);
+procedure SetList(List: TListView; Name: string; id1: string; Sorted: boolean = false);
 begin
   LoadListFromFile(List, WideFormat('%s\%s.dbc',[dmMain.DBCDir, Name]), id1);
   if Sorted then Sort(List, 1);
 end;
 
-procedure LoadListFromFile(List: TTntListView; Fname: string);
+procedure LoadListFromFile(List: TListView; Fname: string);
 var
   L: TStringList;
   i: integer;
@@ -355,7 +355,7 @@ begin
   end;
 end;
 
-procedure LoadListFromFile(List: TTntListView; Fname: string; id1: string);
+procedure LoadListFromFile(List: TListView; Fname: string; id1: string);
 var
   i: integer;
   Dbc : TDBCFile;
@@ -410,7 +410,7 @@ begin
   end;
 end;
 
-procedure Sort(List: TTntListView; Column: integer);
+procedure Sort(List: TListView; Column: integer);
 begin
   List.Items.BeginUpdate;
   try

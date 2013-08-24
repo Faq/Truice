@@ -46,7 +46,7 @@ object AreaTableForm: TAreaTableForm
           OnChange = edSearchMaskChange
         end
       end
-      object lvList: TTntListView
+      object lvList: TListView
         Left = 0
         Top = 41
         Width = 384
