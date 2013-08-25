@@ -3,10 +3,6 @@ md rls
 cls
 
 echo Copying *.dll and Truice.exe
-xcopy /O /K /R /Y /H /Q /I /C Functionlib.dll rls\Functionlib.dll > NUL
-echo ..
-xcopy /O /K /R /Y /H /Q /I /C libmysql.dll rls\libmysql.dll > NUL
-echo ..
 xcopy /O /K /R /Y /H /Q /I /C Truice.exe rls\Truice.exe > NUL
 echo .. DONE
 echo.

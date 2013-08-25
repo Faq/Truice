@@ -255,10 +255,10 @@ TEXT133=Map
 TEXT134=Hodnoty vyhledávaní jsou prázdné. Tato úloha vrátí veškeré entries z tabulky.$B$BChcete opravdu pokraèovat?
 TEXT135=Script Command
 TEXT136=Nalezené charaktery: %d
-TEXT137=Nová verze programu Quice (%s) je dostupná. Chcete ji stáhnout??
+TEXT137=Nová verze programu Truice (%s) je dostupná. Chcete ji stáhnout??
 TEXT138=Žádná nová aktualizace.
 TEXT139=Vyskytl se error pøi nahrávání tabulky creature_addon:
-TEXT140=Opravdu chcete odinstalovat Quice?
+TEXT140=Opravdu chcete odinstalovat Truice?
 TEXT141=Trainer Type
 TEXT142=Race
 TEXT143=Class
@@ -277,7 +277,7 @@ TEXT155=AreaTrigger
 TEXT156=LootCondition
 
 [MAIN]
-Caption=Quice
+Caption=Truice
 tsQuest=Quest
 tsSearch=Hledat
 lbQuestGiverSearch=Quest Giver

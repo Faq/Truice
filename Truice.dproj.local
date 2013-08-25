@@ -1,8 +1,2 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.pas,D:\wowsource\core\Truice\LocNPCFrame.pas=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.dfm,D:\wowsource\core\Truice\LocNPCFrame.dfm=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.dproj,D:\wowsource\core\Truice\Quice.dproj=D:\wowsource\core\Truice\Truice.dproj</Transaction>
-  </Transactions>
-</BorlandProject>
+<BorlandProject/>

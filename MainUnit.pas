@@ -2283,10 +2283,6 @@ type
     procedure EditMouseWheelDown(Sender: TObject; Shift: TShiftState; MousePos: TPoint; var Handled: Boolean);
 
 end;
-   {Funcktionlib.dll}
-   function LoadLocales():string; external 'Functionlib.dll';
-   procedure ShowHourGlassCursor; external 'Functionlib.dll';
-
 
 var
   MainForm: TMainForm;
