@@ -9536,19 +9536,19 @@ end;
 
 procedure TMainForm.linkEventAIInfoClick(Sender: TObject);
 begin
-  BrowseURL1.URL := 'http://www.trinitycore.org/w/Creature_ai_scripts_tc2';
+  BrowseURL1.URL := 'http://collab.kpsn.org/display/tc/Creature+ai+scripts+tc2';
   BrowseURL1.Execute;
 end;
 
 procedure TMainForm.linkSmartAIInfoClick(Sender: TObject);
 begin
-  BrowseURL1.URL := 'http://www.trinitycore.org/w/Creature_ai_scripts_tc2';
+  BrowseURL1.URL := 'http://collab.kpsn.org/display/tc/Creature+ai+scripts+tc2';
   BrowseURL1.Execute;
 end;
 
 procedure TMainForm.linkConditionInfoClick(Sender: TObject);
 begin
-  BrowseURL1.URL := 'http://www.trinitycore.info/Conditions_tc2';
+  BrowseURL1.URL := 'http://collab.kpsn.org/display/tc/Conditions+tc2';
   BrowseURL1.Execute;
 end;
 
