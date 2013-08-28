@@ -11,7 +11,8 @@ and precompiled binarys under http://www.trinitycore.org/f/files/file/8-truice/
 To compile use Delphi XE2 and next additional components:
 
 ZeosDBO 7.0.1 beta (SVN rev1943)
-http://zeos.firmos.at/portal.php
+http://zeos.firmos.at/portal.php         (old link)
+http://sourceforge.net/projects/zeoslib/ (new link)
 http://svn.code.sf.net/p/zeoslib/code-0
 
 JEDI Visual Component Library 3.48 2013-08-14
