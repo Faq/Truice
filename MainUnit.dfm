@@ -12675,7 +12675,7 @@ object MainForm: TMainForm
             Width = 250
             Height = 13
             Cursor = crHandPoint
-            Caption = 'http://www.trinitycore.org/w/Creature_ai_scripts_tc2'
+            Caption = 'http://collab.kpsn.org/display/tc/Creature+ai+scripts+tc2'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
             Font.Height = -11
@@ -23161,7 +23161,7 @@ object MainForm: TMainForm
             Width = 212
             Height = 13
             Cursor = crHandPoint
-            Caption = 'http://www.trinitycore.info/Smart_scripts_tc2'
+            Caption = 'http://collab.kpsn.org/display/tc/smart_scripts'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
             Font.Height = -11
@@ -24045,7 +24045,7 @@ object MainForm: TMainForm
             Width = 198
             Height = 13
             Cursor = crHandPoint
-            Caption = 'http://www.trinitycore.info/Conditions_tc2'
+            Caption = 'http://collab.kpsn.org/display/tc/Conditions+tc2'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
             Font.Height = -11
