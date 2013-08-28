@@ -2032,7 +2032,7 @@ object AboutBox: TAboutBox
         Top = 124
         Width = 83
         Height = 13
-        Caption = 'Project WEB site:'
+        Caption = 'Project website:'
       end
       object Label2: TLabel
         Left = 292
