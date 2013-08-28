@@ -15,7 +15,7 @@ uses
 const
   VERSION_1   = '1'; //*10000
   VERSION_2   = '3'; //*100
-  VERSION_3   = '8';
+  VERSION_3   = '9';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
 
   SCRIPT_TAB_NO_QUEST       = 6;
@@ -2057,6 +2057,12 @@ type
       Shift: TShiftState);
     procedure edcytarget_typeKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure SetScriptEditFields(pfx: string; lvList: TJvListView);
+    function ScriptSQLScript(lvList: TJvListView; tn, id: string): string;
+    {movement}
+    procedure ScriptAdd(pfx: string; lvList: TJvListView);
+    procedure ScriptDel(lvList: TJvListView);
+    procedure ScriptUpd(pfx: string; lvList: TJvListView);
 
   private
     { Private declarations }
@@ -2084,7 +2090,6 @@ type
     procedure LoadQuestLocales(QuestID: integer);
     procedure LoadQuestGiverInfo(objtype: string; entry: string);
     procedure LoadQuestTakerInfo(objtype: string; entry: string);
-    procedure SetScriptEditFields(pfx: string; lvList: TJvListView);
     procedure ClearFields(Where: TType);
     procedure SetDefaultFields(Where: TType);
     procedure ShowSettings(n: integer);
@@ -2159,10 +2164,6 @@ type
     procedure MvmntUpd(pfx: string; lvList: TJvListView);
     procedure MvmntDel(lvList: TJvListView);
     procedure SetMvmntEditFields(pfx: string; lvList: TJvListView);
-
-    procedure ScriptAdd(pfx: string; lvList: TJvListView);
-    procedure ScriptDel(lvList: TJvListView);
-    procedure ScriptUpd(pfx: string; lvList: TJvListView);
 
     procedure EnchAdd(pfx: string; lvList: TJvListView);
     procedure EnchDel(lvList: TJvListView);
@@ -2247,7 +2248,6 @@ type
     procedure LoadItemInvolvedIn(Id: string);
     function GetValueFromDBC(Name: string; id: Cardinal; idx_str: integer = 1): WideString;
     function GetZoneOrSortAcronym(ZoneOrSort: integer): string;
-    function ScriptSQLScript(lvList: TJvListView; tn, id: string): string;
     procedure GetSomeFlags(Sender: TObject; What: string);
     function GetActionParamHint(ActionType, ParamNo: integer): string;
 
