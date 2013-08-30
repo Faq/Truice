@@ -12892,6 +12892,28 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
+    111:  //SMART_ACTION_GAME_EVENT_STOP
+        begin
+            lbcyaction_param1.Caption := 'Game event id';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    112:  //SMART_ACTION_GAME_EVENT_START
+        begin
+            lbcyaction_param1.Caption := 'Game event id';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
     end;
     SAI_Action := t;
 end;
