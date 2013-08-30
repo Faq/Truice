@@ -11645,7 +11645,7 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := 'Do nothing (don't use)';
+            lbcyaction_type.Hint := 'Do nothing (dont use)';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     1:  //SMART_ACTION_TALK
