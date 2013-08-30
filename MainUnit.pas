@@ -10444,7 +10444,7 @@ begin
             lbcyevent_param2.Caption := 'HPMax%';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
-            lbcyevent_type.Hint := 'Health Percentage';
+            lbcyevent_type.Hint := 'At Health Pct';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
     3:  //SMART_EVENT_MANA_PCT
@@ -10453,7 +10453,7 @@ begin
             lbcyevent_param2.Caption := 'ManaMax%';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
-            lbcyevent_type.Hint := 'Mana Percentage';
+            lbcyevent_type.Hint := 'At Mana Pct';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
     4:  //SMART_EVENT_AGGRO
@@ -10462,15 +10462,15 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
-            lbcyevent_type.Hint := 'On Creature Aggro';
+            lbcyevent_type.Hint := 'On Aggro';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
     5:  //SMART_EVENT_KILL
         begin
             lbcyevent_param1.Caption := 'CooldownMin0';
             lbcyevent_param2.Caption := 'CooldownMax1';
-            lbcyevent_param3.Caption := 'playerOnly2';
-            lbcyevent_param4.Caption := 'else creature entry3';
+            lbcyevent_param3.Caption := 'Player only (0 / 1) (if 0, set entry in param 4)';
+            lbcyevent_param4.Caption := 'If param3 is 0, this is creature entry to kill';
             lbcyevent_type.Hint := 'On Creature Kill';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10516,14 +10516,14 @@ begin
             lbcyevent_param2.Caption := 'MaxRange';
             lbcyevent_param3.Caption := 'CooldownMin';
             lbcyevent_param4.Caption := 'CooldownMax';
-            lbcyevent_type.Hint := 'On Target In Distance Out of Combat';
+            lbcyevent_type.Hint := 'On Target In Distance Line of Sight Out of Combat';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
     11:  //SMART_EVENT_RESPAWN
         begin
-            lbcyevent_param1.Caption := 'type';
-            lbcyevent_param2.Caption := 'MapId';
-            lbcyevent_param3.Caption := 'ZoneId';
+            lbcyevent_param1.Caption := 'Respawn type (0 = none, 1 = map, 2 = area)';
+            lbcyevent_param2.Caption := 'Map id (if type is 1)';
+            lbcyevent_param3.Caption := 'Area id (if type is 2)';
             lbcyevent_param4.Caption := '';
             lbcyevent_type.Hint := 'On Creature/Gameobject Respawn';
             edcyevent_type.Hint := lbcyevent_type.Hint;
@@ -10561,7 +10561,7 @@ begin
             lbcyevent_param2.Caption := 'RepeatMin';
             lbcyevent_param3.Caption := 'RepeatMax';
             lbcyevent_param4.Caption := '';
-            lbcyevent_type.Hint := '';
+            lbcyevent_type.Hint := 'On Friendly Crowd Controlled';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
     16:  //SMART_EVENT_FRIENDLY_MISSING_BUFF
@@ -10570,7 +10570,7 @@ begin
             lbcyevent_param2.Caption := 'Radius';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
-            lbcyevent_type.Hint := 'On Friendly Lost Buff';
+            lbcyevent_type.Hint := 'On Friendly Missing Buff';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
     17:  //SMART_EVENT_SUMMONED_UNIT
