@@ -11645,18 +11645,18 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := 'Do nothing';
+            lbcyaction_type.Hint := 'Do nothing (don't use)';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     1:  //SMART_ACTION_TALK
         begin
-            lbcyaction_param1.Caption := 'Creature_text.groupid';
+            lbcyaction_param1.Caption := 'creature_text.groupid';
             lbcyaction_param2.Caption := 'duration (in ms)';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_param2.Hint := 'duration to wait before TEXT_OVER event is triggered';
+            lbcyaction_param2.Hint := 'Duration to wait before SMART_EVENT_TEXT_OVER event is triggered';
             edcyaction_param2.Hint := lbcyaction_param2.Hint;
             lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
@@ -11689,8 +11689,8 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     4:  //SMART_ACTION_SOUND
         begin
-            lbcyaction_param1.Caption := 'SoundId';
-            lbcyaction_param2.Caption := 'onlySelf';
+            lbcyaction_param1.Caption := 'Sound id';
+            lbcyaction_param2.Caption := 'onlySelf (0/1)';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
@@ -11700,7 +11700,7 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     5:  //SMART_ACTION_PLAY_EMOTE
         begin
-            lbcyaction_param1.Caption := 'EmoteId';
+            lbcyaction_param1.Caption := 'Emote id';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -11711,7 +11711,7 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     6:  //SMART_ACTION_FAIL_QUEST
         begin
-            lbcyaction_param1.Caption := 'QuestID';
+            lbcyaction_param1.Caption := 'Quest id';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -11722,7 +11722,7 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     7:  //SMART_ACTION_ADD_QUEST
         begin
-            lbcyaction_param1.Caption := 'QuestID';
+            lbcyaction_param1.Caption := 'Quest id';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -11739,7 +11739,7 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := 'React State. Can be Aggressive, Passive or Defensive.';
+            lbcyaction_type.Hint := 'React State. Can be aggressive (0), defensive (1) or passive (2).';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     9:  //SMART_ACTION_ACTIVATE_GOBJECT
@@ -11835,8 +11835,8 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     18:  //SMART_ACTION_SET_UNIT_FLAG
         begin
-            lbcyaction_param1.Caption := 'unit_flags';
-            lbcyaction_param2.Caption := 'Target';
+            lbcyaction_param1.Caption := 'creature_template.unit_flags';
+            lbcyaction_param2.Caption := 'Type. If 0, targets creature_template.unit_flags, if > 0, targets creature_template.unit_flags2';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
@@ -11849,7 +11849,7 @@ procedure TMainForm.SetSAIAction(t: integer);
     19:  //SMART_ACTION_REMOVE_UNIT_FLAG
         begin
             lbcyaction_param1.Caption := 'unit_flags';
-            lbcyaction_param2.Caption := 'Target';
+            lbcyaction_param2.Caption := 'Type. If 0, targets creature_template.unit_flags, if > 0, targets creature_template.unit_flags2';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
@@ -11861,7 +11861,7 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     20:  //SMART_ACTION_AUTO_ATTACK
         begin
-            lbcyaction_param1.Caption := 'AllowAttackState';
+            lbcyaction_param1.Caption := '0/1';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -11874,7 +11874,7 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     21:  //SMART_ACTION_ALLOW_COMBAT_MOVEMENT
         begin
-            lbcyaction_param1.Caption := 'AllowCombatMovement';
+            lbcyaction_param1.Caption := '0/1';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -11924,7 +11924,7 @@ procedure TMainForm.SetSAIAction(t: integer);
         end;
     25:  //SMART_ACTION_FLEE_FOR_ASSIST
         begin
-            lbcyaction_param1.Caption := '0 or 1';
+            lbcyaction_param1.Caption := '0 / 1. 0 = no "<name> starts fleeing" messages, 1 = message.';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
