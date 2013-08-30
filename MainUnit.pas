@@ -11946,16 +11946,8 @@ procedure TMainForm.SetSAIAction(t: integer);
             lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
-    27:  //SMART_ACTION_CALL_CASTEDCREATUREORGO
+    27:  //NONE
         begin
-            lbcyaction_param1.Caption := 'Creature_template.entry';
-            lbcyaction_param2.Caption := 'SpellId';
-            lbcyaction_param3.Caption := '';
-            lbcyaction_param4.Caption := '';
-            lbcyaction_param5.Caption := '';
-            lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := '';
-            edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     28:  //SMART_ACTION_REMOVEAURASFROMSPELL
         begin
