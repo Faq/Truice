@@ -10541,8 +10541,10 @@ begin
         begin
             lbcyevent_param1.Caption := 'RepeatMin';
             lbcyevent_param2.Caption := 'RepeatMax';
-            lbcyevent_param3.Caption := '';
+            lbcyevent_param3.Caption := 'Spellid';
             lbcyevent_param4.Caption := '';
+            lbcyevent_param3.Hint := 'if 0, check is done for all spells';
+            edcyevent_param3.Hint := lbcyevent_param3.Hint;
             lbcyevent_type.Hint := 'On Target Casting Spell';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
