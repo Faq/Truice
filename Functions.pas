@@ -605,17 +605,18 @@ begin
     if not OpenKey('SOFTWARE\Truice', false) then exit;
     try
      case ReadInteger('Locales') of
-      0: result:= '_loc1';
-      1: result:= '_loc2';
-      2: result:= '_loc3';
-      3: result:= '_loc4';
-      4: result:= '_loc5';
-      5: result:= '_loc6';
-      6: result:= '_loc7';
-      7: result:= '_loc8';
+      0: result:= 'enUS';
+      1: result:= 'koKR';
+      2: result:= 'frFR';
+      3: result:= 'deDE';
+      4: result:= 'zhCN';
+      5: result:= 'zhTW';
+      6: result:= 'esES';
+      7: result:= 'esMX';
+      8: result:= 'ruRU';
      end;
    except
-      Result:= '_loc1';
+      Result:= 'enUS';
     end;
   finally
     free;

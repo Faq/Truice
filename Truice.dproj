@@ -9,7 +9,7 @@
 			<AppType>Application</AppType>
 			<FrameworkType>VCL</FrameworkType>
 			<Platform Condition="'$(Platform)'==''">Win32</Platform>
-			<TargetedPlatforms>1</TargetedPlatforms>
+			<TargetedPlatforms>2</TargetedPlatforms>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
 			<Base>true</Base>
@@ -45,7 +45,7 @@
 			<VerInfo_MinorVer>0</VerInfo_MinorVer>
 			<DCC_DcuOutput>build\</DCC_DcuOutput>
 			<DCC_UsePackage>vcl;rtl;vclx;vclactnband;xmlrtl;dbrtl;vcldb;vcldbx;bdertl;dsnap;dsnapcon;TeeUI;TeeDB;Tee;adortl;IndyCore;IndySystem;IndyProtocols;inet;intrawebdb_100_120;Intraweb_100_120;VclSmp;vclie;websnap;webdsnap;inetdbbde;inetdbxpress;soaprtl;dbexpress;DbxCommonDriver;DataSnapIndy10ServerTransport;DataSnapProviderClient;DataSnapServer;DbxClientDriver;DBXInterBaseDriver;DBXMySQLDriver;dbxcds;DBXSybaseASEDriver;DBXSybaseASADriver;DBXOracleDriver;DBXMSSQLDriver;DBXInformixDriver;DBXDb2Driver;ZComponent;ZDbc;ZPlain;ZCore;ZParseSql;Jcl;JclVcl;JvCoreD12R;JvSystemD12R;JvStdCtrlsD12R;JvAppFrmD12R;JvBandsD12R;JvDBD12R;JvDlgsD12R;JvBDED12R;JvCmpD12R;JvCryptD12R;JvCtrlsD12R;JvCustomD12R;JvDockingD12R;JvDotNetCtrlsD12R;JvEDID12R;JvGlobusD12R;JvHMID12R;JvInterpreterD12R;JvJansD12R;JvManagedThreadsD12R;JvMMD12R;JvNetD12R;JvPageCompsD12R;JvPluginD12R;JvPrintPreviewD12R;JvRuntimeDesignD12R;JvTimeFrameworkD12R;JvValidatorsD12R;JvWizardD12R;JvXPCtrlsD12R;TMSUnicodeD2009;acnt2009_R;$(DCC_UsePackage)</DCC_UsePackage>
-			<DCC_UnitSearchPath>C:\Users\Public\Documents\RAD Studio\AlphaControlsv6.6\D2009\dcu;C:\Users\Public\Documents\RAD Studio\AlphaControlsv6.6\D2009;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_UnitSearchPath>g:\wowsource\AlphaControls v12.18.FS\;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
 			<DCC_RangeChecking>true</DCC_RangeChecking>
 			<DCC_DebugInformation>false</DCC_DebugInformation>
@@ -201,6 +201,7 @@
 				</Delphi.Personality>
 				<Platforms>
 					<Platform value="Win32">True</Platform>
+					<Platform value="Win64">True</Platform>
 				</Platforms>
 			</BorlandProject>
 			<ProjectFileVersion>12</ProjectFileVersion>

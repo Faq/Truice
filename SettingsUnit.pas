@@ -199,7 +199,6 @@ begin
   dmMain.ProxyPort := edProxyPort.Text;
   dmMain.ProxyUser := edUsername.Text;
   dmMain.ProxyPass := edPassword.Text;
-  MainForm.CheckforUpdates(true);
 end;
 
 procedure TSettingsForm.btOKClick(Sender: TObject);
