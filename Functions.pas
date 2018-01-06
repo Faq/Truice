@@ -578,14 +578,14 @@ end;
 function GetClassAcronym(value: integer): string;
 begin
   case value of
-    1	: Result := 'Warrior';
-    2	: Result := 'Paladin';
-    3	: Result := 'Hunter';
-    4	: Result := 'Rogue';
-    5	: Result := 'Priest';
-    7	: Result := 'Shaman';
-    8	: Result := 'Mage';
-    9	: Result := 'Warlock';
+    1: Result := 'Warrior';
+    2: Result := 'Paladin';
+    3: Result := 'Hunter';
+    4: Result := 'Rogue';
+    5: Result := 'Priest';
+    7: Result := 'Shaman';
+    8: Result := 'Mage';
+    9: Result := 'Warlock';
     11: Result := 'Druid';
   else
     Result:= '';

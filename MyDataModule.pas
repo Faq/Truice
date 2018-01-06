@@ -4,7 +4,8 @@ interface
 
 uses
   Forms, SysUtils, Classes, ActnList, ExtActns, Translate, WideStrings,
-  DB, ZAbstractRODataset, ZAbstractDataset, ZDataset, JvExComCtrls, JvListView;
+  DB, ZAbstractRODataset, ZAbstractDataset, ZDataset, JvExComCtrls, JvListView,
+  System.Actions;
 
 const
   DefaultLanguage = 'Default';
