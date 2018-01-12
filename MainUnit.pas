@@ -197,6 +197,7 @@ type
     lRequestItemsText: TLabel;
     lEndText: TLabel;
     edqtLogTitle: TLabeledEdit;
+    edqtAreaDescription: TLabeledEdit;
     edqtQuestDescription: TMemo;
     edqtLogDescription: TMemo;
     edqtOfferRewardText: TMemo;
@@ -563,7 +564,6 @@ type
     mectScript: TMemo;
     mectLog: TMemo;
     btCopyToClipboardCreature: TButton;
-    btExecuteCreatureScript: TButton;
     Panel3: TPanel;
     tsGameObject: TTabSheet;
     PageControl4: TPageControl;
@@ -1268,7 +1268,6 @@ type
     lbotlootmode: TLabel;
     nDBCDir: TMenuItem;
     Timer1: TTimer;
-    edcnevent_chance: TLabeledEdit;
     edgtcastBarCaption: TLabeledEdit;
     edSearchItemFlags: TJvComboEdit;
     lbSearchItemFlags: TLabel;
@@ -1287,10 +1286,8 @@ type
     edqtRewardMailDelay: TLabeledEdit;
     lbctflags_extra: TLabel;
     lbctdifficulty_entry_1: TLabel;
-    lbcnevent_param4: TLabel;
-    edcnevent_param4: TJvComboEdit;
-    edcnevent_flags: TLabeledEdit;
     edqtRewardHonor: TLabeledEdit;
+    edqtRewardDisplaySpell: TLabeledEdit;
     edqtMethod: TLabeledEdit;
     pmruwowhead: TMenuItem;
     sAlphaHints1: TsAlphaHints;
@@ -1299,15 +1296,15 @@ type
     tsLocalesQuest: TTabSheet;
     gbLocalesQuest: TsGroupBox;
     edlqlocale: TLabeledEdit;
-    edlqLogTitle: TLabeledEdit;
-    edlqDetail: TMemo;
-    l2Detail: TLabel;
+    edlqTitle: TLabeledEdit;
+    edlqDetails: TMemo;
+    l2Details: TLabel;
     edlqObjectives: TMemo;
     l2Objectives: TLabel;
     l2EndText: TLabel;
     edlqEndText: TMemo;
     edlqOfferRewardText: TMemo;
-    edlqRequestItemText: TMemo;
+    edlqRequestItemsText: TMemo;
     l2RequestItemsText: TLabel;
     l2OfferRewardText: TLabel;
     edlqObjectiveText1: TLabeledEdit;
@@ -1424,12 +1421,17 @@ type
     edcdpath_id: TLabeledEdit;
     UpDown3: TUpDown;
     edqtMaxLevel: TLabeledEdit;
+    edqtQuestInfoID: TLabeledEdit;
     edqtRequiredFactionValue2: TLabeledEdit;
     edqtRequiredFactionId2: TJvComboEdit;
     lbqtRepObjectiveFaction2: TLabel;
     edqtVerifiedBuild: TLabeledEdit;
     edqtRewardArenaPoints: TLabeledEdit;
     edqtUnknown0: TLabeledEdit;
+    edqtPOIContinent: TLabeledEdit;
+    edqtPOIx: TLabeledEdit;
+    edqtPOIy: TLabeledEdit;
+    edqtPOIPriority: TLabeledEdit;
     edgtVerifiedBuild: TLabeledEdit;
     edcvslot: TLabeledEdit;
     tsSmartAI: TTabSheet;
@@ -3083,8 +3085,8 @@ begin
   MyQuery.SQL.Text := Format('SELECT locale, Title, Details, Objectives, OfferRewardText, RequestItemsText, EndText, CompletedText, ObjectiveText1, ObjectiveText2, ObjectiveText3, ObjectiveText4, VerifiedBuild FROM quest_template_locale WHERE ID=%d', [QuestID]);
   MyQuery.Open;
   edlqlocale.EditLabel.Caption:= 'locale';
-  edlqLogTitle.EditLabel.Caption:= 'LogTitle';
-  l2Detail.Caption:= 'Detail';
+  edlqTitle.EditLabel.Caption:= 'Title';
+  l2Details.Caption:= 'Details';
   l2Objectives.Caption:= 'Objectives';
   l2EndText.Caption:= 'EndText';
   edlqCompletedText.EditLabel.Caption:= 'CompletedText';
@@ -3100,11 +3102,11 @@ begin
   while (MyQuery.Eof=false) do
   begin
     edlqlocale.Text:=MyQuery.Fields[0].AsString;
-    edlqLogTitle.Text:=MyQuery.Fields[1].AsString;
-    edlqDetail.Text:=MyQuery.Fields[2].AsString;
+    edlqTitle.Text:=MyQuery.Fields[1].AsString;
+    edlqDetails.Text:=MyQuery.Fields[2].AsString;
     edlqObjectives.Text:=MyQuery.Fields[3].AsString;
     edlqOfferRewardText.Text:=MyQuery.Fields[4].AsString;
-    edlqRequestItemText.Text:=MyQuery.Fields[5].AsString;
+    edlqRequestItemsText.Text:=MyQuery.Fields[5].AsString;
     edlqEndText.Text:=MyQuery.Fields[6].AsString;
     edlqCompletedText.Text:=MyQuery.Fields[7].AsString;
     edlqObjectiveText1.Text:=MyQuery.Fields[8].AsString;
