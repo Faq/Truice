@@ -162,13 +162,13 @@ type
     StatusBar: TStatusBar;
     tsQuestPart1: TTabSheet;
     gbqtKeys: TGroupBox;
-    lbId: TLabel;
-    lbPrevQuestId: TLabel;
-    lbNextQuestId: TLabel;
+    lbID: TLabel;
+    lbPrevQuestID: TLabel;
+    lbNextQuestID: TLabel;
     lbRewardNextQuest: TLabel;
     edqtId: TJvComboEdit;
-    edqtPrevQuestId: TJvComboEdit;
-    edqtNextQuestId: TJvComboEdit;
+    edqtPrevQuestID: TJvComboEdit;
+    edqtNextQuestID: TJvComboEdit;
     edqtExclusiveGroup: TLabeledEdit;
     edqtRewardNextQuest: TJvComboEdit;
     gbQuestSorting: TGroupBox;
@@ -186,10 +186,10 @@ type
     edqtAllowableRaces: TJvComboEdit;
     gbSource: TGroupBox;
     lbStartItem: TLabel;
-    lbSourceSpellId: TLabel;
-    edqtSourceItemCount: TLabeledEdit;
+    lbSourceSpellID: TLabel;
+    edqtProvidedItemCount: TLabeledEdit;
     edqtStartItem: TJvComboEdit;
-    edqtSourceSpellId: TJvComboEdit;
+    edqtSourceSpellID: TJvComboEdit;
     gbDescription: TGroupBox;
     lDetails: TLabel;
     lObjectives: TLabel;
@@ -1278,11 +1278,11 @@ type
     edqtRewardSpellCast: TJvComboEdit;
     edqtRewardTitle: TLabeledEdit;
     edqtSuggestedGroupNum: TLabeledEdit;
-    edqtRequiredSkillId: TJvComboEdit;
+    edqtRequiredSkillID: TJvComboEdit;
     edqtQuestSortID: TJvComboEdit;
     rbqtQuestSort: TRadioButton;
     rbqtZoneID: TRadioButton;
-    edqtRewardMailTemplateId: TLabeledEdit;
+    edqtRewardMailTemplateID: TLabeledEdit;
     edqtRewardMailDelay: TLabeledEdit;
     lbctflags_extra: TLabel;
     lbctdifficulty_entry_1: TLabel;
@@ -1616,8 +1616,8 @@ type
     edhtis_logout_resting: TCheckBox;
     edhtgrantableLevels: TLabeledEdit;
     lbRequiredSkillId: TLabel;
-    edqtRequiredClasses: TJvComboEdit;
-    lbRequiredClasses: TLabel;
+    edqtAllowableClasses: TJvComboEdit;
+    lbAllowableClasses: TLabel;
     editflagsCustom: TJvComboEdit;
     lbitflagsCustom: TLabel;
     procedure FormActivate(Sender: TObject);
@@ -2592,17 +2592,36 @@ begin
   if QuestID<1 then exit;
 
   // load full description for quest
-  MyQuery.SQL.Text := Format('SELECT * FROM `quest_template` WHERE `ID`=%d',[
-    QuestID]);
-  // load data for quest from addon table
-  //MyQuery.SQL.Text := Format('SELECT * FROM `quest_template_addon` WHERE `Id`=%d',[
-    //QuestID]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `quest_template` WHERE `ID`=%d', [QuestID]);
+
   MyQuery.Open;
   try
     if (MyQuery.Eof=true) then
       raise Exception.Create(Format(dmMain.Text[2], [QuestID]));  //'Error: Quest (%d) not found'
     edqtId.Text := IntToStr(QuestID);
     FillFields(MyQuery, PFX_QUEST_TEMPLATE);
+    MyQuery.Close;
+
+	// load data for quest from addon table
+	MyQuery.SQL.Text := Format('SELECT * FROM `quest_template_addon` WHERE `ID`=%d', [QuestID]);
+	MyQuery.Open;
+    if (MyQuery.Eof=false) then 
+		edqtMaxLevel.Text := MyQuery.FieldByName('MaxLevel').AsString;
+		edqtAllowableClasses.Text := MyQuery.FieldByName('AllowableClasses').AsString;
+		edqtSourceSpellID.Text := MyQuery.FieldByName('SourceSpellID').AsString;
+		edqtPrevQuestID.Text := MyQuery.FieldByName('PrevQuestID').AsString;
+		edqtNextQuestID.Text := MyQuery.FieldByName('NextQuestID').AsString;
+		edqtExclusiveGroup.Text := MyQuery.FieldByName('ExclusiveGroup').AsString;
+		edqtRewardMailTemplateID.Text := MyQuery.FieldByName('RewardMailTemplateID').AsString;
+		edqtRewardMailDelay.Text := MyQuery.FieldByName('RewardMailDelay').AsString;
+		edqtRequiredSkillID.Text := MyQuery.FieldByName('RequiredSkillID').AsString;
+		edqtRequiredSkillPoints.Text := MyQuery.FieldByName('RequiredSkillPoints').AsString;
+		edqtRequiredMinRepFaction.Text := MyQuery.FieldByName('RequiredMinRepFaction').AsString;
+		edqtRequiredMaxRepFaction.Text := MyQuery.FieldByName('RequiredMaxRepFaction').AsString;
+		edqtRequiredMinRepValue.Text := MyQuery.FieldByName('RequiredMinRepValue').AsString;
+		edqtRequiredMaxRepValue.Text := MyQuery.FieldByName('RequiredMaxRepValue').AsString;
+		edqtProvidedItemCount.Text := MyQuery.FieldByName('ProvidedItemCount').AsString;
+		edqtSpecialFlags.Text := MyQuery.FieldByName('SpecialFlags').AsString;
     MyQuery.Close;
 
     MyQuery.SQL.Text := Format('SELECT * FROM `areatrigger_involvedrelation` WHERE `quest`=%d', [QuestID]);

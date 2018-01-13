@@ -886,19 +886,19 @@ object MainForm: TMainForm
             Height = 146
             Caption = 'Keys'
             TabOrder = 0
-            object lbId: TLabel
+            object lbID: TLabel
               Left = 8
               Top = 16
               Width = 9
               Height = 13
-              Caption = 'Id'
+              Caption = 'ID'
             end
-            object lbPrevQuestId: TLabel
+            object lbPrevQuestID: TLabel
               Left = 95
               Top = 15
               Width = 59
               Height = 13
-              Caption = 'PrevQuestId'
+              Caption = 'PrevQuestID'
             end
             object lbNextQuestId: TLabel
               Left = 95
@@ -977,7 +977,7 @@ object MainForm: TMainForm
               Text = ''
               OnButtonClick = btLoadQuest
             end
-            object edqtPrevQuestId: TJvComboEdit
+            object edqtPrevQuestID: TJvComboEdit
               Left = 95
               Top = 30
               Width = 81
@@ -1294,7 +1294,7 @@ object MainForm: TMainForm
                 TabOrder = 2
               end
             end
-            object edqtRequiredSkillId: TJvComboEdit
+            object edqtRequiredSkillID: TJvComboEdit
               Left = 7
               Top = 72
               Width = 74
@@ -1513,12 +1513,12 @@ object MainForm: TMainForm
               Height = 13
               Caption = 'ReqMaxRepFaction'
             end
-            object lbRequiredClasses: TLabel
+            object lbAllowableClasses: TLabel
               Left = 93
               Top = 16
               Width = 79
               Height = 13
-              Caption = 'RequiredClasses'
+              Caption = 'AllowableClasses'
             end
             object edqtRequiredMinRepValue: TLabeledEdit
               Left = 93
@@ -1674,12 +1674,12 @@ object MainForm: TMainForm
               EditLabel.Caption = 'ReqSkillPoints'
               TabOrder = 1
             end
-            object edqtRequiredClasses: TJvComboEdit
+            object edqtAllowableClasses: TJvComboEdit
               Left = 93
               Top = 32
               Width = 73
               Height = 21
-              Hint = 'Classes required to get the quest.'
+              Hint = 'Classes required to get the quest. 0 means the quest is available for all classes.'
               ButtonWidth = 22
               ClickKey = 13
               Glyph.Data = {
@@ -1728,22 +1728,22 @@ object MainForm: TMainForm
               Height = 13
               Caption = 'StartItem'
             end
-            object lbSourceSpellId: TLabel
+            object lbSourceSpellID: TLabel
               Left = 8
               Top = 96
               Width = 66
               Height = 13
-              Caption = 'SourceSpellId'
+              Caption = 'SourceSpellID'
             end
-            object edqtSourceItemCount: TLabeledEdit
+            object edqtProvidedItemCount: TLabeledEdit
               Left = 8
               Top = 72
               Width = 105
               Height = 21
-              Hint = 'Number of Item given at quest start.'
+              Hint = 'Number of items given to the player (inserted in the players bags) upon accepting the quest.'
               EditLabel.Width = 82
               EditLabel.Height = 13
-              EditLabel.Caption = 'SourceItemCount'
+              EditLabel.Caption = 'ProvidedItemCount'
               TabOrder = 1
             end
             object edqtStartItem: TJvComboEdit
@@ -1785,7 +1785,7 @@ object MainForm: TMainForm
               Text = ''
               OnButtonClick = GetItem
             end
-            object edqtSourceSpellId: TJvComboEdit
+            object edqtSourceSpellID: TJvComboEdit
               Left = 8
               Top = 112
               Width = 105
@@ -2105,8 +2105,8 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount2'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 3
             end
@@ -2116,8 +2116,8 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount3'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 5
             end
@@ -2127,8 +2127,8 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount4'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 7
             end
@@ -2203,8 +2203,8 @@ object MainForm: TMainForm
               Hint = 
                 'Maximum number of items in ItemDrop2 that can be picked up (and ' +
                 'dropped by the core).'
-              EditLabel.Width = 109
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 11
             end
@@ -2216,8 +2216,8 @@ object MainForm: TMainForm
               Hint = 
                 'Maximum number of items in ItemDrop3 that can be picked up (and ' +
                 'dropped by the core).'
-              EditLabel.Width = 109
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 13
             end
@@ -2229,8 +2229,8 @@ object MainForm: TMainForm
               Hint = 
                 'Maximum number of items in ItemDrop4 that can be picked up (and ' +
                 'dropped by the core).'
-              EditLabel.Width = 109
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 15
             end
@@ -3023,8 +3023,8 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount5'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 31
             end
@@ -3034,8 +3034,8 @@ object MainForm: TMainForm
               Width = 85
               Height = 21
               Hint = 'RequiredItemCount6'
-              EditLabel.Width = 118
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 32
             end
@@ -4127,14 +4127,14 @@ object MainForm: TMainForm
               Text = ''
               OnButtonClick = GetSpell
             end
-            object edqtRewardMailTemplateId: TLabeledEdit
+            object edqtRewardMailTemplateID: TLabeledEdit
               Left = 387
               Top = 29
               Width = 110
               Height = 21
               EditLabel.Width = 109
               EditLabel.Height = 13
-              EditLabel.Caption = 'RewardMailTemplateId'
+              EditLabel.Caption = 'RewardMailTemplateID'
               TabOrder = 34
             end
             object edqtRewardMailDelay: TLabeledEdit
@@ -16230,8 +16230,8 @@ object MainForm: TMainForm
                 'spellcharges_2'#13#10'Number of charges for this spell.'#13#10'0 = infinite ' +
                 'charges'#13#10'-X = X charges, item is expendable'#13#10'+X = X charges, ite' +
                 'm is kept when all charges are spent'
-              EditLabel.Width = 88
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 6
             end
@@ -16241,8 +16241,8 @@ object MainForm: TMainForm
               Width = 60
               Height = 21
               Hint = 'spellcooldown_2'
-              EditLabel.Width = 96
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 7
             end
@@ -16252,8 +16252,8 @@ object MainForm: TMainForm
               Width = 50
               Height = 21
               Hint = 'spellcategory_2'
-              EditLabel.Width = 91
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 8
             end
@@ -16263,8 +16263,8 @@ object MainForm: TMainForm
               Width = 95
               Height = 21
               Hint = 'spellcategorycooldown_2'
-              EditLabel.Width = 137
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 9
             end
@@ -16277,8 +16277,8 @@ object MainForm: TMainForm
                 'spellcharges_3'#13#10'Number of charges for this spell.'#13#10#13#10'0 = infinit' +
                 'e charges'#13#10'-X = X charges, item is expendable'#13#10'+X = X charges, i' +
                 'tem is kept when all charges are spent'
-              EditLabel.Width = 88
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 11
             end
@@ -16288,8 +16288,8 @@ object MainForm: TMainForm
               Width = 60
               Height = 21
               Hint = 'spellcooldown_3'
-              EditLabel.Width = 96
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 12
             end
@@ -16299,8 +16299,8 @@ object MainForm: TMainForm
               Width = 50
               Height = 21
               Hint = 'spellcategory_3'
-              EditLabel.Width = 91
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 13
             end
@@ -16313,8 +16313,8 @@ object MainForm: TMainForm
                 'spellcharges_4'#13#10'Number of charges for this spell.'#13#10#13#10'0 = infinit' +
                 'e charges'#13#10'-X = X charges, item is expendable'#13#10'+X = X charges, i' +
                 'tem is kept when all charges are spent'
-              EditLabel.Width = 88
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 16
             end
@@ -16324,8 +16324,8 @@ object MainForm: TMainForm
               Width = 60
               Height = 21
               Hint = 'spellcooldown_4'
-              EditLabel.Width = 96
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 17
             end
@@ -16335,8 +16335,8 @@ object MainForm: TMainForm
               Width = 50
               Height = 21
               Hint = 'spellcategory_4'
-              EditLabel.Width = 91
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 18
             end
@@ -16346,8 +16346,8 @@ object MainForm: TMainForm
               Width = 95
               Height = 21
               Hint = 'spellcategorycooldown_4'
-              EditLabel.Width = 137
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 19
             end
@@ -16360,8 +16360,8 @@ object MainForm: TMainForm
                 'spellcharges_5'#13#10'Number of charges for this spell.'#13#10#13#10'0 = infinit' +
                 'e charges'#13#10'-X = X charges, item is expendable'#13#10'+X = X charges, i' +
                 'tem is kept when all charges are spent'
-              EditLabel.Width = 88
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 21
             end
@@ -16371,8 +16371,8 @@ object MainForm: TMainForm
               Width = 60
               Height = 21
               Hint = 'spellcooldown_5'
-              EditLabel.Width = 96
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 22
             end
@@ -16382,8 +16382,8 @@ object MainForm: TMainForm
               Width = 50
               Height = 21
               Hint = 'spellcategory_5'
-              EditLabel.Width = 91
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 23
             end
@@ -16393,8 +16393,8 @@ object MainForm: TMainForm
               Width = 95
               Height = 21
               Hint = 'spellcategorycooldown_5'
-              EditLabel.Width = 137
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 24
             end
@@ -16403,8 +16403,8 @@ object MainForm: TMainForm
               Top = 77
               Width = 95
               Height = 21
-              EditLabel.Width = 137
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 14
             end
@@ -16609,8 +16609,8 @@ object MainForm: TMainForm
               Width = 60
               Height = 21
               Hint = 'spellppmRate_5'
-              EditLabel.Width = 93
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 25
             end
@@ -16620,8 +16620,8 @@ object MainForm: TMainForm
               Width = 60
               Height = 21
               Hint = 'spellppmRate_4'
-              EditLabel.Width = 93
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 26
             end
@@ -16631,8 +16631,8 @@ object MainForm: TMainForm
               Width = 60
               Height = 21
               Hint = 'spellppmRate_3'
-              EditLabel.Width = 93
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 27
             end
@@ -16642,8 +16642,8 @@ object MainForm: TMainForm
               Width = 60
               Height = 21
               Hint = 'spellppmRate_2'
-              EditLabel.Width = 93
-              EditLabel.Height = 13
+              EditLabel.Width = 0
+              EditLabel.Height = 0
               EditLabel.Caption = ''
               TabOrder = 28
             end
