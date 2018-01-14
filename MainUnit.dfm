@@ -1516,7 +1516,7 @@ object MainForm: TMainForm
             object lbAllowableClasses: TLabel
               Left = 93
               Top = 16
-              Width = 79
+              Width = 81
               Height = 13
               Caption = 'AllowableClasses'
             end
@@ -1679,7 +1679,9 @@ object MainForm: TMainForm
               Top = 32
               Width = 73
               Height = 21
-              Hint = 'Classes required to get the quest. 0 means the quest is available for all classes.'
+              Hint = 
+                'Classes required to get the quest. 0 means the quest is availabl' +
+                'e for all classes.'
               ButtonWidth = 22
               ClickKey = 13
               Glyph.Data = {
@@ -1740,7 +1742,9 @@ object MainForm: TMainForm
               Top = 72
               Width = 105
               Height = 21
-              Hint = 'Number of items given to the player (inserted in the players bags) upon accepting the quest.'
+              Hint = 
+                'Number of items given to the player (inserted in the players bag' +
+                's) upon accepting the quest.'
               EditLabel.Width = 82
               EditLabel.Height = 13
               EditLabel.Caption = 'ProvidedItemCount'
@@ -22201,18 +22205,19 @@ object MainForm: TMainForm
       object PageControl9: TPageControl
         Left = 0
         Top = 25
-        Width = 881
+        Width = 969
         Height = 648
         ActivePage = tsSmartAI
         TabOrder = 0
         object tsSmartAI: TTabSheet
           Caption = 'SmartAI'
           ImageIndex = 19
+          ExplicitWidth = 873
           DesignSize = (
-            873
+            961
             620)
           object btSmartAIAdd: TSpeedButton
-            Left = 787
+            Left = 868
             Top = 315
             Width = 23
             Height = 22
@@ -22262,7 +22267,7 @@ object MainForm: TMainForm
             OnClick = btSmartAIAddClick
           end
           object btSmartAIDel: TSpeedButton
-            Left = 845
+            Left = 926
             Top = 315
             Width = 23
             Height = 22
@@ -22322,7 +22327,7 @@ object MainForm: TMainForm
             OnClick = btSmartAIDelClick
           end
           object btSmartAIUpd: TSpeedButton
-            Left = 816
+            Left = 897
             Top = 315
             Width = 23
             Height = 22
@@ -22382,7 +22387,7 @@ object MainForm: TMainForm
             OnClick = btSmartAIUpdClick
           end
           object lbcysource_type: TLabel
-            Left = 744
+            Left = 824
             Top = 421
             Width = 58
             Height = 13
@@ -22460,35 +22465,35 @@ object MainForm: TMainForm
           end
           object lbcyaction_param1: TLabel
             Left = 130
-            Top = 390
+            Top = 389
             Width = 70
             Height = 13
             Caption = 'action_param1'
           end
           object lbcyaction_param2: TLabel
-            Left = 267
-            Top = 392
+            Left = 266
+            Top = 389
             Width = 70
             Height = 13
             Caption = 'action_param2'
           end
           object lbcyaction_param3: TLabel
             Left = 402
-            Top = 392
+            Top = 389
             Width = 70
             Height = 13
             Caption = 'action_param3'
           end
           object lbcyaction_param4: TLabel
             Left = 539
-            Top = 391
+            Top = 389
             Width = 70
             Height = 13
             Caption = 'action_param4'
           end
           object lbcyaction_param5: TLabel
             Left = 130
-            Top = 431
+            Top = 430
             Width = 70
             Height = 13
             Caption = 'action_param5'
@@ -22530,7 +22535,7 @@ object MainForm: TMainForm
           end
           object lbcytarget_x: TLabel
             Left = 2
-            Top = 520
+            Top = 519
             Width = 38
             Height = 13
             Caption = 'target_x'
@@ -22544,14 +22549,14 @@ object MainForm: TMainForm
           end
           object lbcytarget_z: TLabel
             Left = 266
-            Top = 520
+            Top = 519
             Width = 38
             Height = 13
             Caption = 'target_z'
           end
           object lbcytarget_o: TLabel
             Left = 402
-            Top = 520
+            Top = 519
             Width = 39
             Height = 13
             Caption = 'target_o'
@@ -22564,7 +22569,7 @@ object MainForm: TMainForm
             Caption = 'comment'
           end
           object lbcyentryorguid: TLabel
-            Left = 744
+            Left = 824
             Top = 380
             Width = 66
             Height = 13
@@ -22588,15 +22593,15 @@ object MainForm: TMainForm
             OnClick = linkSmartAIInfoClick
           end
           object Shape1: TShape
-            Left = 738
-            Top = 376
+            Left = 819
+            Top = 377
             Width = 132
             Height = 146
             Brush.Style = bsClear
             Pen.Style = psInsideFrame
           end
           object Label9: TLabel
-            Left = 740
+            Left = 821
             Top = 491
             Width = 130
             Height = 26
@@ -22604,18 +22609,28 @@ object MainForm: TMainForm
           end
           object lbcyevent_param4: TLabel
             Left = 538
-            Top = 346
+            Top = 347
             Width = 68
             Height = 13
             Caption = 'event_param4'
           end
+          object lbcyevent_param5: TLabel
+            Left = 674
+            Top = 347
+            Width = 68
+            Height = 13
+            Caption = 'event_param5'
+          end
           object lvcySmartAI: TJvListView
             Left = 3
             Top = 23
-            Width = 867
+            Width = 955
             Height = 278
             Anchors = [akLeft, akTop, akRight]
             Columns = <
+              item
+                Width = 36
+              end
               item
                 Width = 36
               end
@@ -22705,8 +22720,10 @@ object MainForm: TMainForm
             ColumnsOrder = 
               '0=36,1=36,2=36,3=36,4=36,5=36,6=36,7=36,8=36,9=36,10=36,11=36,12' +
               '=36,13=36,14=36,15=36,16=36,17=36,18=36,19=36,20=36,21=36,22=36,' +
-              '23=50,24=50,25=50,26=50,27=50'
+              '23=36,24=50,25=50,26=50,27=50,28=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -22766,7 +22783,7 @@ object MainForm: TMainForm
           end
           object btcyFullScript: TButton
             Left = 725
-            Top = 582
+            Top = 584
             Width = 145
             Height = 25
             Caption = 'Show FULL SmartAI Script'
@@ -22775,7 +22792,7 @@ object MainForm: TMainForm
           end
           object Button3: TButton
             Left = 550
-            Top = 583
+            Top = 584
             Width = 169
             Height = 25
             Caption = 'Show SmartAI Script'
@@ -22783,7 +22800,7 @@ object MainForm: TMainForm
             OnClick = btcyScriptSmartAIClick
           end
           object edcysource_type: TJvComboEdit
-            Left = 744
+            Left = 825
             Top = 436
             Width = 121
             Height = 21
@@ -22957,11 +22974,20 @@ object MainForm: TMainForm
           end
           object edcyevent_param4: TJvComboEdit
             Left = 538
-            Top = 364
+            Top = 363
             Width = 130
             Height = 21
             ShowButton = False
             TabOrder = 12
+            Text = '0'
+          end
+          object edcyevent_param5: TJvComboEdit
+            Left = 674
+            Top = 363
+            Width = 130
+            Height = 21
+            ShowButton = False
+            TabOrder = 32
             Text = '0'
           end
           object edcyaction_type: TJvComboEdit
@@ -23024,7 +23050,7 @@ object MainForm: TMainForm
           end
           object edcyaction_param3: TJvComboEdit
             Left = 403
-            Top = 408
+            Top = 406
             Width = 130
             Height = 21
             ShowButton = False
@@ -23033,7 +23059,7 @@ object MainForm: TMainForm
           end
           object edcyaction_param4: TJvComboEdit
             Left = 539
-            Top = 408
+            Top = 406
             Width = 130
             Height = 21
             ShowButton = False
@@ -23061,7 +23087,7 @@ object MainForm: TMainForm
           end
           object edcytarget_type: TJvComboEdit
             Left = 3
-            Top = 491
+            Top = 490
             Width = 121
             Height = 21
             Glyph.Data = {
@@ -23161,7 +23187,7 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcyentryorguid: TJvComboEdit
-            Left = 744
+            Left = 825
             Top = 394
             Width = 117
             Height = 21
@@ -23170,7 +23196,7 @@ object MainForm: TMainForm
             Text = ''
           end
           object btcyLoad: TButton
-            Left = 765
+            Left = 846
             Top = 460
             Width = 75
             Height = 25
@@ -23193,10 +23219,10 @@ object MainForm: TMainForm
           ImageIndex = 1
           OnShow = tsSmartAIScriptShow
           DesignSize = (
-            873
+            961
             620)
           object btCopyToClipboardSmartAI: TButton
-            Left = 726
+            Left = 814
             Top = 508
             Width = 137
             Height = 25
@@ -23206,7 +23232,7 @@ object MainForm: TMainForm
             OnClick = btCopyToClipboardSmartAIClick
           end
           object btExecuteSmartAIScript: TButton
-            Left = 726
+            Left = 814
             Top = 540
             Width = 137
             Height = 25
@@ -23218,7 +23244,7 @@ object MainForm: TMainForm
           object mecyScript: TMemo
             Left = 11
             Top = 10
-            Width = 856
+            Width = 944
             Height = 457
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
@@ -23233,7 +23259,7 @@ object MainForm: TMainForm
           object mecyLog: TMemo
             Left = 11
             Top = 472
-            Width = 703
+            Width = 791
             Height = 97
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical

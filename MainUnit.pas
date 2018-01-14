@@ -1458,6 +1458,7 @@ type
     edcyevent_param2: TJvComboEdit;
     edcyevent_param3: TJvComboEdit;
     edcyevent_param4: TJvComboEdit;
+    edcyevent_param5: TJvComboEdit;
     edcConditionTarget: TJvComboEdit;
     edcConditionValue1: TJvComboEdit;
     edcConditionValue2: TJvComboEdit;
@@ -1505,6 +1506,7 @@ type
     lbcyevent_param2: TLabel;
     lbcyevent_param3: TLabel;
     lbcyevent_param4: TLabel;
+    lbcyevent_param5: TLabel;
     lbcConditionValue1: TLabel;
     lbcConditionValue2: TLabel;
     lbcConditionValue3: TLabel;
@@ -4269,10 +4271,10 @@ begin
     ClearSmartAIFields();
 
     LoadQueryToListView(Format('SELECT `entryorguid` as `entry`,  `source_type` as `src`, `id`, `link`, `event_type` as `et`,  '+
-      '`event_phase_mask` as `epm`, `event_chance` as `ec`,  `event_flags` as `ef`, `event_param1` as `ep1`,  `event_param2` as `ep2`, '+
-      '`event_param3` as `ep3`, `event_param4` as `ep4`,  `action_type` as `at`,  `action_param1` as `a1`,  `action_param2` as `a2`, '+
-      '`action_param3` as `a3`, `action_param4` as `a4`,  `action_param5` as `a5`,  `action_param6` as `a6`, `target_type` as `tt`, '+
-      '`target_param1` as `t1`,  `target_param2` as `t2`,  `target_param3` as `t3`, `target_x` as `tx`, `target_y` as `ty`, '+
+      '`event_phase_mask` as `epm`, `event_chance` as `ec`, `event_flags` as `ef`, `event_param1` as `ep1`, `event_param2` as `ep2`, '+
+      '`event_param3` as `ep3`, `event_param4` as `ep4`, `event_param5` as `ep5`, `action_type` as `at`, `action_param1` as `a1`, `action_param2` as `a2`, '+
+      '`action_param3` as `a3`, `action_param4` as `a4`, `action_param5` as `a5`, `action_param6` as `a6`, `target_type` as `tt`, '+
+      '`target_param1` as `t1`, `target_param2` as `t2`, `target_param3` as `t3`, `target_x` as `tx`, `target_y` as `ty`, '+
       '`target_z` as `tz`, `target_o` as `to`, `comment` as `cmt` FROM `smart_scripts` WHERE `entryorguid`=%d AND `source_type`=%d',[entryorguid, sourcetype]), lvcySmartAI);
 end;
 
@@ -7161,22 +7163,23 @@ begin
       SubItems[8] := TCustomEdit(FindComponent(pfx + 'event_param2')).Text;
       SubItems[9] := TCustomEdit(FindComponent(pfx + 'event_param3')).Text;
       SubItems[10] := TCustomEdit(FindComponent(pfx + 'event_param4')).Text;
-      SubItems[11] := TCustomEdit(FindComponent(pfx + 'action_type')).Text;
-      SubItems[12] := TCustomEdit(FindComponent(pfx + 'action_param1')).Text;
-      SubItems[13] := TCustomEdit(FindComponent(pfx + 'action_param2')).Text;
-      SubItems[14] := TCustomEdit(FindComponent(pfx + 'action_param3')).Text;
-      SubItems[15] := TCustomEdit(FindComponent(pfx + 'action_param4')).Text;
-      SubItems[16] := TCustomEdit(FindComponent(pfx + 'action_param5')).Text;
-      SubItems[17] := TCustomEdit(FindComponent(pfx + 'action_param6')).Text;
-      SubItems[18] := TCustomEdit(FindComponent(pfx + 'target_type')).Text;
-      SubItems[19] := TCustomEdit(FindComponent(pfx + 'target_param1')).Text;
-      SubItems[20] := TCustomEdit(FindComponent(pfx + 'target_param2')).Text;
-      SubItems[21] := TCustomEdit(FindComponent(pfx + 'target_param3')).Text;
-      SubItems[22] := TCustomEdit(FindComponent(pfx + 'target_x')).Text;
-      SubItems[23] := TCustomEdit(FindComponent(pfx + 'target_y')).Text;
-      SubItems[24] := TCustomEdit(FindComponent(pfx + 'target_z')).Text;
-      SubItems[25] := TCustomEdit(FindComponent(pfx + 'target_o')).Text;
-      SubItems[26] := TCustomEdit(FindComponent(pfx + 'comment')).Text;
+	  SubItems[11] := TCustomEdit(FindComponent(pfx + 'event_param5')).Text;
+      SubItems[12] := TCustomEdit(FindComponent(pfx + 'action_type')).Text;
+      SubItems[13] := TCustomEdit(FindComponent(pfx + 'action_param1')).Text;
+      SubItems[14] := TCustomEdit(FindComponent(pfx + 'action_param2')).Text;
+      SubItems[15] := TCustomEdit(FindComponent(pfx + 'action_param3')).Text;
+      SubItems[16] := TCustomEdit(FindComponent(pfx + 'action_param4')).Text;
+      SubItems[17] := TCustomEdit(FindComponent(pfx + 'action_param5')).Text;
+      SubItems[18] := TCustomEdit(FindComponent(pfx + 'action_param6')).Text;
+      SubItems[19] := TCustomEdit(FindComponent(pfx + 'target_type')).Text;
+      SubItems[20] := TCustomEdit(FindComponent(pfx + 'target_param1')).Text;
+      SubItems[21] := TCustomEdit(FindComponent(pfx + 'target_param2')).Text;
+      SubItems[22] := TCustomEdit(FindComponent(pfx + 'target_param3')).Text;
+      SubItems[23] := TCustomEdit(FindComponent(pfx + 'target_x')).Text;
+      SubItems[24] := TCustomEdit(FindComponent(pfx + 'target_y')).Text;
+      SubItems[25] := TCustomEdit(FindComponent(pfx + 'target_z')).Text;
+      SubItems[26] := TCustomEdit(FindComponent(pfx + 'target_o')).Text;
+      SubItems[27] := TCustomEdit(FindComponent(pfx + 'comment')).Text;
     end;
   end;
 end;
@@ -7279,6 +7282,7 @@ begin
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'event_param2')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'event_param3')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'event_param4')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'event_param5')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'action_type')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'action_param1')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'action_param2')).Text);
@@ -7411,22 +7415,23 @@ begin
       TCustomEdit(FindComponent(pfx + 'event_param2')).Text := SubItems[8];
       TCustomEdit(FindComponent(pfx + 'event_param3')).Text := SubItems[9];
       TCustomEdit(FindComponent(pfx + 'event_param4')).Text := SubItems[10];
-      TCustomEdit(FindComponent(pfx + 'action_type')).Text := SubItems[11];
-      TCustomEdit(FindComponent(pfx + 'action_param1')).Text := SubItems[12];
-      TCustomEdit(FindComponent(pfx + 'action_param2')).Text := SubItems[13];
-      TCustomEdit(FindComponent(pfx + 'action_param3')).Text := SubItems[14];
-      TCustomEdit(FindComponent(pfx + 'action_param4')).Text := SubItems[15];
-      TCustomEdit(FindComponent(pfx + 'action_param5')).Text := SubItems[16];
-      TCustomEdit(FindComponent(pfx + 'action_param6')).Text := SubItems[17];
-      TCustomEdit(FindComponent(pfx + 'target_type')).Text := SubItems[18];
-      TCustomEdit(FindComponent(pfx + 'target_param1')).Text := SubItems[19];
-      TCustomEdit(FindComponent(pfx + 'target_param2')).Text := SubItems[20];
-      TCustomEdit(FindComponent(pfx + 'target_param3')).Text := SubItems[21];
-      TCustomEdit(FindComponent(pfx + 'target_x')).Text := SubItems[22];
-      TCustomEdit(FindComponent(pfx + 'target_y')).Text := SubItems[23];
-      TCustomEdit(FindComponent(pfx + 'target_z')).Text := SubItems[24];
-      TCustomEdit(FindComponent(pfx + 'target_o')).Text := SubItems[25];
-      TCustomEdit(FindComponent(pfx + 'comment')).Text := SubItems[26];
+      TCustomEdit(FindComponent(pfx + 'event_param5')).Text := SubItems[11];
+      TCustomEdit(FindComponent(pfx + 'action_type')).Text := SubItems[12];
+      TCustomEdit(FindComponent(pfx + 'action_param1')).Text := SubItems[13];
+      TCustomEdit(FindComponent(pfx + 'action_param2')).Text := SubItems[14];
+      TCustomEdit(FindComponent(pfx + 'action_param3')).Text := SubItems[15];
+      TCustomEdit(FindComponent(pfx + 'action_param4')).Text := SubItems[16];
+      TCustomEdit(FindComponent(pfx + 'action_param5')).Text := SubItems[17];
+      TCustomEdit(FindComponent(pfx + 'action_param6')).Text := SubItems[18];
+      TCustomEdit(FindComponent(pfx + 'target_type')).Text := SubItems[19];
+      TCustomEdit(FindComponent(pfx + 'target_param1')).Text := SubItems[20];
+      TCustomEdit(FindComponent(pfx + 'target_param2')).Text := SubItems[21];
+      TCustomEdit(FindComponent(pfx + 'target_param3')).Text := SubItems[22];
+      TCustomEdit(FindComponent(pfx + 'target_x')).Text := SubItems[23];
+      TCustomEdit(FindComponent(pfx + 'target_y')).Text := SubItems[24];
+      TCustomEdit(FindComponent(pfx + 'target_z')).Text := SubItems[25];
+      TCustomEdit(FindComponent(pfx + 'target_o')).Text := SubItems[26];
+      TCustomEdit(FindComponent(pfx + 'comment')).Text := SubItems[27];
     end;
   end;
 end;
@@ -7565,7 +7570,7 @@ begin
   begin
     for i := 0 to lvList.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+'),'#13#10,[
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+'),'#13#10,[
         lvList.Items[i].Caption,
         lvList.Items[i].SubItems[0],
         lvList.Items[i].SubItems[1],
@@ -7593,11 +7598,12 @@ begin
         lvList.Items[i].SubItems[23],
         lvList.Items[i].SubItems[24],
         lvList.Items[i].SubItems[25],
-        lvList.Items[i].SubItems[26]
+        lvList.Items[i].SubItems[26],
+        lvList.Items[i].SubItems[27]
       ]);
     end;
     i := lvList.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+');',[
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+');',[
       lvList.Items[i].Caption,
       lvList.Items[i].SubItems[0],
       lvList.Items[i].SubItems[1],
@@ -7625,14 +7631,15 @@ begin
       lvList.Items[i].SubItems[23],
       lvList.Items[i].SubItems[24],
       lvList.Items[i].SubItems[25],
-      lvList.Items[i].SubItems[26]
+      lvList.Items[i].SubItems[26],
+      lvList.Items[i].SubItems[27]
     ]);
   end;
   if values<>'' then
   begin
       Memo.Text := Format('DELETE FROM `%0:s` WHERE (`entryorguid`=%1:s AND `source_type`=%2:s);'#13#10+
         'INSERT INTO `%0:s` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, '+
-				'`event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, '+
+				'`event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, '+
 				'`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, '+
 				'`action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, '+
 				'`target_y`, `target_z`, `target_o`, `comment`) VALUES '#13#10'%3:s',[TableName, entry, sourcetype, Values]);
