@@ -15,7 +15,7 @@ uses
 const
   VERSION_1   = '2'; //*10000
   VERSION_2   = '1'; //*100
-  VERSION_3   = '0';
+  VERSION_3   = '1';
   VERSION_4   = '0';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3 + '.' + VERSION_4;
 
@@ -2730,7 +2730,7 @@ end;
 
 procedure TMainForm.UpdateCaption;
 begin
-  Caption := Format('Truice - Connection: %s:%d / %s', [MyTrinityConnection.HostName, MyTrinityConnection.Port, GetDBVersion]);
+  Caption := Format('Truice %s - Connection: %s:%d / %s', [VERSION_EXE, MyTrinityConnection.HostName, MyTrinityConnection.Port, GetDBVersion]);
   Application.Title := Caption;
 end;
 
@@ -2940,7 +2940,7 @@ begin
   if Sender is TJvComboEdit then
   begin
     edEdit := TJvComboEdit(Sender);
-    F := (Sender as TItemForm).Create(Self);
+    F := TItemForm.Create(Self);
     try
       if (edEdit.Text<>'') and (edEdit.Text<>'0') then F.Prepare(edEdit.Text);
       if F.ShowModal=mrOk then edEdit.Text := F.lvItem.Selected.Caption;
@@ -2958,7 +2958,7 @@ begin
   if Sender is TJvComboEdit then
   begin
     edEdit := TJvComboEdit(Sender);
-    F := (Sender as TCreatureOrGOForm).Create(Self);
+    F := TCreatureOrGOForm.Create(Self);
     try
       if (edEdit.Text<>'') and (edEdit.Text<>'0') then F.Prepare(edEdit.Text);
       if F.ShowModal=mrOk then edEdit.Text := F.lvCreatureOrGO.Selected.Caption;
@@ -10397,6 +10397,33 @@ begin
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
+    75:  //SMART_EVENT_DISTANCE_CREATURE
+        begin
+            lbcyevent_param1.Caption := 'database guid';
+            lbcyevent_param2.Caption := 'database entry';
+            lbcyevent_param3.Caption := 'distance';
+            lbcyevent_param4.Caption := 'repeat interval (ms)';
+            lbcyevent_type.Hint := 'On creature guid OR any instance of creature entry is within distance.';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
+    76:  //SMART_EVENT_DISTANCE_GAMEOBJECT
+        begin
+            lbcyevent_param1.Caption := 'database guid';
+            lbcyevent_param2.Caption := 'database entry';
+            lbcyevent_param3.Caption := 'distance';
+            lbcyevent_param4.Caption := 'repeat interval (ms)';
+            lbcyevent_type.Hint := 'On gameobject guid OR any instance of gameobject entry is within distance.';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
+    77:  //SMART_EVENT_COUNTER_SET
+        begin
+            lbcyevent_param1.Caption := 'counterID';
+            lbcyevent_param2.Caption := 'value';
+            lbcyevent_param3.Caption := 'cooldownMin';
+            lbcyevent_param4.Caption := 'cooldownMax';
+            lbcyevent_type.Hint := 'If the value of specified counterID is equal to a specified value';
+            edcyevent_type.Hint := lbcyevent_type.Hint;
+        end;
     end;
     SAI_Event := t;
 end;
@@ -12002,7 +12029,7 @@ begin
         end;
     94:  //SMART_ACTION_SET_DYNAMIC_FLAG
         begin
-            lbcyaction_param1.Caption := 'dynamicflag';
+            lbcyaction_param1.Caption := 'creature.dynamicflags';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -12013,7 +12040,7 @@ begin
         end;
     95:  //SMART_ACTION_ADD_DYNAMIC_FLAG
         begin
-            lbcyaction_param1.Caption := 'dynamicflag';
+            lbcyaction_param1.Caption := 'creature.dynamicflags';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -12024,7 +12051,7 @@ begin
         end;
     96:  //SMART_ACTION_REMOVE_DYNAMIC_FLAG
         begin
-            lbcyaction_param1.Caption := 'dynamicflag';
+            lbcyaction_param1.Caption := 'creature.dynamicflags';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
@@ -12207,6 +12234,182 @@ begin
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
             lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    113:  //SMART_ACTION_START_CLOSEST_WAYPOINT
+        begin
+            lbcyaction_param1.Caption := 'wp1';
+            lbcyaction_param2.Caption := 'wp2';
+            lbcyaction_param3.Caption := 'wp3';
+            lbcyaction_param4.Caption := 'wp4';
+            lbcyaction_param5.Caption := 'wp5';
+            lbcyaction_param6.Caption := 'wp6';
+            lbcyaction_type.Hint := 'Make target follow closest waypoint to its location';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    114:  //SMART_ACTION_MOVE_OFFSET
+        begin
+            lbcyaction_param1.Caption := '';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'With target_type=1, use target_x, target_y, target_z.';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    115:  //SMART_ACTION_RANDOM_SOUND
+        begin
+            lbcyaction_param1.Caption := 'soundId1';
+            lbcyaction_param2.Caption := 'soundId2';
+            lbcyaction_param3.Caption := 'soundId3';
+            lbcyaction_param4.Caption := 'soundId4';
+            lbcyaction_param5.Caption := 'onlySelf (0/1)';
+            lbcyaction_param6.Caption := 'Distant Sound (0/1)';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    116:  //SMART_ACTION_SET_CORPSE_DELAY
+        begin
+            lbcyaction_param1.Caption := 'timer';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    117:  //SMART_ACTION_DISABLE_EVADE
+        begin
+            lbcyaction_param1.Caption := 'disable evade (1) / re-enable (0)';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    118:  //SMART_ACTION_GO_SET_GO_STATE
+        begin
+            lbcyaction_param1.Caption := 'state';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    119:  //SMART_ACTION_SET_CAN_FLY
+        begin
+            lbcyaction_param1.Caption := '0/1';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    120:  //SMART_ACTION_REMOVE_AURAS_BY_TYPE
+        begin
+            lbcyaction_param1.Caption := 'Type';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    121:  //SMART_ACTION_SET_SIGHT_DIST
+        begin
+            lbcyaction_param1.Caption := 'SightDistance';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    122:  //SMART_ACTION_FLEE
+        begin
+            lbcyaction_param1.Caption := 'FleeTime';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    123:  //SMART_ACTION_ADD_THREAT
+        begin
+            lbcyaction_param1.Caption := '+threat';
+            lbcyaction_param2.Caption := '-threat';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    124:  //SMART_ACTION_LOAD_EQUIPMENT
+        begin
+            lbcyaction_param1.Caption := 'Id';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    125:  //SMART_ACTION_TRIGGER_RANDOM_TIMED_EVENT
+        begin
+            lbcyaction_param1.Caption := 'id min range';
+            lbcyaction_param2.Caption := 'id max range';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    126:  //SMART_ACTION_REMOVE_ALL_GAMEOBJECTS
+        begin
+            lbcyaction_param1.Caption := '';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    127:  //SMART_ACTION_STOP_MOTION
+        begin
+            lbcyaction_param1.Caption := 'StopMoving';
+            lbcyaction_param2.Caption := 'movementExpired';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    128:  //SMART_ACTION_PLAY_ANIMKIT
+        begin
+            lbcyaction_param1.Caption := 'AnimKit ID';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'dont use on 3.3.5a';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     end;
@@ -12545,6 +12748,44 @@ begin
             lbcytarget_z.Caption := '';
             lbcytarget_o.Caption := '';
             lbcytarget_param1.Hint := 'Any friendly unit (creature, player or pet) within maxDist';
+            edcytarget_param1.Hint := lbcytarget_param1.Hint;
+            lbcytarget_type.Hint := '';
+            edcytarget_type.Hint := lbcytarget_type.Hint;
+        end;
+    27:  //SMART_TARGET_LOOT_RECIPIENTS
+        begin
+            lbcytarget_param1.Caption := '';
+            lbcytarget_param2.Caption := '';
+            lbcytarget_param3.Caption := '';
+            lbcytarget_x.Caption := '';
+            lbcytarget_y.Caption := '';
+            lbcytarget_z.Caption := '';
+            lbcytarget_o.Caption := '';
+            lbcytarget_type.Hint := 'All tagging players';
+            edcytarget_type.Hint := lbcytarget_type.Hint;
+        end;
+    28:  //SMART_TARGET_FARTHEST
+        begin
+            lbcytarget_param1.Caption := 'maxDist';
+            lbcytarget_param2.Caption := 'playerOnly';
+            lbcytarget_param3.Caption := 'isInLos (0/1)';
+            lbcytarget_x.Caption := '';
+            lbcytarget_y.Caption := '';
+            lbcytarget_z.Caption := '';
+            lbcytarget_o.Caption := '';
+            lbcytarget_type.Hint := 'Farthest unit on the threat list';
+            edcytarget_type.Hint := lbcytarget_type.Hint;
+        end;
+    29:  //SMART_TARGET_VEHICLE_ACCESSORY
+        begin
+            lbcytarget_param1.Caption := 'seat';
+            lbcytarget_param2.Caption := '';
+            lbcytarget_param3.Caption := '';
+            lbcytarget_x.Caption := '';
+            lbcytarget_y.Caption := '';
+            lbcytarget_z.Caption := '';
+            lbcytarget_o.Caption := '';
+            lbcytarget_param1.Hint := 'Vehicle can target unit in given seat';
             edcytarget_param1.Hint := lbcytarget_param1.Hint;
             lbcytarget_type.Hint := '';
             edcytarget_type.Hint := lbcytarget_type.Hint;
