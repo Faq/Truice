@@ -193,15 +193,15 @@ type
     gbDescription: TGroupBox;
     lDetails: TLabel;
     lObjectives: TLabel;
-    lOfferRewardText: TLabel;
-    lRequestItemsText: TLabel;
+    lRewardText: TLabel;
+    lCompletionText: TLabel;
     lEndText: TLabel;
     edqtLogTitle: TLabeledEdit;
     edqtAreaDescription: TLabeledEdit;
     edqtQuestDescription: TMemo;
     edqtLogDescription: TMemo;
-    edqtOfferRewardText: TMemo;
-    edqtRequestItemsText: TMemo;
+    edqtRewardText: TMemo;
+    edqtCompletionText: TMemo;
     edqtEndText: TMemo;
     edqtObjectiveText1: TLabeledEdit;
     edqtObjectiveText2: TLabeledEdit;
@@ -1181,8 +1181,6 @@ type
     lbglmap: TLabel;
     edclmap: TJvComboEdit;
     lbclmap: TLabel;
-    lbqtPointMapId: TLabel;
-    edqtPointMapId: TJvComboEdit;
     tsCharacter: TTabSheet;
     edhtaccount: TLabeledEdit;
     edhtname: TLabeledEdit;
@@ -1428,7 +1426,8 @@ type
     edqtVerifiedBuild: TLabeledEdit;
     edqtRewardArenaPoints: TLabeledEdit;
     edqtUnknown0: TLabeledEdit;
-    edqtPOIContinent: TLabeledEdit;
+    lbqtPOIContinent: TLabel;
+    edqtPOIContinent: TJvComboEdit;
     edqtPOIx: TLabeledEdit;
     edqtPOIy: TLabeledEdit;
     edqtPOIPriority: TLabeledEdit;
@@ -2624,6 +2623,41 @@ begin
 		edqtRequiredMaxRepValue.Text := MyQuery.FieldByName('RequiredMaxRepValue').AsString;
 		edqtProvidedItemCount.Text := MyQuery.FieldByName('ProvidedItemCount').AsString;
 		edqtSpecialFlags.Text := MyQuery.FieldByName('SpecialFlags').AsString;
+    MyQuery.Close;
+
+	MyQuery.SQL.Text := Format('SELECT * FROM `quest_request_items` WHERE `ID`=%d', [QuestID]);
+	MyQuery.Open;
+    if (MyQuery.Eof=false) then 
+		edqtEmoteOnComplete.Text := MyQuery.FieldByName('EmoteOnComplete').AsString;
+		edqtEmoteOnIncomplete.Text := MyQuery.FieldByName('EmoteOnIncomplete').AsString;
+		edqtCompletionText.Text := MyQuery.FieldByName('CompletionText').AsString;
+    MyQuery.Close;
+
+	MyQuery.SQL.Text := Format('SELECT * FROM `quest_offer_reward` WHERE `ID`=%d', [QuestID]);
+	MyQuery.Open;
+    if (MyQuery.Eof=false) then 
+		edqtOfferRewardEmote1.Text := MyQuery.FieldByName('Emote1').AsString;
+		edqtOfferRewardEmote2.Text := MyQuery.FieldByName('Emote2').AsString;
+		edqtOfferRewardEmote3.Text := MyQuery.FieldByName('Emote3').AsString;
+		edqtOfferRewardEmote4.Text := MyQuery.FieldByName('Emote4').AsString;
+		edqtOfferRewardEmoteDelay1.Text := MyQuery.FieldByName('EmoteDelay1').AsString;
+		edqtOfferRewardEmoteDelay2.Text := MyQuery.FieldByName('EmoteDelay2').AsString;
+		edqtOfferRewardEmoteDelay3.Text := MyQuery.FieldByName('EmoteDelay3').AsString;
+		edqtOfferRewardEmoteDelay4.Text := MyQuery.FieldByName('EmoteDelay4').AsString;
+		edqtRewardText.Text := MyQuery.FieldByName('RewardText').AsString;
+    MyQuery.Close;
+
+	MyQuery.SQL.Text := Format('SELECT * FROM `quest_details` WHERE `ID`=%d', [QuestID]);
+	MyQuery.Open;
+    if (MyQuery.Eof=false) then 
+		edqtDetailsEmote1.Text := MyQuery.FieldByName('Emote1').AsString;
+		edqtDetailsEmote2.Text := MyQuery.FieldByName('Emote2').AsString;
+		edqtDetailsEmote3.Text := MyQuery.FieldByName('Emote3').AsString;
+		edqtDetailsEmote4.Text := MyQuery.FieldByName('Emote4').AsString;
+		edqtDetailsEmoteDelay1.Text := MyQuery.FieldByName('EmoteDelay1').AsString;
+		edqtDetailsEmoteDelay2.Text := MyQuery.FieldByName('EmoteDelay2').AsString;
+		edqtDetailsEmoteDelay3.Text := MyQuery.FieldByName('EmoteDelay3').AsString;
+		edqtDetailsEmoteDelay4.Text := MyQuery.FieldByName('EmoteDelay4').AsString;
     MyQuery.Close;
 
     MyQuery.SQL.Text := Format('SELECT * FROM `areatrigger_involvedrelation` WHERE `quest`=%d', [QuestID]);

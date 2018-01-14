@@ -1850,19 +1850,19 @@ object MainForm: TMainForm
               Height = 13
               Caption = 'Objectives'
             end
-            object lOfferRewardText: TLabel
+            object lRewardText: TLabel
               Left = 8
               Top = 258
               Width = 81
               Height = 13
-              Caption = 'OfferRewardText'
+              Caption = 'RewardText'
             end
-            object lRequestItemsText: TLabel
+            object lCompletionText: TLabel
               Left = 299
               Top = 258
               Width = 86
               Height = 13
-              Caption = 'RequestItemsText'
+              Caption = 'CompletionText'
             end
             object lEndText: TLabel
               Left = 584
@@ -1900,25 +1900,26 @@ object MainForm: TMainForm
               ScrollBars = ssVertical
               TabOrder = 2
             end
-            object edqtOfferRewardText: TMemo
+            object edqtRewardText: TMemo
               Left = 8
               Top = 276
               Width = 275
               Height = 153
               Hint = 
-                'First text send to the player by the NPC when completing the que' +
-                'st.'
+                'Quest gossip text shown when turning in a quest where no' +
+                'item delivery is involveds.'
               ScrollBars = ssVertical
               TabOrder = 4
             end
-            object edqtRequestItemsText: TMemo
+            object edqtCompletionText: TMemo
               Left = 296
               Top = 276
               Width = 275
               Height = 153
               Hint = 
-                'This text ist send to player, yet did not terminate the Quest an' +
-                'd speak with NPC again!'
+                'Quest gossip text shown in the final gossip dialogue window when' +
+                'turning in an item delivery quest. The quest item(s) involved in the' +
+                'quest can either be provided by the quest giver or collected by the player.'
               ScrollBars = ssVertical
               TabOrder = 5
             end
@@ -4354,13 +4355,6 @@ object MainForm: TMainForm
               Height = 13
               Caption = 'OfferRewardEmote4'
             end
-            object lbqtPointMapId: TLabel
-              Left = 6
-              Top = 11
-              Width = 54
-              Height = 13
-              Caption = 'PointMapId'
-            end
             object edqtPointX: TLabeledEdit
               Left = 78
               Top = 27
@@ -4777,44 +4771,6 @@ object MainForm: TMainForm
               Text = ''
               OnButtonClick = GetEmote
             end
-            object edqtPointMapId: TJvComboEdit
-              Left = 6
-              Top = 27
-              Width = 60
-              Height = 21
-              ButtonWidth = 22
-              ClickKey = 13
-              Glyph.Data = {
-                36030000424D3603000000000000360000002800000010000000100000000100
-                18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
-                DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
-                FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
-                B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
-                D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
-                52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
-                8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 0
-              Text = ''
-              OnButtonClick = GetMap
-            end
             object edqtDetailsEmoteDelay1: TLabeledEdit
               Left = 77
               Top = 65
@@ -5068,7 +5024,14 @@ object MainForm: TMainForm
               EditLabel.Caption = 'Unknown0'
               TabOrder = 6
             end
-            object edqtPOIContinent: TLabeledEdit
+            object lbqtPOIContinent: TLabel
+              Left = 8
+              Top = 52
+              Width = 54
+              Height = 13
+              Caption = 'POIContinent'
+            end
+            object edqtPOIContinent: TJvComboEdit
               Left = 8
               Top = 68
               Width = 71
@@ -5076,10 +5039,38 @@ object MainForm: TMainForm
               Hint = 
                 'MapId of a quest point of interest (POI - Point Of Interest). PO' +
                 'I will be shown on the map when quest is active.'
-              EditLabel.Width = 63
-              EditLabel.Height = 13
-              EditLabel.Caption = 'POIContinent'
+              ButtonWidth = 22
+              ClickKey = 13
+              Glyph.Data = {
+                36030000424D3603000000000000360000002800000010000000100000000100
+                18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+                DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+                FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+                B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+                D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+                52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+                8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 7
+              Text = ''
+              OnButtonClick = GetMap
             end
             object edqtPOIx: TLabeledEdit
               Left = 85
