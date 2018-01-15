@@ -16,7 +16,7 @@ const
   VERSION_1   = '2'; //*10000
   VERSION_2   = '1'; //*100
   VERSION_3   = '1';
-  VERSION_4   = '0';
+  VERSION_4   = 'a';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3 + '.' + VERSION_4;
 
   SCRIPT_TAB_NO_QUEST       = 6;
@@ -215,10 +215,6 @@ type
     lbRequiredNpcOrGo3: TLabel;
     lbRequiredNpcOrGo2: TLabel;
     lbRequiredNpcOrGo1: TLabel;
-    lbRequiredSpellCast1: TLabel;
-    lbRequiredSpellCast2: TLabel;
-    lbRequiredSpellCast3: TLabel;
-    lbRequiredSpellCast4: TLabel;
     edqtRequiredItemCount1: TLabeledEdit;
     edqtRequiredItemCount2: TLabeledEdit;
     edqtRequiredItemCount3: TLabeledEdit;
@@ -243,10 +239,6 @@ type
     edqtRequiredNpcOrGo3: TJvComboEdit;
     edqtRequiredNpcOrGo2: TJvComboEdit;
     edqtRequiredNpcOrGo1: TJvComboEdit;
-    edqtRequiredSpellCast1: TJvComboEdit;
-    edqtRequiredSpellCast2: TJvComboEdit;
-    edqtRequiredSpellCast3: TJvComboEdit;
-    edqtRequiredSpellCast4: TJvComboEdit;
     gbRewards: TGroupBox;
     lbRewardChoiceItemID1: TLabel;
     lbRewChoiceItemId2: TLabel;
@@ -263,7 +255,6 @@ type
     lbRewardFactionID3: TLabel;
     lbRewardFactionID4: TLabel;
     lbRewardFactionID5: TLabel;
-    lbRewardSpell: TLabel;
     edqtRewardChoiceItemQuantity1: TLabeledEdit;
     edqtRewardChoiceItemQuantity2: TLabeledEdit;
     edqtRewardChoiceItemQuantity3: TLabeledEdit;
@@ -284,7 +275,6 @@ type
     edqtRewardChoiceItemID1: TJvComboEdit;
     edqtRewardItem1: TJvComboEdit;
     edqtRewardFactionID1: TJvComboEdit;
-    edqtRewardSpell: TJvComboEdit;
     edqtRewardChoiceItemID2: TJvComboEdit;
     edqtRewardChoiceItemID3: TJvComboEdit;
     edqtRewardChoiceItemID4: TJvComboEdit;
@@ -1272,8 +1262,8 @@ type
     edcvExtendedCost: TJvComboEdit;
     lbcvExtendedCost: TLabel;
     editDuration: TLabeledEdit;
-    lbRewardSpellCast: TLabel;
-    edqtRewardSpellCast: TJvComboEdit;
+    lbRewardSpell: TLabel;
+    edqtRewardSpell: TJvComboEdit;
     edqtRewardTitle: TLabeledEdit;
     edqtSuggestedGroupNum: TLabeledEdit;
     edqtRequiredSkillID: TJvComboEdit;
@@ -9029,15 +9019,7 @@ var
 begin
   ShowHourGlassCursor;
   MyTempQuery.SQL.Text :=
-  'SELECT `SourceSpellId` FROM `quest_template` WHERE `SourceSpellId`<>0 '+
-  'UNION ' +
-  'SELECT `RequiredSpellCast1` FROM `quest_template` WHERE `RequiredSpellCast1`<>0 '+
-  'UNION ' +
-  'SELECT `RequiredSpellCast2` FROM `quest_template` WHERE `RequiredSpellCast2`<>0 '+
-  'UNION ' +
-  'SELECT `RequiredSpellCast3` FROM `quest_template` WHERE `RequiredSpellCast3`<>0 '+
-  'UNION ' +
-  'SELECT `RequiredSpellCast4` FROM `quest_template` WHERE `RequiredSpellCast4`<>0 '+
+  'SELECT `SourceSpellId` FROM `quest_template_addon` WHERE `SourceSpellId`<>0 '+
   'UNION ' +
   'SELECT `spell1` FROM `creature_template` WHERE `spell1`<>0 '+
   'UNION ' +
@@ -9049,7 +9031,7 @@ begin
   'UNION ' +
   'SELECT `trainer_spell` FROM `creature_template` WHERE `trainer_spell`<>0 '+
   'UNION ' +
-  'SELECT `spell` FROM `npc_trainer` WHERE `spell`<>0 '+
+  'SELECT `SpellID` FROM `npc_trainer` WHERE `SpellID`<>0 '+
   'UNION ' +
   'SELECT `requiredspell` FROM `item_template` WHERE `requiredspell`<>0 '+
   'UNION ' +
@@ -9062,8 +9044,6 @@ begin
   'SELECT `spellid_4` FROM `item_template` WHERE `spellid_4`<>0 '+
   'UNION ' +
   'SELECT `spellid_5` FROM `item_template` WHERE `spellid_5`<>0 '+
-  'UNION ' +
-  'SELECT `RewardSpellCast` FROM `quest_template` WHERE `RewardSpellCast`<>0 '+
   'UNION ' +
   'SELECT `RewardSpell` FROM `quest_template` WHERE `RewardSpell`<>0 ';
   MyTempQuery.Open;
