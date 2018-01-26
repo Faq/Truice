@@ -12790,16 +12790,16 @@ begin
             lbcytarget_type.Hint := 'Farthest unit on the threat list';
             edcytarget_type.Hint := lbcytarget_type.Hint;
         end;
-    29:  //SMART_TARGET_VEHICLE_ACCESSORY
+    29:  //SMART_TARGET_VEHICLE_PASSENGER
         begin
-            lbcytarget_param1.Caption := 'seat';
+            lbcytarget_param1.Caption := 'seatMask';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
             lbcytarget_o.Caption := '';
-            lbcytarget_param1.Hint := 'Vehicle can target unit in given seat';
+            lbcytarget_param1.Hint := 'Vehicle can target unit in given seat, 0=all seats';
             edcytarget_param1.Hint := lbcytarget_param1.Hint;
             lbcytarget_type.Hint := '';
             edcytarget_type.Hint := lbcytarget_type.Hint;
