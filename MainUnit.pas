@@ -16,7 +16,7 @@ const
   VERSION_1   = '2'; //*10000
   VERSION_2   = '1'; //*100
   VERSION_3   = '1';
-  VERSION_4   = 'a';
+  VERSION_4   = 'b';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3 + '.' + VERSION_4;
 
   SCRIPT_TAB_NO_QUEST       = 6;
@@ -11781,8 +11781,8 @@ begin
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := 'DespawnTimer (sec)';
-            edcyaction_type.Hint := lbcyaction_type.Hint;
+            lbcyaction_param1.Hint := 'DespawnTimer (sec)';
+            edcyaction_param1.Hint := lbcyaction_param1.Hint;
         end;
     71:  //SMART_ACTION_EQUIP
         begin
