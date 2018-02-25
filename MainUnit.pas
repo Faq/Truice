@@ -11773,15 +11773,15 @@ begin
             lbcyaction_type.Hint := 'PointId is called by SMART_EVENT_MOVEMENTINFORM. Continue this action with the TARGET_TYPE column. Use any target_type, and use target_x, target_y, target_z, target_o as the coordinates';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
-    70:  //SMART_ACTION_RESPAWN_TARGET
+    70:  //SMART_ACTION_ENABLE_TEMP_GOBJ
         begin
-            lbcyaction_param1.Caption := 'only GOs in ms';
+            lbcyaction_param1.Caption := 'Despawn timer';
             lbcyaction_param2.Caption := '';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := 'Respawntime in seconds for gameobjects (only GOs)';
+            lbcyaction_type.Hint := 'DespawnTimer (sec)';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     71:  //SMART_ACTION_EQUIP
@@ -12424,6 +12424,61 @@ begin
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
             lbcyaction_type.Hint := 'dont use on 3.3.5a';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    129:  //SMART_ACTION_SCENE_PLAY
+        begin
+            lbcyaction_param1.Caption := '';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'dont use on 3.3.5a';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    130:  //SMART_ACTION_SCENE_CANCEL
+        begin
+            lbcyaction_param1.Caption := '';
+            lbcyaction_param2.Caption := '';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'dont use on 3.3.5a';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    131:  //SMART_ACTION_SPAWN_SPAWNGROUP
+        begin
+            lbcyaction_param1.Caption := 'Group ID';
+            lbcyaction_param2.Caption := 'min secs';
+            lbcyaction_param3.Caption := 'max secs';
+            lbcyaction_param4.Caption := 'spawnflags';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    132:  //SMART_ACTION_DESPAWN_SPAWNGROUP
+        begin
+            lbcyaction_param1.Caption := 'Group ID';
+            lbcyaction_param2.Caption := 'min secs';
+            lbcyaction_param3.Caption := 'max secs';
+            lbcyaction_param4.Caption := 'spawnflags';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    133:  //SMART_ACTION_RESPAWN_BY_SPAWNID
+        begin
+            lbcyaction_param1.Caption := 'spawnType';
+            lbcyaction_param2.Caption := 'spawnId';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     end;
