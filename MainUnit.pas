@@ -15,8 +15,8 @@ uses
 const
   VERSION_1   = '2'; //*10000
   VERSION_2   = '1'; //*100
-  VERSION_3   = '1';
-  VERSION_4   = 'b';
+  VERSION_3   = '2';
+  VERSION_4   = '';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3 + '.' + VERSION_4;
 
   SCRIPT_TAB_NO_QUEST       = 6;
@@ -12404,15 +12404,15 @@ begin
             lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
-    127:  //SMART_ACTION_STOP_MOTION
+    127:  //SMART_ACTION_REMOVE_MOVEMENT
         begin
-            lbcyaction_param1.Caption := 'StopMoving';
-            lbcyaction_param2.Caption := 'movementExpired';
+            lbcyaction_param1.Caption := 'MovementType';
+            lbcyaction_param2.Caption := 'Forced';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := '';
+            lbcyaction_type.Hint := 'Tries to remove the first found movement with the given movementType, forced flags the use of Unit::StopMoving';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     128:  //SMART_ACTION_PLAY_ANIMKIT
