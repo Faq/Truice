@@ -1,0 +1,4 @@
+# Delphi local files (user-specific info)
+*.local
+*.identcache
+*.res
