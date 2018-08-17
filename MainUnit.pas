@@ -11942,15 +11942,15 @@ begin
             lbcyaction_type.Hint := 'can be used to make players say groupID, Text_over event is not triggered, whisper can not be used (Target units will say the text)';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
-    85:  //SMART_ACTION_INVOKER_CAST
+    85:  //SMART_ACTION_SELF_CAST
         begin
             lbcyaction_param1.Caption := 'SpellID';
-            lbcyaction_param2.Caption := 'castFlags';
+            lbcyaction_param2.Caption := 'triggerFlags';
             lbcyaction_param3.Caption := '';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
-            lbcyaction_type.Hint := 'if avaliable, last used invoker will cast spellId with castFlags on targets';
+            lbcyaction_type.Hint := 'Will cast spellId with triggerFlags on self';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     86:  //SMART_ACTION_CROSS_CAST
@@ -12479,6 +12479,17 @@ begin
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
             lbcyaction_type.Hint := '';
+            edcyaction_type.Hint := lbcyaction_type.Hint;
+        end;
+    134:  //SMART_ACTION_INVOKER_CAST
+        begin
+            lbcyaction_param1.Caption := 'SpellID';
+            lbcyaction_param2.Caption := 'castFlags';
+            lbcyaction_param3.Caption := '';
+            lbcyaction_param4.Caption := '';
+            lbcyaction_param5.Caption := '';
+            lbcyaction_param6.Caption := '';
+            lbcyaction_type.Hint := 'if avaliable, last used invoker will cast spellId with castFlags on targets';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
     end;
