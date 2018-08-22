@@ -188,7 +188,7 @@ object GUIDForm: TGUIDForm
       TabOrder = 1
     end
   end
-  object MyQuery: TZQuery
+  object MyQuery: TFDQuery
     Connection = MainForm.MyTrinityConnection
     Params = <>
     Left = 328

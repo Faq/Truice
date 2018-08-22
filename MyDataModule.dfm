@@ -12,7 +12,7 @@ object dmMain: TdmMain
       Hint = 'Browse URL'
     end
   end
-  object MyQuery: TZQuery
+  object MyQuery: TFDQuery
     Connection = MainForm.MyTrinityConnection
     Params = <>
     Left = 128

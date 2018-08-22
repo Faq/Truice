@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, DB,
-  Menus, Buttons, JvExComCtrls, JvListView,
-  ZAbstractRODataset, ZAbstractDataset, ZDataset;
+  Menus, Buttons, JvExComCtrls, JvListView, FireDAC.Comp.Client;
 
 type
   TCreatureOrGOForm = class(TForm)
@@ -20,7 +19,7 @@ type
     Panel1: TPanel;
     btOK: TButton;
     btCancel: TButton;
-    MyQuery: TZQuery;
+    MyQuery: TFDQuery;
     lvCreatureOrGO: TJvListView;
     btBrowseSite: TButton;
     btEditCreatureOrGO: TButton;

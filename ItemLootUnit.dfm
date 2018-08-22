@@ -119,7 +119,7 @@ object ItemLootForm: TItemLootForm
       end
     end
   end
-  object MyQuery: TZQuery
+  object MyQuery: TFDQuery
     Connection = MainForm.MyTrinityConnection
     Params = <>
     Left = 65

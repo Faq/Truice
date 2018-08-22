@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, DB,
   JvExComCtrls, JvListView,
-  ZAbstractRODataset, ZAbstractDataset, ZDataset;
+  FireDAC.Comp.Client;
 
 type
   TItemLootForm = class(TForm)
@@ -15,7 +15,7 @@ type
     PageControl1: TPageControl;
     tsLoot: TTabSheet;
     lvItemLoot: TJvListView;
-    MyQuery: TZQuery;
+    MyQuery: TFDQuery;
     procedure FormCreate(Sender: TObject);
   public
     procedure Prepare(key: string);

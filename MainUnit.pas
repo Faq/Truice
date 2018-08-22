@@ -8,9 +8,14 @@ uses
   Menus, Registry, ShellAPI, UITypes, Types,
   CheckQuestThreadUnit, Buttons, About, xpman, ActnList, ExtActns, Mask, Grids, TextFieldEditorUnit,
   JvExComCtrls, JvListView, JvExMask, JvToolEdit, DBGrids, JvExDBGrids, JvDBGrid, JvComponentBase,
-  JvUrlListGrabber, JvUrlGrabbers, JvExControls, JvLinkLabel, ZAbstractRODataset, ZAbstractDataset,
-  ZDataset, ZConnection, ZSqlProcessor, acAlphaHints, sGroupBox, ZAbstractConnection,
-  System.Actions;
+  JvUrlListGrabber, JvUrlGrabbers, JvExControls, JvLinkLabel,
+  acAlphaHints, sGroupBox, System.Actions, FireDAC.Phys.MySQLDef,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.MySQL, FireDAC.VCLUI.Wait, FireDAC.Comp.UI,
+  FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
+  FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Script,
+  FireDAC.Comp.ScriptCommands, FireDAC.Stan.Util, FireDAC.VCLUI.Login;
 
 const
   VERSION_1   = '2'; //*10000
@@ -83,11 +88,11 @@ type
 
     TMainForm = class(TForm)
     MainMenu: TMainMenu;
-    MyTrinityConnection: TZConnection;
-    MyLootQuery: TZQuery;
-    MyQuery: TZQuery;
-    MyQueryAll: TZQuery;
-    MyTempQuery: TZQuery;
+    MyTrinityConnection: TFDConnection;
+    MyLootQuery: TFDQuery;
+    MyQuery: TFDQuery;
+    MyQueryAll: TFDQuery;
+    MyTempQuery: TFDQuery;
     nLine1: TMenuItem;
     nLine2: TMenuItem;
     nLine4: TMenuItem;
@@ -128,7 +133,6 @@ type
     nTools: TMenuItem;
     nRebuildSpellList: TMenuItem;
     DataSource: TDataSource;
-    MySQLQuery: TZQuery;
     PageControl1: TPageControl;
     tsQuest: TTabSheet;
     pnQuestTop: TPanel;
@@ -1252,7 +1256,6 @@ type
     linkSmartAIInfo: TLabel;
     linkConditionInfo: TLabel;
     lbctmechanic_immune_mask: TLabel;
-    ZSQLProcessor: TZSQLProcessor;
     lbotlootmode: TLabel;
     nDBCDir: TMenuItem;
     Timer1: TTimer;
@@ -1611,6 +1614,9 @@ type
     lbAllowableClasses: TLabel;
     editflagsCustom: TJvComboEdit;
     lbitflagsCustom: TLabel;
+    FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    FDScript1: TFDScript;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2172,20 +2178,20 @@ type
     procedure SetGOdataHints(t: integer);
     procedure SetGOdataNames(t: integer);
 
-    procedure LoadMyQueryToListView(Query: TZQuery; strQuery: string; ListView: TJvListView);
+    procedure LoadMyQueryToListView(Query: TFDQuery; strQuery: string; ListView: TJvListView);
     procedure LoadQueryToListView(strQuery: string;
       ListView: TJvListView);
     procedure LoadCharQueryToListView(strQuery: string;
       ListView: TJvListView);
 
 
-    procedure SetFieldsAndValues(Query: TZQuery; var Fields: string; var Values: string;
+    procedure SetFieldsAndValues(Query: TFDQuery; var Fields: string; var Values: string;
       TableName: string; pfx: string; Log: TMemo); overload;
 
     procedure SetFieldsAndValues(var Fields: string; var Values: string;
       TableName: string; pfx: string; Log: TMemo); overload;
 
-    procedure FillFields(Query: TZQuery; pfx: string);
+    procedure FillFields(Query: TFDQuery; pfx: string);
 
 
     procedure RebuildSpellList;
@@ -2529,7 +2535,7 @@ end;
 procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Spells.Free;
-  MyTrinityConnection.Disconnect;
+  MyTrinityConnection.Close;
   SaveToReg;
 end;
 
@@ -2753,8 +2759,14 @@ begin
 end;
 
 procedure TMainForm.UpdateCaption;
+var
+  Server: string;
+  Port: Integer;
 begin
-  Caption := Format('Truice %s - Connection: %s:%d / %s', [VERSION_EXE, MyTrinityConnection.HostName, MyTrinityConnection.Port, GetDBVersion]);
+  Server := TFDPhysMySQLConnectionDefParams(MyTrinityConnection.ResultConnectionDef.Params).Server;
+  Port := TFDPhysMySQLConnectionDefParams(MyTrinityConnection.ResultConnectionDef.Params).Port;
+  Caption := Format('Truice %s - Connection: %s:%d / %s', [VERSION_EXE, Server, Port, GetDBVersion]);
+
   Application.Title := Caption;
 end;
 
@@ -4252,7 +4264,7 @@ begin
   LoadMyQueryToListView(MyTempQuery, strQuery, ListView);
 end;
 
-procedure TMainForm.LoadMyQueryToListView(Query: TZQuery; strQuery: string; ListView: TJvListView);
+procedure TMainForm.LoadMyQueryToListView(Query: TFDQuery; strQuery: string; ListView: TJvListView);
 var
   i: integer;
 begin
@@ -6658,7 +6670,7 @@ begin
   end;
 end;
 
-procedure TMainForm.SetFieldsAndValues(Query: TZQuery; var Fields: string; var Values: string;
+procedure TMainForm.SetFieldsAndValues(Query: TFDQuery; var Fields: string; var Values: string;
   TableName: string; pfx: string; Log: TMemo);
 var
   FieldName, tmp: string;
@@ -6716,7 +6728,7 @@ begin
   Query.Close;
 end;
 
-procedure TMainForm.FillFields(Query: TZQuery; pfx: string);
+procedure TMainForm.FillFields(Query: TFDQuery; pfx: string);
 var
   i, j: integer;
 begin
@@ -9449,9 +9461,9 @@ end;
 
 procedure TMainForm.btSQLOpenClick(Sender: TObject);
 begin
-  MySQLQuery.Close;
-  MySQLQuery.SQL.Text := SQLEdit.Text;
-  MySQLQuery.Open;
+  MyQuery.Close;
+  MyQuery.SQL.Text := SQLEdit.Text;
+  MyQuery.Open;
 end;
 
 procedure TMainForm.btScriptCreatureLocationCustomToAllClick(
@@ -13221,15 +13233,16 @@ var
   FN: string;
 begin
   ShowHourGlassCursor;
-  ZSQLProcessor.Script.Text := script;
+  FDScript1.SQLScripts.Add.SQL.Text := script;
   try
-    ZSQLProcessor.Connection.StartTransaction;
-    ZSQLProcessor.Execute;
-    ZSQLProcessor.Connection.Commit;
+    MyTrinityConnection.StartTransaction;
+    FDScript1.ValidateAll;
+    FDScript1.ExecuteAll;
+    MyTrinityConnection.Commit;
   except
     on E:Exception do
     begin
-      ZSQLProcessor.Connection.Rollback;
+      MyTrinityConnection.Rollback;
       memo.Text := E.Message;
       Exit;
     end;

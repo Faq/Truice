@@ -4,7 +4,7 @@ interface
 
 uses
   Forms, SysUtils, Classes, ActnList, ExtActns, Translate, WideStrings,
-  DB, ZAbstractRODataset, ZAbstractDataset, ZDataset, JvExComCtrls, JvListView,
+  DB, FireDAC.Comp.Client, JvExComCtrls, JvListView,
   System.Actions;
 
 const
@@ -18,7 +18,7 @@ type
   TdmMain = class(TDataModule)
     ActionList: TActionList;
     BrowseURL: TBrowseURL;
-    MyQuery: TZQuery;
+    MyQuery: TFDQuery;
     procedure DataModuleDestroy(Sender: TObject);
   private
     { Private declarations }

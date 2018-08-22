@@ -27237,29 +27237,26 @@ object MainForm: TMainForm
       end
     end
   end
-  object MyTrinityConnection: TZConnection
-    ControlsCodePage = cCP_UTF16
-    ClientCodepage = 'utf8'
-    Catalog = ''
-    Properties.Strings = (
-      'codepage=utf8'
-      'AutoEncodeStrings=True'
-      'controls_cp=CP_UTF16')
-    SQLHourGlass = True
-    HostName = 'localhost'
-    Port = 3306
-    Database = 'world'
-    User = 'root'
-    Password = ''
-    Protocol = 'mysql'
-    Left = 136
-    Top = 272
+  object MyTrinityConnection: TFDConnection
+    DriverName = 'MYSQL'
+    Params.Strings = (
+      'DriverID=MySQL'
+      'Server=127.0.0.1'
+      'Port=3306'
+      'CharacterSet=utf8'
+      'Compress=False')
+    ResourceOptions.AssignedValues = [rvAutoConnect, rvAutoReconnect, rvSilentMode]
+    ResourceOptions.SilentMode = True
+    ResourceOptions.AutoConnect = False
+    ResourceOptions.AutoReconnect = True
+    LoginPrompt = False
+    Left = 876
+    Top = 216
   end
-  object MyQuery: TZQuery
+  object MyQuery: TFDQuery
     Connection = MyTrinityConnection
-    Params = <>
-    Left = 408
-    Top = 280
+    Left = 416
+    Top = 272
   end
   object pmQuest: TPopupMenu
     Left = 613
@@ -27368,21 +27365,18 @@ object MainForm: TMainForm
       end
     end
   end
-  object MyTempQuery: TZQuery
+  object MyTempQuery: TFDQuery
     Connection = MyTrinityConnection
-    Params = <>
     Left = 480
     Top = 280
   end
-  object MyLootQuery: TZQuery
+  object MyLootQuery: TFDQuery
     Connection = MyTrinityConnection
-    Params = <>
     Left = 557
     Top = 217
   end
-  object MyQueryAll: TZQuery
+  object MyQueryAll: TFDQuery
     Connection = MyTrinityConnection
-    Params = <>
     Left = 621
     Top = 217
   end
@@ -27482,14 +27476,8 @@ object MainForm: TMainForm
     end
   end
   object DataSource: TDataSource
-    DataSet = MySQLQuery
+    DataSet = MyQuery
     Left = 681
-    Top = 218
-  end
-  object MySQLQuery: TZQuery
-    Connection = MyTrinityConnection
-    Params = <>
-    Left = 409
     Top = 218
   end
   object ActionList1: TActionList
@@ -27500,13 +27488,6 @@ object MainForm: TMainForm
       Caption = '&Browse URL'
       Hint = 'Browse URL'
     end
-  end
-  object ZSQLProcessor: TZSQLProcessor
-    Params = <>
-    Connection = MyTrinityConnection
-    Delimiter = ';'
-    Left = 224
-    Top = 273
   end
   object Timer1: TTimer
     Interval = 60000
@@ -27524,6 +27505,25 @@ object MainForm: TMainForm
     Templates = <>
     SkinSection = 'HINT'
     Left = 680
+    Top = 272
+  end
+  object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
+    DriverID = 'MYSQL'
+    Left = 772
+    Top = 216
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    ScreenCursor = gcrHourGlass
+    Left = 772
+    Top = 272
+  end
+  object FDScript1: TFDScript
+    SQLScripts = <>
+    Connection = MyTrinityConnection
+    Params = <>
+    Macros = <>
+    Left = 876
     Top = 272
   end
 end

@@ -4,7 +4,7 @@ interface
 
 uses
   Classes, SysUtils, Dialogs, Messages, MyDataModule, WideStrings,
-  ZConnection, ZAbstractRODataset, ZAbstractDataset, ZDataset;
+  FireDAC.Comp.Client;
 
 type
   TCheckQuestThread = class(TThread)
@@ -12,9 +12,9 @@ type
     cq: integer;
     FQuestList: TList;
     Report:  TStringList;
-    MyQuery: TZQuery;
-    MyTempQuery: TZQuery;
-    MyLootQuery: TZQuery;
+    MyQuery: TFDQuery;
+    MyTempQuery: TFDQuery;
+    MyLootQuery: TFDQuery;
     ErrorStr: string;
 
     function CheckQuestLog(qId: integer): string;
@@ -24,9 +24,9 @@ type
   protected
     procedure Execute; override;
   public
-    procedure Prepare(Connection : TZConnection);
+    procedure Prepare(Connection : TFDConnection);
     property QuestList: TList read FQuestList write SetQuestList;
-    constructor Create(Connection: TZConnection; List: TList; CreateSuspended: boolean);
+    constructor Create(Connection: TFDConnection; List: TList; CreateSuspended: boolean);
     procedure MyTerminate(Sender: TObject);
     procedure HandleThreadException;
   end;
@@ -726,11 +726,11 @@ begin
   FQuestList := Value;
 end;
 
-procedure TCheckQuestThread.Prepare(Connection : TZConnection);
+procedure TCheckQuestThread.Prepare(Connection : TFDConnection);
 begin
-  MyQuery := TZQuery.Create(nil);
-  MyTempQuery := TZQuery.Create(nil);
-  MyLootQuery := TZQuery.Create(nil);
+  MyQuery := TFDQuery.Create(nil);
+  MyTempQuery := TFDQuery.Create(nil);
+  MyLootQuery := TFDQuery.Create(nil);
   Report := TStringList.Create;
   MyQuery.Connection := Connection;
   MyTempQuery.Connection := Connection;
@@ -745,7 +745,7 @@ begin
   CheckForm.Memo.Perform(EM_SCROLLCARET, 0, 0);
 end;
 
-constructor TCheckQuestThread.Create(Connection: TZConnection;
+constructor TCheckQuestThread.Create(Connection: TFDConnection;
   List: TList; CreateSuspended: boolean);
 begin
   inherited Create(CreateSuspended);

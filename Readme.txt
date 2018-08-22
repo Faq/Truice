@@ -9,9 +9,9 @@ It is written in Delphi, source on github compiled using Embarcadero Delphi 10.2
 and precompiled binaries under https://github.com/Faq/Truice/releases
 
 To compile use Delphi XE2+ and next additional components:
+Droping ZeosLib to use Delphi internal db component FireDAC (22.08.2018).
 
-ZeosDBO 7.3 from testing branch (SVN rev4068)
-http://zeos.firmos.at/portal.php         (old link)
+ZeosDBO 7.3 from testing branch (SVN rev4068) (last commit with ZeosLib https://github.com/Faq/Truice/commit/3e74ac4aececd7b4c55b607ca9c3b63eb85f3a17)
 http://sourceforge.net/projects/zeoslib/ (new link)
 http://svn.code.sf.net/p/zeoslib/code-0
 

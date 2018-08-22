@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, DB,
   MyDataModule, Menus, JvExComCtrls, JvListView,
-  ZAbstractRODataset, ZAbstractDataset, ZDataset;
+  FireDAC.Comp.Client;
 
 type
   TItemPageForm = class(TForm)
@@ -19,7 +19,7 @@ type
     edPageID: TLabeledEdit;
     btSearch: TButton;
     lvPageItem: TJvListView;
-    MyQuery: TZQuery;
+    MyQuery: TFDQuery;
     edText: TLabeledEdit;
     procedure btSearchClick(Sender: TObject);
     procedure lvPageItemChange(Sender: TObject; Item: TListItem;

@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, DB,
-  Menus, Buttons, JvExComCtrls, JvListView,
-  ZAbstractRODataset, ZAbstractDataset, ZDataset;
+  Menus, Buttons, JvExComCtrls, JvListView, FireDAC.Comp.Client;
 
 type
   TGUIDForm = class(TForm)
@@ -19,7 +18,7 @@ type
     Panel1: TPanel;
     btOK: TButton;
     btCancel: TButton;
-    MyQuery: TZQuery;
+    MyQuery: TFDQuery;
     lvGUID: TJvListView;
     lvCreatureOrGO: TJvListView;
     procedure lvGUIDChange(Sender: TObject; Item: TListItem;

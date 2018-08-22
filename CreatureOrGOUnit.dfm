@@ -191,7 +191,7 @@ object CreatureOrGOForm: TCreatureOrGOForm
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
     end
   end
-  object MyQuery: TZQuery
+  object MyQuery: TFDQuery
     Connection = MainForm.MyTrinityConnection
     Params = <>
     Left = 328
