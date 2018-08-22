@@ -1841,14 +1841,14 @@ object MainForm: TMainForm
               Top = 56
               Width = 32
               Height = 13
-              Caption = 'Details'
+              Caption = 'Quest Description'
             end
             object lObjectives: TLabel
               Left = 296
               Top = 56
               Width = 50
               Height = 13
-              Caption = 'Objectives'
+              Caption = 'Log Description'
             end
             object lRewardText: TLabel
               Left = 8
