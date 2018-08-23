@@ -360,6 +360,7 @@ begin
   Text[156]:='LootMode';
   Text[157]:='The error has accured while loading Creature EventAI:';
   Text[158]:='Please specify a source type!';
+  Text[159]:='The error has accured while loading Creature Template Movement:';
 end;
 
 procedure TdmMain.SetLanguage(const Value: string);

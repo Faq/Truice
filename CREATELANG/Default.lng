@@ -306,6 +306,7 @@ TEXT155=AreaTrigger
 TEXT156=LootCondition
 TEXT157=The error has accured while loading Creature EventAI:
 TEXT158=Please specify a source type!
+TEXT159=The error has accured while loading Creature Template Movement
 
 [MAIN]
 Caption=Truice
@@ -910,7 +911,7 @@ btScriptNPCgossip=Show NPC gossip script
 gbNPCText=NPC text
 btShowNPCtextScript=Show NPC text script
 edcxID=ID
-tsCreatureMovement=Creature Movement
+tsCreatureTemplateMovement=Creature Movement
 lbHintCreatureMovement=First, select creature from Creature Location tab!
 lbcmemote=emote
 btShowCreatureMovementScript=Show Creature Movement Script
