@@ -7,16 +7,26 @@
 7;NO_XP_AT_KILL(creature kill does not give XP)
 8;TRIGGER(creature is trigger-NPC - invisible to players only)
 9;NO_TAUNT(creature is immune to taunt-auras and "attack me"-effects)
-10;UNK1
-11;UNK2
-12;UNK3
-13;UNK4
-14;UNK5
+10;NO_MOVE_FLAGS_UPDATE (creature won't update movement flags)
+11;GHOST_VISIBILITY (creature will be only visible for dead players)
+12;USE_OFFHAND_ATTACK (creature will use offhand attacks)
+13;NO_SELL_VENDOR (players can't sell items to this vendor)
+14;UNUSED_13
 15;WORLDEVENT(custom flag for world events - left room for merging)
 16;GUARD(creature is a guard - will ignore feign death and vanish)
-17;UNK6
+17;UNUSED_16
 18;NO_CRIT(creature does not do critical strikes)
 19;NO_SKILLGAIN(creature won't increase weapon skills)
-20;TAUNT_DIMINISH(creature taunt is subject to diminishing returns)
-21;ALL_DIMINISH(Creature is subject to all diminishing returns)
-22;DUNGEON_BOSS(Creature is a dungeon boss. This flag is generically set by core during runtime. Setting this in database will give you startup error.)
+20;TAUNT_DIMINISH(Taunt is a subject to diminishing returns on this creautre)
+21;ALL_DIMINISH(creature is subject to all diminishing returns as player are)
+22;EXTRA_NO_PLAYER_DAMAGE_REQ (creature does not need to take player damage for kill credit)
+23;UNUSED_22
+24;NUSED_23
+25;NUSED_24
+26;NUSED_25
+27;NUSED_26
+28;NUSED_27
+29;DUNGEON_BOSS(creature is a dungeon boss (SET DYNAMICALLY, DO NOT ADD IN DB))
+30;IGNORE_PATHFINDING (creature ignore pathfinding)
+31;IMMUNITY_KNOCKBACK (creature is immune to knockback effects)
+32;UNUSED_31

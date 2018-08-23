@@ -9850,6 +9850,9 @@ begin
             lbcyevent_param2.Caption := 'MaxRange';
             lbcyevent_param3.Caption := 'CooldownMin';
             lbcyevent_param4.Caption := 'CooldownMax';
+            lbcyevent_param5.Caption := 'PlayerOnly (0/1)';
+            lbcyevent_param5.Hint := '0-triggred by npcs and players. 1-triggred by players only';
+            edcyevent_param5.Hint := lbcyevent_param5.Hint;
             lbcyevent_type.Hint := 'On Target In Distance Line of Sight Out of Combat';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9996,6 +9999,9 @@ begin
             lbcyevent_param2.Caption := 'MaxRange';
             lbcyevent_param3.Caption := 'CooldownMin';
             lbcyevent_param4.Caption := 'CooldownMax';
+            lbcyevent_param5.Caption := 'PlayerOnly (0/1)';
+            lbcyevent_param5.Hint := '0-triggred by npcs and players. 1-triggred by players only';
+            edcyevent_param5.Hint := lbcyevent_param5.Hint;
             lbcyevent_type.Hint := 'On Target In Distance In Combat';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10350,13 +10356,13 @@ begin
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
-    66:  //SMART_EVENT_DUMMY_EFFECT
+    66:  //SMART_EVENT_EVENT_PHASE_CHANGE
         begin
-            lbcyevent_param1.Caption := 'spellId';
-            lbcyevent_param2.Caption := 'effectIndex';
+            lbcyevent_param1.Caption := 'event phase mask';
+            lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
-            lbcyevent_type.Hint := '';
+            lbcyevent_type.Hint := 'On event phase mask set';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
     67:  //SMART_EVENT_IS_BEHIND_TARGET
@@ -10386,9 +10392,9 @@ begin
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
-    70:  //SMART_EVENT_GO_STATE_CHANGED
+    70:  //SMART_EVENT_GO_LOOT_STATE_CHANGED
         begin
-            lbcyevent_param1.Caption := 'go state';
+            lbcyevent_param1.Caption := 'go LootState';
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
@@ -11055,7 +11061,7 @@ begin
         begin
             lbcyaction_param1.Caption := 'Sound id';
             lbcyaction_param2.Caption := 'onlySelf (0/1)';
-            lbcyaction_param3.Caption := '';
+            lbcyaction_param3.Caption := 'Distance (0/1)';
             lbcyaction_param4.Caption := '';
             lbcyaction_param5.Caption := '';
             lbcyaction_param6.Caption := '';
@@ -12299,7 +12305,7 @@ begin
             lbcyaction_param3.Caption := 'soundId3';
             lbcyaction_param4.Caption := 'soundId4';
             lbcyaction_param5.Caption := 'onlySelf (0/1)';
-            lbcyaction_param6.Caption := 'Distant Sound (0/1)';
+            lbcyaction_param6.Caption := 'Distance Sound (0/1)';
             lbcyaction_type.Hint := '';
             edcyaction_type.Hint := lbcyaction_type.Hint;
         end;
