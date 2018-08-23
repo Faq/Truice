@@ -1839,14 +1839,14 @@ object MainForm: TMainForm
             object lDetails: TLabel
               Left = 8
               Top = 56
-              Width = 32
+              Width = 84
               Height = 13
               Caption = 'Quest Description'
             end
             object lObjectives: TLabel
               Left = 296
               Top = 56
-              Width = 50
+              Width = 74
               Height = 13
               Caption = 'Log Description'
             end
@@ -14398,7 +14398,7 @@ object MainForm: TMainForm
           object lvgoGOLoot: TJvListView
             Left = 8
             Top = 32
-            Width = 918
+            Width = 953
             Height = 449
             Anchors = [akLeft, akTop, akRight]
             Columns = <
@@ -21951,6 +21951,7 @@ object MainForm: TMainForm
         Width = 969
         Height = 648
         ActivePage = tsSmartAI
+        Align = alClient
         TabOrder = 0
         object tsSmartAI: TTabSheet
           Caption = 'SmartAI'
@@ -23025,15 +23026,17 @@ object MainForm: TMainForm
       object PageControl10: TPageControl
         Left = 0
         Top = 25
-        Width = 881
+        Width = 969
         Height = 648
         ActivePage = tsConditions
+        Align = alClient
         TabOrder = 0
         object tsConditions: TTabSheet
           Caption = 'Conditions'
           ImageIndex = 19
+          ExplicitWidth = 873
           DesignSize = (
-            873
+            961
             620)
           object btConditionsAdd: TSpeedButton
             Left = 787
@@ -23331,7 +23334,7 @@ object MainForm: TMainForm
           object lvcConditions: TJvListView
             Left = 3
             Top = 23
-            Width = 867
+            Width = 955
             Height = 278
             Anchors = [akLeft, akTop, akRight]
             Columns = <
@@ -23415,6 +23418,7 @@ object MainForm: TMainForm
               end
               item
               end>
+            ExplicitWidth = 867
           end
           object btFullScript: TButton
             Left = 726
@@ -23644,11 +23648,12 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 1
           OnShow = tsConditionsScriptShow
+          ExplicitWidth = 873
           DesignSize = (
-            873
+            961
             620)
           object btCopyToClipboardConditions: TButton
-            Left = 726
+            Left = 814
             Top = 508
             Width = 137
             Height = 25
@@ -23656,9 +23661,10 @@ object MainForm: TMainForm
             Caption = 'Copy script to clipboard'
             TabOrder = 0
             OnClick = btCopyToClipboardConditionsClick
+            ExplicitLeft = 726
           end
           object btExecuteConditionsScript: TButton
-            Left = 726
+            Left = 814
             Top = 540
             Width = 137
             Height = 25
@@ -23666,11 +23672,12 @@ object MainForm: TMainForm
             Caption = 'Execute script'
             TabOrder = 1
             OnClick = btExecuteConditionsScriptClick
+            ExplicitLeft = 726
           end
           object mecScript: TMemo
             Left = 11
             Top = 10
-            Width = 856
+            Width = 944
             Height = 457
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
@@ -23681,15 +23688,17 @@ object MainForm: TMainForm
             ParentFont = False
             ScrollBars = ssVertical
             TabOrder = 2
+            ExplicitWidth = 856
           end
           object mecLog: TMemo
             Left = 11
             Top = 472
-            Width = 703
+            Width = 791
             Height = 97
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
             TabOrder = 3
+            ExplicitWidth = 703
           end
         end
       end
