@@ -25,7 +25,7 @@ const
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3 + '.' + VERSION_4;
 
   SCRIPT_TAB_NO_QUEST       = 6;
-  SCRIPT_TAB_NO_CREATURE    = 17;
+  SCRIPT_TAB_NO_CREATURE    = 16;
   SCRIPT_TAB_NO_GAMEOBJECT  = 6;
   SCRIPT_TAB_NO_ITEM        = 10;
   SCRIPT_TAB_NO_SMARTAI     = 1;
@@ -1617,6 +1617,8 @@ type
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     FDScript1: TFDScript;
+    edctspell_school_immune_mask: TJvComboEdit;
+    lbctspell_school_immune_mask: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -1944,6 +1946,7 @@ type
     procedure GetUnitFlags(Sender: TObject);
     procedure GetUnitFlags2(Sender: TObject);
     procedure GetFlagsExtra(Sender: TObject);
+    procedure GetSpellSchImmuneMask(Sender: TObject);
     procedure GetCreatureFlag1(Sender: TObject);
     procedure GetCreatureDynamicFlags(Sender: TObject);
     procedure GetGOFlags(Sender: TObject);
@@ -5151,6 +5154,11 @@ end;
 procedure TMainForm.GetFlagsExtra(Sender: TObject);
 begin
   GetSomeFlags(Sender, 'CreatureFlagsExtra');
+end;
+
+procedure TMainForm.GetSpellSchImmuneMask(Sender: TObject);
+begin
+  GetSomeFlags(Sender, 'CreatureSpellsMechanic');
 end;
 
 function TMainForm.GetValueFromDBC(Name: string; id: Cardinal; idx_str: integer = 1): WideString;

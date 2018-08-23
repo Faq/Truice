@@ -7253,27 +7253,27 @@ object MainForm: TMainForm
           end
           object gbSpells: TGroupBox
             Left = 357
-            Top = 292
+            Top = 291
             Width = 195
-            Height = 184
+            Height = 222
             Caption = 'Spells'
             TabOrder = 7
             object lbctspell1: TLabel
-              Left = 8
+              Left = 10
               Top = 15
               Width = 27
               Height = 13
               Caption = 'spell1'
             end
             object lbctspell2: TLabel
-              Left = 8
+              Left = 10
               Top = 55
               Width = 27
               Height = 13
               Caption = 'spell2'
             end
             object lbctspell3: TLabel
-              Left = 9
+              Left = 10
               Top = 93
               Width = 27
               Height = 13
@@ -7287,14 +7287,14 @@ object MainForm: TMainForm
               Caption = 'spell4'
             end
             object Label5: TLabel
-              Left = 105
+              Left = 103
               Top = 135
               Width = 27
               Height = 13
               Caption = 'spell8'
             end
             object Label6: TLabel
-              Left = 104
+              Left = 103
               Top = 93
               Width = 27
               Height = 13
@@ -7313,6 +7313,13 @@ object MainForm: TMainForm
               Width = 27
               Height = 13
               Caption = 'spell5'
+            end
+            object lbctspell_school_immune_mask: TLabel
+              Left = 10
+              Top = 177
+              Width = 131
+              Height = 13
+              Caption = 'spell_school_immune_mask'
             end
             object edctspell1: TJvComboEdit
               Left = 9
@@ -7388,7 +7395,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 1
+              TabOrder = 8
               Text = ''
               OnButtonClick = GetSpell
             end
@@ -7625,6 +7632,43 @@ object MainForm: TMainForm
               TabOrder = 7
               Text = ''
               OnButtonClick = GetSpell
+            end
+            object edctspell_school_immune_mask: TJvComboEdit
+              Left = 10
+              Top = 191
+              Width = 133
+              Height = 21
+              ButtonWidth = 22
+              Glyph.Data = {
+                36030000424D3603000000000000360000002800000010000000100000000100
+                18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+                DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+                FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+                B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+                D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+                52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+                8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+              TabOrder = 1
+              Text = ''
+              OnButtonClick = GetSpellSchImmuneMask
             end
           end
           object gbctbehaviour: TGroupBox
@@ -21948,8 +21992,8 @@ object MainForm: TMainForm
       object PageControl9: TPageControl
         Left = 0
         Top = 25
-        Width = 969
-        Height = 648
+        Width = 972
+        Height = 655
         ActivePage = tsSmartAI
         Align = alClient
         TabOrder = 0
@@ -21957,8 +22001,8 @@ object MainForm: TMainForm
           Caption = 'SmartAI'
           ImageIndex = 19
           DesignSize = (
-            961
-            620)
+            964
+            627)
           object btSmartAIAdd: TSpeedButton
             Left = 868
             Top = 315
@@ -22367,7 +22411,7 @@ object MainForm: TMainForm
           object lvcySmartAI: TJvListView
             Left = 3
             Top = 23
-            Width = 955
+            Width = 961
             Height = 278
             Anchors = [akLeft, akTop, akRight]
             Columns = <
@@ -22962,10 +23006,10 @@ object MainForm: TMainForm
           ImageIndex = 1
           OnShow = tsSmartAIScriptShow
           DesignSize = (
-            961
-            620)
+            964
+            627)
           object btCopyToClipboardSmartAI: TButton
-            Left = 814
+            Left = 817
             Top = 508
             Width = 137
             Height = 25
@@ -22975,7 +23019,7 @@ object MainForm: TMainForm
             OnClick = btCopyToClipboardSmartAIClick
           end
           object btExecuteSmartAIScript: TButton
-            Left = 814
+            Left = 817
             Top = 540
             Width = 137
             Height = 25
@@ -22987,7 +23031,7 @@ object MainForm: TMainForm
           object mecyScript: TMemo
             Left = 11
             Top = 10
-            Width = 944
+            Width = 947
             Height = 457
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
@@ -23002,7 +23046,7 @@ object MainForm: TMainForm
           object mecyLog: TMemo
             Left = 11
             Top = 472
-            Width = 791
+            Width = 794
             Height = 97
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
@@ -23026,18 +23070,17 @@ object MainForm: TMainForm
       object PageControl10: TPageControl
         Left = 0
         Top = 25
-        Width = 969
-        Height = 648
+        Width = 972
+        Height = 655
         ActivePage = tsConditions
         Align = alClient
         TabOrder = 0
         object tsConditions: TTabSheet
           Caption = 'Conditions'
           ImageIndex = 19
-          ExplicitWidth = 873
           DesignSize = (
-            961
-            620)
+            964
+            627)
           object btConditionsAdd: TSpeedButton
             Left = 787
             Top = 315
@@ -23334,7 +23377,7 @@ object MainForm: TMainForm
           object lvcConditions: TJvListView
             Left = 3
             Top = 23
-            Width = 955
+            Width = 961
             Height = 278
             Anchors = [akLeft, akTop, akRight]
             Columns = <
@@ -23418,7 +23461,6 @@ object MainForm: TMainForm
               end
               item
               end>
-            ExplicitWidth = 867
           end
           object btFullScript: TButton
             Left = 726
@@ -23648,12 +23690,11 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 1
           OnShow = tsConditionsScriptShow
-          ExplicitWidth = 873
           DesignSize = (
-            961
-            620)
+            964
+            627)
           object btCopyToClipboardConditions: TButton
-            Left = 814
+            Left = 817
             Top = 508
             Width = 137
             Height = 25
@@ -23661,10 +23702,9 @@ object MainForm: TMainForm
             Caption = 'Copy script to clipboard'
             TabOrder = 0
             OnClick = btCopyToClipboardConditionsClick
-            ExplicitLeft = 726
           end
           object btExecuteConditionsScript: TButton
-            Left = 814
+            Left = 817
             Top = 540
             Width = 137
             Height = 25
@@ -23672,12 +23712,11 @@ object MainForm: TMainForm
             Caption = 'Execute script'
             TabOrder = 1
             OnClick = btExecuteConditionsScriptClick
-            ExplicitLeft = 726
           end
           object mecScript: TMemo
             Left = 11
             Top = 10
-            Width = 944
+            Width = 947
             Height = 457
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
@@ -23688,17 +23727,15 @@ object MainForm: TMainForm
             ParentFont = False
             ScrollBars = ssVertical
             TabOrder = 2
-            ExplicitWidth = 856
           end
           object mecLog: TMemo
             Left = 11
             Top = 472
-            Width = 791
+            Width = 794
             Height = 97
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
             TabOrder = 3
-            ExplicitWidth = 703
           end
         end
       end
@@ -27247,7 +27284,6 @@ object MainForm: TMainForm
     end
   end
   object MyTrinityConnection: TFDConnection
-    DriverName = 'MYSQL'
     Params.Strings = (
       'DriverID=MySQL'
       'Server=127.0.0.1'
