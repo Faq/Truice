@@ -13,7 +13,10 @@ To run:
 2. run "Truice.exe"
 3. dll files are from MySQL v5.7.23
 
-To compile use Delphi XE2+ and next additional components:
+To compile use:  
+Delphi XE2+ (there is Community Edition of Delphi what is completely free https://www.embarcadero.com/products/delphi/starter)
+
+and these additional components:
 A) JEDI Visual Component Library 3.5
 http://jvcl.delphi-jedi.org/
 http://jvcl.sourceforge.net/daily/
