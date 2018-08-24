@@ -22546,7 +22546,7 @@ object MainForm: TMainForm
             Top = 460
             Width = 75
             Height = 25
-            Caption = 'Load'
+            Caption = 'Search'
             TabOrder = 29
             OnClick = btcyLoadClick
           end

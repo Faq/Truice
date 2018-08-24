@@ -29,8 +29,7 @@ AlphaControls v12.21
 http://www.alphaskins.com/
 
 Original topic on TC forum:
-http://www.trinitycore.org/f/topic/180-bin-truice-win32/  (old topic)
-http://www.trinitycore.org/f/topic/7639-bin-truice-win32/ (new topic)
+https://community.trinitycore.org/topic/13899-truice-2018-win32/
 
 Truice Download:
 https://github.com/Faq/Truice/releases
