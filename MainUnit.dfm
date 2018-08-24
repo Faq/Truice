@@ -27105,12 +27105,6 @@ object MainForm: TMainForm
     Left = 120
     Top = 216
   end
-  object sAlphaHints1: TsAlphaHints
-    Templates = <>
-    SkinSection = 'HINT'
-    Left = 680
-    Top = 272
-  end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
     DriverID = 'MYSQL'
     Left = 772
