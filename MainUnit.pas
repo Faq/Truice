@@ -9,7 +9,7 @@ uses
   CheckQuestThreadUnit, Buttons, About, xpman, ActnList, ExtActns, Mask, Grids, TextFieldEditorUnit,
   JvExComCtrls, JvListView, JvExMask, JvToolEdit, DBGrids, JvExDBGrids, JvDBGrid, JvComponentBase,
   JvUrlListGrabber, JvUrlGrabbers, JvExControls, JvLinkLabel,
-  sGroupBox, System.Actions, FireDAC.Phys.MySQLDef,
+  System.Actions, FireDAC.Phys.MySQLDef,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.Phys.MySQL, FireDAC.VCLUI.Wait, FireDAC.Comp.UI,
@@ -1266,7 +1266,7 @@ type
     nEditCreatureAI: TMenuItem;
     N4: TMenuItem;
     tsLocalesQuest: TTabSheet;
-    gbLocalesQuest: TsGroupBox;
+    gbLocalesQuest: TGroupBox;
     edlqlocale: TLabeledEdit;
     edlqTitle: TLabeledEdit;
     edlqDetails: TMemo;

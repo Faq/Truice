@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, ComCtrls, DB,
-  Menus, Buttons, JvExComCtrls, JvListView, ZAbstractRODataset, ZAbstractDataset, ZDataset;
+  Menus, Buttons, JvExComCtrls, JvListView, FireDAC.Comp.Client;
 
 type
   TWhoQuestForm = class(TForm)
@@ -17,7 +17,7 @@ type
     btSearch: TButton;
     lvWho: TJvListView;
     rgTypeOfWho: TRadioGroup;
-    MyQuery: TZQuery;
+    MyQuery: TFDQuery;
     Panel1: TPanel;
     btOK: TButton;
     btCancel: TButton;

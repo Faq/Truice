@@ -5370,14 +5370,13 @@ object MainForm: TMainForm
         object tsLocalesQuest: TTabSheet
           Caption = 'Locales Quest'
           ImageIndex = 9
-          object gbLocalesQuest: TsGroupBox
+          object gbLocalesQuest: TGroupBox
             Left = 3
             Top = 3
             Width = 870
             Height = 491
             Caption = 'Locales'
             TabOrder = 0
-            SkinData.SkinSection = 'GROUPBOX'
             object l2Details: TLabel
               Left = 5
               Top = 56
