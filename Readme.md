@@ -34,4 +34,8 @@ https://community.trinitycore.org/topic/13899-truice-2018-win32/
 Truice Download:
 https://github.com/Faq/Truice/releases
 
+<img src="images/creaturetemplate.png" width="200" height="200">
+<img src="images/quest.png" width="200" height="200">
+<img src="images/smartai.png" width="200" height="200">
+
 Author: Faq
