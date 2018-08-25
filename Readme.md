@@ -17,6 +17,7 @@ To compile use:
 Delphi XE2+ (there is Community Edition of Delphi what is completely free https://www.embarcadero.com/products/delphi/starter)
 
 and these additional components:
+
 A) JEDI Visual Component Library 3.5
 http://jvcl.delphi-jedi.org/
 http://jvcl.sourceforge.net/daily/

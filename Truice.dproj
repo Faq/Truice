@@ -85,16 +85,21 @@
         <Icon_MainIcon>Truice_Icon.ico</Icon_MainIcon>
         <DCC_Namespace>Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <Manifest_File>None</Manifest_File>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <VerInfo_Keys>CompanyName=;FileVersion=2.1.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName);FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppEnableHighDPI>true</AppEnableHighDPI>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <Icon_MainIcon>Truice_Icon.ico</Icon_MainIcon>
-        <Manifest_File>None</Manifest_File>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <VerInfo_Release>3</VerInfo_Release>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppEnableHighDPI>true</AppEnableHighDPI>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_UnitSearchPath>D:\Apps\AlphaControls;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
