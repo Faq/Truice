@@ -20,7 +20,7 @@ uses
 const
   VERSION_1   = '2'; //*10000
   VERSION_2   = '1'; //*100
-  VERSION_3   = '3';
+  VERSION_3   = '4';
   VERSION_4   = '';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3 + '.' + VERSION_4;
 
@@ -1447,6 +1447,7 @@ type
     edcytarget_param1: TJvComboEdit;
     edcytarget_param2: TJvComboEdit;
     edcytarget_param3: TJvComboEdit;
+    edcytarget_param4: TJvComboEdit;
     edcytarget_x: TJvComboEdit;
     edcytarget_z: TJvComboEdit;
     edcytarget_o: TJvComboEdit;
@@ -1494,6 +1495,7 @@ type
     lbcytarget_param1: TLabel;
     lbcytarget_param2: TLabel;
     lbcytarget_param3: TLabel;
+    lbcytarget_param4: TLabel;
     lbcytarget_x: TLabel;
     lbcytarget_y: TLabel;
     lbcytarget_z: TLabel;
@@ -4284,7 +4286,7 @@ begin
       '`event_phase_mask` as `epm`, `event_chance` as `ec`, `event_flags` as `ef`, `event_param1` as `ep1`, `event_param2` as `ep2`, '+
       '`event_param3` as `ep3`, `event_param4` as `ep4`, `event_param5` as `ep5`, `action_type` as `at`, `action_param1` as `a1`, `action_param2` as `a2`, '+
       '`action_param3` as `a3`, `action_param4` as `a4`, `action_param5` as `a5`, `action_param6` as `a6`, `target_type` as `tt`, '+
-      '`target_param1` as `t1`, `target_param2` as `t2`, `target_param3` as `t3`, `target_x` as `tx`, `target_y` as `ty`, '+
+      '`target_param1` as `t1`, `target_param2` as `t2`, `target_param3` as `t3`, `target_param4` as `t4`, `target_x` as `tx`, `target_y` as `ty`, '+
       '`target_z` as `tz`, `target_o` as `to`, `comment` as `cmt` FROM `smart_scripts` WHERE `entryorguid`=%d AND `source_type`=%d',[entryorguid, sourcetype]), lvcySmartAI);
 end;
 
@@ -7131,11 +7133,12 @@ begin
       SubItems[20] := TCustomEdit(FindComponent(pfx + 'target_param1')).Text;
       SubItems[21] := TCustomEdit(FindComponent(pfx + 'target_param2')).Text;
       SubItems[22] := TCustomEdit(FindComponent(pfx + 'target_param3')).Text;
-      SubItems[23] := TCustomEdit(FindComponent(pfx + 'target_x')).Text;
-      SubItems[24] := TCustomEdit(FindComponent(pfx + 'target_y')).Text;
-      SubItems[25] := TCustomEdit(FindComponent(pfx + 'target_z')).Text;
-      SubItems[26] := TCustomEdit(FindComponent(pfx + 'target_o')).Text;
-      SubItems[27] := TCustomEdit(FindComponent(pfx + 'comment')).Text;
+	  SubItems[23] := TCustomEdit(FindComponent(pfx + 'target_param4')).Text;
+      SubItems[24] := TCustomEdit(FindComponent(pfx + 'target_x')).Text;
+      SubItems[25] := TCustomEdit(FindComponent(pfx + 'target_y')).Text;
+      SubItems[26] := TCustomEdit(FindComponent(pfx + 'target_z')).Text;
+      SubItems[27] := TCustomEdit(FindComponent(pfx + 'target_o')).Text;
+      SubItems[28] := TCustomEdit(FindComponent(pfx + 'comment')).Text;
     end;
   end;
 end;
@@ -7235,6 +7238,7 @@ begin
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'target_param1')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'target_param2')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'target_param3')).Text);
+	SubItems.Add(TCustomEdit(FindComponent(pfx + 'target_param4')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'target_x')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'target_y')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'target_z')).Text);
@@ -7341,11 +7345,12 @@ begin
       TCustomEdit(FindComponent(pfx + 'target_param1')).Text := SubItems[20];
       TCustomEdit(FindComponent(pfx + 'target_param2')).Text := SubItems[21];
       TCustomEdit(FindComponent(pfx + 'target_param3')).Text := SubItems[22];
-      TCustomEdit(FindComponent(pfx + 'target_x')).Text := SubItems[23];
-      TCustomEdit(FindComponent(pfx + 'target_y')).Text := SubItems[24];
-      TCustomEdit(FindComponent(pfx + 'target_z')).Text := SubItems[25];
-      TCustomEdit(FindComponent(pfx + 'target_o')).Text := SubItems[26];
-      TCustomEdit(FindComponent(pfx + 'comment')).Text := SubItems[27];
+	  TCustomEdit(FindComponent(pfx + 'target_param4')).Text := SubItems[23];
+      TCustomEdit(FindComponent(pfx + 'target_x')).Text := SubItems[24];
+      TCustomEdit(FindComponent(pfx + 'target_y')).Text := SubItems[25];
+      TCustomEdit(FindComponent(pfx + 'target_z')).Text := SubItems[26];
+      TCustomEdit(FindComponent(pfx + 'target_o')).Text := SubItems[27];
+      TCustomEdit(FindComponent(pfx + 'comment')).Text := SubItems[28];
     end;
   end;
 end;
@@ -7484,7 +7489,7 @@ begin
   begin
     for i := 0 to lvList.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+'),'#13#10,[
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+'),'#13#10,[
         lvList.Items[i].Caption,
         lvList.Items[i].SubItems[0],
         lvList.Items[i].SubItems[1],
@@ -7513,11 +7518,12 @@ begin
         lvList.Items[i].SubItems[24],
         lvList.Items[i].SubItems[25],
         lvList.Items[i].SubItems[26],
-        lvList.Items[i].SubItems[27]
+        lvList.Items[i].SubItems[27],
+        lvList.Items[i].SubItems[28]
       ]);
     end;
     i := lvList.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+');',[
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, '+'"'+'%s'+'"'+');',[
       lvList.Items[i].Caption,
       lvList.Items[i].SubItems[0],
       lvList.Items[i].SubItems[1],
@@ -7546,7 +7552,8 @@ begin
       lvList.Items[i].SubItems[24],
       lvList.Items[i].SubItems[25],
       lvList.Items[i].SubItems[26],
-      lvList.Items[i].SubItems[27]
+      lvList.Items[i].SubItems[27],
+      lvList.Items[i].SubItems[28]
     ]);
   end;
   if values<>'' then
@@ -7555,7 +7562,7 @@ begin
         'INSERT INTO `%0:s` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, '+
 				'`event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, '+
 				'`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, '+
-				'`action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, '+
+				'`action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, '+
 				'`target_y`, `target_z`, `target_o`, `comment`) VALUES '#13#10'%3:s',[TableName, entry, sourcetype, Values]);
   end
   else
@@ -12399,6 +12406,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12411,6 +12419,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12423,6 +12432,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12435,6 +12445,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12447,6 +12458,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12459,6 +12471,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12471,6 +12484,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12483,6 +12497,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12495,6 +12510,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := 'x';
             lbcytarget_y.Caption := 'y';
             lbcytarget_z.Caption := 'z';
@@ -12507,6 +12523,7 @@ begin
             lbcytarget_param1.Caption := 'creatureEntry (0 any)';
             lbcytarget_param2.Caption := 'minDist';
             lbcytarget_param3.Caption := 'maxDist';
+			lbcytarget_param4.Caption := 'Number of targets (0 all)';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12519,6 +12536,7 @@ begin
             lbcytarget_param1.Caption := 'guid';
             lbcytarget_param2.Caption := 'entry';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12530,7 +12548,8 @@ begin
         begin
             lbcytarget_param1.Caption := 'creatureEntry (0 any)';
             lbcytarget_param2.Caption := 'maxDist';
-            lbcytarget_param3.Caption := '';
+            lbcytarget_param3.Caption := 'Number of targets (0 all)';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12543,6 +12562,7 @@ begin
             lbcytarget_param1.Caption := 'id';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12555,6 +12575,7 @@ begin
             lbcytarget_param1.Caption := 'goEntry (0 any)';
             lbcytarget_param2.Caption := 'minDist';
             lbcytarget_param3.Caption := 'maxDist';
+			lbcytarget_param4.Caption := 'Number of targets (0 all)';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12567,6 +12588,7 @@ begin
             lbcytarget_param1.Caption := 'guid';
             lbcytarget_param2.Caption := 'entry';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12578,7 +12600,8 @@ begin
         begin
             lbcytarget_param1.Caption := 'goEntry (0 any)';
             lbcytarget_param2.Caption := 'maxDist';
-            lbcytarget_param3.Caption := '';
+            lbcytarget_param3.Caption := 'Number of targets (0 all)';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12591,6 +12614,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12603,6 +12627,7 @@ begin
             lbcytarget_param1.Caption := 'minDist';
             lbcytarget_param2.Caption := 'maxDist';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12615,6 +12640,7 @@ begin
             lbcytarget_param1.Caption := 'maxDist';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12627,6 +12653,7 @@ begin
             lbcytarget_param1.Caption := 'creatureEntry (0 any)';
             lbcytarget_param2.Caption := 'maxDist';
             lbcytarget_param3.Caption := 'dead? (0/1)';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12641,6 +12668,7 @@ begin
             lbcytarget_param1.Caption := 'goEntry (0 any)';
             lbcytarget_param2.Caption := 'maxDist';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12655,6 +12683,7 @@ begin
             lbcytarget_param1.Caption := 'maxDist';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12667,6 +12696,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12679,6 +12709,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12691,6 +12722,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12703,6 +12735,7 @@ begin
             lbcytarget_param1.Caption := 'maxDist';
             lbcytarget_param2.Caption := 'playerOnly (0/1)';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12717,6 +12750,7 @@ begin
             lbcytarget_param1.Caption := 'maxDist';
             lbcytarget_param2.Caption := 'playerOnly (0/1)';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12731,6 +12765,7 @@ begin
             lbcytarget_param1.Caption := '';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12743,6 +12778,7 @@ begin
             lbcytarget_param1.Caption := 'maxDist';
             lbcytarget_param2.Caption := 'playerOnly';
             lbcytarget_param3.Caption := 'isInLos (0/1)';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';
@@ -12755,6 +12791,7 @@ begin
             lbcytarget_param1.Caption := 'seatMask';
             lbcytarget_param2.Caption := '';
             lbcytarget_param3.Caption := '';
+			lbcytarget_param4.Caption := '';
             lbcytarget_x.Caption := '';
             lbcytarget_y.Caption := '';
             lbcytarget_z.Caption := '';

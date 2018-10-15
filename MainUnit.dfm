@@ -21878,6 +21878,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'target_param3'
           end
+          object lbcytarget_param4: TLabel
+            Left = 539
+            Top = 474
+            Width = 68
+            Height = 13
+            Caption = 'target_param4'
+          end
           object lbcytarget_x: TLabel
             Left = 2
             Top = 519
@@ -22046,6 +22053,9 @@ object MainForm: TMainForm
                 Width = 36
               end
               item
+                Width = 36
+              end
+              item
               end
               item
               end
@@ -22067,6 +22077,8 @@ object MainForm: TMainForm
               '=36,13=36,14=36,15=36,16=36,17=36,18=36,19=36,20=36,21=36,22=36,' +
               '23=36,24=50,25=50,26=50,27=50,28=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -22495,13 +22507,22 @@ object MainForm: TMainForm
             TabOrder = 23
             Text = '0'
           end
+          object edcytarget_param4: TJvComboEdit
+            Left = 539
+            Top = 490
+            Width = 130
+            Height = 21
+            ShowButton = False
+            TabOrder = 24
+            Text = '0'
+          end
           object edcytarget_x: TJvComboEdit
             Left = 3
             Top = 534
             Width = 121
             Height = 21
             ShowButton = False
-            TabOrder = 24
+            TabOrder = 25
             Text = '0'
           end
           object edcytarget_z: TJvComboEdit
@@ -22510,7 +22531,7 @@ object MainForm: TMainForm
             Width = 130
             Height = 21
             ShowButton = False
-            TabOrder = 25
+            TabOrder = 26
             Text = '0'
           end
           object edcytarget_o: TJvComboEdit
@@ -22519,7 +22540,7 @@ object MainForm: TMainForm
             Width = 130
             Height = 21
             ShowButton = False
-            TabOrder = 26
+            TabOrder = 27
             Text = '0'
           end
           object edcycomment: TJvComboEdit
@@ -22528,7 +22549,7 @@ object MainForm: TMainForm
             Width = 502
             Height = 21
             ShowButton = False
-            TabOrder = 27
+            TabOrder = 28
             Text = ''
           end
           object edcyentryorguid: TJvComboEdit
@@ -22537,7 +22558,7 @@ object MainForm: TMainForm
             Width = 117
             Height = 21
             ShowButton = False
-            TabOrder = 28
+            TabOrder = 29
             Text = ''
           end
           object btcyLoad: TButton
@@ -22546,7 +22567,7 @@ object MainForm: TMainForm
             Width = 75
             Height = 25
             Caption = 'Search'
-            TabOrder = 29
+            TabOrder = 30
             OnClick = btcyLoadClick
           end
           object edcytarget_y: TJvComboEdit
@@ -22555,7 +22576,7 @@ object MainForm: TMainForm
             Width = 130
             Height = 21
             ShowButton = False
-            TabOrder = 30
+            TabOrder = 31
             Text = '0'
           end
         end
