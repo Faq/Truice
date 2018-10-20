@@ -84,12 +84,12 @@ object MainForm: TMainForm
               Height = 13
               Caption = 'Quest Starter'
             end
-            object lbQuestTenderSearch: TLabel
+            object lbQuestEnderSearch: TLabel
               Left = 136
               Top = 50
               Width = 65
               Height = 13
-              Caption = 'Quest Tender'
+              Caption = 'Quest Ender'
             end
             object edQuestID: TLabeledEdit
               Left = 9
@@ -156,7 +156,7 @@ object MainForm: TMainForm
               OnButtonClick = btQuestStarterSearchClick
               OnChange = edSearchChange
             end
-            object edQuestTenderSearch: TJvComboEdit
+            object edQuestEnderSearch: TJvComboEdit
               Left = 136
               Top = 64
               Width = 122
@@ -192,7 +192,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 3
               Text = ''
-              OnButtonClick = btQuestTenderSearchClick
+              OnButtonClick = btQuestEnderSearchClick
               OnChange = edSearchChange
             end
             object btSearch: TBitBtn
@@ -5113,27 +5113,27 @@ object MainForm: TMainForm
               end>
           end
         end
-        object tsQuestTender: TTabSheet
-          Caption = 'Quest Tenders'
+        object tsQuestender: TTabSheet
+          Caption = 'Quest enders'
           ImageIndex = 4
           DesignSize = (
             964
             627)
-          object lbQuestTenderInfo: TLabel
+          object lbQuestEnderInfo: TLabel
             Left = 8
             Top = 37
             Width = 185
             Height = 13
-            Caption = 'Quest Tenders (*_questender template)'
+            Caption = 'Quest enders (*_questender template)'
           end
-          object lbQuestTenderLocation: TLabel
+          object lbQuestenderLocation: TLabel
             Left = 8
             Top = 210
             Width = 105
             Height = 13
-            Caption = 'Quest Tender location'
+            Caption = 'Quest Ender location'
           end
-          object btAddQuestTender: TSpeedButton
+          object btAddQuestEnder: TSpeedButton
             Left = 8
             Top = 8
             Width = 73
@@ -5191,9 +5191,9 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btAddQuestTenderClick
+            OnClick = btAddQuestEnderClick
           end
-          object btDelQuestTender: TSpeedButton
+          object btDelQuestEnder: TSpeedButton
             Left = 87
             Top = 8
             Width = 73
@@ -5252,7 +5252,7 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btDelQuestTenderClick
+            OnClick = btDelQuestEnderClick
           end
           object lvqtTenderTemplate: TJvListView
             Left = 8

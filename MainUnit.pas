@@ -140,11 +140,11 @@ type
     tsSearch: TTabSheet;
     pnSearch: TPanel;
     lbQuestStarterSearch: TLabel;
-    lbQuestTenderSearch: TLabel;
+    lbQuestEnderSearch: TLabel;
     edQuestID: TLabeledEdit;
     edQuestTitle: TLabeledEdit;
     edQuestStarterSearch: TJvComboEdit;
-    edQuestTenderSearch: TJvComboEdit;
+    edQuestEnderSearch: TJvComboEdit;
     btSearch: TBitBtn;
     btClear: TBitBtn;
     gbSpecialFlags: TGroupBox;
@@ -313,9 +313,9 @@ type
     lbLocationOrLoot: TLabel;
     lvqtStarterTemplate: TJvListView;
     lvqtStarterLocation: TJvListView;
-    tsQuestTender: TTabSheet;
-    lbQuestTenderInfo: TLabel;
-    lbQuestTenderLocation: TLabel;
+    tsQuestender: TTabSheet;
+    lbQuestEnderInfo: TLabel;
+    lbQuestEnderLocation: TLabel;
     lvqtTenderTemplate: TJvListView;
     lvqtTenderLocation: TJvListView;
     tsScriptTab: TTabSheet;
@@ -1031,8 +1031,8 @@ type
     btFullScriptGOLocation: TButton;
     btAddQuestStarter: TSpeedButton;
     btDelQuestStarter: TSpeedButton;
-    btAddQuestTender: TSpeedButton;
-    btDelQuestTender: TSpeedButton;
+    btAddQuestEnder: TSpeedButton;
+    btDelQuestEnder: TSpeedButton;
     edqtRequiredMaxRepFaction: TJvComboEdit;
     edqtRequiredMaxRepValue: TLabeledEdit;
     lbRequiredMaxRepFaction: TLabel;
@@ -1606,7 +1606,7 @@ type
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure btAddQuestTenderClick(Sender: TObject);
+    procedure btAddQuestEnderClick(Sender: TObject);
     procedure lvQuestDblClick(Sender: TObject);
     procedure tsScriptTabShow(Sender: TObject);
     procedure btExecuteScriptClick(Sender: TObject);
@@ -1626,7 +1626,7 @@ type
     procedure btCheckQuestClick(Sender: TObject);
     procedure btCheckAllClick(Sender: TObject);
     procedure btQuestStarterSearchClick(Sender: TObject);
-    procedure btQuestTenderSearchClick(Sender: TObject);
+    procedure btQuestEnderSearchClick(Sender: TObject);
     procedure nSettingsClick(Sender: TObject);
     procedure btBrowseSiteClick(Sender: TObject);
     procedure btDeleteQuestClick(Sender: TObject);
@@ -1874,7 +1874,7 @@ type
     procedure lvqtStarterTemplateChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvqtTenderTemplateChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure btDelQuestStarterClick(Sender: TObject);
-    procedure btDelQuestTenderClick(Sender: TObject);
+    procedure btDelQuestEnderClick(Sender: TObject);
     procedure nReconnectClick(Sender: TObject);
     procedure tsCreatureUsedShow(Sender: TObject);
     procedure lvCreatureStartsEndsDblClick(Sender: TObject);
@@ -2036,10 +2036,10 @@ type
     procedure CompleteLocalesQuest;
     procedure ExecuteScript(script: string; memo: TMemo); overload;
     procedure LoadQuestStarters(QuestID: integer);
-    procedure LoadQuestTenders(QuestID: integer);
+    procedure LoadQuestEnders(QuestID: integer);
     procedure LoadQuestLocales(QuestID: integer);
     procedure LoadQuestStarterInfo(objtype: string; entry: string);
-    procedure LoadQuestTenderInfo(objtype: string; entry: string);
+    procedure LoadQuestEnderInfo(objtype: string; entry: string);
     procedure ClearFields(Where: TType);
     procedure SetDefaultFields(Where: TType);
     procedure ShowSettings(n: integer);
@@ -2299,9 +2299,9 @@ begin
     end;
   end;
 
-  if edQuestTenderSearch.Text<>'' then
+  if edQuestEnderSearch.Text<>'' then
   begin
-    GetWhoAndKey(edQuestTenderSearch.Text, who, key);
+    GetWhoAndKey(edQuestEnderSearch.Text, who, key);
     if who = 'creature' then
       MyTempQuery.SQL.Text := Format('SELECT `quest` FROM `creature_questender` WHERE (`id`=%s)',[key])
     else
@@ -2535,7 +2535,7 @@ begin
   end;
 end;
 
-procedure TMainForm.btAddQuestTenderClick(Sender: TObject);
+procedure TMainForm.btAddQuestEnderClick(Sender: TObject);
 var
   F: TWhoQuestForm;
 begin
@@ -2544,7 +2544,7 @@ begin
     if Assigned(lvqtTenderTemplate.Selected) then F.Prepare(lvqtTenderTemplate.Selected.Caption + ',' + lvqtTenderTemplate.Selected.SubItems[0]);
     if F.ShowModal=mrOk then
     begin
-      if F.rgTypeOfWho.ItemIndex=2 then // item cannot be a quest Tender now
+      if F.rgTypeOfWho.ItemIndex=2 then // item cannot be a quest Ender now
         ShowMessage(dmMain.Text[1]) else
       with lvqtTenderTemplate.Items.Add do
       begin
@@ -2639,7 +2639,7 @@ begin
     MyQuery.Close;
 
     LoadQuestStarters(QuestID);
-    LoadQuestTenders(QuestID);
+    LoadQuestEnders(QuestID);
     LoadQuestLocales(QuestID);
   except
     on E: Exception do
@@ -2843,7 +2843,7 @@ begin
     end;
 
   if lvqtTenderTemplate.Items.Count = 0 then
-    meqtLog.Lines.Add(dmMain.Text[6]) //'Error: QuestTender is not set'
+    meqtLog.Lines.Add(dmMain.Text[6]) //'Error: QuestEnder is not set'
   else
     for I := 0 to lvqtTenderTemplate.Items.Count - 1 do
     begin
@@ -3215,7 +3215,7 @@ begin
   MyQuery.Close;
 end;
 
-procedure TMainForm.LoadQuestTenderInfo(objtype: string; entry: string);
+procedure TMainForm.LoadQuestEnderInfo(objtype: string; entry: string);
 var
   SQLText: string;
 begin
@@ -3232,7 +3232,7 @@ begin
   LoadQueryToListView(SQLText, lvqtTenderLocation);
 end;
 
-procedure TMainForm.LoadQuestTenders(QuestID: integer);
+procedure TMainForm.LoadQuestEnders(QuestID: integer);
 begin
   // search for quest starter
   MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.npcflag FROM `creature_questender` q ' +
@@ -3548,18 +3548,18 @@ begin
   end;
 end;
 
-procedure TMainForm.btQuestTenderSearchClick(Sender: TObject);
+procedure TMainForm.btQuestEnderSearchClick(Sender: TObject);
 var
   F: TWhoQuestForm;
 begin
   F := TWhoQuestForm.Create(self);
   try
-    if edQuestTenderSearch.Text<>'' then F.Prepare(edQuestTenderSearch.Text);
+    if edQuestEnderSearch.Text<>'' then F.Prepare(edQuestEnderSearch.Text);
     if F.ShowModal=mrOk then
     begin
-      if F.rgTypeOfWho.ItemIndex=2 then // item cannot be a quest Tender now
+      if F.rgTypeOfWho.ItemIndex=2 then // item cannot be a quest Ender now
         ShowMessage(dmMain.Text[1]) else
-      edQuestTenderSearch.Text := Format('%s,%s',[F.rgTypeOfWho.items[F.rgTypeOfWho.itemindex],F.lvWho.Selected.Caption]);
+      edQuestEnderSearch.Text := Format('%s,%s',[F.rgTypeOfWho.items[F.rgTypeOfWho.itemindex],F.lvWho.Selected.Caption]);
     end;
   finally
     F.Free;
@@ -3915,7 +3915,7 @@ begin
     lvqtStarterTemplate.DeleteSelected;
 end;
 
-procedure TMainForm.btDelQuestTenderClick(Sender: TObject);
+procedure TMainForm.btDelQuestEnderClick(Sender: TObject);
 begin
   if Assigned(lvqtTenderTemplate.Selected) then
     lvqtTenderTemplate.DeleteSelected;
@@ -3945,7 +3945,7 @@ begin
   edQuestID.Clear;
   edQuestTitle.Clear;
   edQuestStarterSearch.Clear;
-  edQuestTenderSearch.Clear;
+  edQuestEnderSearch.Clear;
   edQuestSortIDSearch.Clear;
   edQuestFlagsSearch.Clear;
   lvQuest.Clear;
@@ -12879,7 +12879,7 @@ end;
 
 procedure TMainForm.lvqtTenderTemplateChange(Sender: TObject; Item: TListItem; Change: TItemChange);
 begin
-  btDelQuestTender.Enabled := Assigned(lvqtTenderTemplate.Selected);
+  btDelQuestEnder.Enabled := Assigned(lvqtTenderTemplate.Selected);
 end;
 
 procedure TMainForm.lvqtTenderTemplateDblClick(Sender: TObject);
@@ -12892,7 +12892,7 @@ procedure TMainForm.lvqtTenderTemplateSelectItem(Sender: TObject; Item: TListIte
   Selected: Boolean);
 begin
   if Selected then
-    LoadQuestTenderInfo(Item.Caption, Item.SubItems[0]);
+    LoadQuestEnderInfo(Item.Caption, Item.SubItems[0]);
 end;
 
 procedure TMainForm.lvqtStarterTemplateChange(Sender: TObject; Item: TListItem; Change: TItemChange);
