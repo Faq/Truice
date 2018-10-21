@@ -5398,19 +5398,19 @@ object MainForm: TMainForm
               Height = 13
               Caption = 'EndText'
             end
-            object l2RequestItemsText: TLabel
+            object l2CompletionText: TLabel
               Left = 296
               Top = 240
               Width = 86
               Height = 13
-              Caption = 'RequestItemsText'
+              Caption = 'CompletionText'
             end
-            object l2OfferRewardText: TLabel
+            object l2RewardText: TLabel
               Left = 5
               Top = 240
               Width = 81
               Height = 13
-              Caption = 'OfferRewardText'
+              Caption = 'RewardText'
             end
             object edlqTitle: TLabeledEdit
               Left = 3
@@ -5452,7 +5452,7 @@ object MainForm: TMainForm
               ScrollBars = ssVertical
               TabOrder = 3
             end
-            object edlqOfferRewardText: TMemo
+            object edlqRewardText: TMemo
               Left = 5
               Top = 256
               Width = 275
@@ -5463,7 +5463,7 @@ object MainForm: TMainForm
               ScrollBars = ssVertical
               TabOrder = 4
             end
-            object edlqRequestItemsText: TMemo
+            object edlqCompletionText: TMemo
               Left = 296
               Top = 256
               Width = 275

@@ -1275,10 +1275,10 @@ type
     l2Objectives: TLabel;
     l2EndText: TLabel;
     edlqEndText: TMemo;
-    edlqOfferRewardText: TMemo;
-    edlqRequestItemsText: TMemo;
-    l2RequestItemsText: TLabel;
-    l2OfferRewardText: TLabel;
+    edlqRewardText: TMemo;
+    edlqCompletionText: TMemo;
+    l2CompletionText: TLabel;
+    l2RewardText: TLabel;
     edlqObjectiveText1: TLabeledEdit;
     edlqObjectiveText2: TLabeledEdit;
     edlqObjectiveText3: TLabeledEdit;
@@ -3115,7 +3115,8 @@ var
 loc: string;
 begin
   loc:= LoadLocales();
-  MyQuery.SQL.Text := Format('SELECT locale, Title, Details, Objectives, OfferRewardText, RequestItemsText, EndText, CompletedText, ObjectiveText1, ObjectiveText2, ObjectiveText3, ObjectiveText4, VerifiedBuild FROM quest_template_locale WHERE ID=%d', [QuestID]);
+  MyQuery.SQL.Text := Format('SELECT loc.locale, loc.Title, loc.Details, loc.Objectives, loc.EndText, loc.CompletedText, loc.ObjectiveText1, loc.ObjectiveText2, loc.ObjectiveText3, loc.ObjectiveText4, loc.VerifiedBuild, rl.RewardText, il.CompletionText '+
+  'FROM `quest_template_locale` loc LEFT OUTER JOIN quest_offer_reward_locale rl on rl.ID = loc.ID AND rl.locale = loc.locale LEFT OUTER JOIN quest_request_items_locale il on il.ID = loc.ID AND il.locale = loc.locale WHERE loc.ID=%d',[QuestID]);
   MyQuery.Open;
   edlqlocale.EditLabel.Caption:= 'locale';
   edlqTitle.EditLabel.Caption:= 'Title';
@@ -3123,8 +3124,8 @@ begin
   l2Objectives.Caption:= 'Objectives';
   l2EndText.Caption:= 'EndText';
   edlqCompletedText.EditLabel.Caption:= 'CompletedText';
-  l2OfferRewardText.Caption:= 'OfferRewardText';
-  l2RequestItemsText.Caption:= 'RequestItemsText';
+  l2RewardText.Caption:= 'RewardText';
+  l2CompletionText.Caption:= 'CompletionText';
   edlqObjectiveText1.EditLabel.Caption:= 'ObjectiveText1';
   edlqObjectiveText2.EditLabel.Caption:= 'ObjectiveText2';
   edlqObjectiveText3.EditLabel.Caption:= 'ObjectiveText3';
@@ -3134,19 +3135,19 @@ begin
 
   while (MyQuery.Eof=false) do
   begin
-    edlqlocale.Text:=MyQuery.Fields[0].AsString;
-    edlqTitle.Text:=MyQuery.Fields[1].AsString;
-    edlqDetails.Text:=MyQuery.Fields[2].AsString;
-    edlqObjectives.Text:=MyQuery.Fields[3].AsString;
-    edlqOfferRewardText.Text:=MyQuery.Fields[4].AsString;
-    edlqRequestItemsText.Text:=MyQuery.Fields[5].AsString;
-    edlqEndText.Text:=MyQuery.Fields[6].AsString;
-    edlqCompletedText.Text:=MyQuery.Fields[7].AsString;
-    edlqObjectiveText1.Text:=MyQuery.Fields[8].AsString;
-    edlqObjectiveText2.Text:=MyQuery.Fields[9].AsString;
-    edlqObjectiveText3.Text:=MyQuery.Fields[10].AsString;
-    edlqObjectiveText4.Text:=MyQuery.Fields[11].AsString;
-    edlqVerifiedBuild.Text:=MyQuery.Fields[12].AsString;
+    edlqlocale.Text:=MyQuery.FieldByName('locale').AsString;
+    edlqTitle.Text:=MyQuery.FieldByName('Title').AsString;
+    edlqDetails.Text:=MyQuery.FieldByName('Details').AsString;
+    edlqObjectives.Text:=MyQuery.FieldByName('Objectives').AsString;
+    edlqEndText.Text:=MyQuery.FieldByName('EndText').AsString;
+    edlqCompletedText.Text:=MyQuery.FieldByName('CompletedText').AsString;
+    edlqObjectiveText1.Text:=MyQuery.FieldByName('ObjectiveText1').AsString;
+    edlqObjectiveText2.Text:=MyQuery.FieldByName('ObjectiveText2').AsString;
+    edlqObjectiveText3.Text:=MyQuery.FieldByName('ObjectiveText3').AsString;
+    edlqObjectiveText4.Text:=MyQuery.FieldByName('ObjectiveText4').AsString;
+    edlqVerifiedBuild.Text:=MyQuery.FieldByName('VerifiedBuild').AsString;
+	edlqRewardText.Text := MyQuery.FieldByName('RewardText').AsString;
+	edlqCompletionText.Text := MyQuery.FieldByName('CompletionText').AsString;
     MyQuery.Next;
   end;
   MyQuery.Close;
