@@ -9193,8 +9193,7 @@ begin
     end;
 end;
 
-procedure TMainForm.lvSearchPageTextSelectItem(Sender: TObject; Item: TListItem;
-  Selected: Boolean);
+procedure TMainForm.lvSearchPageTextSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 begin
   if Selected then
   begin
@@ -9636,6 +9635,7 @@ begin
             lbcyevent_param2.Caption := 'InitialMax';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+            lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'In combat';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9645,6 +9645,7 @@ begin
             lbcyevent_param2.Caption := 'InitialMax';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'Out of combat';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9654,6 +9655,7 @@ begin
             lbcyevent_param2.Caption := 'HPMax%';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'At Health Pct';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9663,6 +9665,7 @@ begin
             lbcyevent_param2.Caption := 'ManaMax%';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'At Mana Pct';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9672,6 +9675,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Aggro';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9679,8 +9683,13 @@ begin
         begin
             lbcyevent_param1.Caption := 'CooldownMin0';
             lbcyevent_param2.Caption := 'CooldownMax1';
-            lbcyevent_param3.Caption := 'Player only (0 / 1) (if 0, set entry in param 4)';
-            lbcyevent_param4.Caption := 'If param3 is 0, this is creature entry to kill';
+            lbcyevent_param3.Caption := 'Player only (0 / 1)';
+            lbcyevent_param4.Caption := 'If param3=0';
+			lbcyevent_param5.Caption := '';
+            lbcyevent_param3.Hint := 'if 0, set entry in param 4';
+            edcyevent_param3.Hint := lbcyevent_param3.Hint;
+            lbcyevent_param4.Hint := 'enter creature entry to kill';
+            edcyevent_param4.Hint := lbcyevent_param4.Hint;
             lbcyevent_type.Hint := 'On Creature Kill';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9690,6 +9699,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Death';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9699,6 +9709,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Evade Attack';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9708,6 +9719,7 @@ begin
             lbcyevent_param2.Caption := 'School';
             lbcyevent_param3.Caption := 'CooldownMin';
             lbcyevent_param4.Caption := 'CooldownMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature/Gameobject Spell Hit';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9717,6 +9729,7 @@ begin
             lbcyevent_param2.Caption := 'MaxDist';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target In Range';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9734,10 +9747,13 @@ begin
         end;
     11:  //SMART_EVENT_RESPAWN
         begin
-            lbcyevent_param1.Caption := 'Respawn type (0 = none, 1 = map, 2 = area)';
+            lbcyevent_param1.Caption := 'Respawn type';
             lbcyevent_param2.Caption := 'Map id (if type is 1)';
             lbcyevent_param3.Caption := 'Area id (if type is 2)';
             lbcyevent_param4.Caption := '';
+            lbcyevent_param5.Caption := '';
+			lbcyevent_param1.Hint := '0 = none, 1 = map, 2 = area';
+            edcyevent_param1.Hint := lbcyevent_param1.Hint;
             lbcyevent_type.Hint := 'On Creature/Gameobject Respawn';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9747,6 +9763,7 @@ begin
             lbcyevent_param2.Caption := 'HPMax%';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Health Percentage';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9756,6 +9773,7 @@ begin
             lbcyevent_param2.Caption := 'RepeatMax';
             lbcyevent_param3.Caption := 'Spellid';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_param3.Hint := 'if 0, check is done for all spells';
             edcyevent_param3.Hint := lbcyevent_param3.Hint;
             lbcyevent_type.Hint := 'On Victim Casting Spell';
@@ -9767,6 +9785,7 @@ begin
             lbcyevent_param2.Caption := 'Radius';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Friendly Health Deficit';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9776,6 +9795,7 @@ begin
             lbcyevent_param2.Caption := 'RepeatMin';
             lbcyevent_param3.Caption := 'RepeatMax';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Friendly Crowd Controlled';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9785,6 +9805,7 @@ begin
             lbcyevent_param2.Caption := 'Radius';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Friendly Missing Buff';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9793,7 +9814,8 @@ begin
             lbcyevent_param1.Caption := 'CretureId (0 all)';
             lbcyevent_param2.Caption := 'CooldownMin';
             lbcyevent_param3.Caption := 'CooldownMax';
-            lbcyevent_param4.Caption := 'On Creature/Gameobject Summoned Unit';
+            lbcyevent_param4.Caption := 'On Creature/GOB Summoned Unit';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9803,6 +9825,7 @@ begin
             lbcyevent_param2.Caption := 'ManaMax%';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Mana Percentage';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9812,6 +9835,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Accepted Quest';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9821,6 +9845,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Rewarded Quest';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9830,6 +9855,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Reached Home';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9839,6 +9865,7 @@ begin
             lbcyevent_param2.Caption := 'CooldownMin';
             lbcyevent_param3.Caption := 'CooldownMax';
             lbcyevent_param4.Caption := 'condition';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'val1,val2,val3 (?)';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9848,6 +9875,7 @@ begin
             lbcyevent_param2.Caption := 'Stacks';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Has Aura';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9857,6 +9885,7 @@ begin
             lbcyevent_param2.Caption := 'Stacks';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Buffed With Spell';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9866,6 +9895,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'Called after combat, when the creature respawns or at spawn.';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9887,6 +9917,7 @@ begin
             lbcyevent_param2.Caption := 'CooldownMax';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9896,6 +9927,7 @@ begin
             lbcyevent_param2.Caption := 'CooldownMax';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9905,6 +9937,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Charmed';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9914,6 +9947,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Charmed';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9923,6 +9957,7 @@ begin
             lbcyevent_param2.Caption := 'School';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Spell Hit';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9932,6 +9967,7 @@ begin
             lbcyevent_param2.Caption := 'MaxDmg';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Damaged';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9941,6 +9977,7 @@ begin
             lbcyevent_param2.Caption := 'MaxDmg';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Damaged';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9950,6 +9987,7 @@ begin
             lbcyevent_param2.Caption := 'PointID';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9959,6 +9997,7 @@ begin
             lbcyevent_param2.Caption := 'CooldownMin';
             lbcyevent_param3.Caption := 'CooldownMax';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Summoned Unit Despawned';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9968,6 +10007,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Corpse Removed';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9977,6 +10017,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9986,6 +10027,7 @@ begin
             lbcyevent_param2.Caption := 'Value';
             lbcyevent_param3.Caption := 'CooldownMin';
             lbcyevent_param4.Caption := 'CooldownMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature/Gameobject Data Set, Can be used with SMART_ACTION_SET_DATA';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -9995,6 +10037,7 @@ begin
             lbcyevent_param2.Caption := 'pathId (0 any)';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Waypoint ID Started';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10004,6 +10047,7 @@ begin
             lbcyevent_param2.Caption := 'pathId (0 any)';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Waypoint ID Reached';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10013,6 +10057,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10022,6 +10067,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10031,6 +10077,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10040,6 +10087,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10049,6 +10097,7 @@ begin
             lbcyevent_param2.Caption := 'CooldownMin';
             lbcyevent_param3.Caption := 'CooldownMax';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10058,6 +10107,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10067,6 +10117,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Quest Accepted';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10076,6 +10127,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Quest Objective Completed';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10085,6 +10137,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Quest Completed';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10094,6 +10147,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Quest Rewarded';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10103,6 +10157,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Target Quest Field';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10112,6 +10167,7 @@ begin
             lbcyevent_param2.Caption := 'CreatureId (0 = any)';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On TEXT_OVER Event Triggered After SMART_ACTION_TALK';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10121,6 +10177,7 @@ begin
             lbcyevent_param2.Caption := 'MaxHeal';
             lbcyevent_param3.Caption := 'CooldownMin';
             lbcyevent_param4.Caption := 'CooldownMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Received Healing';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10130,6 +10187,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Just spawned';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10139,6 +10197,7 @@ begin
             lbcyevent_param2.Caption := 'pathID (0 any)';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Paused at Waypoint ID';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10148,6 +10207,7 @@ begin
             lbcyevent_param2.Caption := 'pathID (0 any)';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Resumed after Waypoint ID';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10157,6 +10217,7 @@ begin
             lbcyevent_param2.Caption := 'pathID (0 any)';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Stopped On Waypoint ID';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10166,6 +10227,7 @@ begin
             lbcyevent_param2.Caption := 'pathID (0 any)';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On Creature Waypoint Path Ended';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10175,6 +10237,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10184,6 +10247,7 @@ begin
             lbcyevent_param2.Caption := 'InitialMax';
             lbcyevent_param3.Caption := 'RepeatMin';
             lbcyevent_param4.Caption := 'RepeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10193,6 +10257,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'used to link together multiple events';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10202,6 +10267,7 @@ begin
             lbcyevent_param2.Caption := 'actionID';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10211,6 +10277,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10220,6 +10287,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10229,6 +10297,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10238,6 +10307,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On event phase mask set';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10247,6 +10317,7 @@ begin
             lbcyevent_param2.Caption := 'CooldownMax';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10256,6 +10327,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10265,6 +10337,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10274,6 +10347,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := ' 	State (0 - Active, 1 - Ready, 2 - Active alternative) ';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10283,6 +10357,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10292,6 +10367,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := ' id=1001 spellclick, id=1002 fall on ground, id=1003 charge ';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10301,6 +10377,7 @@ begin
             lbcyevent_param2.Caption := '';
             lbcyevent_param3.Caption := '';
             lbcyevent_param4.Caption := '';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10310,6 +10387,7 @@ begin
             lbcyevent_param2.Caption := 'maxHpPct';
             lbcyevent_param3.Caption := 'repeatMin';
             lbcyevent_param4.Caption := 'repeatMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := '';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10319,6 +10397,7 @@ begin
             lbcyevent_param2.Caption := 'database entry';
             lbcyevent_param3.Caption := 'distance';
             lbcyevent_param4.Caption := 'repeat interval (ms)';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On creature guid OR any instance of creature entry is within distance.';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10328,6 +10407,7 @@ begin
             lbcyevent_param2.Caption := 'database entry';
             lbcyevent_param3.Caption := 'distance';
             lbcyevent_param4.Caption := 'repeat interval (ms)';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'On gameobject guid OR any instance of gameobject entry is within distance.';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
@@ -10337,6 +10417,7 @@ begin
             lbcyevent_param2.Caption := 'value';
             lbcyevent_param3.Caption := 'cooldownMin';
             lbcyevent_param4.Caption := 'cooldownMax';
+			lbcyevent_param5.Caption := '';
             lbcyevent_type.Hint := 'If the value of specified counterID is equal to a specified value';
             edcyevent_type.Hint := lbcyevent_type.Hint;
         end;
