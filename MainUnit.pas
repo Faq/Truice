@@ -25,7 +25,7 @@ const
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3 + '.' + VERSION_4;
 
   SCRIPT_TAB_NO_QUEST       = 6;
-  SCRIPT_TAB_NO_CREATURE    = 16;
+  SCRIPT_TAB_NO_CREATURE    = 17;
   SCRIPT_TAB_NO_GAMEOBJECT  = 6;
   SCRIPT_TAB_NO_ITEM        = 10;
   SCRIPT_TAB_NO_SMARTAI     = 1;
@@ -64,6 +64,7 @@ const
   PFX_MILLING_LOOT_TEMPLATE         = 'im';
   PFX_REFERENCE_LOOT_TEMPLATE       = 'ir';
   PFX_PAGE_TEXT                     = 'pt';
+  PFX_CREATURE_TEXT                 = 'ctt';
   PFX_FISHING_LOOT_TEMPLATE         = 'ot';
   PFX_CHARACTER                     = 'ht';
   PFX_CHARACTER_INVENTORY           = 'hi';
@@ -879,6 +880,28 @@ type
     btFullScriptFishLoot: TButton;
     edotZone: TJvComboEdit;
     btGetLootForZone: TButton;
+    tsCreatureText: TTabSheet;
+	cttSearchCreatureText: TJvListView;
+    cttGroupBox: TGroupBox;
+    cttClearSearchCreatureText: TBitBtn;
+    btSearchCreatureText: TBitBtn;
+    edSearchCreatureText: TLabeledEdit;
+    edSearchCreatureTextCreatureID: TLabeledEdit;
+    cttPanel13: TPanel;
+    edcttCreatureId: TLabeledEdit;
+    edcttGroupID: TLabeledEdit;
+    edcttText: TLabeledEdit;
+    btScriptCreatureText: TButton;
+    edcttID: TLabeledEdit;
+	edcttType: TLabeledEdit;
+	edcttLanguage: TLabeledEdit;
+	edcttProbability: TLabeledEdit;
+	edcttEmote: TLabeledEdit;
+	edcttDuration: TLabeledEdit;
+	edcttSound: TLabeledEdit;
+	edcttBroadcastTextId: TLabeledEdit;
+	edcttTextRange: TLabeledEdit;
+	edcttcomment: TLabeledEdit;
     tsPageText: TTabSheet;
     lvSearchPageText: TJvListView;
     GroupBox1: TGroupBox;
@@ -1808,6 +1831,10 @@ type
     procedure edqtQuestSortIDButtonClick(Sender: TObject);
     procedure edqtQuestSortIDChange(Sender: TObject);
     procedure edQuestSortIDSearchButtonClick(Sender: TObject);
+    procedure btSearchCreatureTextClick(Sender: TObject);
+    procedure cttSearchCreatureTextSelectItem(Sender: TObject; Item: TListItem;
+      Selected: Boolean);
+    procedure btScriptCreatureTextClick(Sender: TObject);
     procedure btSearchPageTextClick(Sender: TObject);
     procedure lvSearchPageTextSelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);
@@ -2050,6 +2077,7 @@ type
     {creatures}
     procedure SearchCreature;
     procedure SearchCreatureModelInfo;
+    procedure SearchCreatureText;
 
     procedure LoadCreature(Entry: integer);
     procedure LoadCreatureTemplateAddon(entry: integer);
@@ -2074,6 +2102,7 @@ type
     procedure CompleteCreatureAddonScript;
     procedure CompleteCreatureTemplateMovementScript;
     procedure CompleteCreatureOnKillReputationScript;
+    procedure CompleteCreatureTextScript;
 
    {gameobjects}
     procedure SearchGO;
@@ -3961,6 +3990,7 @@ begin
   edSearchCreatureSubName.Clear;
   lvSearchCreature.Clear;
   edSearchCreaturenpcflag.Clear;
+  edSearchCreatureTextCreatureID.Clear;
 end;
 
 procedure TMainForm.btSearchCreatureClick(Sender: TObject);
@@ -4622,8 +4652,9 @@ begin
     7: CompleteSkinLootScript;
     8: CompleteNPCVendorScript;
     9: CompleteNPCTrainerScript;
-    10: CompleteCreatureTemplateAddonScript;
-    11: CompleteCreatureAddonScript;
+	10: CompleteCreatureTextScript;
+    11: CompleteCreatureTemplateAddonScript;
+    12: CompleteCreatureAddonScript;
     13: CompleteCreatureTemplateMovementScript;
     14: CompleteCreatureOnKillReputationScript;
     15: {involved in tab - do nothing};
@@ -9182,6 +9213,58 @@ begin
     GetValueFromSimpleList(Sender, 11, 'QuestSort', false);
 end;
 
+procedure TMainForm.btSearchCreatureTextClick(Sender: TObject);
+begin
+  SearchCreatureText();
+  with cttSearchCreatureText do
+    if Items.Count > 0 then
+    begin
+      SetFocus;
+      Selected := Items[0];
+    end;
+end;
+
+procedure TMainForm.cttSearchCreatureTextSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+  begin
+    edcttCreatureId.Text := Item.Caption;
+    edcttGroupID.Text := Item.SubItems[0];
+    edcttID.Text := Item.SubItems[1];
+    edcttText.Text := Item.SubItems[2];
+	edcttType.Text := Item.SubItems[3];
+	edcttLanguage.Text := Item.SubItems[4];
+	edcttProbability.Text := Item.SubItems[5];
+	edcttEmote.Text := Item.SubItems[6];
+	edcttDuration.Text := Item.SubItems[7];
+	edcttSound.Text := Item.SubItems[8];
+	edcttBroadcastTextId.Text := Item.SubItems[9];
+	edcttTextRange.Text := Item.SubItems[10];
+	edcttcomment.Text := Item.SubItems[11];
+  end;
+end;
+
+procedure TMainForm.btScriptCreatureTextClick(Sender: TObject);
+begin
+  PageControl3.ActivePageIndex := SCRIPT_TAB_NO_CREATURE;
+end;
+
+procedure TMainForm.CompleteCreatureTextScript;
+var
+  CreatureID, Fields, Values: string;
+begin
+  mectLog.Clear;
+  CreatureID :=  edcttCreatureId.Text;
+  if (CreatureID='') then Exit;
+  SetFieldsAndValues(Fields, Values, 'creature_text', PFX_CREATURE_TEXT, mectLog);
+  case SyntaxStyle of
+    ssInsertDelete: mectScript.Text := Format('DELETE FROM `creature_text` WHERE (`CreatureID`=%s);'#13#10+
+      'INSERT INTO `creature_text` (%s) VALUES (%s);'#13#10,[CreatureID, Fields, Values]);
+    ssReplace: mectScript.Text := Format('REPLACE INTO `creature_text` (%s) VALUES (%s);'#13#10,[Fields, Values]);
+    ssUpdate: mectScript.Text := MakeUpdate('creature_text', PFX_CREATURE_TEXT, 'CreatureID', CreatureID) ;
+  end;
+end;
+
 procedure TMainForm.btSearchPageTextClick(Sender: TObject);
 begin
   SearchPageText();
@@ -9222,6 +9305,70 @@ begin
       'INSERT INTO `page_text` (%s) VALUES (%s);'#13#10,[ID, Fields, Values]);
     ssReplace: meotScript.Text := Format('REPLACE INTO `page_text` (%s) VALUES (%s);'#13#10,[Fields, Values]);
     ssUpdate: meotScript.Text := MakeUpdate('page_text', PFX_PAGE_TEXT, 'ID', ID) ;
+  end;
+end;
+
+procedure TMainForm.SearchCreatureText;
+var
+  i: integer;
+  CreatureID, Name, QueryStr, WhereStr, t: string;
+  Field: TField;
+begin
+  CreatureID :=  edSearchCreatureTextCreatureID.Text;
+  Name := edSearchCreatureText.Text;
+  Name := StringReplace(Name, '''', '\''', [rfReplaceAll]);
+  Name := StringReplace(Name, ' ', '%', [rfReplaceAll]);
+  Name := '%'+Name+'%';
+
+  QueryStr := '';
+  WhereStr := '';
+  if CreatureID<>'' then
+  begin
+    if pos('-', CreatureID)=0 then
+      WhereStr := Format('WHERE (`CreatureID` in (%s))',[CreatureID])
+    else
+      WhereStr := Format('WHERE (`CreatureID` >= %s) AND (`CreatureID` <= %s)',[MidStr(CreatureID,1,pos('-',creatureid)-1), MidStr(CreatureID,pos('-',creatureid)+1,length(creatureid))]);
+  end;
+
+  if Name<>'%%' then
+  begin
+    if WhereStr<> '' then
+      WhereStr := Format('%s AND (`text` LIKE ''%s'')',[WhereStr, Name])
+    else
+      WhereStr := Format('WHERE (`text` LIKE ''%s'')',[Name]);
+  end;
+
+  if Trim(WhereStr)='' then
+    if MessageDlg(dmMain.Text[134], mtConfirmation, mbYesNoCancel, -1)<>mrYes then Exit;
+
+  QueryStr := Format('SELECT * FROM `creature_text` %s',[WhereStr]);
+
+  MyQuery.SQL.Text := QueryStr;
+  cttSearchCreatureText.Items.BeginUpdate;
+  try
+    MyQuery.Open;
+    cttSearchCreatureText.Clear;
+    while (MyQuery.Eof=false) do
+    begin
+      with cttSearchCreatureText.Items.Add do
+      begin
+        for i := 0 to cttSearchCreatureText.Columns.Count - 1 do
+        begin
+          Field := MyQuery.FindField(cttSearchCreatureText.Columns[i].Caption);
+          t := '';
+          if Assigned(Field) then
+          begin
+            t := Field.AsString;
+            if i=0 then Caption := t;
+          end;
+          if i<>0 then SubItems.Add(t);
+        end;
+        MyQuery.Next;
+      end;
+    end;
+  finally
+    cttSearchCreatureText.Items.EndUpdate;
+    MyQuery.Close;
   end;
 end;
 

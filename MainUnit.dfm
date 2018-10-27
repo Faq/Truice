@@ -11429,6 +11429,353 @@ object MainForm: TMainForm
             OnClick = btFullScriptTrainerClick
           end
         end
+        object tsCreatureText: TTabSheet
+          Caption = 'Creature Text'
+          ImageIndex = 2
+          object cttSearchCreatureText: TJvListView
+            Left = 0
+            Top = 89
+            Width = 964
+            Height = 320
+            Align = alClient
+            BorderStyle = bsNone
+            Columns = <
+              item
+                Caption = 'CreatureID'
+                Width = 63
+              end
+              item
+                Caption = 'GroupID'
+                Width = 52
+              end
+              item
+                Caption = 'ID'
+                Width = 28
+              end
+              item
+                Caption = 'Text'
+                Width = 250
+              end
+              item
+                Caption = 'Type'
+                Width = 39
+              end
+              item
+                Caption = 'Language'
+                Width = 60
+              end
+              item
+                Caption = 'Probability'
+                Width = 62
+              end
+              item
+                Caption = 'Emote'
+                Width = 42
+              end
+              item
+                Caption = 'Duration'
+                Width = 52
+              end
+              item
+                Caption = 'Sound'
+                Width = 44
+              end
+              item
+                Caption = 'BroadcastTextID'
+                Width = 92
+              end
+              item
+                Caption = 'TextRange'
+                Width = 65
+              end
+              item
+                Caption = 'comment'
+                Width = 180
+              end>
+            HideSelection = False
+            ReadOnly = True
+            RowSelect = True
+            TabOrder = 0
+            ViewStyle = vsReport
+            OnSelectItem = cttSearchCreatureTextSelectItem
+            ColumnsOrder = '0=63,1=52,2=28,3=250,4=39,5=60,6=62,7=42,8=52,9=44,10=92,11=65,12=180'
+            ExtendedColumns = <
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end
+              item
+              end>
+          end
+          object cttGroupBox: TGroupBox
+            Left = 0
+            Top = 0
+            Width = 964
+            Height = 89
+            Align = alTop
+            TabOrder = 1
+            DesignSize = (
+              964
+              89)
+            object cttClearSearchCreatureText: TBitBtn
+              Left = 867
+              Top = 56
+              Width = 75
+              Height = 25
+              Anchors = [akTop, akRight]
+              Caption = 'Clear'
+              TabOrder = 4
+              OnClick = btClearSearchCreatureClick
+            end
+            object btSearchCreatureText: TBitBtn
+              Left = 867
+              Top = 24
+              Width = 75
+              Height = 25
+              Anchors = [akTop, akRight]
+              Caption = 'Search'
+              Default = True
+              Glyph.Data = {
+                36050000424D3605000000000000360400002800000010000000100000000100
+                080000000000000100000000000000000000000100000000000000000000FFFF
+                FF00957D6E00F9C6940043454800AEAEAE00E4D3CE006567690094949400C0A3
+                8800D5BBA700FFE2B300FFF0DA00C3C3C300787A7B00E3E2E400DEB48F005858
+                58008888880079706900F2D3B600FFF5EE00C5B0A700FFD3A100D2D2D200EEEE
+                EE00FFE8C400B6B8BA00897D7B009D9D9D00F9DBC3006E6E6E005F5F5F00CBCB
+                CC00C1BBBA008A7C6F0081818100FFCC9A00908C8B00FFE8CD0073737300B3B3
+                B30096989A00746B670063636300AAAAAA006B6969007D7B780048484800FFE4
+                C0006864650073716E005C5C5C0076767600858585008B8B8B009A9A9A007C7B
+                7C005A5A5A00717171008D8D8D009292920097979700686969006B6B6B005D5E
+                5E008A898900FFCA99007A7A7A00977D6D004747470072727200828080009898
+                980062626300C0C0C00000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                00000000000000000000000000000000000000000000000000004B4B4B4B4B4B
+                4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
+                4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
+                2B022E4B4B4B4B4B4B4B4B4B4B4B4B3F0325100E4B3945134B4B4B4B4B4B4A26
+                31270B3407091743334B4B4B4B461D1B161514042A0A0C1A234B4B4B40443D19
+                0F1C32412122061E2F4B4B302D051D3828303A24010148424B4B4B1136180D29
+                49243B28202C4B4B4B4B4B4B47243D123C3E081F4B4B4B4B4B4B4B4B4B4B4B4B
+                37354B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B
+                4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B4B}
+              Margin = 4
+              TabOrder = 3
+              OnClick = btSearchCreatureTextClick
+            end
+            object edSearchCreatureText: TLabeledEdit
+              Left = 96
+              Top = 32
+              Width = 433
+              Height = 21
+              EditLabel.Width = 21
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Text'
+              TabOrder = 1
+            end
+            object edSearchCreatureTextCreatureID: TLabeledEdit
+              Left = 8
+              Top = 32
+              Width = 81
+              Height = 21
+              EditLabel.Width = 9
+              EditLabel.Height = 13
+              EditLabel.Caption = 'CreatureID'
+              TabOrder = 0
+            end
+          end
+          object cttPanel13: TPanel
+            Left = 0
+            Top = 409
+            Width = 964
+            Height = 218
+            Align = alBottom
+            BevelOuter = bvNone
+            TabOrder = 2
+            DesignSize = (
+              964
+              218)
+            object edcttCreatureId: TLabeledEdit
+              Left = 8
+              Top = 25
+              Width = 73
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'CreatureID'
+              TabOrder = 0
+            end
+            object edcttGroupID: TLabeledEdit
+              Left = 87
+              Top = 25
+              Width = 73
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'GroupID'
+              TabOrder = 1
+            end
+            object edcttText: TLabeledEdit
+              Left = 243
+              Top = 25
+              Width = 699
+              Height = 141
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Text'
+              TabOrder = 2
+            end
+            object btScriptCreatureText: TButton
+              Left = 867
+              Top = 183
+              Width = 70
+              Height = 25
+              Anchors = [akLeft, akBottom]
+              Caption = 'Show Script'
+              TabOrder = 3
+              OnClick = btScriptCreatureTextClick
+            end
+            object edcttID: TLabeledEdit
+              Left = 166
+              Top = 25
+              Width = 71
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'ID'
+              TabOrder = 4
+            end
+            object edcttType: TLabeledEdit
+              Left = 8
+              Top = 65
+              Width = 71
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Type'
+              TabOrder = 5
+            end
+            object edcttLanguage: TLabeledEdit
+              Left = 85
+              Top = 65
+              Width = 71
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Language'
+              TabOrder = 6
+            end
+            object edcttProbability: TLabeledEdit
+              Left = 166
+              Top = 65
+              Width = 71
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Probability'
+              TabOrder = 7
+            end
+           object edcttEmote: TLabeledEdit
+              Left = 243
+              Top = 65
+              Width = 71
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Emote'
+              TabOrder = 8
+            end
+            object edcttDuration: TLabeledEdit
+              Left = 320
+              Top = 65
+              Width = 71
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Duration'
+              TabOrder = 9
+            end
+            object edcttSound: TLabeledEdit
+              Left = 397
+              Top = 65
+              Width = 71
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Sound'
+              TabOrder = 10
+            end
+           object edcttBroadcastTextId: TLabeledEdit
+              Left = 474
+              Top = 65
+              Width = 80
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'BroadcastTextId'
+              TabOrder = 11
+            end
+            object edcttTextRange: TLabeledEdit
+              Left = 560
+              Top = 65
+              Width = 71
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'TextRange'
+              TabOrder = 12
+            end
+            object edcttcomment: TLabeledEdit
+              Left = 8
+              Top = 105
+              Width = 460
+              Height = 21
+              EditLabel.Width = 58
+              EditLabel.Height = 13
+              EditLabel.Caption = 'comment'
+              TabOrder = 13
+            end
+          end
+        end
         object tsCreatureTemplateAddon: TTabSheet
           Caption = 'Creature Template Addon'
           ImageIndex = 16
