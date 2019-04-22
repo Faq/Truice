@@ -1168,6 +1168,19 @@ object MainForm: TMainForm
               EditLabel.Caption = 'RewardXPDifficulty'
               TabOrder = 5
             end
+            object edqtBreadcrumbForQuestId: TLabeledEdit
+              Left = 8
+              Top = 153
+              Width = 81
+              Height = 21
+              Hint = 
+                'Used for group of quests, for example for quests with one quest ' +
+                'tender and many quest starters.'
+              EditLabel.Width = 89
+              EditLabel.Height = 13
+              EditLabel.Caption = 'BreadcrumbForQId'
+              TabOrder = 6
+            end
           end
           object gbQuestSorting: TGroupBox
             Left = 201
@@ -1830,50 +1843,50 @@ object MainForm: TMainForm
             end
           end
           object gbDescription: TGroupBox
-            Left = 3
-            Top = 160
+            Left = 10
+            Top = 199
             Width = 867
-            Height = 441
+            Height = 426
             Caption = 'Description of quest'
             TabOrder = 5
             object lDetails: TLabel
-              Left = 8
-              Top = 56
+              Left = 5
+              Top = 58
               Width = 84
               Height = 13
               Caption = 'Quest Description'
             end
             object lObjectives: TLabel
-              Left = 296
-              Top = 56
+              Left = 298
+              Top = 58
               Width = 74
               Height = 13
               Caption = 'Log Description'
             end
             object lRewardText: TLabel
-              Left = 8
-              Top = 258
+              Left = 5
+              Top = 250
               Width = 58
               Height = 13
               Caption = 'RewardText'
             end
             object lCompletionText: TLabel
-              Left = 299
-              Top = 258
+              Left = 296
+              Top = 250
               Width = 73
               Height = 13
               Caption = 'CompletionText'
             end
             object lEndText: TLabel
-              Left = 584
-              Top = 56
+              Left = 581
+              Top = 58
               Width = 40
               Height = 13
               Caption = 'EndText'
             end
             object edqtLogTitle: TLabeledEdit
               Left = 8
-              Top = 32
+              Top = 29
               Width = 386
               Height = 21
               Hint = 'Title of the quest.'
@@ -1883,26 +1896,26 @@ object MainForm: TMainForm
               TabOrder = 0
             end
             object edqtQuestDescription: TMemo
-              Left = 8
-              Top = 72
+              Left = 3
+              Top = 77
               Width = 275
-              Height = 180
+              Height = 164
               Hint = 'Long quest'#39's description.'
               ScrollBars = ssVertical
               TabOrder = 1
             end
             object edqtLogDescription: TMemo
               Left = 296
-              Top = 72
+              Top = 77
               Width = 275
-              Height = 180
+              Height = 164
               Hint = 'Objectives of the quest.'
               ScrollBars = ssVertical
               TabOrder = 2
             end
             object edqtRewardText: TMemo
-              Left = 8
-              Top = 276
+              Left = 5
+              Top = 268
               Width = 275
               Height = 153
               Hint = 
@@ -1912,8 +1925,8 @@ object MainForm: TMainForm
               TabOrder = 4
             end
             object edqtCompletionText: TMemo
-              Left = 296
-              Top = 276
+              Left = 293
+              Top = 268
               Width = 275
               Height = 153
               Hint = 
@@ -1925,10 +1938,10 @@ object MainForm: TMainForm
               TabOrder = 5
             end
             object edqtEndText: TMemo
-              Left = 581
-              Top = 72
+              Left = 577
+              Top = 77
               Width = 275
-              Height = 141
+              Height = 128
               Hint = 
                 'This text is indicated to the player, if you open your Questlog ' +
                 'and wars send to player ingame.'
@@ -1936,8 +1949,8 @@ object MainForm: TMainForm
               TabOrder = 3
             end
             object edqtObjectiveText1: TLabeledEdit
-              Left = 616
-              Top = 297
+              Left = 581
+              Top = 280
               Width = 185
               Height = 21
               EditLabel.Width = 72
@@ -1946,8 +1959,8 @@ object MainForm: TMainForm
               TabOrder = 6
             end
             object edqtObjectiveText2: TLabeledEdit
-              Left = 616
-              Top = 334
+              Left = 581
+              Top = 317
               Width = 185
               Height = 21
               EditLabel.Width = 72
@@ -1956,8 +1969,8 @@ object MainForm: TMainForm
               TabOrder = 7
             end
             object edqtObjectiveText3: TLabeledEdit
-              Left = 617
-              Top = 371
+              Left = 582
+              Top = 354
               Width = 185
               Height = 21
               EditLabel.Width = 72
@@ -1966,8 +1979,8 @@ object MainForm: TMainForm
               TabOrder = 8
             end
             object edqtObjectiveText4: TLabeledEdit
-              Left = 616
-              Top = 407
+              Left = 581
+              Top = 390
               Width = 185
               Height = 21
               EditLabel.Width = 72
@@ -1987,7 +2000,7 @@ object MainForm: TMainForm
             end
             object edqtAreaDescription: TLabeledEdit
               Left = 400
-              Top = 32
+              Top = 29
               Width = 456
               Height = 21
               Hint = 'Description of area'
@@ -5122,14 +5135,14 @@ object MainForm: TMainForm
           object lbQuestEnderInfo: TLabel
             Left = 8
             Top = 37
-            Width = 185
+            Width = 178
             Height = 13
             Caption = 'Quest enders (*_questender template)'
           end
           object lbQuestenderLocation: TLabel
             Left = 8
             Top = 210
-            Width = 105
+            Width = 99
             Height = 13
             Caption = 'Quest Ender location'
           end
@@ -5401,14 +5414,14 @@ object MainForm: TMainForm
             object l2CompletionText: TLabel
               Left = 296
               Top = 240
-              Width = 86
+              Width = 73
               Height = 13
               Caption = 'CompletionText'
             end
             object l2RewardText: TLabel
               Left = 5
               Top = 240
-              Width = 81
+              Width = 58
               Height = 13
               Caption = 'RewardText'
             end
@@ -11436,7 +11449,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 89
             Width = 964
-            Height = 320
+            Height = 302
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -11498,7 +11511,9 @@ object MainForm: TMainForm
             TabOrder = 0
             ViewStyle = vsReport
             OnSelectItem = cttSearchCreatureTextSelectItem
-            ColumnsOrder = '0=63,1=52,2=28,3=250,4=39,5=60,6=62,7=42,8=52,9=44,10=92,11=65,12=180'
+            ColumnsOrder = 
+              '0=63,1=52,2=28,3=250,4=39,5=60,6=62,7=42,8=52,9=44,10=92,11=65,1' +
+              '2=180'
             ExtendedColumns = <
               item
               end
@@ -11544,7 +11559,7 @@ object MainForm: TMainForm
               Height = 25
               Anchors = [akTop, akRight]
               Caption = 'Clear'
-              TabOrder = 4
+              TabOrder = 2
               OnClick = btClearSearchCreatureClick
             end
             object btSearchCreatureText: TBitBtn
@@ -11617,7 +11632,7 @@ object MainForm: TMainForm
               Top = 32
               Width = 81
               Height = 21
-              EditLabel.Width = 9
+              EditLabel.Width = 51
               EditLabel.Height = 13
               EditLabel.Caption = 'CreatureID'
               TabOrder = 0
@@ -11625,7 +11640,7 @@ object MainForm: TMainForm
           end
           object cttPanel13: TPanel
             Left = 0
-            Top = 409
+            Top = 391
             Width = 964
             Height = 218
             Align = alBottom
@@ -11639,7 +11654,7 @@ object MainForm: TMainForm
               Top = 25
               Width = 73
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 51
               EditLabel.Height = 13
               EditLabel.Caption = 'CreatureID'
               TabOrder = 0
@@ -11649,7 +11664,7 @@ object MainForm: TMainForm
               Top = 25
               Width = 73
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 40
               EditLabel.Height = 13
               EditLabel.Caption = 'GroupID'
               TabOrder = 1
@@ -11658,8 +11673,8 @@ object MainForm: TMainForm
               Left = 243
               Top = 25
               Width = 699
-              Height = 141
-              EditLabel.Width = 58
+              Height = 21
+              EditLabel.Width = 21
               EditLabel.Height = 13
               EditLabel.Caption = 'Text'
               TabOrder = 2
@@ -11679,7 +11694,7 @@ object MainForm: TMainForm
               Top = 25
               Width = 71
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 11
               EditLabel.Height = 13
               EditLabel.Caption = 'ID'
               TabOrder = 4
@@ -11689,7 +11704,7 @@ object MainForm: TMainForm
               Top = 65
               Width = 71
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 24
               EditLabel.Height = 13
               EditLabel.Caption = 'Type'
               TabOrder = 5
@@ -11699,7 +11714,7 @@ object MainForm: TMainForm
               Top = 65
               Width = 71
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 48
               EditLabel.Height = 13
               EditLabel.Caption = 'Language'
               TabOrder = 6
@@ -11709,17 +11724,17 @@ object MainForm: TMainForm
               Top = 65
               Width = 71
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 48
               EditLabel.Height = 13
               EditLabel.Caption = 'Probability'
               TabOrder = 7
             end
-           object edcttEmote: TLabeledEdit
+            object edcttEmote: TLabeledEdit
               Left = 243
               Top = 65
               Width = 71
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 30
               EditLabel.Height = 13
               EditLabel.Caption = 'Emote'
               TabOrder = 8
@@ -11729,7 +11744,7 @@ object MainForm: TMainForm
               Top = 65
               Width = 71
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 40
               EditLabel.Height = 13
               EditLabel.Caption = 'Duration'
               TabOrder = 9
@@ -11739,17 +11754,17 @@ object MainForm: TMainForm
               Top = 65
               Width = 71
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 31
               EditLabel.Height = 13
               EditLabel.Caption = 'Sound'
               TabOrder = 10
             end
-           object edcttBroadcastTextId: TLabeledEdit
+            object edcttBroadcastTextId: TLabeledEdit
               Left = 474
               Top = 65
               Width = 80
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 78
               EditLabel.Height = 13
               EditLabel.Caption = 'BroadcastTextId'
               TabOrder = 11
@@ -11759,7 +11774,7 @@ object MainForm: TMainForm
               Top = 65
               Width = 71
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 53
               EditLabel.Height = 13
               EditLabel.Caption = 'TextRange'
               TabOrder = 12
@@ -11769,7 +11784,7 @@ object MainForm: TMainForm
               Top = 105
               Width = 460
               Height = 21
-              EditLabel.Width = 58
+              EditLabel.Width = 43
               EditLabel.Height = 13
               EditLabel.Caption = 'comment'
               TabOrder = 13
@@ -11911,6 +11926,16 @@ object MainForm: TMainForm
             EditLabel.Caption = 'path_id'
             TabOrder = 7
           end
+          object edcdvisibilityDistanceType: TLabeledEdit
+            Left = 667
+            Top = 108
+            Width = 121
+            Height = 21
+            EditLabel.Width = 101
+            EditLabel.Height = 13
+            EditLabel.Caption = 'visibilityDistanceType'
+            TabOrder = 8
+          end
         end
         object rea: TTabSheet
           Caption = 'Creature Addon'
@@ -11926,8 +11951,8 @@ object MainForm: TMainForm
             ParentColor = False
           end
           object lbcaemote: TLabel
-            Left = 536
-            Top = 104
+            Left = 541
+            Top = 92
             Width = 29
             Height = 13
             Caption = 'emote'
@@ -11943,8 +11968,8 @@ object MainForm: TMainForm
             TabOrder = 0
           end
           object edcamount: TLabeledEdit
-            Left = 146
-            Top = 120
+            Left = 148
+            Top = 108
             Width = 121
             Height = 21
             Hint = 
@@ -11956,8 +11981,8 @@ object MainForm: TMainForm
             TabOrder = 1
           end
           object edcabytes1: TLabeledEdit
-            Left = 282
-            Top = 120
+            Left = 286
+            Top = 108
             Width = 121
             Height = 21
             Hint = 'Refer to Byte1 Hightlight'
@@ -11967,8 +11992,8 @@ object MainForm: TMainForm
             TabOrder = 2
           end
           object edcabytes2: TLabeledEdit
-            Left = 409
-            Top = 120
+            Left = 413
+            Top = 108
             Width = 121
             Height = 21
             Hint = 'Refer to Byte1 Hightlight'
@@ -11978,8 +12003,8 @@ object MainForm: TMainForm
             TabOrder = 3
           end
           object edcaemote: TJvComboEdit
-            Left = 536
-            Top = 120
+            Left = 540
+            Top = 108
             Width = 121
             Height = 21
             ButtonWidth = 22
@@ -12035,8 +12060,8 @@ object MainForm: TMainForm
             OnClick = btScriptCreatureClick
           end
           object edcapath_id: TLabeledEdit
-            Left = 3
-            Top = 118
+            Left = 8
+            Top = 108
             Width = 121
             Height = 21
             Hint = 'No description available.'
@@ -12045,6 +12070,16 @@ object MainForm: TMainForm
             EditLabel.Caption = 'path_id'
             TabOrder = 7
             Text = '0'
+          end
+          object edcavisibilityDistanceType: TLabeledEdit
+            Left = 667
+            Top = 108
+            Width = 121
+            Height = 21
+            EditLabel.Width = 101
+            EditLabel.Height = 13
+            EditLabel.Caption = 'visibilityDistanceType'
+            TabOrder = 8
           end
         end
         object tsCreatureTemplateMovement: TTabSheet
@@ -12117,6 +12152,26 @@ object MainForm: TMainForm
             EditLabel.Height = 13
             EditLabel.Caption = 'Rooted'
             TabOrder = 5
+          end
+          object edcmChase: TLabeledEdit
+            Left = 651
+            Top = 408
+            Width = 121
+            Height = 21
+            EditLabel.Width = 35
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Chase'
+            TabOrder = 6
+          end
+          object edcmRandom: TLabeledEdit
+            Left = 778
+            Top = 408
+            Width = 121
+            Height = 21
+            EditLabel.Width = 35
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Random'
+            TabOrder = 7
           end
         end
         object tsCreatureOnKillReputation: TTabSheet

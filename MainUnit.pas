@@ -175,6 +175,7 @@ type
     edqtPrevQuestID: TJvComboEdit;
     edqtNextQuestID: TJvComboEdit;
     edqtExclusiveGroup: TLabeledEdit;
+    edqtBreadcrumbForQuestId: TLabeledEdit;
     edqtRewardNextQuest: TJvComboEdit;
     gbQuestSorting: TGroupBox;
     gbFlags: TGroupBox;
@@ -1110,6 +1111,8 @@ type
     edcmswim: TLabeledEdit;
     edcmflight: TLabeledEdit;
     edcmrooted: TLabeledEdit;
+    edcmChase: TLabeledEdit;
+    edcmRandom: TLabeledEdit;
     lbqtDetailsEmote1: TLabel;
     lbqtDetailsEmote2: TLabel;
     lbqtDetailsEmote3: TLabel;
@@ -1413,7 +1416,9 @@ type
     edqtRewardFactionOverride5: TLabeledEdit;
     editVerifiedBuild: TLabeledEdit;
     edcapath_id: TLabeledEdit;
+    edcavisibilityDistanceType: TLabeledEdit;
     edcdpath_id: TLabeledEdit;
+    edcdvisibilityDistanceType: TLabeledEdit;
     UpDown3: TUpDown;
     edqtMaxLevel: TLabeledEdit;
     edqtQuestInfoID: TLabeledEdit;
@@ -2614,6 +2619,7 @@ begin
 		edqtPrevQuestID.Text := MyQuery.FieldByName('PrevQuestID').AsString;
 		edqtNextQuestID.Text := MyQuery.FieldByName('NextQuestID').AsString;
 		edqtExclusiveGroup.Text := MyQuery.FieldByName('ExclusiveGroup').AsString;
+		edqtBreadcrumbForQuestId.Text := MyQuery.FieldByName('BreadcrumbForQuestId').AsString;
 		edqtRewardMailTemplateID.Text := MyQuery.FieldByName('RewardMailTemplateID').AsString;
 		edqtRewardMailDelay.Text := MyQuery.FieldByName('RewardMailDelay').AsString;
 		edqtRequiredSkillID.Text := MyQuery.FieldByName('RequiredSkillID').AsString;
@@ -4594,6 +4600,7 @@ begin
   if (edcabytes1.Text='') then edcabytes1.Text := '0';
   if (edcabytes2.Text='') then edcabytes2.Text := '0';
   if (edcaemote.Text='') then edcaemote.Text := '0';
+  if (edcavisibilityDistanceType.Text='') then edcavisibilityDistanceType.Text := '0';
   if (edcaauras.Text='') then edcaauras.Text := '';
 end;
 
@@ -4679,6 +4686,7 @@ begin
   if (edcdbytes1.Text='') then edcdbytes1.Text := '0';
   if (edcdbytes2.Text='') then edcdbytes2.Text := '0';
   if (edcdemote.Text='') then edcdemote.Text := '0';
+  if (edcdvisibilityDistanceType.Text='') then edcdvisibilityDistanceType.Text := '0';
   if (edcdauras.Text='') then edcdauras.Text := '';
 end;
 
