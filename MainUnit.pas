@@ -5655,7 +5655,7 @@ begin
   caguid:= edceCreatureID.Text;
   if caguid='' then exit;
   SetFieldsAndValues(Fields, Values, 'creature_equip_template', PFX_CREATURE_EQUIP_TEMPLATE, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_equip_template` WHERE (`edceCreatureID`=%s);'#13#10+
+  mectScript.Text := Format('DELETE FROM `creature_equip_template` WHERE (`CreatureID`=%s);'#13#10+
     'INSERT INTO `creature_equip_template` (%s) VALUES (%s);'#13#10,[caguid, Fields, Values]);
 end;
 
