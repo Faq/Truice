@@ -20,7 +20,7 @@ uses
 const
   VERSION_1   = '2'; //*10000
   VERSION_2   = '1'; //*100
-  VERSION_3   = '5';
+  VERSION_3   = '6';
   VERSION_4   = '';
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3 + '.' + VERSION_4;
 
